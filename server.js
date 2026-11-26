@@ -172,6 +172,7 @@ async function saveApiRecipes(rawRecipes) {
 async function publicRecipe(row, detail = false) {
   const translated = row.translated_data || {};
   const name = translated.name || await translateText(row.name);
+  if (!translated.name && name !== row.name) await pool.query("UPDATE api_recipes SET translated_data = translated_data || $1::jsonb WHERE id=$2", [JSON.stringify({ name }), row.id]);
   const ingredients = (row.ingredients || []).map((x, i) => ({ ...x, display: translated.ingredients?.[i] || x.display || x.name }));
   const instructions = (row.instructions || []).map((x, i) => translated.instructions?.[i] || x);
   if (detail) {
