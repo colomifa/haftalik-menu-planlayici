@@ -45,7 +45,7 @@
  .workspace .selected-recipe-row .recipe-actions button{padding:8px 3px;font-size:9px;border-radius:8px}
 }
 .ingredient-item{display:flex;gap:9px;align-items:flex-start;background:#f8f7f1;border:1px solid var(--line);border-radius:11px;padding:10px 12px;font-size:11px}.ingredient-item input{margin-top:2px;accent-color:var(--green)}.ingredient-item span{line-height:1.45}.ingredient-item small{display:block;color:var(--muted);font-size:9px;margin-top:2px}.modal-box{width:min(470px,100%);background:#fffefa;border-radius:22px;padding:25px;box-shadow:0 25px 70px #17291f33}.modal-head{display:flex;justify-content:space-between;align-items:center}.modal-head h3{font:700 22px 'Playfair Display';margin:0}.close{border:0;background:var(--bg);border-radius:50%;width:33px;height:33px;font-size:18px}.modal-box p{font-size:11px;color:var(--muted);line-height:1.7}.modal-placeholder{background:var(--bg);border:1px dashed #d6dbd0;border-radius:14px;padding:25px;text-align:center;color:var(--muted);font-size:11px;line-height:1.7}.modal-placeholder b{display:block;font-size:25px;margin-bottom:8px;color:var(--green)}
-.toast{position:fixed;bottom:25px;right:25px;background:var(--green);color:white;padding:12px 17px;border-radius:12px;font-size:11px;opacity:0;transform:translateY(8px);transition:.2s;z-index:30}.toast.show{opacity:1;transform:none}
+.panel-title-right{display:flex;align-items:center;gap:9px}.add-today-btn{width:34px;height:34px;border:0;border-radius:50%;background:var(--green);color:white;font-size:23px}.day-menu-head-actions{display:flex;align-items:center;gap:8px}.copy-menu-top{border:1px solid #cbd6c8;background:var(--sage);color:var(--green);border-radius:10px;padding:9px 11px;font-size:10px;font-weight:700}.day-planner-actions{display:flex;gap:9px;justify-content:space-between;margin-top:16px}.day-planner-actions button{border:1px solid var(--line);border-radius:11px;padding:11px 14px;font-size:11px;font-weight:700;background:#fffefa;color:var(--green)}.day-planner-actions .treat-btn{background:#f6e7d7;border-color:#ead0b8;color:#8d4f2c}.day-planner-actions .clear-btn{color:#a34f3d;border-color:#e6c9bf}.shopping-modal{width:min(720px,100%);max-height:90vh;overflow:auto;background:#fffefa;border-radius:22px;padding:22px;box-shadow:0 25px 70px #17291f33}.shopping-head{display:flex;justify-content:space-between;align-items:center;gap:12px}.shopping-update{border:0;background:var(--green);color:white;border-radius:11px;padding:11px 14px;font-size:11px;font-weight:700}.shopping-group{margin-top:17px}.shopping-group h4{font:700 15px 'Playfair Display';margin:0 0 8px}.shopping-row{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:11px;margin-top:7px;background:#fffefa}.shopping-row input{width:18px;height:18px;accent-color:var(--green)}.shopping-row span{flex:1;font-size:12px}.shopping-row small{display:block;color:var(--muted);font-size:10px;margin-top:3px}.shopping-row.checked span{text-decoration:line-through;color:#92998f}.nah-modal{text-align:center;padding:24px}.nah-symbol{font-size:clamp(100px,25vw,170px);line-height:1.2}@media(max-width:720px){.day-menu-head-actions{align-items:flex-start}.copy-menu-top{padding:8px;font-size:9px}.day-planner-actions{display:grid;grid-template-columns:1fr 1fr}.day-planner-actions button{padding:10px 7px;font-size:10px}.shopping-modal{padding:17px}.panel-title-right{gap:6px}.add-today-btn{width:31px;height:31px}}.toast{position:fixed;bottom:25px;right:25px;background:var(--green);color:white;padding:12px 17px;border-radius:12px;font-size:11px;opacity:0;transform:translateY(8px);transition:.2s;z-index:30}.toast.show{opacity:1;transform:none}
 @media(max-width:1100px){.day-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.workspace{grid-template-columns:1fr}.panel-summary{position:static}.summary{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:720px){.day-menu-box{padding:18px}.day-menu-grid{grid-template-columns:1fr}.sidebar{display:none}.main{margin:0;padding:22px 15px 100px}.topline{margin-bottom:24px}.hero{display:block}.hero h1{font-size:34px}.week-switch{margin-top:17px;width:max-content}.summary{grid-template-columns:1fr 1fr;gap:8px;margin:20px 0}.summary-card{padding:12px}.summary-card:first-child{grid-column:1/-1}.summary-card strong{font-size:18px}.summary-icon{width:34px;height:34px}.section-head h2{font-size:19px}.day-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.day-card{min-height:155px;padding:12px}.day-illustration{height:43px;margin:9px 0 6px}.workspace{margin-top:20px}.panel{padding:16px}.main-dish{grid-template-columns:90px 1fr;gap:12px}.dish-art{min-height:100px}.dish-copy h4{font-size:16px}.side-grid{gap:7px}.side-card{min-height:105px;padding:10px}.mobile-nav{position:fixed;display:grid;grid-template-columns:repeat(4,1fr);bottom:0;left:0;right:0;background:#fffefa;border-top:1px solid var(--line);padding:8px 5px calc(8px + env(safe-area-inset-bottom));z-index:10}.mobile-nav button{border:0;background:none;color:var(--muted);display:grid;gap:3px;justify-items:center;font-size:9px}.mobile-nav button span:first-child{font-size:18px}.mobile-nav button.active{color:var(--green);font-weight:700}.toast{left:15px;right:15px;bottom:85px;text-align:center}}
 </style>
@@ -56,8 +56,7 @@
   <div class="brand"><div class="brand-mark">♨</div><div class="brand-name">Bizim <span>Mutfak</span></div></div>
   <div class="nav-label">MUTFAK</div>
   <button class="nav active"><span class="ico">▦</span>Haftalık plan</button>
-  <button class="nav" data-coming="Tarif kataloğu"><span class="ico">▤</span>Tarif kataloğu</button>
-  <button class="nav" data-coming="Alışveriş listesi"><span class="ico">☷</span>Alışveriş listesi</button>
+  <button class="nav" id="openShoppingList"><span class="ico">☷</span>Alışveriş listesi</button>
   <button class="nav" data-coming="Favoriler"><span class="ico">♡</span>Favoriler</button>
   <div class="side-bottom"><strong>Birlikte planlamak daha güzel.</strong><p>Haftanın menüsünü beraber oluşturun. Seçimleriniz tek bir yerde toplansın.</p></div>
 </aside>
@@ -66,7 +65,7 @@
   <header class="hero"><div><div class="crumb">HAFTALIK MUTFAK PLANINIZ</div><h1>Bu hafta sofrada<br>neler olsun?</h1><p>Günleri seçin, menünüzü birlikte şekillendirin.</p></div><div class="week-switch"><button id="prevWeek" aria-label="Önceki hafta">‹</button><strong id="weekLabel">26 Kasım – 2 Aralık 2026</strong><button id="nextWeek" aria-label="Sonraki hafta">›</button></div></header>
   <section class="workspace">
     <div class="panel">
-      <div class="panel-title"><div><h3 id="editorTitle">Günün menüsü</h3><small>Seçtiğiniz tarifler ve ihtiyaç duyacağınız malzemeler</small></div><span class="day-chip" id="editorDayChip">Günün menüsü</span></div>
+      <div class="panel-title"><div><h3 id="editorTitle">Günün menüsü</h3><small>Seçtiğiniz tarifler ve ihtiyaç duyacağınız malzemeler</small></div><div class="panel-title-right"><span class="day-chip" id="editorDayChip">Günün menüsü</span><button type="button" class="add-today-btn" id="addTodayRecipe" aria-label="Bugünün menüsüne yemek ekle">+</button></div></div>
       <div class="menu-empty" id="menuEmpty" style="padding:26px 12px;text-align:center;color:var(--muted);font-size:12px">Bugün için henüz menü oluşturulmadı.</div>
       <div id="selectedRecipes" style="display:none"></div>
     </div>
@@ -76,12 +75,12 @@
   <section class="day-grid" id="dayGrid" aria-label="Haftanın günleri"></section>
   
 </main>
-<nav class="mobile-nav"><button class="active"><span>▦</span>Planım</button><button data-coming="Tarif kataloğu"><span>▤</span>Tarifler</button><button data-coming="Alışveriş listesi"><span>☷</span>Alışveriş</button><button data-coming="Ayarlar"><span>⚙</span>Ayarlar</button></nav>
+<nav class="mobile-nav" style="grid-template-columns:repeat(3,1fr)"><button class="active"><span>▦</span>Planım</button><button id="openShoppingListMobile"><span>☷</span>Alışveriş</button><button data-coming="Ayarlar"><span>⚙</span>Ayarlar</button></nav>
 </div>
-<div class="modal" id="dayMenuModal" role="dialog" aria-modal="true" aria-labelledby="dayMenuTitle"><div class="day-menu-box"><div class="modal-head"><div><div class="crumb">GÜNLÜK MENÜ PLANLAMA</div><h3 id="dayMenuTitle">Günün menüsü</h3></div><button class="close" id="closeDayMenu" aria-label="Kapat">×</button></div><p>Günün yemeklerini buradan düzenleyebilirsin.</p><div id="dayMenuSelectedList" style="display:grid;gap:9px;margin:14px 0"></div><div class="day-menu-footer"><button class="cancel" id="cancelDayMenu">Vazgeç</button><button class="cancel" id="copyNextWeek">Gelecek haftaya kopyala</button><button class="confirm" id="confirmDayMenu">Günü kaydet</button></div></div></div>
-<div class="modal" id="sideItemsPageModal" role="dialog" aria-modal="true" aria-labelledby="sideItemsPageTitle"><div class="side-page"><div class="side-page-head"><div><div class="crumb">GÜNÜN MENÜSÜ</div><h3 id="sideItemsPageTitle">Menünü tamamla</h3><p style="margin:0;color:var(--muted);font-size:11px">Ana yemeğinin yanına istediğin ürünleri ekle, değiştir veya kaldır.</p></div><button class="close" id="closeSideItemsPage" aria-label="Kapat">×</button></div><div id="sideItemsPageContent"></div><div class="side-page-footer"><button class="back" id="backToDayMenu">Geri</button><button class="save" id="saveSideItemsMenu">Günü kaydet</button></div></div></div>
+<div class="modal" id="dayMenuModal" role="dialog" aria-modal="true" aria-labelledby="dayMenuTitle"><div class="day-menu-box"><div class="modal-head"><div><div class="crumb">GÜNLÜK MENÜ PLANLAMA</div><h3 id="dayMenuTitle">Günün menüsü</h3></div><div class="day-menu-head-actions"><button type="button" class="copy-menu-top" id="copyNextWeek">Gelecek haftaya kopyala</button><button class="close" id="closeDayMenu" aria-label="Kapat">×</button></div></div><p>Günün yemeklerini buradan düzenleyebilirsin.</p><div id="dayMenuSelectedList" style="display:grid;gap:9px;margin:14px 0"></div><div class="day-planner-actions"><button type="button" class="clear-btn" id="clearDayMenu">Temizle</button><button type="button" class="treat-btn" id="treatYourself">✨ Şımart beni</button></div></div></div>
+<div class="modal" id="sideItemsPageModal" role="dialog" aria-modal="true" aria-labelledby="sideItemsPageTitle"><div class="side-page"><div class="side-page-head"><div><div class="crumb">GÜNÜN MENÜSÜ</div><h3 id="sideItemsPageTitle">Menünü tamamla</h3><p style="margin:0;color:var(--muted);font-size:11px">Ana yemeğinin yanına istediğin ürünleri ekle, değiştir veya kaldır.</p></div><button class="close" id="closeSideItemsPage" aria-label="Kapat">×</button></div><div id="sideItemsPageContent"></div><div class="side-page-footer"><button class="back" id="backToDayMenu">Geri</button></div></div></div>
 <div class="modal" id="placeholderModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-box"><div class="modal-head"><h3 id="modalTitle">Tarif seçimi</h3><button class="close" id="closeModal" aria-label="Kapat">×</button></div><p id="modalText">Bu alan, tarif kataloğu eklendiğinde kullanılacak.</p><div class="modal-placeholder"><b>＋</b>Tarifler henüz eklenmedi.<br>Bu alan, sizin göndereceğiniz ürünlerle doldurulacak.</div></div></div>
-<div class="modal" id="recipePickerModal" role="dialog" aria-modal="true" aria-labelledby="recipePickerTitle"><div class="modal-box" style="width:min(760px,100%);max-height:90vh;overflow:auto"><div class="modal-head"><h3 id="recipePickerTitle">Tarif seçimi</h3><button class="close" id="closeRecipePicker" aria-label="Kapat">×</button></div><p id="recipePickerIntro">İki kişilik tarifler ve malzemeleri</p><div id="recipePickerList" style="display:grid;gap:9px"></div><div id="recipeDetail" style="display:none;margin-top:16px;padding:16px;background:#f7f5ef;border-radius:14px"></div><div class="day-menu-footer"><button class="cancel" id="cancelRecipePicker">Kapat</button></div></div></div>\n<div class="modal" id="copyMenuModal" role="dialog" aria-modal="true" aria-labelledby="copyMenuTitle"><div class="modal-box"><div class="modal-head"><h3 id="copyMenuTitle">Gelecek haftaya kopyala</h3><button class="close" id="closeCopyMenu" aria-label="Kapat">×</button></div><p>Bu günün menüsünü gelecek haftada hangi güne kopyalamak istersiniz?</p><div id="copyMenuTargets" style="display:grid;gap:8px"></div></div></div><div class="toast" id="toast" role="status"></div>
+<div class="modal" id="recipePickerModal" role="dialog" aria-modal="true" aria-labelledby="recipePickerTitle"><div class="modal-box" style="width:min(760px,100%);max-height:90vh;overflow:auto"><div class="modal-head"><h3 id="recipePickerTitle">Tarif seçimi</h3><button class="close" id="closeRecipePicker" aria-label="Kapat">×</button></div><p id="recipePickerIntro">İki kişilik tarifler ve malzemeleri</p><div id="recipePickerList" style="display:grid;gap:9px"></div><div id="recipeDetail" style="display:none;margin-top:16px;padding:16px;background:#f7f5ef;border-radius:14px"></div><div class="day-menu-footer"><button class="cancel" id="cancelRecipePicker">Kapat</button></div></div></div>\n<div class="modal" id="shoppingListModal" role="dialog" aria-modal="true" aria-labelledby="shoppingTitle"><div class="shopping-modal"><div class="shopping-head"><div><div class="crumb">ALIŞVERİŞ</div><h3 id="shoppingTitle" style="font:700 23px Playfair Display;margin:5px 0">Alışveriş listesi</h3><p style="font-size:11px;color:var(--muted);margin:0">Haftalık menündeki tariflerin malzemeleri</p></div><button class="close" id="closeShoppingList" aria-label="Kapat">×</button></div><div style="display:flex;justify-content:flex-end;margin:16px 0"><button type="button" class="shopping-update" id="updateShoppingList">↻ Menüden listeyi güncelle</button></div><div id="shoppingListContent"><div class="modal-placeholder">Alışveriş listen yükleniyor…</div></div></div></div><div class="modal" id="nahModal" role="dialog" aria-modal="true" aria-labelledby="nahTitle"><div class="modal-box nah-modal"><div class="modal-head"><h3 id="nahTitle">Bu haftalık hakkını kullandın!</h3><button class="close" id="closeNah" aria-label="Kapat">×</button></div><div class="nah-symbol" aria-hidden="true">🖕</div><p>Şımart beni hakkı haftada bir kez. Gelecek hafta tekrar dene!</p></div></div><div class="modal" id="copyMenuModal" role="dialog" aria-modal="true" aria-labelledby="copyMenuTitle"><div class="modal-box"><div class="modal-head"><h3 id="copyMenuTitle">Gelecek haftaya kopyala</h3><button class="close" id="closeCopyMenu" aria-label="Kapat">×</button></div><p>Bu günün menüsünü gelecek haftada hangi güne kopyalamak istersiniz?</p><div id="copyMenuTargets" style="display:grid;gap:8px"></div></div></div><div class="toast" id="toast" role="status"></div>
 <script>
 const dayNames=['Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi','Pazar'];
 const now=new Date();
@@ -126,7 +125,7 @@ function renderMenuEditor(){
  $('selectedRecipes').innerHTML=selected.map(({category,recipe})=>'<div class="selected-recipe-row"><span class="recipe-symbol">'+esc(recipe.emoji||'🍽️')+'</span><span class="recipe-info"><strong>'+esc(recipe.name)+'</strong><small>'+esc(category)+' · '+esc(recipe.time||'')+'</small></span><div class="recipe-actions"><button type="button" data-view-recipe="'+Number(recipe.id)+'">Tarifi gör</button><button type="button" data-change-category="'+esc(category)+'">Değiştir</button><button type="button" data-remove-category="'+esc(category)+'" style="color:#a34f3d">Kaldır</button></div></div>').join('');
  $('selectedRecipes').querySelectorAll('[data-view-recipe]').forEach(btn=>btn.addEventListener('click',()=>showRecipeInPicker(Number(btn.dataset.viewRecipe))));
  $('selectedRecipes').querySelectorAll('[data-change-category]').forEach(btn=>btn.addEventListener('click',()=>openRecipePicker(btn.dataset.changeCategory)));
- $('selectedRecipes').querySelectorAll('[data-remove-category]').forEach(btn=>btn.addEventListener('click',()=>{delete dayMenus[dateKey(activeDay)][btn.dataset.removeCategory];renderMenuEditor();renderWeek();toast(btn.dataset.removeCategory+' kaldırıldı.')}));
+ $('selectedRecipes').querySelectorAll('[data-remove-category]').forEach(btn=>btn.addEventListener('click',()=>{delete dayMenus[todayKey][btn.dataset.removeCategory];renderMenuEditor();renderWeek();saveMenuDate(todayKey,false);toast(btn.dataset.removeCategory+' kaldırıldı.')}));
 }
 function renderDayMenuSelected(){
  const menu=dayMenus[dateKey(editingDay)]||{};
@@ -137,7 +136,7 @@ function renderDayMenuSelected(){
  }).join('');
  $('dayMenuSelectedList').querySelectorAll('[data-day-view]').forEach(b=>b.addEventListener('click',()=>showRecipeInPicker(Number(b.dataset.dayView))));
  $('dayMenuSelectedList').querySelectorAll('[data-day-change]').forEach(b=>b.addEventListener('click',()=>openRecipePicker(b.dataset.dayChange)));
- $('dayMenuSelectedList').querySelectorAll('[data-day-remove]').forEach(b=>b.addEventListener('click',()=>{delete dayMenus[dateKey(editingDay)][b.dataset.dayRemove];renderDayMenuSelected();renderMenuEditor();renderWeek();toast(b.dataset.dayRemove+' kaldırıldı.');}));
+ $('dayMenuSelectedList').querySelectorAll('[data-day-remove]').forEach(b=>b.addEventListener('click',()=>{delete dayMenus[dateKey(editingDay)][b.dataset.dayRemove];renderDayMenuSelected();renderMenuEditor();renderWeek();saveMenu(editingDay,false);toast(b.dataset.dayRemove+' kaldırıldı.');}));
 }
 function openDayMenu(day){
  const index=Number(day);
@@ -168,7 +167,7 @@ function renderSideItemsPage(){
 }
 $('closeSideItemsPage').addEventListener('click',()=>{$('sideItemsPageModal').classList.remove('open');});
 $('backToDayMenu').addEventListener('click',()=>{$('sideItemsPageModal').classList.remove('open');$('dayMenuModal').classList.add('open');});
-$('saveSideItemsMenu').addEventListener('click',async()=>{const ok=await saveMenu(editingDay);if(ok)$('sideItemsPageModal').classList.remove('open');});
+
 $('sideItemsPageModal').addEventListener('click',e=>{if(e.target===$('sideItemsPageModal'))$('sideItemsPageModal').classList.remove('open')});
 async function openRecipePicker(category){
  pickerCategory=category;pendingRecipe=null;
@@ -176,7 +175,7 @@ async function openRecipePicker(category){
  $('recipePickerIntro').textContent='Tarifi incelemek için “Tarifi gör”, menüye eklemek için “Seç” düğmesine dokun.';
  $('recipePickerList').innerHTML='<div class="modal-placeholder"><b>…</b>Tarifler yükleniyor</div>';
  $('recipeDetail').style.display='none';$('recipeDetail').innerHTML='';$('recipePickerList').style.display='grid';
- pickerReturnTo=$('sideItemsPageModal').classList.contains('open')?'sidePage':'dayMenu';
+ pickerReturnTo='home';
  $('dayMenuModal').classList.remove('open');$('sideItemsPageModal').classList.remove('open');
  $('recipePickerModal').classList.add('open');
  try{
@@ -207,11 +206,11 @@ async function showRecipeInPicker(id){
  $('recipePickerIntro').textContent='Seçili tarifin malzemeleri ve yapılışı';
  $('recipePickerList').innerHTML='';$('recipePickerList').style.display='none';
  $('recipeDetail').style.display='none';
- $('sideItemsPageModal').classList.remove('open');$('dayMenuModal').classList.remove('open');
+ pickerReturnTo='home';$('sideItemsPageModal').classList.remove('open');$('dayMenuModal').classList.remove('open');
  $('recipePickerModal').classList.add('open');
  showPickerRecipeDetail(Number(id),false);
 }
-function closeRecipePicker(){ $('recipePickerModal').classList.remove('open'); if(pickerReturnTo==='sidePage')openSideItemsPage();else if(editingDay!==null){renderDayMenuSelected();$('dayMenuModal').classList.add('open');} }
+function closeRecipePicker(){ $('recipePickerModal').classList.remove('open');$('dayMenuModal').classList.remove('open');$('sideItemsPageModal').classList.remove('open');renderMenuEditor();renderWeek(); }
 document.querySelectorAll('#dayMenuModal [data-menu-category]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();openRecipePicker(b.dataset.menuCategory)}));
 // Recipe buttons receive their own click handlers after the list is rendered.
 function selectRecipe(id){
@@ -219,32 +218,22 @@ function selectRecipe(id){
  if(!chosen||!pickerCategory)return;
  const key=dateKey(editingDay);dayMenus[key]=dayMenus[key]||{};
  dayMenus[key][pickerCategory]=chosen;
- $('recipePickerModal').classList.remove('open');
+ $('recipePickerModal').classList.remove('open');$('dayMenuModal').classList.remove('open');$('sideItemsPageModal').classList.remove('open');
  renderMenuEditor();renderWeek();renderDayMenuSelected();
- if(pickerCategory==='Ana yemek'||pickerReturnTo==='sidePage')openSideItemsPage();
- else $('dayMenuModal').classList.add('open');
+ saveMenu(editingDay,false);
  toast(chosen.name+' menüye eklendi.');
 }
 
 $('closeDayMenu').addEventListener('click',closeDayMenu);
-$('cancelDayMenu').addEventListener('click',closeDayMenu);
+
 $('dayMenuModal').addEventListener('click',e=>{if(e.target===$('dayMenuModal'))closeDayMenu()});
 $('closeRecipePicker').addEventListener('click',closeRecipePicker);
 $('cancelRecipePicker').addEventListener('click',closeRecipePicker);
 $('recipePickerModal').addEventListener('click',e=>{if(e.target===$('recipePickerModal'))closeRecipePicker()});
 $('prevWeek').addEventListener('click',()=>{weekStart.setDate(weekStart.getDate()-7);renderWeek();renderMenuEditor()});
 $('nextWeek').addEventListener('click',()=>{weekStart.setDate(weekStart.getDate()+7);renderWeek();renderMenuEditor()});
-async function saveMenu(day){
- const key=dateKey(day),payload=dayMenus[key]||{};
- try{
-   const response=await fetch('/api/menus',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({date:key,payload})});
-   if(!response.ok)throw new Error('Menü kaydedilemedi');
-   toast(dayNames[day]+' menüsü kaydedildi.');return true;
- }catch(e){toast('Kayıt sırasında bağlantı hatası oluştu.');return false}
-}
-$('confirmDayMenu').addEventListener('click',async()=>{
- const ok=await saveMenu(editingDay);if(ok)closeDayMenu();
-});
+async function saveMenuDate(key,notify=true){const payload=dayMenus[key]||{};try{const response=await fetch('/api/menus',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({date:key,payload})});if(!response.ok)throw new Error('Menü kaydedilemedi');if(notify)toast('Menü kaydedildi.');return true;}catch(e){if(notify)toast('Kayıt sırasında bağlantı hatası oluştu.');return false;}}
+async function saveMenu(day,notify=true){return saveMenuDate(dateKey(day),notify);}
 function openCopyMenu(){
  const menu=dayMenus[dateKey(editingDay)]||{};
  if(!Object.keys(menu).length){toast('Kopyalamak için önce bu güne yemek ekleyin.');return;}
@@ -268,14 +257,16 @@ $('copyMenuModal').addEventListener('click',e=>{if(e.target===$('copyMenuModal')
 function shuffled(items){const a=[...items];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
 function pickMainDishes(){
  const mains=recipes.filter(r=>r.category==='Ana yemek');
- const chosen=[],used=new Set();
+ const fish=shuffled(mains.filter(r=>r.group==='Balık'))[0];
+ if(!fish)throw new Error('Haftalık plan için balık tarifi bulunamadı.');
+ const chosen=[fish],used=new Set([fish.id]);
  const addFrom=(group,count)=>{const list=shuffled(mains.filter(r=>r.group===group&&!used.has(r.id))).slice(0,count);list.forEach(r=>{chosen.push(r);used.add(r.id)})};
- addFrom('Balık',1);
  addFrom('Şef özel',1);
  addFrom('Tavuk',2);
  addFrom('Et',1);
  addFrom('Sulu yemek',2);
  if(chosen.length<7)shuffled(mains.filter(r=>!used.has(r.id))).slice(0,7-chosen.length).forEach(r=>chosen.push(r));
+ if(chosen.length!==7||!chosen.some(r=>r.group==='Balık'))throw new Error('Balık içeren 7 farklı ana yemek oluşturulamadı.');
  return shuffled(chosen).slice(0,7);
 }
 async function planWholeWeek(){
@@ -285,9 +276,11 @@ async function planWholeWeek(){
    const mains=pickMainDishes(),soups=shuffled(recipes.filter(r=>r.category==='Çorba')),salads=shuffled(recipes.filter(r=>r.category==='Salata'));
    if(mains.length<7||soups.length<7||salads.length<7)throw new Error('Haftalık öneri için yeterli tarif yok.');
    const planned=[];
+   const treatWasUsed=treatAlreadyUsed();
    for(let i=0;i<7;i++){
      const date=dateKey(i);
      const payload={'Ana yemek':mains[i],'Çorba':soups[i],'Salata':salads[i]};
+     if(i===0&&treatWasUsed)payload.__treatWeekKey=currentWeekKey();
      dayMenus[date]=payload;
      planned.push({date,payload});
    }
@@ -299,6 +292,20 @@ async function planWholeWeek(){
  finally{btn.disabled=false;btn.textContent='✦ Haftayı sen planla'}
 }
 $('planWeek').addEventListener('click',planWholeWeek);
+
+function todayWeekDayIndex(){const d=new Date();return (d.getDay()+6)%7;}
+$('addTodayRecipe').addEventListener('click',()=>{const now=new Date();weekStart=new Date(now.getFullYear(),now.getMonth(),now.getDate()-((now.getDay()+6)%7));renderWeek();openDayMenu(todayWeekDayIndex());});
+$('clearDayMenu').addEventListener('click',async()=>{const key=dateKey(editingDay),old=dayMenus[key]||{},marker=old.__treatWeekKey;dayMenus[key]={};if(marker)dayMenus[key].__treatWeekKey=marker;renderDayMenuSelected();renderMenuEditor();renderWeek();await saveMenu(editingDay,false);toast('Günün menüsü temizlendi.');});
+function currentWeekKey(){const d=new Date(weekStart);return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');}
+function treatAlreadyUsed(){const wk=currentWeekKey();return dayNames.some((_,i)=>(dayMenus[dateKey(i)]||{}).__treatWeekKey===wk);}
+$('treatYourself').addEventListener('click',async()=>{if(treatAlreadyUsed()){$('nahModal').classList.add('open');return;}try{await recipesReady;const choose=cat=>shuffled(recipes.filter(r=>r.category===cat))[0];const payload={'Ana yemek':choose('Ana yemek'),'Çorba':choose('Çorba'),'Salata':choose('Salata'),'Garnitür':choose('Garnitür')};if(Object.values(payload).some(x=>!x))throw new Error('Serbest menü için yeterli tarif bulunamadı.');payload.__treatWeekKey=currentWeekKey();dayMenus[dateKey(editingDay)]=payload;renderDayMenuSelected();renderMenuEditor();renderWeek();const ok=await saveMenu(editingDay,false);if(!ok)throw new Error('Şımart beni hakkı kaydedilemedi.');$('dayMenuModal').classList.remove('open');toast('Bugün serbest! Sana özel menü hazır. 🎉');}catch(e){toast(e.message||'Serbest menü hazırlanamadı.');}});
+$('closeNah').addEventListener('click',()=>$('nahModal').classList.remove('open'));$('nahModal').addEventListener('click',e=>{if(e.target===$('nahModal'))$('nahModal').classList.remove('open')});
+let shoppingItems=[];
+async function persistShopping(){const r=await fetch('/api/shopping-list',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:shoppingItems})});if(!r.ok)throw new Error('Alışveriş listesi kaydedilemedi.');}
+function renderShoppingList(){const root=$('shoppingListContent');if(!shoppingItems.length){root.innerHTML='<div class="modal-placeholder"><b>🛒</b>Liste boş. “Menüden listeyi güncelle” düğmesine basarak haftalık tariflerin malzemelerini ekle.</div>';return;}const groups={};shoppingItems.forEach((x,i)=>(groups[x.aisle||'Diğer']??=[]).push({...x,index:i}));root.innerHTML=Object.entries(groups).map(([aisle,items])=>'<section class="shopping-group"><h4>'+esc(aisle)+'</h4>'+items.map(x=>'<label class="shopping-row '+(x.checked?'checked':'')+'"><input type="checkbox" data-shopping-index="'+x.index+'" '+(x.checked?'checked':'')+'><span>'+esc(x.ingredient)+'<small>'+esc(x.quantity||'Miktar belirtilmedi')+'</small></span></label>').join('')+'</section>').join('');root.querySelectorAll('[data-shopping-index]').forEach(input=>input.addEventListener('change',async()=>{shoppingItems[Number(input.dataset.shoppingIndex)].checked=input.checked;renderShoppingList();try{await persistShopping()}catch(e){toast(e.message)}}));}
+async function openShoppingList(){$('shoppingListModal').classList.add('open');try{const r=await fetch('/api/shopping-list',{cache:'no-store'});if(!r.ok)throw new Error('Liste alınamadı');shoppingItems=await r.json();renderShoppingList();}catch(e){$('shoppingListContent').innerHTML='<div class="modal-placeholder">Alışveriş listesi yüklenemedi.</div>';}}
+$('openShoppingList').addEventListener('click',openShoppingList);$('openShoppingListMobile').addEventListener('click',openShoppingList);$('closeShoppingList').addEventListener('click',()=>$('shoppingListModal').classList.remove('open'));$('shoppingListModal').addEventListener('click',e=>{if(e.target===$('shoppingListModal'))$('shoppingListModal').classList.remove('open')});
+$('updateShoppingList').addEventListener('click',async()=>{const checked=new Map(shoppingItems.map(x=>[String(x.ingredient).trim().toLocaleLowerCase('tr-TR'),Boolean(x.checked)]));const merged=new Map();for(let i=0;i<7;i++){const menu=dayMenus[dateKey(i)]||{};for(const recipe of Object.entries(menu).filter(([k,v])=>!k.startsWith('__')&&v&&Array.isArray(v.ingredients)).map(([,v])=>v)){for(const ing of recipe.ingredients){const name=String(ing.name||'').trim();if(!name)continue;const key=name.toLocaleLowerCase('tr-TR');const entry=merged.get(key)||{ingredient:name,quantities:[],aisle:ing.aisle||'Diğer'};const q=String(ing.quantity||'').trim();if(q&&!entry.quantities.includes(q))entry.quantities.push(q);merged.set(key,entry);}}}shoppingItems=[...merged.values()].map(x=>({ingredient:x.ingredient,quantity:x.quantities.join(' + '),aisle:x.aisle,checked:checked.get(x.ingredient.toLocaleLowerCase('tr-TR'))||false}));try{await persistShopping();renderShoppingList();toast(shoppingItems.length+' malzeme alışveriş listesine aktarıldı.');}catch(e){toast(e.message||'Liste güncellenemedi.');}});
 recipesReady=(async()=>{
    const response=await fetch('/recipes-tr.json',{cache:'no-store'});
    if(!response.ok)throw new Error('Tarif kataloğu alınamadı: HTTP '+response.status);
