@@ -73,14 +73,17 @@ const photoById = {
   50:{file:"Zeytinya%C4%9Fl%C4%B1_enginar.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Zeytinya%C4%9Fl%C4%B1_enginar.jpg"},
   3:{file:"Tavuk_f%C4%B1r%C4%B1nda.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Tavuk_f%C4%B1r%C4%B1nda.jpg"},
   16:{file:"Turkish_soup_Ezo_Gelin.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Turkish_soup_Ezo_Gelin.jpg"},
-  20:{file:"Domates_%C3%A7orba.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Domates_%C3%A7orba.jpg"}
+  20:{file:"Domates_%C3%A7orba.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Domates_%C3%A7orba.jpg"},
+  8:{file:"Sarma,_with_meat.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Sarma,_with_meat.jpg"},
+  19:{file:"Tel_%C5%9Fehriye_soup.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Tel_%C5%9Fehriye_soup.jpg"},
+  23:{file:"Chicken_and_sehriye_soup.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Chicken_and_sehriye_soup.jpg"}
 };
 function photoMarkup(id, emoji) {
   const p = photoById[id];
   if (!p) return '<div class="recipe-art">'+emoji+'</div>';
   const src = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + p.file + '?width=640';
   const licenseUrl = p.license === 'CC0 1.0' ? 'https://creativecommons.org/publicdomain/zero/1.0/' : (p.license === 'CC BY-SA 3.0' ? 'https://creativecommons.org/licenses/by-sa/3.0/' : 'https://creativecommons.org/licenses/by-sa/4.0/');
-  return '<div class="recipe-art has-photo"><img loading="lazy" src="'+src+'" alt="'+(recipes.find(r=>r.id===id)?.name || 'Türk yemeği')+' fotoğrafı"></div><div class="photo-credit"><a href="'+p.page+'" target="_blank" rel="noopener">Fotoğraf: '+p.author+'</a> · <a href="'+licenseUrl+'" target="_blank" rel="noopener">'+p.license+'</a></div>';
+  return '<div class="recipe-art has-photo"><img loading="lazy" src="'+src+'" alt="'+(recipes.find(r=>r.id===id)?.name || 'Türk yemeği')+' fotoğrafı" data-fallback="'+emoji+'" onerror="this.parentElement.textContent=this.dataset.fallback"></div><div class="photo-credit"><a href="'+p.page+'" target="_blank" rel="noopener">Fotoğraf: '+p.author+'</a> · <a href="'+licenseUrl+'" target="_blank" rel="noopener">'+p.license+'</a></div>';
 }
 const recipes = [
 ['Kuru fasulye','Ana yemek','1 sa 15 dk','Orta','🫘',[['Kuru fasulye','2 su bardağı','Bakliyat'],['Soğan','1 adet','Sebze'],['Domates salçası','1 yemek kaşığı','Temel gıda'],['Tereyağı','1 yemek kaşığı','Süt ürünleri']]],
