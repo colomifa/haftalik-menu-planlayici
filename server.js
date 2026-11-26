@@ -1,6 +1,7 @@
 import express from "express";
 import pg from "pg";
 import path from "node:path";
+import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 
 const { Pool } = pg;
@@ -32,6 +33,23 @@ if (process.env.DATABASE_URL) {
 async function initializeDatabase() {
   if (!pool) return;
   await pool.query(`
+    CREATE TABLE IF NOT EXISTS recipes (
+      id INTEGER PRIMARY KEY,
+      name TEXT NOT NULL UNIQUE,
+      category TEXT NOT NULL,
+      time TEXT NOT NULL,
+      level TEXT NOT NULL,
+      emoji TEXT NOT NULL,
+      calories INTEGER NOT NULL DEFAULT 0,
+      protein INTEGER NOT NULL DEFAULT 0,
+      image_query TEXT NOT NULL DEFAULT '',
+      ingredients JSONB NOT NULL DEFAULT '[]'::jsonb,
+      instructions JSONB NOT NULL DEFAULT '[]'::jsonb,
+      tags JSONB NOT NULL DEFAULT '[]'::jsonb,
+      servings INTEGER NOT NULL DEFAULT 2,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
     CREATE TABLE IF NOT EXISTS weekly_menus (
       id BIGSERIAL PRIMARY KEY,
       menu_date DATE NOT NULL UNIQUE,
@@ -48,9 +66,46 @@ async function initializeDatabase() {
       created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     );
   `);
+  const { rows: recipeCount } = await pool.query("SELECT COUNT(*)::int AS count FROM recipes");
+  if (recipeCount[0].count === 0) {
+    const seedRecipes = JSON.parse(fs.readFileSync(path.join(here, "recipes.json"), "utf8"));
+    for (const recipe of seedRecipes) {
+      await pool.query(
+        `INSERT INTO recipes
+          (id, name, category, time, level, emoji, calories, protein, image_query, ingredients, instructions, tags, servings)
+         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10::jsonb,$11::jsonb,$12::jsonb,$13)`,
+        [recipe.id, recipe.name, recipe.category, recipe.time, recipe.level, recipe.emoji,
+         recipe.calories, recipe.protein, recipe.imageQuery || "",
+         JSON.stringify(recipe.ingredients), JSON.stringify(recipe.instructions),
+         JSON.stringify(recipe.tags || []), recipe.servings || 2]
+      );
+    }
+    console.log("Seeded " + seedRecipes.length + " recipes into PostgreSQL");
+  }
 }
 
 
+app.get("/api/recipes", async (req, res) => {
+  if (!pool) return res.status(503).json({ error: "Tarif veritabanı bağlı değil." });
+  try {
+    const params = [];
+    const where = [];
+    if (req.query.category && req.query.category !== "all") { params.push(String(req.query.category)); where.push("category = $" + params.length); }
+    if (req.query.q) { params.push("%" + String(req.query.q).trim() + "%"); where.push("(name ILIKE $" + params.length + " OR category ILIKE $" + params.length + " OR tags::text ILIKE $" + params.length + ")"); }
+    const sql = "SELECT id, name, category, time, level, emoji, calories, protein, image_query AS \"imageQuery\", ingredients, instructions, tags, servings FROM recipes " + (where.length ? "WHERE " + where.join(" AND ") : "") + " ORDER BY id";
+    const { rows } = await pool.query(sql, params);
+    res.set("Cache-Control", "no-store"); res.json(rows);
+  } catch (error) { console.error("Recipes API error:", error); res.status(500).json({ error: "Tarifler alınamadı." }); }
+});
+
+app.get("/api/recipes/:id", async (req, res) => {
+  if (!pool) return res.status(503).json({ error: "Tarif veritabanı bağlı değil." });
+  try {
+    const { rows } = await pool.query("SELECT id, name, category, time, level, emoji, calories, protein, image_query AS \"imageQuery\", ingredients, instructions, tags, servings FROM recipes WHERE id = $1", [Number(req.params.id)]);
+    if (!rows.length) return res.status(404).json({ error: "Tarif bulunamadı." });
+    res.set("Cache-Control", "no-store"); res.json(rows[0]);
+  } catch (error) { console.error("Recipe detail API error:", error); res.status(500).json({ error: "Tarif detayı alınamadı." }); }
+});
 // Openverse: public, openly licensed image search. Results are cached in memory;
 // weak title/tag matches are deliberately omitted rather than assigning a wrong dish photo.
 const imageCache = new Map();
