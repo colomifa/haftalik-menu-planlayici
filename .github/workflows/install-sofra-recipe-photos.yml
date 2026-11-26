@@ -1,0 +1,29 @@
+name: Install Sofra recipe photos
+on:
+  push:
+    branches: [main]
+    paths:
+      - "sofra-70-recipe-images.zip"
+permissions:
+  contents: write
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install local recipe images
+        run: |
+          test -f sofra-70-recipe-images.zip
+          mkdir -p public/images/recipes
+          unzip -oq sofra-70-recipe-images.zip -d public/images/recipes
+          rm sofra-70-recipe-images.zip
+      - name: Commit installed images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/images/recipes
+          git add -u sofra-70-recipe-images.zip
+          git commit -m "Add 70 unique Sofra recipe photos"
+          git push
