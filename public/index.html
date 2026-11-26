@@ -42,7 +42,7 @@
   <section class="workspace">
     <div class="panel">
       <div class="panel-title"><div><h3 id="editorTitle">Günün menüsü</h3><small>Seçtiğiniz tarifler ve ihtiyaç duyacağınız malzemeler</small></div><span class="day-chip" id="editorDayChip">Günün menüsü</span></div>
-      <div class="menu-empty" id="menuEmpty" style="padding:26px 12px;text-align:center;color:var(--muted);font-size:12px">Önce haftanın günlerinden birini seçip menünüzü oluşturun.</div>
+      <div class="menu-empty" id="menuEmpty" style="padding:26px 12px;text-align:center;color:var(--muted);font-size:12px">Bugün için henüz menü oluşturulmadı.</div>
       <div id="selectedRecipes" style="display:none"></div>
     </div>
   </section>
@@ -87,9 +87,12 @@ function renderWeek(){
  document.querySelectorAll('[data-plan-day]').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();openDayMenu(Number(b.dataset.planDay))}));
 }
 function renderMenuEditor(){
- const menu=dayMenus[dateKey(activeDay)]||{},d=dateAt(activeDay);
+ const d=new Date();d.setHours(0,0,0,0);
+ const todayIndex=(d.getDay()+6)%7;
+ const todayKey=[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
+ const menu=dayMenus[todayKey]||{};
  $('editorTitle').textContent='Günün menüsü';
- $('editorDayChip').textContent=dayNames[activeDay]+' · '+dateFmt.format(d);
+ $('editorDayChip').textContent=dayNames[todayIndex]+' · '+dateFmt.format(d);
  const cats=['Ana yemek','Çorba','Salata','Garnitür'];
  const selected=cats.map(cat=>({category:cat,recipe:menu[cat]})).filter(x=>x.recipe);
  $('menuEmpty').style.display=selected.length?'none':'block';
