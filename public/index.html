@@ -72,27 +72,74 @@
 </div>
 <div class="modal" id="dayMenuModal" role="dialog" aria-modal="true" aria-labelledby="dayMenuTitle"><div class="day-menu-box"><div class="modal-head"><div><div class="crumb">GÜNLÜK MENÜ PLANLAMA</div><h3 id="dayMenuTitle">Günün menüsü</h3></div><button class="close" id="closeDayMenu" aria-label="Kapat">×</button></div><p>Ana yemeğini seç, ardından sofraya eşlik edecek yan ürünleri ekle.</p><div class="day-menu-grid"><button class="day-menu-option" data-menu-category="Ana yemek"><span class="option-icon">🍲</span><span><strong>Ana yemek</strong><small>Önce ana yemeğini belirle</small></span><span class="arrow">›</span></button><button class="day-menu-option" data-menu-category="Çorba"><span class="option-icon">🥣</span><span><strong>Çorba</strong><small>İstersen menüne ekle</small></span><span class="arrow">›</span></button><button class="day-menu-option" data-menu-category="Salata"><span class="option-icon">🥗</span><span><strong>Salata</strong><small>Taze bir eşlikçi seç</small></span><span class="arrow">›</span></button><button class="day-menu-option" data-menu-category="Garnitür"><span class="option-icon">🥔</span><span><strong>Garnitür</strong><small>Pilav, sebze ve diğerleri</small></span><span class="arrow">›</span></button><button class="day-menu-option" data-menu-category="Meze"><span class="option-icon">🫒</span><span><strong>Meze</strong><small>Sofraya küçük lezzetler ekle</small></span><span class="arrow">›</span></button><button class="day-menu-option" data-menu-category="Yan yemek"><span class="option-icon">🍽️</span><span><strong>Diğer yan yemek</strong><small>Menünü tamamla</small></span><span class="arrow">›</span></button></div><div class="day-menu-footer"><button class="cancel" id="cancelDayMenu">Vazgeç</button><button class="confirm" id="confirmDayMenu">Günü kaydet</button></div></div></div>
 <div class="modal" id="placeholderModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-box"><div class="modal-head"><h3 id="modalTitle">Tarif seçimi</h3><button class="close" id="closeModal" aria-label="Kapat">×</button></div><p id="modalText">Bu alan, tarif kataloğu eklendiğinde kullanılacak.</p><div class="modal-placeholder"><b>＋</b>Tarifler henüz eklenmedi.<br>Bu alan, sizin göndereceğiniz ürünlerle doldurulacak.</div></div></div>
-<div class="toast" id="toast" role="status"></div>
+<div class="modal" id="recipePickerModal" role="dialog" aria-modal="true" aria-labelledby="recipePickerTitle"><div class="modal-box" style="width:min(760px,100%);max-height:90vh;overflow:auto"><div class="modal-head"><h3 id="recipePickerTitle">Tarif seçimi</h3><button class="close" id="closeRecipePicker" aria-label="Kapat">×</button></div><p id="recipePickerIntro">İki kişilik tarifler ve malzemeleri</p><div id="recipePickerList" style="display:grid;gap:9px"></div><div id="recipeDetail" style="display:none;margin-top:16px;padding:16px;background:#f7f5ef;border-radius:14px"></div><div class="day-menu-footer"><button class="cancel" id="cancelRecipePicker">Kapat</button><button class="confirm" id="chooseRecipe" disabled>Bu tarifi seç</button></div></div></div>\n<div class="toast" id="toast" role="status"></div>
 <script>
 const dayNames=['Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi','Pazar'];
-let weekStart=new Date(2026,10,23);let activeDay=3;let selectedDays=new Set();let savedDays=new Set();let editingDay=3;
+let weekStart=new Date(2026,10,23),activeDay=3,editingDay=3;
+let selectedDays=new Set(),savedDays=new Set(),dayMenus={},recipes=[],pickerCategory='',pendingRecipe=null;
 const $=id=>document.getElementById(id);
 const trDate=new Intl.DateTimeFormat('tr-TR',{day:'numeric',month:'short'});
 function dateAt(i){const d=new Date(weekStart);d.setDate(d.getDate()+i);return d}
-function renderWeek(){const end=dateAt(6);$('weekLabel').textContent=trDate.format(weekStart)+' – '+new Intl.DateTimeFormat('tr-TR',{day:'numeric',month:'long',year:'numeric'}).format(end);$('dayGrid').innerHTML=dayNames.map((name,i)=>{const d=dateAt(i),selected=selectedDays.has(i),active=activeDay===i;return '<article class="day-card '+(selected?'selected ':'')+(active?'active':'')+'" data-day="'+i+'"><div class="day-top"><span class="day-name">'+name+'</span><span class="day-date">'+d.getDate()+'</span></div>'+(selected?'<span class="day-check">✓ seçildi</span>':'')+'<div class="day-illustration">'+(savedDays.has(i)?'✓':'＋')+'</div><strong>'+(savedDays.has(i)?'Menü taslağı hazır':'Henüz planlanmadı')+'</strong><small>'+(selected?'Bu gün haftalık plana dahil':'Günün menüsünü oluştur')+'</small><button class="plan-day-btn" type="button" data-plan-day="'+i+'">Günü planla →</button></article>'}).join('');$('selectedCount').textContent=selectedDays.size+' / 7 gün';$('activeDayLabel').textContent=dayNames[activeDay];$('editorTitle').textContent=dayNames[activeDay]+' menüsü';$('editorDayChip').textContent=dayNames[activeDay];$('menuStatus').textContent=savedDays.has(activeDay)?'Kaydedildi':'Taslak';document.querySelectorAll('.day-card').forEach(card=>{card.addEventListener('click',e=>{if(e.target.closest('[data-plan-day]'))return;activeDay=Number(card.dataset.day);renderWeek()})});document.querySelectorAll('[data-plan-day]').forEach(button=>button.addEventListener('click',e=>{e.stopPropagation();openDayMenu(Number(button.dataset.planDay))}))}
+function dateKey(i){const d=dateAt(i);return [d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-')}
+function currentMenu(){return dayMenus[dateKey(editingDay)]||{}}
+function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function renderWeek(){
+ const end=dateAt(6);$('weekLabel').textContent=trDate.format(weekStart)+' – '+new Intl.DateTimeFormat('tr-TR',{day:'numeric',month:'long',year:'numeric'}).format(end);
+ $('dayGrid').innerHTML=dayNames.map((name,i)=>{const d=dateAt(i),selected=selectedDays.has(i),active=activeDay===i,menu=dayMenus[dateKey(i)]||{},done=Object.values(menu).some(Boolean);return '<article class="day-card '+(selected?'selected ':'')+(active?'active':'')+'" data-day="'+i+'"><div class="day-top"><span class="day-name">'+name+'</span><span class="day-date">'+d.getDate()+'</span></div>'+(selected?'<span class="day-check">✓ seçildi</span>':'')+'<div class="day-illustration">'+(done?'✓':'＋')+'</div><strong>'+(done?'Menü oluşturuldu':'Henüz planlanmadı')+'</strong><small>'+(selected?'Bu gün haftalık plana dahil':'Günün menüsünü oluştur')+'</small><button class="plan-day-btn" type="button" data-plan-day="'+i+'">Günü planla →</button></article>'}).join('');
+ $('selectedCount').textContent=selectedDays.size+' / 7 gün';$('activeDayLabel').textContent=dayNames[activeDay];$('menuStatus').textContent=savedDays.has(activeDay)?'Kaydedildi':'Taslak';
+ document.querySelectorAll('.day-card').forEach(card=>card.addEventListener('click',e=>{if(e.target.closest('[data-plan-day]'))return;activeDay=Number(card.dataset.day);editingDay=activeDay;renderWeek();renderMenuEditor()}));
+ document.querySelectorAll('[data-plan-day]').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();openDayMenu(Number(b.dataset.planDay))}));
+}
+function renderMenuEditor(){
+ const menu=dayMenus[dateKey(activeDay)]||{};$('editorTitle').textContent=dayNames[activeDay]+' menüsü';$('editorDayChip').textContent=dayNames[activeDay];$('activeDayLabel').textContent=dayNames[activeDay];
+ const main=menu['Ana yemek'];$('mainDishTitle').textContent=main?main.name:'Henüz ana yemek seçilmedi';$('summaryMain').textContent=main?main.name:'Henüz seçilmedi';
+ const sideCats=['Çorba','Salata','Garnitür','Meze'];const sideEls=document.querySelectorAll('.side-card');
+ sideEls.forEach((el,i)=>{const cat=sideCats[i],item=menu[cat],strong=el.querySelector('strong'),btn=el.querySelector('button');if(strong)strong.textContent=item?item.name:'Henüz seçilmedi';if(btn)btn.textContent=item?'↻ Değiştir':'+ '+cat+' seç / değiştir';el.classList.toggle('empty-side',!item)});
+ $('summarySides').textContent=sideCats.filter(c=>menu[c]).map(c=>menu[c].name).join(', ')||'Henüz seçilmedi';
+}
+function openDayMenu(day){editingDay=activeDay=day;selectedDays.add(day);renderWeek();renderMenuEditor();$('dayMenuTitle').textContent=dayNames[day]+' · Günün menüsü';$('dayMenuModal').classList.add('open')}
+function closeDayMenu(){$('dayMenuModal').classList.remove('open')}
+function openRecipePicker(category){
+ pickerCategory=category;pendingRecipe=null;$('recipePickerTitle').textContent=category+' seçimi';$('recipePickerIntro').textContent='Tüm tarifler iki kişilik ölçülerle hazırlandı. Bir tarife dokunarak malzemelerini ve yapılışını inceleyin.';
+ const matches=recipes.filter(r=>r.category===category);
+ if(!matches.length){$('recipePickerList').innerHTML='<div class="modal-placeholder"><b>🍽️</b>Bu kategoriye henüz tarif eklenmedi.<br>Şimdilik çorba, ana yemek ve salata tarifleri hazır.</div>'}
+ else {$('recipePickerList').innerHTML=matches.map(r=>'<button type="button" data-recipe-id="'+r.id+'" style="display:flex;align-items:center;gap:12px;text-align:left;padding:12px;border:1px solid #e8e8df;background:#fffefa;border-radius:12px;color:#263a2e"><span style="font-size:24px">'+esc(r.emoji)+'</span><span style="flex:1"><strong style="display:block;font-size:12px">'+esc(r.name)+'</strong><small style="display:block;color:#7d877d;margin-top:4px">'+esc(r.group||r.category)+' · '+esc(r.time)+' · 2 kişilik</small></span><span style="color:#52765c">›</span></button>').join('')}
+ $('recipeDetail').style.display='none';$('recipeDetail').innerHTML='';$('chooseRecipe').disabled=true;$('recipePickerModal').classList.add('open');
+ document.querySelectorAll('[data-recipe-id]').forEach(b=>b.addEventListener('click',()=>showRecipeDetail(Number(b.dataset.recipeId))));
+}
+function showRecipeDetail(id){
+ pendingRecipe=recipes.find(r=>Number(r.id)===id);if(!pendingRecipe)return;
+ const r=pendingRecipe,ingredients=(r.ingredients||[]).map(x=>'<li style="margin:5px 0">'+esc(x.name)+' <span style="color:#7d877d">— '+esc(x.quantity)+'</span></li>').join('');
+ const steps=(r.instructions||[]).map(x=>'<li style="margin:6px 0">'+esc(x)+'</li>').join('');
+ $('recipeDetail').innerHTML='<div style="font-weight:700;font-size:15px;margin-bottom:6px">'+esc(r.emoji)+' '+esc(r.name)+'</div><div style="font-size:10px;color:#7d877d;margin-bottom:12px">'+esc(r.time)+' · 2 kişilik · '+esc(r.group||r.category)+'</div><strong style="font-size:11px">Malzemeler</strong><ul style="font-size:11px;padding-left:18px;line-height:1.5">'+ingredients+'</ul><strong style="font-size:11px">Yapılışı</strong><ol style="font-size:11px;padding-left:18px;line-height:1.5">'+steps+'</ol>';
+ $('recipeDetail').style.display='block';$('chooseRecipe').disabled=false;
+}
+function closeRecipePicker(){$('recipePickerModal').classList.remove('open')}
+document.querySelectorAll('[data-menu-category]').forEach(b=>b.addEventListener('click',()=>openRecipePicker(b.dataset.menuCategory)));
+document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>openRecipePicker(b.dataset.open)));
+$('closeDayMenu').addEventListener('click',closeDayMenu);$('cancelDayMenu').addEventListener('click',closeDayMenu);$('dayMenuModal').addEventListener('click',e=>{if(e.target===$('dayMenuModal'))closeDayMenu()});
+$('closeRecipePicker').addEventListener('click',closeRecipePicker);$('cancelRecipePicker').addEventListener('click',closeRecipePicker);$('recipePickerModal').addEventListener('click',e=>{if(e.target===$('recipePickerModal'))closeRecipePicker()});
+$('chooseRecipe').addEventListener('click',()=>{if(!pendingRecipe)return;const key=dateKey(editingDay);dayMenus[key]=dayMenus[key]||{};dayMenus[key][pickerCategory]=pendingRecipe;closeRecipePicker();renderMenuEditor();renderWeek()});
 $('selectAll').addEventListener('click',()=>{if(selectedDays.size===7)selectedDays.clear();else dayNames.forEach((_,i)=>selectedDays.add(i));renderWeek();$('selectAll').textContent=selectedDays.size===7?'Seçimi temizle':'Tüm günleri seç'});
 $('prevWeek').addEventListener('click',()=>{weekStart.setDate(weekStart.getDate()-7);renderWeek()});$('nextWeek').addEventListener('click',()=>{weekStart.setDate(weekStart.getDate()+7);renderWeek()});
-function openDayMenu(day){editingDay=day;activeDay=day;selectedDays.add(day);$('dayMenuTitle').textContent=dayNames[day]+' · Günün menüsü';renderWeek();$('dayMenuModal').classList.add('open')}
-function closeDayMenu(){$('dayMenuModal').classList.remove('open')}
-document.querySelectorAll('[data-menu-category]').forEach(button=>button.addEventListener('click',()=>{openPlaceholder(button.dataset.menuCategory)}));
-$('closeDayMenu').addEventListener('click',closeDayMenu);$('cancelDayMenu').addEventListener('click',closeDayMenu);$('dayMenuModal').addEventListener('click',e=>{if(e.target===$('dayMenuModal'))closeDayMenu()});
-$('confirmDayMenu').addEventListener('click',()=>{activeDay=editingDay;selectedDays.add(editingDay);savedDays.add(editingDay);closeDayMenu();renderWeek();$('toast').textContent=dayNames[editingDay]+' için menü taslağı kaydedildi.';$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2200)});
-function openPlaceholder(category){$('modalTitle').textContent=category+' seçimi';$('modalText').textContent=category==='Ana yemek'?'Önce ana yemek kataloğu eklenecek. Seçtiğiniz yemeğe uygun yan ürün önerileri daha sonra burada gösterilecek.':category+' kategorisindeki tarifler eklendiğinde seçim ve değiştirme seçenekleri burada açılacak.';$('placeholderModal').classList.add('open')}
-document.querySelectorAll('[data-open]').forEach(b=>b.addEventListener('click',()=>openPlaceholder(b.dataset.open)));
-document.querySelectorAll('[data-coming]').forEach(b=>b.addEventListener('click',()=>openPlaceholder(b.dataset.coming)));
+async function saveMenu(){
+ const key=dateKey(editingDay),payload=dayMenus[key]||{};
+ try{const response=await fetch('/api/menus',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({date:key,payload})});if(!response.ok)throw new Error('Menü kaydedilemedi');savedDays.add(editingDay);selectedDays.add(editingDay);renderWeek();$('toast').textContent=dayNames[editingDay]+' menüsü veritabanına kaydedildi.'}
+ catch(e){$('toast').textContent='Kayıt sırasında bağlantı hatası oluştu.'}
+ $('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2500);
+}
+$('confirmDayMenu').addEventListener('click',()=>{saveMenu();closeDayMenu()});
+$('saveMenu').addEventListener('click',()=>{editingDay=activeDay;saveMenu()});
+document.querySelectorAll('[data-coming]').forEach(b=>b.addEventListener('click',()=>{const title=b.dataset.coming;$('modalTitle').textContent=title;$('modalText').textContent='Bu bölüm bir sonraki geliştirme aşamasında açılacak.';$('placeholderModal').classList.add('open')}));
 $('closeModal').addEventListener('click',()=>$('placeholderModal').classList.remove('open'));$('placeholderModal').addEventListener('click',e=>{if(e.target===$('placeholderModal'))$('placeholderModal').classList.remove('open')});
-$('saveMenu').addEventListener('click',()=>{selectedDays.add(activeDay);savedDays.add(activeDay);renderWeek();$('toast').textContent=dayNames[activeDay]+' için taslak kaydedildi.';$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),2200)});
-renderWeek();
+async function init(){
+ renderWeek();renderMenuEditor();
+ try{const r=await fetch('/recipes-tr.json',{cache:'no-store'});if(!r.ok)throw new Error('Tarif kataloğu alınamadı');recipes=await r.json();console.info('Tarifler yüklendi:',recipes.length)}
+ catch(e){console.error(e);$('toast').textContent='Tarifler yüklenemedi.';$('toast').classList.add('show')}
+ try{const r=await fetch('/api/menus',{cache:'no-store'});if(r.ok){const rows=await r.json();for(const row of rows){const d=String(row.menu_date).slice(0,10);dayMenus[d]=row.payload||{};const date=new Date(d+'T12:00:00');const offset=Math.round((date-new Date(weekStart.getFullYear(),weekStart.getMonth(),weekStart.getDate()))/86400000);if(offset>=0&&offset<7){savedDays.add(offset);selectedDays.add(offset)}}renderWeek();renderMenuEditor()}}
+ catch(e){console.warn('Kayıtlı menüler yüklenemedi',e)}
+}
+init();
 </script>
 </body>
 </html>

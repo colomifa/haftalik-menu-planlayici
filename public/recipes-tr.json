@@ -1,0 +1,2522 @@
+[
+  {
+    "id": 1001,
+    "name": "Mercimek Çorbası",
+    "category": "Çorba",
+    "emoji": "🥣",
+    "time": "35 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Çorba",
+    "ingredients": [
+      {
+        "name": "Kırmızı mercimek",
+        "quantity": "1 su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Havuç",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Patates",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Su",
+        "quantity": "5 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Soğanı yağda kavur, doğranmış havuç ve patatesi ekle.",
+      "Mercimek ve suyu ilave edip yumuşayana kadar pişir.",
+      "Blenderdan geçir; kimyon ve tuzla servis et."
+    ],
+    "tags": [
+      "Çorba",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 1002,
+    "name": "Ezogelin Çorbası",
+    "category": "Çorba",
+    "emoji": "🥣",
+    "time": "40 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Çorba",
+    "ingredients": [
+      {
+        "name": "Kırmızı mercimek",
+        "quantity": "½ su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "İnce bulgur",
+        "quantity": "2 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Pirinç",
+        "quantity": "2 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates salçası",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Nane",
+        "quantity": "1 çay kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Su",
+        "quantity": "5 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Soğanı kavurup salçayı ekle.",
+      "Mercimek, pirinç, bulgur ve suyu ilave et.",
+      "Bakliyatlar yumuşayınca nane ve baharatlarla tamamla."
+    ],
+    "tags": [
+      "Çorba",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 1003,
+    "name": "Yayla Çorbası",
+    "category": "Çorba",
+    "emoji": "🥣",
+    "time": "30 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Çorba",
+    "ingredients": [
+      {
+        "name": "Yoğurt",
+        "quantity": "1 su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Pirinç",
+        "quantity": "¼ su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Yumurta sarısı",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Un",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tereyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kuru nane",
+        "quantity": "1 çay kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Su",
+        "quantity": "4 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Pirinci suda yumuşayana kadar haşla.",
+      "Yoğurt, yumurta ve unu çırpıp sıcak suyla ılıt.",
+      "Tencereye ekleyerek karıştır; naneli tereyağı gezdir."
+    ],
+    "tags": [
+      "Çorba",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 1004,
+    "name": "Domates Çorbası",
+    "category": "Çorba",
+    "emoji": "🥣",
+    "time": "30 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Çorba",
+    "ingredients": [
+      {
+        "name": "Domates",
+        "quantity": "4 orta",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "½",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Un",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tereyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Süt",
+        "quantity": "½ su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Su",
+        "quantity": "3 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Soğanı ve unu tereyağında kavur.",
+      "Rendelenmiş domatesi ekleyip 5 dakika pişir.",
+      "Su ve sütü ekle, kaynatıp blenderdan geçir."
+    ],
+    "tags": [
+      "Çorba",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 1005,
+    "name": "Tavuk Suyu Şehriye Çorbası",
+    "category": "Çorba",
+    "emoji": "🥣",
+    "time": "35 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Çorba",
+    "ingredients": [
+      {
+        "name": "Tavuk göğsü",
+        "quantity": "150 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Arpa şehriye",
+        "quantity": "½ su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Havuç",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Limon",
+        "quantity": "½",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Maydanoz",
+        "quantity": "2 dal",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Su",
+        "quantity": "5 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Tavuğu ve havucu suda haşla; tavuğu didikle.",
+      "Şehriyeyi tavuk suyunda pişir.",
+      "Tavuğu ekle; limon ve maydanozla servis et."
+    ],
+    "tags": [
+      "Çorba",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 1006,
+    "name": "Sebze Çorbası",
+    "category": "Çorba",
+    "emoji": "🥣",
+    "time": "30 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Çorba",
+    "ingredients": [
+      {
+        "name": "Kabak",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Havuç",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Patates",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "½",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Su",
+        "quantity": "4 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Soğanı yağda yumuşat, doğranmış sebzeleri ekle.",
+      "Suyu ilave edip sebzeler yumuşayana kadar pişir.",
+      "Blenderdan geçir; karabiberle tatlandır."
+    ],
+    "tags": [
+      "Çorba",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 1007,
+    "name": "Mantar Çorbası",
+    "category": "Çorba",
+    "emoji": "🥣",
+    "time": "30 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Çorba",
+    "ingredients": [
+      {
+        "name": "Mantar",
+        "quantity": "250 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "½",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Un",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Süt",
+        "quantity": "1 su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tereyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Su",
+        "quantity": "2 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Soğan ve mantarı tereyağında sotele.",
+      "Unu ekleyip kokusu çıkana kadar kavur.",
+      "Süt ve suyu yavaşça ekleyip kıvam alana kadar pişir."
+    ],
+    "tags": [
+      "Çorba",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 1008,
+    "name": "Tarhana Çorbası",
+    "category": "Çorba",
+    "emoji": "🥣",
+    "time": "25 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Çorba",
+    "ingredients": [
+      {
+        "name": "Tarhana",
+        "quantity": "4 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates salçası",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tereyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "1 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Su",
+        "quantity": "4 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Tarhanayı soğuk suyla aç.",
+      "Salça ve sarımsağı yağda kavur, suyu ekle.",
+      "Tarhanayı ilave edip karıştırarak 15 dakika pişir."
+    ],
+    "tags": [
+      "Çorba",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 1009,
+    "name": "Brokoli Çorbası",
+    "category": "Çorba",
+    "emoji": "🥣",
+    "time": "30 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Çorba",
+    "ingredients": [
+      {
+        "name": "Brokoli",
+        "quantity": "300 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Patates",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "½",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Süt",
+        "quantity": "½ su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Su",
+        "quantity": "3 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Soğanı yağda çevir; brokoli ve patatesi ekle.",
+      "Suyu ilave edip sebzeler yumuşayana kadar pişir.",
+      "Blenderdan geçir, sütü ekleyip ısıt."
+    ],
+    "tags": [
+      "Çorba",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 1010,
+    "name": "Balkabağı Çorbası",
+    "category": "Çorba",
+    "emoji": "🥣",
+    "time": "35 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Çorba",
+    "ingredients": [
+      {
+        "name": "Balkabağı",
+        "quantity": "300 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kapya biber",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "½",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Havuç",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sebze suyu",
+        "quantity": "4 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Soğan ve biberi yağda sotele.",
+      "Kabak, havuç ve sebze suyunu ekleyip yumuşat.",
+      "Pürüzsüz olana kadar blenderdan geçir."
+    ],
+    "tags": [
+      "Çorba",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2001,
+    "name": "Fırında Balık",
+    "category": "Ana yemek",
+    "emoji": "🐟",
+    "time": "30 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Balık",
+    "ingredients": [
+      {
+        "name": "Balık fileto",
+        "quantity": "2 adet (300 g)",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Limon",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "1 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Dereotu",
+        "quantity": "2 dal",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Balığı fırın kabına al; limon, sarımsak ve yağ ekle.",
+      "200°C fırında 15–20 dakika pişir.",
+      "Dereotuyla servis et."
+    ],
+    "tags": [
+      "Balık",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2002,
+    "name": "Izgara Antrikot",
+    "category": "Ana yemek",
+    "emoji": "🥩",
+    "time": "25 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Et",
+    "ingredients": [
+      {
+        "name": "Antrikot",
+        "quantity": "2 dilim (350–400 g)",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tereyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Biberiye",
+        "quantity": "1 dal",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tuz ve karabiber yeterince",
+        "quantity": "",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Eti pişirmeden 20 dakika önce dışarı al.",
+      "Kızgın tavada kalınlığına göre her yüzünü 3–4 dakika mühürle.",
+      "Tereyağı ve biberiyeyle dinlendirip dilimle."
+    ],
+    "tags": [
+      "Et",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2003,
+    "name": "Dana Et Haşlama",
+    "category": "Ana yemek",
+    "emoji": "🍲",
+    "time": "90 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Sulu yemek",
+    "ingredients": [
+      {
+        "name": "Dana kuşbaşı",
+        "quantity": "350 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Patates",
+        "quantity": "2 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Havuç",
+        "quantity": "2",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Defne yaprağı",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Su",
+        "quantity": "5 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Eti suyla kaynat; köpüğünü al.",
+      "Soğan ve defneyi ekleyip et yumuşayana kadar pişir.",
+      "Patates ve havucu ekle; sebzeler yumuşayınca servis et."
+    ],
+    "tags": [
+      "Sulu yemek",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2004,
+    "name": "Etli Türlü",
+    "category": "Ana yemek",
+    "emoji": "🍲",
+    "time": "55 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Sulu yemek",
+    "ingredients": [
+      {
+        "name": "Dana kuşbaşı",
+        "quantity": "250 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Patlıcan",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kabak",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Taze fasulye",
+        "quantity": "100 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates",
+        "quantity": "2",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Eti soğanla kavurup az suyla yumuşat.",
+      "Doğranmış sebzeleri ve domatesi ekle.",
+      "Kısık ateşte sebzeler pişene kadar kapağı kapalı pişir."
+    ],
+    "tags": [
+      "Sulu yemek",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2005,
+    "name": "Izgara Tavuk Göğsü",
+    "category": "Ana yemek",
+    "emoji": "🍗",
+    "time": "25 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Tavuk",
+    "ingredients": [
+      {
+        "name": "Tavuk göğsü",
+        "quantity": "2 adet (350 g)",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Yoğurt",
+        "quantity": "2 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kekik",
+        "quantity": "1 çay kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "1 diş",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Tavuğu yoğurt, yağ ve baharatla harmanla.",
+      "Izgara tavayı ısıtıp tavukları iki taraflı pişir.",
+      "İçi tamamen pişince dinlendirip servis et."
+    ],
+    "tags": [
+      "Tavuk",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2006,
+    "name": "Fırında Tavuk But",
+    "category": "Ana yemek",
+    "emoji": "🍗",
+    "time": "50 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Tavuk",
+    "ingredients": [
+      {
+        "name": "Tavuk but",
+        "quantity": "2 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Patates",
+        "quantity": "2 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kekik",
+        "quantity": "1 çay kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tatlı toz biber",
+        "quantity": "1 çay kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Tavuk ve sebzeleri baharatlı yağla harmanla.",
+      "Fırın kabına tek sıra yerleştir.",
+      "200°C fırında tamamen pişene kadar 40–45 dakika pişir."
+    ],
+    "tags": [
+      "Tavuk",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2007,
+    "name": "Etli Nohut",
+    "category": "Ana yemek",
+    "emoji": "🍲",
+    "time": "75 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Sulu yemek",
+    "ingredients": [
+      {
+        "name": "Dana kuşbaşı",
+        "quantity": "200 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Haşlanmış nohut",
+        "quantity": "1,5 su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates salçası",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sıcak su",
+        "quantity": "3 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Eti ve soğanı yağda kavur.",
+      "Salçayı, nohudu ve sıcak suyu ekle.",
+      "Kısık ateşte et yumuşayana kadar pişir."
+    ],
+    "tags": [
+      "Sulu yemek",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2008,
+    "name": "Tas Kebabı",
+    "category": "Ana yemek",
+    "emoji": "🍲",
+    "time": "70 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Sulu yemek",
+    "ingredients": [
+      {
+        "name": "Dana kuşbaşı",
+        "quantity": "350 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Arpacık soğan",
+        "quantity": "8",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Patates",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Havuç",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates salçası",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Et suyu",
+        "quantity": "2 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Etleri yüksek ateşte mühürle.",
+      "Soğan, havuç, patates ve salçayı ekle.",
+      "Et suyuyla kısık ateşte yumuşayana kadar pişir."
+    ],
+    "tags": [
+      "Sulu yemek",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2009,
+    "name": "Fırında Köfte Patates",
+    "category": "Ana yemek",
+    "emoji": "🍽️",
+    "time": "45 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Et",
+    "ingredients": [
+      {
+        "name": "Dana kıyma",
+        "quantity": "300 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "½",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Galeta unu",
+        "quantity": "2 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Patates",
+        "quantity": "2",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Kıyma, rendelenmiş soğan ve galeta ununu yoğurup köfte yap.",
+      "Patatesleri dilimleyip köftelerle tepsiye diz.",
+      "Domates ve az su ekleyip 190°C'de 30 dakika pişir."
+    ],
+    "tags": [
+      "Et",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2010,
+    "name": "Kıymalı Kabak Dolması",
+    "category": "Ana yemek",
+    "emoji": "🥒",
+    "time": "50 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Et",
+    "ingredients": [
+      {
+        "name": "Kabak",
+        "quantity": "2",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Dana kıyma",
+        "quantity": "200 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Pirinç",
+        "quantity": "¼ su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates salçası",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Maydanoz",
+        "quantity": "4 dal",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Kabakları ortadan bölüp içlerini hafifçe çıkar.",
+      "Kıyma, pirinç, soğan ve maydanozla iç harcı hazırla.",
+      "Kabakları doldurup salçalı suyla kısık ateşte pişir."
+    ],
+    "tags": [
+      "Et",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2011,
+    "name": "Tavuk Sote",
+    "category": "Ana yemek",
+    "emoji": "🍗",
+    "time": "30 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Tavuk",
+    "ingredients": [
+      {
+        "name": "Tavuk göğsü",
+        "quantity": "300 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kapya biber",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Yeşil biber",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Tavuğu kuşbaşı doğrayıp yüksek ateşte sotele.",
+      "Soğan ve biberleri ekleyip yumuşat.",
+      "Domatesi ekleyip suyunu çekene kadar pişir."
+    ],
+    "tags": [
+      "Tavuk",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2012,
+    "name": "Kremalı Mantarlı Tavuk",
+    "category": "Ana yemek",
+    "emoji": "🍗",
+    "time": "30 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Tavuk",
+    "ingredients": [
+      {
+        "name": "Tavuk göğsü",
+        "quantity": "300 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Mantar",
+        "quantity": "200 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Krema",
+        "quantity": "100 ml",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "1 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Maydanoz",
+        "quantity": "2 dal",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Tavuğu tavada renk alana kadar pişir.",
+      "Mantar ve sarımsağı ekleyip sotele.",
+      "Kremayı ekleyip 5 dakika kısık ateşte pişir."
+    ],
+    "tags": [
+      "Tavuk",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2013,
+    "name": "Tavuklu Sebzeli Güveç",
+    "category": "Ana yemek",
+    "emoji": "🍲",
+    "time": "45 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Tavuk",
+    "ingredients": [
+      {
+        "name": "Tavuk kuşbaşı",
+        "quantity": "300 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Patlıcan",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kabak",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates",
+        "quantity": "2",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Biber",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Tavuğu soğanla hafifçe mühürle.",
+      "Sebzeleri doğrayıp güvece ekle.",
+      "Az su ilavesiyle 190°C fırında 30 dakika pişir."
+    ],
+    "tags": [
+      "Tavuk",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2014,
+    "name": "Köri Soslu Tavuk",
+    "category": "Ana yemek",
+    "emoji": "🍛",
+    "time": "25 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Tavuk",
+    "ingredients": [
+      {
+        "name": "Tavuk göğsü",
+        "quantity": "300 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Krema",
+        "quantity": "100 ml",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Köri",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "½",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Süt",
+        "quantity": "2 yemek kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Tavuğu küp doğrayıp yağda mühürle.",
+      "Soğan ve köriyi ekleyip kokusu çıkana kadar çevir.",
+      "Krema ve sütü ekleyip sos koyulaşana kadar pişir."
+    ],
+    "tags": [
+      "Tavuk",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2015,
+    "name": "Tavuk Şiş",
+    "category": "Ana yemek",
+    "emoji": "🍢",
+    "time": "30 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Tavuk",
+    "ingredients": [
+      {
+        "name": "Tavuk göğsü",
+        "quantity": "350 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Yoğurt",
+        "quantity": "2 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kırmızı toz biber",
+        "quantity": "1 çay kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kekik",
+        "quantity": "1 çay kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kapya biber",
+        "quantity": "1",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Tavuğu küp doğrayıp yoğurt ve baharatla marine et.",
+      "Şişlere biberlerle dönüşümlü diz.",
+      "Izgarada her tarafı kızarana kadar çevirerek pişir."
+    ],
+    "tags": [
+      "Tavuk",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2016,
+    "name": "Fırında Sebzeli Köfte",
+    "category": "Ana yemek",
+    "emoji": "🍽️",
+    "time": "45 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Et",
+    "ingredients": [
+      {
+        "name": "Dana kıyma",
+        "quantity": "300 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "½",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Yumurta",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kabak",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Havuç",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates",
+        "quantity": "1",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Kıyma, soğan ve yumurtayı yoğurup küçük köfteler yap.",
+      "Sebzeleri doğrayıp fırın kabına al.",
+      "Köfteleri üzerine dizip 190°C'de 30 dakika pişir."
+    ],
+    "tags": [
+      "Et",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2017,
+    "name": "Dana Rosto",
+    "category": "Ana yemek",
+    "emoji": "🥩",
+    "time": "80 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Et",
+    "ingredients": [
+      {
+        "name": "Dana nuar",
+        "quantity": "500 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Havuç",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "2 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Et suyu",
+        "quantity": "2 su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Eti her tarafı kızarana kadar mühürle.",
+      "Soğan, havuç, sarımsak ve et suyunu ekle.",
+      "Kapalı tencerede kısık ateşte yumuşayana kadar pişir."
+    ],
+    "tags": [
+      "Et",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2018,
+    "name": "Etli Bezelye",
+    "category": "Ana yemek",
+    "emoji": "🍲",
+    "time": "45 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Sulu yemek",
+    "ingredients": [
+      {
+        "name": "Dana kuşbaşı",
+        "quantity": "200 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Bezelye",
+        "quantity": "1,5 su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Patates",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Havuç",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates salçası",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Eti ve soğanı kavur.",
+      "Salça, havuç, patates ve bezelyeyi ekle.",
+      "Sıcak suyla sebzeler yumuşayana kadar pişir."
+    ],
+    "tags": [
+      "Sulu yemek",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2019,
+    "name": "Kıymalı Ispanak",
+    "category": "Ana yemek",
+    "emoji": "🥬",
+    "time": "30 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Sulu yemek",
+    "ingredients": [
+      {
+        "name": "Dana kıyma",
+        "quantity": "150 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Ispanak",
+        "quantity": "400 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Pirinç",
+        "quantity": "2 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates salçası",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Soğan ve kıymayı kavurup salçayı ekle.",
+      "Yıkanmış ıspanak ve pirinci tencereye al.",
+      "Az sıcak suyla 20 dakika pişir."
+    ],
+    "tags": [
+      "Sulu yemek",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2020,
+    "name": "Etli Kuru Fasulye",
+    "category": "Ana yemek",
+    "emoji": "🍲",
+    "time": "75 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Sulu yemek",
+    "ingredients": [
+      {
+        "name": "Dana kuşbaşı",
+        "quantity": "200 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Haşlanmış kuru fasulye",
+        "quantity": "1,5 su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates salçası",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tereyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sıcak su",
+        "quantity": "3 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Eti ve soğanı kavur.",
+      "Salçayı ve haşlanmış fasulyeyi ekle.",
+      "Sıcak suyla kısık ateşte 25–30 dakika pişir."
+    ],
+    "tags": [
+      "Sulu yemek",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2021,
+    "name": "Fırında Baharatlı Kanat",
+    "category": "Ana yemek",
+    "emoji": "🍗",
+    "time": "45 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Tavuk",
+    "ingredients": [
+      {
+        "name": "Tavuk kanat",
+        "quantity": "500 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Yoğurt",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tatlı toz biber",
+        "quantity": "1 çay kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "2 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kekik",
+        "quantity": "1 çay kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Kanatları yoğurt, yağ ve baharatla harmanla.",
+      "Fırın tepsisine aralıklı diz.",
+      "200°C fırında kızarıp tamamen pişene kadar 35–40 dakika pişir."
+    ],
+    "tags": [
+      "Tavuk",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2022,
+    "name": "Tavuklu Mantarlı Güveç",
+    "category": "Ana yemek",
+    "emoji": "🍲",
+    "time": "40 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Tavuk",
+    "ingredients": [
+      {
+        "name": "Tavuk kuşbaşı",
+        "quantity": "300 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Mantar",
+        "quantity": "200 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Arpacık soğan",
+        "quantity": "6",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Biber",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kaşar peyniri",
+        "quantity": "40 g",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Tavuk, mantar ve sebzeleri tavada kısa süre sotele.",
+      "Güveç kaplarına paylaştırıp domatesi ekle.",
+      "180°C fırında 20 dakika pişir; son 5 dakika kaşar ekle."
+    ],
+    "tags": [
+      "Tavuk",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2023,
+    "name": "Dana Kıymalı Patlıcan Musakka",
+    "category": "Ana yemek",
+    "emoji": "🍆",
+    "time": "50 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Et",
+    "ingredients": [
+      {
+        "name": "Patlıcan",
+        "quantity": "2",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Dana kıyma",
+        "quantity": "250 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates",
+        "quantity": "2",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Biber",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "2 yemek kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Patlıcanları dilimleyip fırında hafifçe yumuşat.",
+      "Kıyma, soğan, biber ve domatesle harç hazırla.",
+      "Kat kat dizip 190°C fırında 20 dakika pişir."
+    ],
+    "tags": [
+      "Et",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2024,
+    "name": "Etli Bamya",
+    "category": "Ana yemek",
+    "emoji": "🍲",
+    "time": "50 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Sulu yemek",
+    "ingredients": [
+      {
+        "name": "Dana kuşbaşı",
+        "quantity": "200 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Bamya",
+        "quantity": "300 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates",
+        "quantity": "2",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Limon suyu",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Eti soğanla kavurup biraz sıcak suyla yumuşat.",
+      "Bamya, domates ve limon suyunu ekle.",
+      "Kısık ateşte bamya dağılmadan pişir."
+    ],
+    "tags": [
+      "Sulu yemek",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2025,
+    "name": "Izgara Dana Bonfile",
+    "category": "Ana yemek",
+    "emoji": "🥩",
+    "time": "20 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Et",
+    "ingredients": [
+      {
+        "name": "Dana bonfile",
+        "quantity": "350 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tereyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Taze kekik",
+        "quantity": "2 dal",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tuz ve karabiber yeterince",
+        "quantity": "",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Bonfileyi oda sıcaklığına getirip kurula.",
+      "Kızgın tavada her yüzünü mühürle; kalınlığına göre pişir.",
+      "Tereyağı ve kekikle dinlendirip servis et."
+    ],
+    "tags": [
+      "Et",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2026,
+    "name": "Şef Özel: Hardallı Dana Madalyon",
+    "category": "Ana yemek",
+    "emoji": "👨‍🍳",
+    "time": "35 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Şef özel",
+    "ingredients": [
+      {
+        "name": "Dana bonfile",
+        "quantity": "350 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Dijon hardal",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Krema",
+        "quantity": "80 ml",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Arpacık soğan",
+        "quantity": "4",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tereyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Taze kekik",
+        "quantity": "2 dal",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Bonfileyi madalyon kesip mühürle.",
+      "Aynı tavada arpacık soğan, hardal ve kremayı pişir.",
+      "Eti sosa alıp 3–4 dakika tamamla."
+    ],
+    "tags": [
+      "Şef özel",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2027,
+    "name": "Şef Özel: Portakallı Tavuk",
+    "category": "Ana yemek",
+    "emoji": "🍊",
+    "time": "35 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Şef özel",
+    "ingredients": [
+      {
+        "name": "Tavuk göğsü",
+        "quantity": "300 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Portakal",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Bal",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soya sosu",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "1 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Tavukları şerit kesip tavada mühürle.",
+      "Portakal suyu, bal, soya sosu ve sarımsağı karıştır.",
+      "Sosu tavaya ekleyip tavuk tamamen pişene kadar çevir."
+    ],
+    "tags": [
+      "Şef özel",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2028,
+    "name": "Şef Özel: Parmesanlı Fırın Tavuk",
+    "category": "Ana yemek",
+    "emoji": "🧀",
+    "time": "40 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Şef özel",
+    "ingredients": [
+      {
+        "name": "Tavuk göğsü",
+        "quantity": "2 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Parmesan",
+        "quantity": "30 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Galeta unu",
+        "quantity": "3 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Yumurta",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kekik",
+        "quantity": "½ çay kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Tavukları hafif inceltip çırpılmış yumurtaya batır.",
+      "Parmesan, galeta unu ve kekiğe bulayıp tepsiye diz.",
+      "200°C fırında içi pişene kadar 20–25 dakika pişir."
+    ],
+    "tags": [
+      "Şef özel",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2029,
+    "name": "Kuzu İncik Haşlama",
+    "category": "Ana yemek",
+    "emoji": "🍲",
+    "time": "120 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Sulu yemek",
+    "ingredients": [
+      {
+        "name": "Kuzu incik",
+        "quantity": "2 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Patates",
+        "quantity": "2 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Havuç",
+        "quantity": "2",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Defne yaprağı",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Su",
+        "quantity": "6 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "İncikleri soğuk suyla kaynat; köpüğünü temizle.",
+      "Soğan ve defneyi ekleyip et yumuşayana kadar pişir.",
+      "Patates ve havucu ekleyip sebzeler pişince servis et."
+    ],
+    "tags": [
+      "Sulu yemek",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 2030,
+    "name": "Etli Patates Yemeği",
+    "category": "Ana yemek",
+    "emoji": "🍲",
+    "time": "45 dk",
+    "level": "Orta",
+    "servings": 2,
+    "group": "Sulu yemek",
+    "ingredients": [
+      {
+        "name": "Dana kuşbaşı",
+        "quantity": "200 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Patates",
+        "quantity": "3 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates salçası",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sıcak su",
+        "quantity": "3 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Eti ve soğanı kavurup salçayı ekle.",
+      "Küp doğranmış patatesleri ilave et.",
+      "Sıcak suyla patatesler ve et yumuşayana kadar pişir."
+    ],
+    "tags": [
+      "Sulu yemek",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 3001,
+    "name": "Çoban Salata",
+    "category": "Salata",
+    "emoji": "🥗",
+    "time": "15 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Salata",
+    "ingredients": [
+      {
+        "name": "Domates",
+        "quantity": "2",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Salatalık",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Yeşil biber",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kırmızı soğan",
+        "quantity": "¼",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Maydanoz",
+        "quantity": "4 dal",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Limon",
+        "quantity": "½",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Malzemeleri yıkayıp doğrayın.",
+      "Sos malzemelerini karıştırıp salataya ekleyin.",
+      "Taze olarak servis edin."
+    ],
+    "tags": [
+      "Salata",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 3002,
+    "name": "Gavurdağı Salatası",
+    "category": "Salata",
+    "emoji": "🥗",
+    "time": "15 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Salata",
+    "ingredients": [
+      {
+        "name": "Domates",
+        "quantity": "2",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Salatalık",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Ceviz içi",
+        "quantity": "2 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kırmızı soğan",
+        "quantity": "¼",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Nar ekşisi",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Maydanoz",
+        "quantity": "4 dal",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Malzemeleri yıkayıp doğrayın.",
+      "Sos malzemelerini karıştırıp salataya ekleyin.",
+      "Taze olarak servis edin."
+    ],
+    "tags": [
+      "Salata",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 3003,
+    "name": "Roka ve Parmesan Salatası",
+    "category": "Salata",
+    "emoji": "🥗",
+    "time": "15 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Salata",
+    "ingredients": [
+      {
+        "name": "Roka",
+        "quantity": "1 demet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Parmesan",
+        "quantity": "25 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Cherry domates",
+        "quantity": "8",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Limon",
+        "quantity": "½",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Malzemeleri yıkayıp doğrayın.",
+      "Sos malzemelerini karıştırıp salataya ekleyin.",
+      "Taze olarak servis edin."
+    ],
+    "tags": [
+      "Salata",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 3004,
+    "name": "Akdeniz Salatası",
+    "category": "Salata",
+    "emoji": "🥗",
+    "time": "15 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Salata",
+    "ingredients": [
+      {
+        "name": "Marul",
+        "quantity": "½",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Salatalık",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Cherry domates",
+        "quantity": "8",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Beyaz peynir",
+        "quantity": "50 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Siyah zeytin",
+        "quantity": "8",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Malzemeleri yıkayıp doğrayın.",
+      "Sos malzemelerini karıştırıp salataya ekleyin.",
+      "Taze olarak servis edin."
+    ],
+    "tags": [
+      "Salata",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 3005,
+    "name": "Yoğurtlu Semizotu Salatası",
+    "category": "Salata",
+    "emoji": "🥗",
+    "time": "15 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Salata",
+    "ingredients": [
+      {
+        "name": "Semizotu",
+        "quantity": "1 demet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Yoğurt",
+        "quantity": "4 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "1 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Ceviz",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Malzemeleri yıkayıp doğrayın.",
+      "Sos malzemelerini karıştırıp salataya ekleyin.",
+      "Taze olarak servis edin."
+    ],
+    "tags": [
+      "Salata",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 3006,
+    "name": "Nohutlu Yeşil Salata",
+    "category": "Salata",
+    "emoji": "🥗",
+    "time": "15 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Salata",
+    "ingredients": [
+      {
+        "name": "Haşlanmış nohut",
+        "quantity": "1 su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Akdeniz yeşilliği",
+        "quantity": "1 avuç",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Salatalık",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Cherry domates",
+        "quantity": "6",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Limon",
+        "quantity": "½",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Malzemeleri yıkayıp doğrayın.",
+      "Sos malzemelerini karıştırıp salataya ekleyin.",
+      "Taze olarak servis edin."
+    ],
+    "tags": [
+      "Salata",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 3007,
+    "name": "Köz Patlıcan Salatası",
+    "category": "Salata",
+    "emoji": "🥗",
+    "time": "15 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Salata",
+    "ingredients": [
+      {
+        "name": "Patlıcan",
+        "quantity": "2",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kapya biber",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "1 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Limon",
+        "quantity": "½",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Maydanoz",
+        "quantity": "3 dal",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Malzemeleri yıkayıp doğrayın.",
+      "Sos malzemelerini karıştırıp salataya ekleyin.",
+      "Taze olarak servis edin."
+    ],
+    "tags": [
+      "Salata",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 3008,
+    "name": "Havuç Tarator Salatası",
+    "category": "Salata",
+    "emoji": "🥗",
+    "time": "15 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Salata",
+    "ingredients": [
+      {
+        "name": "Havuç",
+        "quantity": "2",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Yoğurt",
+        "quantity": "4 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "1 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Ceviz",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Malzemeleri yıkayıp doğrayın.",
+      "Sos malzemelerini karıştırıp salataya ekleyin.",
+      "Taze olarak servis edin."
+    ],
+    "tags": [
+      "Salata",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 3009,
+    "name": "Mor Lahana Salatası",
+    "category": "Salata",
+    "emoji": "🥗",
+    "time": "15 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Salata",
+    "ingredients": [
+      {
+        "name": "Mor lahana",
+        "quantity": "¼",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Havuç",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Limon",
+        "quantity": "½",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Elma sirkesi",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Malzemeleri yıkayıp doğrayın.",
+      "Sos malzemelerini karıştırıp salataya ekleyin.",
+      "Taze olarak servis edin."
+    ],
+    "tags": [
+      "Salata",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 3010,
+    "name": "Şef Özel: Armutlu Cevizli Roka",
+    "category": "Salata",
+    "emoji": "🥗",
+    "time": "15 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Salata",
+    "ingredients": [
+      {
+        "name": "Roka",
+        "quantity": "1 demet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Armut",
+        "quantity": "1",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Ceviz içi",
+        "quantity": "2 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Keçi peyniri",
+        "quantity": "40 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Bal",
+        "quantity": "1 çay kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Limon",
+        "quantity": "½",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Malzemeleri yıkayıp doğrayın.",
+      "Sos malzemelerini karıştırıp salataya ekleyin.",
+      "Taze olarak servis edin."
+    ],
+    "tags": [
+      "Salata",
+      "2 kişilik"
+    ]
+  }
+]
