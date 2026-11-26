@@ -315,7 +315,7 @@ app.get("/api/health", async (_req, res) => {
 app.post("/api/menus/week", async (req, res) => {
   if (!pool) return res.status(503).json({ error: "Veritabanı henüz bağlanmadı." });
   const menus = Array.isArray(req.body?.menus) ? req.body.menus : [];
-  if (menus.length !== 7 || menus.some(item => !/^\\d{4}-\\d{2}-\\d{2}$/.test(item.date || "") || !item.payload || typeof item.payload !== "object")) {
+  if (menus.length !== 7 || menus.some(item => !/^\d{4}-\d{2}-\d{2}$/.test(item.date || "") || !item.payload || typeof item.payload !== "object")) {
     return res.status(400).json({ error: "Yedi günlük geçerli menü listesi gerekli." });
   }
   const client = await pool.connect();
