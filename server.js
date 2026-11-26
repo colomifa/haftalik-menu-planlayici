@@ -523,9 +523,12 @@ function validateMarketProduct(ingredient, product) {
       pantry:["gida","temel gida","yag","oil"]
     };
     if ((categoryHints[group]||[]).some(h=>metadata.includes(h))) score+=5;
+    else score=75;
+  } else if (group!=="general") {
+    score=80;
   }
   score=Math.min(100,score);
-  return {score,status:score>=90?"accepted":"review",reason:score>=90?"Ürün adı ve malzeme eşleşti":"Kategori doğrulaması gerekli",group};
+  return {score,status:score>=90?"accepted":"review",reason:score>=90?"Ürün adı ve malzeme eşleşti":"Ürün adı eşleşti, kategori teyidi gerekli",group};
 }
 function marketProductOffers(product) {
   const offers = Array.isArray(product?.productDepotInfoList) ? product.productDepotInfoList : [];
