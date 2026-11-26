@@ -68,7 +68,7 @@ const photoById = {
   27:{file:"Piyaz_(details).jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Piyaz_(details).jpg"},
   29:{file:"Semizotu_salad.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Semizotu_salad.jpg"},
   30:{file:"Patates_Salatas%C4%B1.jpg",author:"Basak",license:"CC0 1.0",page:"https://commons.wikimedia.org/wiki/File:Patates_Salatas%C4%B1.jpg"},
-  35:{file:"M%C3%BCcver.jpg",author:"Satirdan kahraman",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:M%C3%BCcver.jpg"},
+  35:{file:"Zucchini_Fritters_-_Lunch_at_Yanyali_Fehmi_Lokantasi_%286421047753%29.jpg",author:"William Neuheisel",license:"CC BY 2.0",page:"https://commons.wikimedia.org/wiki/File:Zucchini_Fritters_-_Lunch_at_Yanyali_Fehmi_Lokantasi_%286421047753%29.jpg"},
   40:{file:"Barbunya_pilaki_from_Turkey.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Barbunya_pilaki_from_Turkey.jpg"},
   50:{file:"Zeytinya%C4%9Fl%C4%B1_enginar.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Zeytinya%C4%9Fl%C4%B1_enginar.jpg"},
   3:{file:"Tavuk_f%C4%B1r%C4%B1nda.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Tavuk_f%C4%B1r%C4%B1nda.jpg"},
@@ -76,13 +76,14 @@ const photoById = {
   20:{file:"Domates_%C3%A7orba.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Domates_%C3%A7orba.jpg"},
   8:{file:"Sarma,_with_meat.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Sarma,_with_meat.jpg"},
   19:{file:"Tel_%C5%9Fehriye_soup.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Tel_%C5%9Fehriye_soup.jpg"},
-  23:{file:"Chicken_and_sehriye_soup.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Chicken_and_sehriye_soup.jpg"}
+  23:{file:"Chicken_and_sehriye_soup.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Chicken_and_sehriye_soup.jpg"},
+  12:{file:"Ispanak_dish.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Ispanak_dish.jpg"}
 };
 function photoMarkup(id, emoji) {
   const p = photoById[id];
   if (!p) return '<div class="recipe-art">'+emoji+'</div>';
   const src = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + p.file + '?width=640';
-  const licenseUrl = p.license === 'CC0 1.0' ? 'https://creativecommons.org/publicdomain/zero/1.0/' : (p.license === 'CC BY-SA 3.0' ? 'https://creativecommons.org/licenses/by-sa/3.0/' : 'https://creativecommons.org/licenses/by-sa/4.0/');
+  const licenseUrl = p.license === 'CC BY 2.0' ? 'https://creativecommons.org/licenses/by/2.0/' : (p.license === 'CC0 1.0' ? 'https://creativecommons.org/publicdomain/zero/1.0/' : (p.license === 'CC BY-SA 3.0' ? 'https://creativecommons.org/licenses/by-sa/3.0/' : 'https://creativecommons.org/licenses/by-sa/4.0/'));
   return '<div class="recipe-art has-photo"><img loading="lazy" src="'+src+'" alt="'+(recipes.find(r=>r.id===id)?.name || 'Türk yemeği')+' fotoğrafı" data-fallback="'+emoji+'" onerror="this.parentElement.textContent=this.dataset.fallback"></div><div class="photo-credit"><a href="'+p.page+'" target="_blank" rel="noopener">Fotoğraf: '+p.author+'</a> · <a href="'+licenseUrl+'" target="_blank" rel="noopener">'+p.license+'</a></div>';
 }
 const recipes = [
