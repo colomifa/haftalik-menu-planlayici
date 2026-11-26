@@ -477,7 +477,8 @@ const MARKET_REJECT_TERMS = new Set([
 const MARKET_SYNONYMS = {
   domates:["domates","salkim domates","kokteyl domates"],
   yogurt:["yogurt","suzme yogurt"],
-  tavuk:["tavuk","tavuk gogsu","tavuk fileto"],\n  "tavuk gogsu":["tavuk gogsu","tavuk fileto"],
+  tavuk:["tavuk","tavuk gogsu","tavuk fileto"],
+  "tavuk gogsu":["tavuk gogsu","tavuk fileto"],
   patates:["patates"],
   sogan:["sogan","kuru sogan"],
   zeytinyagi:["zeytinyagi","sizma zeytinyagi","naturel sizma zeytinyagi"],
