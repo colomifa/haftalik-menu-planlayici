@@ -435,22 +435,42 @@ async function compareMarketBasket(){
  const button=$('compareMarketPrices'),root=$('marketCompareResults');
  const items=shoppingItems.filter(x=>!x.at_home&&!x.checked).slice(0,20);
  if(!items.length){toast('Karşılaştırılacak alışveriş ürünü yok.');return;}
- button.disabled=true;button.textContent='Fiyatlar aranıyor…';
- root.innerHTML='<div class="modal-placeholder">Market katalogları sorgulanıyor. Biraz sürebilir…</div>';
+ button.disabled=true;button.textContent='Sepet fiyatları hesaplanıyor…';
+ root.innerHTML='<div class="modal-placeholder">Marketlerin sepet toplamları hesaplanıyor…</div>';
  try{
   const response=await fetch('/api/market/compare',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:items.map(x=>({name:x.ingredient,quantity:x.quantity}))})});
   const data=await response.json();
   if(!response.ok)throw new Error(data.error||'Market fiyatları alınamadı.');
-  const cards=(data.results||[]).map(result=>{
-   const offers=result.products.flatMap(p=>p.offers.map(o=>({...o,matchedProduct:p})));
-   const byMarket=new Map();offers.forEach(o=>{if(!byMarket.has(o.market)||o.price<byMarket.get(o.market).price)byMarket.set(o.market,o)});
-   const sorted=[...byMarket.values()].sort((a,b)=>a.price-b.price);
-   const matches=result.products.map(p=>'<div style="font-size:10px;color:var(--muted);margin:7px 0 3px">Eşleşen ürün: '+esc([p.title,p.brand,p.size].filter(Boolean).join(' · '))+'</div>').join('');
-   return '<article style="padding:13px 0;border-bottom:1px solid var(--line)"><strong style="font-size:12px">'+esc(result.keyword)+'</strong>'+matches+(sorted.length?'<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:7px;margin-top:8px">'+sorted.map(o=>'<div style="background:#f7f5ef;border-radius:10px;padding:9px"><small style="display:block;color:var(--muted);font-size:9px">'+esc(o.market)+'</small><b style="font-size:14px;color:var(--green)">'+o.price.toLocaleString('tr-TR',{style:'currency',currency:'TRY'})+'</b><small style="display:block;color:var(--muted);font-size:8px;margin-top:3px">'+esc(o.branch||'Market teklifi')+'</small></div>').join('')+'</div>':'<small style="display:block;color:var(--muted);margin-top:7px">Bu aramada fiyat teklifi bulunamadı.</small>')+'</article>';
-  }).join('');
-  root.innerHTML='<p style="font-size:9px;color:var(--muted)">Kaynak: TÜBİTAK Market Fiyatı · Sorgu zamanı: '+new Date(data.retrievedAt).toLocaleString('tr-TR')+'</p>'+cards;
- }catch(error){root.innerHTML='<div class="modal-placeholder"><b>⚠️</b>'+esc(error.message)+'<br>Şimdilik fiyat göstermiyoruz; kaynağın erişimi ve konumsuz sorgu desteği doğrulanmalı.</div>';}
- finally{button.disabled=false;button.textContent='↔ Tekrar karşılaştır';}
+  const baskets=new Map();
+  let foundCount=0;
+  const missing=[];
+  (data.results||[]).forEach(result=>{
+   const byMarket=new Map();
+   result.products.flatMap(p=>p.offers.map(o=>({...o,product:p}))).forEach(o=>{
+    if(!byMarket.has(o.market)||o.price<byMarket.get(o.market).price)byMarket.set(o.market,o);
+   });
+   if(!byMarket.size){missing.push(result.keyword);return;}
+   foundCount++;
+   byMarket.forEach((offer,market)=>{
+    if(!baskets.has(market))baskets.set(market,{market,total:0,items:[]});
+    const basket=baskets.get(market);basket.total+=offer.price;
+    basket.items.push({keyword:result.keyword,...offer});
+   });
+  });
+  const sorted=[...baskets.values()].sort((a,b)=>a.total-b.total);
+  if(!sorted.length)throw new Error('Ürünler için karşılaştırılabilir market fiyatı bulunamadı.');
+  const complete=missing.length===0;
+  const money=value=>value.toLocaleString('tr-TR',{style:'currency',currency:'TRY'});
+  root.innerHTML='<p style="font-size:10px;color:var(--muted);margin:4px 0 12px">Sepetinizdeki '+items.length+' üründen '+foundCount+' tanesi için fiyat bulundu. '+(complete?'Tüm ürünler eşleşti.':'Eksik ürünler toplam tutara dahil değildir.')+'</p>'+
+   sorted.map((basket,index)=>{
+    const coverage=basket.items.length+'/'+items.length;
+    const detail=basket.items.map(item=>'<div style="display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-top:1px solid var(--line);font-size:10px"><span>'+esc(item.keyword)+'<small style="display:block;color:var(--muted)">'+esc(item.product.title)+(item.branch?' · '+esc(item.branch):'')+'</small></span><b>'+money(item.price)+'</b></div>').join('');
+    return '<article style="padding:14px;margin:9px 0;border:1px solid '+(index===0?'var(--green)':'var(--line)')+';border-radius:13px;background:var(--surface)"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><div><strong style="font-size:13px">'+esc(basket.market)+'</strong>'+(index===0?'<div style="font-size:9px;color:var(--green);font-weight:700;margin-top:3px">Bulunan teklifler arasında en düşük</div>':'')+'</div><div style="text-align:right"><b style="font-size:20px;color:var(--green)">'+money(basket.total)+'</b><small style="display:block;color:var(--muted);font-size:9px">'+coverage+' ürün</small></div></div><details style="margin-top:9px"><summary style="font-size:10px;cursor:pointer;color:var(--muted)">Sepet ürünlerini gör</summary><div style="margin-top:8px">'+detail+'</div></details></article>';
+   }).join('')+
+   (missing.length?'<div style="padding:10px;border-radius:9px;background:var(--surface);font-size:10px;margin-top:10px"><b>Fiyatı bulunamayanlar:</b> '+missing.map(esc).join(', ')+'</div>':'')+
+   '<p style="font-size:9px;color:var(--muted);margin-top:10px">Kaynak: TÜBİTAK Market Fiyatı · '+new Date(data.retrievedAt).toLocaleString('tr-TR')+'<br>Toplamlar bulunan her ürün için marketteki en düşük eşleşen paket fiyatlarının toplamıdır; alışveriş miktarına göre paket adedi henüz hesaplanmaz.</p>';
+ }catch(error){root.innerHTML='<div class="modal-placeholder"><b>⚠️</b>'+esc(error.message)+'<br>Kaynağın erişimi doğrulanmadan tahmini fiyat göstermiyoruz.</div>';}
+ finally{button.disabled=false;button.textContent='↔ Sepet toplamlarını tekrar karşılaştır';}
 }
 
 async function openShoppingList(){$('shoppingListModal').classList.add('open');try{const r=await fetch('/api/shopping-list',{cache:'no-store'});if(!r.ok)throw new Error('Liste alınamadı');shoppingItems=await r.json();renderShoppingList();}catch(e){$('shoppingListContent').innerHTML='<div class="modal-placeholder">Alışveriş listesi yüklenemedi.</div>';}}
