@@ -355,7 +355,7 @@ function toast(s){$('toast').textContent=s;$('toast').classList.add('show');setT
 $('prevWeek').onclick=()=>{state.weekStart.setDate(state.weekStart.getDate()-7);renderCalendar()};$('nextWeek').onclick=()=>{state.weekStart.setDate(state.weekStart.getDate()+7);renderCalendar()};$('recipeSearch').oninput=renderCatalog;$('categoryFilter').onchange=renderCatalog;
 async function persistMenu(date){try{await fetch('/api/menus',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({date,payload:state.menus[date]})})}catch{}}
 async function persistShopping(){try{await fetch('/api/shopping-list',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:state.shopping})})}catch{}}
-async function loadData(){try{const [m,s]=await Promise.all([fetch('/api/menus'),fetch('/api/shopping-list')]);if(m.ok){const rows=await m.json();rows.forEach(x=>state.menus[String(x.menu_date).slice(0,10)]=x.payload)}if(s.ok)state.shopping=await s.json()}catch{}renderCalendar();renderShopping()}
+async function loadData(){try{const [m,s]=await Promise.all([fetch('/api/menus'),fetch('/api/shopping-list')]);if(m.ok){const rows=await m.json();rows.forEach(x=>state.menus[String(x.menu_date).slice(0,10)]=x.payload)}if(s.ok)state.shopping=await s.json()}catch{}renderCalendar();renderShopping();renderHomeDashboard()}
 loadData();
 renderHomeDashboard();
 </script>
