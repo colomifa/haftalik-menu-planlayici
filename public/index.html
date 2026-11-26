@@ -201,6 +201,7 @@ function showPickerRecipeDetail(id,allowSelect=false){
 }
 async function showRecipeInPicker(id){
  try{await recipesReady}catch(e){}
+ if(!recipes.some(r=>Number(r.id)===Number(id))){toast('Bu seçenek Şımart beni menüsüne özeldir.');return;}
  pickerReturnTo=$('sideItemsPageModal').classList.contains('open')?'sidePage':'dayMenu';
  $('recipePickerTitle').textContent='Tarif detayları';
  $('recipePickerIntro').textContent='Seçili tarifin malzemeleri ve yapılışı';
