@@ -149,7 +149,7 @@ function showRecipeDetail(id){
  const ingredients=(r.ingredients||[]).map(x=>'<li style="margin:5px 0">'+esc(x.name)+' <span style="color:#7d877d">— '+esc(x.quantity)+'</span></li>').join('');
  const steps=(r.instructions||[]).map(x=>'<li style="margin:6px 0">'+esc(x)+'</li>').join('');
  $('recipeDetail').innerHTML='<div style="font-weight:700;font-size:15px;margin-bottom:6px">'+esc(r.emoji)+' '+esc(r.name)+'</div><div style="font-size:10px;color:#7d877d;margin-bottom:12px">'+esc(r.time)+' · 2 kişilik · '+esc(r.group||r.category)+'</div><strong style="font-size:11px">Malzemeler</strong><ul style="font-size:11px;padding-left:18px;line-height:1.5">'+ingredients+'</ul><strong style="font-size:11px">Yapılışı</strong><ol style="font-size:11px;padding-left:18px;line-height:1.5">'+steps+'</ol>';
- $('recipeDetail').style.display='block';$('chooseRecipe').disabled=false;
+ $('recipeDetail').style.display='block';
 }
 function showRecipeInPicker(id){
  const menu=dayMenus[dateKey(activeDay)]||{};
