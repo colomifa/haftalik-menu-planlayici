@@ -2518,5 +2518,725 @@
       "Salata",
       "2 kişilik"
     ]
+  },
+  {
+    "id": 4001,
+    "name": "Tereyağlı Pirinç Pilavı",
+    "category": "Garnitür",
+    "emoji": "🍚",
+    "time": "25 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Garnitür",
+    "ingredients": [
+      {
+        "name": "Pirinç",
+        "quantity": "1 su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tereyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Arpa şehriye",
+        "quantity": "2 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sıcak su",
+        "quantity": "1,5 su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tuz",
+        "quantity": "Yeterince",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Pirinci ılık tuzlu suda 15 dakika bekletip yıka.",
+      "Tereyağında arpa şehriyeyi hafifçe kavur, pirinci ekle.",
+      "Sıcak suyu ilave edip kısık ateşte suyunu çekene kadar pişir; 10 dakika dinlendir."
+    ],
+    "tags": [
+      "Garnitür",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 4002,
+    "name": "Bulgur Pilavı",
+    "category": "Garnitür",
+    "emoji": "🥘",
+    "time": "25 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Garnitür",
+    "ingredients": [
+      {
+        "name": "Pilavlık bulgur",
+        "quantity": "1 su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "½ adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates",
+        "quantity": "1 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates salçası",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sıcak su",
+        "quantity": "1,5 su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Soğanı zeytinyağında kavur; domates ve salçayı ekle.",
+      "Bulguru ilave edip birkaç dakika karıştır.",
+      "Sıcak suyu ekleyip kısık ateşte suyunu çekene kadar pişir."
+    ],
+    "tags": [
+      "Garnitür",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 4003,
+    "name": "Fırınlanmış Baharatlı Patates",
+    "category": "Garnitür",
+    "emoji": "🥔",
+    "time": "35 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Garnitür",
+    "ingredients": [
+      {
+        "name": "Patates",
+        "quantity": "3 küçük",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kekik",
+        "quantity": "1 çay kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Toz kırmızı biber",
+        "quantity": "½ çay kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tuz",
+        "quantity": "Yeterince",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Patatesleri elma dilim doğra ve kurula.",
+      "Yağ ve baharatlarla harmanlayıp tepsiye tek sıra diz.",
+      "200°C fırında kızarıp yumuşayana kadar 25–30 dakika pişir."
+    ],
+    "tags": [
+      "Garnitür",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 4004,
+    "name": "Fırında Sebze",
+    "category": "Garnitür",
+    "emoji": "🥕",
+    "time": "30 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Garnitür",
+    "ingredients": [
+      {
+        "name": "Kabak",
+        "quantity": "1 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Havuç",
+        "quantity": "1 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kapya biber",
+        "quantity": "1 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kırmızı soğan",
+        "quantity": "½ adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kekik",
+        "quantity": "1 çay kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Sebzeleri iri parçalar halinde doğra.",
+      "Zeytinyağı ve kekikle harmanlayıp fırın tepsisine yay.",
+      "200°C fırında sebzeler yumuşayıp hafif kızarana kadar pişir."
+    ],
+    "tags": [
+      "Garnitür",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 4005,
+    "name": "Sarımsaklı Yoğurtlu Ispanak",
+    "category": "Garnitür",
+    "emoji": "🥬",
+    "time": "20 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Garnitür",
+    "ingredients": [
+      {
+        "name": "Ispanak",
+        "quantity": "250 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Yoğurt",
+        "quantity": "4 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "1 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tuz",
+        "quantity": "Yeterince",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Ispanağı yıkayıp doğra ve az yağda suyunu çekene kadar sotele.",
+      "Yoğurdu ezilmiş sarımsak ve tuzla karıştır.",
+      "Ispanak ılınınca yoğurtla birleştir."
+    ],
+    "tags": [
+      "Garnitür",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 4006,
+    "name": "Kremalı Mantar Sote",
+    "category": "Garnitür",
+    "emoji": "🍄",
+    "time": "20 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Garnitür",
+    "ingredients": [
+      {
+        "name": "Mantar",
+        "quantity": "250 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Krema",
+        "quantity": "60 ml",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "1 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tereyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Karabiber",
+        "quantity": "Yeterince",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Mantarları dilimleyip tereyağında yüksek ateşte sotele.",
+      "Sarımsağı ve kremayı ekle.",
+      "Kıvam alınca karabiberle servis et."
+    ],
+    "tags": [
+      "Garnitür",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 4007,
+    "name": "Zeytinyağlı Taze Fasulye",
+    "category": "Garnitür",
+    "emoji": "🫛",
+    "time": "40 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Garnitür",
+    "ingredients": [
+      {
+        "name": "Taze fasulye",
+        "quantity": "300 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates",
+        "quantity": "1 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Soğan",
+        "quantity": "½ adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "2 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sıcak su",
+        "quantity": "½ su bardağı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Soğanı zeytinyağında yumuşat.",
+      "Ayıklanmış fasulye ve doğranmış domatesi ekle.",
+      "Sıcak suyu ilave edip kısık ateşte fasulye yumuşayana kadar pişir."
+    ],
+    "tags": [
+      "Garnitür",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 5001,
+    "name": "Haydari",
+    "category": "Meze",
+    "emoji": "🥣",
+    "time": "15 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Meze",
+    "ingredients": [
+      {
+        "name": "Süzme yoğurt",
+        "quantity": "200 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Beyaz peynir",
+        "quantity": "40 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "1 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Dereotu",
+        "quantity": "2 dal",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kuru nane",
+        "quantity": "½ çay kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Beyaz peyniri ezip süzme yoğurtla karıştır.",
+      "Ezilmiş sarımsak, ince kıyılmış dereotu ve naneyi ekle.",
+      "Zeytinyağı gezdirip soğuk servis et."
+    ],
+    "tags": [
+      "Meze",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 5002,
+    "name": "Köz Patlıcan Mezesi",
+    "category": "Meze",
+    "emoji": "🍆",
+    "time": "30 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Meze",
+    "ingredients": [
+      {
+        "name": "Patlıcan",
+        "quantity": "2 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "1 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Limon suyu",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Maydanoz",
+        "quantity": "2 dal",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Patlıcanları közleyip kabuklarını soy.",
+      "İnce doğrayıp sarımsak, limon suyu ve zeytinyağıyla karıştır.",
+      "Maydanozla süsleyip servis et."
+    ],
+    "tags": [
+      "Meze",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 5003,
+    "name": "Acılı Ezme",
+    "category": "Meze",
+    "emoji": "🌶️",
+    "time": "15 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Meze",
+    "ingredients": [
+      {
+        "name": "Domates",
+        "quantity": "2 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kapya biber",
+        "quantity": "½ adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Yeşil biber",
+        "quantity": "1 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kırmızı soğan",
+        "quantity": "¼ adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Maydanoz",
+        "quantity": "4 dal",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Nar ekşisi",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Sebzeleri çok ince doğra.",
+      "Maydanoz, nar ekşisi, zeytinyağı ve baharatlarla karıştır.",
+      "Lezzetlerin birleşmesi için 10 dakika dinlendir."
+    ],
+    "tags": [
+      "Meze",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 5004,
+    "name": "Şakşuka",
+    "category": "Meze",
+    "emoji": "🍅",
+    "time": "35 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Meze",
+    "ingredients": [
+      {
+        "name": "Patlıcan",
+        "quantity": "1 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kabak",
+        "quantity": "1 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Yeşil biber",
+        "quantity": "1 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Domates",
+        "quantity": "2 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "1 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "2 yemek kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Patlıcan ve kabağı küp doğrayıp fırında veya tavada yumuşat.",
+      "Domates, biber ve sarımsakla sos hazırla.",
+      "Sebzeleri sosla birleştirip ılık veya soğuk servis et."
+    ],
+    "tags": [
+      "Meze",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 5005,
+    "name": "Havuç Tarator",
+    "category": "Meze",
+    "emoji": "🥕",
+    "time": "20 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Meze",
+    "ingredients": [
+      {
+        "name": "Havuç",
+        "quantity": "2 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Yoğurt",
+        "quantity": "4 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "1 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Ceviz",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Havuçları rendeleyip zeytinyağında yumuşayana kadar sotele.",
+      "Soğuyunca sarımsaklı yoğurtla karıştır.",
+      "Üzerine ceviz serperek servis et."
+    ],
+    "tags": [
+      "Meze",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 5006,
+    "name": "Zeytinyağlı Fava",
+    "category": "Meze",
+    "emoji": "🫛",
+    "time": "45 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Meze",
+    "ingredients": [
+      {
+        "name": "Kuru iç bakla",
+        "quantity": "1 su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kuru soğan",
+        "quantity": "½ adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "2 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Limon suyu",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Dereotu",
+        "quantity": "2 dal",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "İç baklayı soğan ve suyla tamamen yumuşayana kadar haşla.",
+      "Suyunu süzüp zeytinyağı ve limon suyuyla püre haline getir.",
+      "Bir kaba yayıp soğut; dereotuyla servis et."
+    ],
+    "tags": [
+      "Meze",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 5007,
+    "name": "Atom Meze",
+    "category": "Meze",
+    "emoji": "🌶️",
+    "time": "15 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Meze",
+    "ingredients": [
+      {
+        "name": "Süzme yoğurt",
+        "quantity": "180 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kuru acı biber",
+        "quantity": "3 adet",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Sarımsak",
+        "quantity": "1 diş",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Tereyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Süzme yoğurdu ezilmiş sarımsakla karıştır.",
+      "Kuru biberleri tereyağı ve zeytinyağında kısa süre çevir.",
+      "Biberli yağı yoğurdun üzerine dök."
+    ],
+    "tags": [
+      "Meze",
+      "2 kişilik"
+    ]
+  },
+  {
+    "id": 5008,
+    "name": "Peynirli Zeytin Ezmesi",
+    "category": "Meze",
+    "emoji": "🫒",
+    "time": "10 dk",
+    "level": "Kolay",
+    "servings": 2,
+    "group": "Meze",
+    "ingredients": [
+      {
+        "name": "Siyah zeytin",
+        "quantity": "½ su bardağı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Beyaz peynir",
+        "quantity": "50 g",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Ceviz",
+        "quantity": "1 yemek kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
+        "aisle": "Diğer"
+      },
+      {
+        "name": "Kekik",
+        "quantity": "½ çay kaşığı",
+        "aisle": "Diğer"
+      }
+    ],
+    "instructions": [
+      "Zeytinlerin çekirdeklerini çıkar.",
+      "Tüm malzemeleri rondoda iri taneli kalacak şekilde çek.",
+      "Kızarmış ekmekle servis et."
+    ],
+    "tags": [
+      "Meze",
+      "2 kişilik"
+    ]
   }
 ]
