@@ -45,8 +45,8 @@ async function initializeDatabase() {
 // weak title/tag matches are deliberately omitted rather than assigning a wrong dish photo.
 const imageCache = new Map();
 const normalizeDish = value => String(value || "").toLocaleLowerCase("tr-TR")
-  .normalize("NFD").replace(/[\\u0300-\\u036f]/g, "")
-  .replace(/ı/g, "i").replace(/[^a-z0-9 ]/g, " ").replace(/\\s+/g, " ").trim();
+  .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  .replace(/ı/g, "i").replace(/[^a-z0-9 ]/g, " ").replace(/\s+/g, " ").trim();
 const stopWords = new Set(["turkish","traditional","food","dish","recipe","with","style","yemegi","yemek","tarifi","salatasi","corbasi"]);
 function imageMatchScore(name, item) {
   const wanted = normalizeDish(name).split(" ").filter(t => t.length > 2 && !stopWords.has(t));
