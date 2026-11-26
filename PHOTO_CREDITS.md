@@ -1,6 +1,6 @@
 # Fotoğraf kaynakları ve lisanslar
 
-Bu uygulamada yalnızca gerçek yemek fotoğrafları kullanılır. Her görsel, tarifle doğrudan eşleşen bir Commons dosyasından seçilmiştir. Tarif için uygun fotoğraf bulunmadığında kartta fotoğraf yerine sade yer tutucu gösterilir; farklı bir yemeğin fotoğrafı kullanılmaz.
+Bu uygulamada yalnızca gerçek yemek fotoğrafları kullanılır. Her görsel, tarifle doğrudan eşleşen bir Wikimedia Commons dosyasından seçilmiştir. Uygun fotoğraf bulunamadığında farklı bir yemeğin görseli atanmaz.
 
 | Tarif | Fotoğraf dosyası | Fotoğrafçı | Lisans | Kaynak |
 |---|---|---|---|---|
@@ -12,13 +12,16 @@ Bu uygulamada yalnızca gerçek yemek fotoğrafları kullanılır. Her görsel, 
 | İmam bayıldı | Imam bayıldı.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Imam_bay%C4%B1ld%C4%B1.jpg |
 | Tas kebabı | Tas kebabı.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Tas_kebab%C4%B1.jpg |
 | Kabak dolması | Kabak dolma.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Kabak_dolma.jpg |
+| Etli yaprak sarma | Sarma, with meat.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Sarma,_with_meat.jpg |
 | Zeytinyağlı taze fasulye | Zeytinyağlı taze fasulye from Turkey.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Zeytinya%C4%9Fl%C4%B1_taze_fasulye_from_Turkey.jpg |
 | Mantı | Turkish manti.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Turkish_manti.jpg |
 | Mercimek çorbası | Mercimek çorbası.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Mercimek_%C3%A7orbas%C4%B1.jpg |
 | Ezogelin çorbası | Turkish soup Ezo Gelin.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Turkish_soup_Ezo_Gelin.jpg |
 | Yayla çorbası | Yayla corbasi.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Yayla_corbasi.jpg |
 | Tarhana çorbası | Tarhana çorbası.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Tarhana_%C3%A7orbas%C4%B1.jpg |
+| Şehriye çorbası | Tel şehriye soup.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Tel_%C5%9Fehriye_soup.jpg |
 | Domates çorbası | Domates çorba.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Domates_%C3%A7orba.jpg |
+| Tavuklu şehriye çorbası | Chicken and sehriye soup.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Chicken_and_sehriye_soup.jpg |
 | Çoban salata | Choban salata.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Choban_salata.jpg |
 | Gavurdağı salatası | Gavurdağı salad with lor cheese.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Gavurda%C4%9F%C4%B1_salad_with_lor_cheese.jpg |
 | Piyaz | Piyaz (details).jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Piyaz_(details).jpg |
@@ -32,7 +35,7 @@ Bu uygulamada yalnızca gerçek yemek fotoğrafları kullanılır. Her görsel, 
 
 ## Lisans ve atıf notları
 
-- CC BY-SA 4.0 / 3.0 görsellerde fotoğrafçı adı, kaynak dosya sayfası ve ilgili lisans bağlantısı gösterilir. Görsel değiştirilirse bu belirtilir; türev çalışmalar aynı veya uyumlu lisansla paylaşılmalıdır.
+- CC BY-SA görsellerde fotoğrafçı adı, kaynak dosya sayfası ve lisans bağlantısı gösterilir. Görsel değiştirilirse bu belirtilir; türev çalışmalar aynı veya uyumlu lisansla paylaşılmalıdır.
 - CC0 görseller kamu malı adanmışlığıyla yayımlanmıştır; kaynak bilgisi yine iyi uygulama olarak korunur.
-- Görsel kartlarında hem kaynak sayfasına hem lisans metnine bağlantı bulunur.
-- Fotoğraflar dış kaynaktan yüklenir; Commons dosyaları uygulama içinde kopyalanıp yeniden barındırılmaz.
+- Fotoğraf kartlarında hem kaynak sayfasına hem lisans metnine bağlantı bulunur.
+- Fotoğraflar Commons üzerinden dış kaynaktan yüklenir; uygulama içinde yeniden barındırılmaz.
