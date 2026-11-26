@@ -19,6 +19,27 @@ if (process.env.DATABASE_URL) {
   });
 }
 
+async function initializeDatabase() {
+  if (!pool) return;
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS weekly_menus (
+      id BIGSERIAL PRIMARY KEY,
+      menu_date DATE NOT NULL UNIQUE,
+      payload JSONB NOT NULL,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+      updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
+    CREATE TABLE IF NOT EXISTS shopping_items (
+      id BIGSERIAL PRIMARY KEY,
+      ingredient TEXT NOT NULL,
+      quantity TEXT NOT NULL DEFAULT '',
+      aisle TEXT NOT NULL DEFAULT 'Diğer',
+      checked BOOLEAN NOT NULL DEFAULT FALSE,
+      created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
+  `);
+}
+
 app.get("/api/health", async (_req, res) => {
   let database = "not-configured";
   if (pool) {
@@ -102,4 +123,9 @@ app.post("/api/shopping-list", async (req, res) => {
   }
 });
 
-app.listen(port, () => console.log(`Menu planner listening on ${port}`));
+initializeDatabase()
+  .then(() => app.listen(port, () => console.log(`Menu planner listening on ${port}`)))
+  .catch(error => {
+    console.error("Database initialization failed:", error);
+    process.exit(1);
+  });
