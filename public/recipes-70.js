@@ -66,6 +66,7 @@
   recipes.push(...newRecipes);
   window.bizimMutfakNewRecipes = newRecipes;
   if (typeof loadRecipeImages === "function") loadRecipeImages();
+  if (typeof loadRecipeImages === "function") loadRecipeImages();
 
   // Kategori filtresine yeni grupları ekle.
   const categoryFilter = document.getElementById("categoryFilter");
