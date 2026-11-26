@@ -45,6 +45,39 @@
 .type-arrow{position:absolute;right:20px;bottom:18px;color:var(--clay);font-size:23px}
 @media(max-width:650px){.menu-type-screen{padding:72px 18px 35px}.type-screen-content h2{font-size:39px}.type-screen-content>p{font-size:12px}.menu-type-options{grid-template-columns:1fr;gap:12px;margin-top:30px}.menu-type-option{min-height:145px;padding:17px;gap:14px}.type-visual{width:68px;height:88px;font-size:34px}.type-option-copy strong{font-size:21px}.type-option-copy>span{font-size:10px}.type-screen-close{top:15px;right:15px}}
 
+
+/* The second step is a full-screen selection workspace, never a dropdown */
+#menuBuilder.modal.menu-builder{display:flex;flex-direction:column;width:100%;height:100dvh;min-height:100dvh;max-height:none;border-radius:0;overflow:hidden}
+#menuBuilder .builder-hero{min-height:112px;flex:none;padding:22px clamp(20px,4vw,54px)}
+#menuBuilder .builder-body{flex:1;min-height:0;overflow:auto;grid-template-columns:minmax(0,1.25fr) minmax(330px,.75fr);gap:28px;padding:25px clamp(20px,4vw,54px)}
+#menuBuilder .main-course-panel{padding:0 26px 20px 0;border-right:1px solid var(--line);border-bottom:0}
+#menuBuilder .selection-intro h3{font-size:27px}
+#menuBuilder .main-course-picker{position:static;inset:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-height:none;overflow:visible;padding:0;margin:18px 0 0;border:0;border-radius:0;background:transparent;box-shadow:none}
+#menuBuilder .main-course-picker[hidden]{display:none}
+#menuBuilder .main-picker-title{position:static;grid-column:1/-1;background:transparent;padding:0 0 5px;font-size:12px}
+#menuBuilder .main-picker-option{min-height:100px;padding:9px;gap:10px;background:var(--paper);border-radius:12px;box-shadow:0 4px 14px #1d302708}
+#menuBuilder .main-picker-option .recipe-art{width:82px;height:78px;flex:none;border-radius:8px;font-size:26px}
+#menuBuilder .main-picker-option strong{font-size:12px}
+#menuBuilder .main-picker-option small{font-size:10px}
+#menuBuilder .selected-main-summary{margin-top:18px}
+#menuBuilder .chef-panel{align-self:start;position:sticky;top:0}
+#menuBuilder .builder-footer{flex:none;padding:15px clamp(20px,4vw,54px);position:relative}
+@media(max-width:900px){
+ #menuBuilder .builder-body{grid-template-columns:1fr;gap:16px}
+ #menuBuilder .main-course-panel{padding:0 0 18px;border-right:0;border-bottom:1px solid var(--line)}
+ #menuBuilder .chef-panel{position:static}
+ #menuBuilder .main-course-picker{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:560px){
+ #menuBuilder .builder-hero{min-height:100px;padding:16px 18px}
+ #menuBuilder .builder-body{padding:16px 14px}
+ #menuBuilder .main-course-picker{grid-template-columns:1fr 1fr;gap:8px}
+ #menuBuilder .main-picker-option{display:block;min-height:0;padding:7px}
+ #menuBuilder .main-picker-option .recipe-art{width:100%;height:92px;margin-bottom:7px}
+ #menuBuilder .main-picker-option strong{font-size:10px}
+ #menuBuilder .main-picker-option small{font-size:9px}
+}
+
 </style>
 </head>
 <body>
@@ -98,7 +131,7 @@
     </div>
   </div>
 </section>
-<div class="modal menu-builder" id="menuBuilder" hidden><div class="builder-hero"><div><div class="eyebrow">SOFRANIN YILDIZI</div><h2 id="modalTitle">Menünü oluştur</h2><div class="intro">Ana yemeğini seç, şefin ona yakışan menüyü tamamlasın.</div></div><button class="close builder-close" onclick="closeModal()">×</button></div><div class="builder-body"><section class="main-course-panel"><div class="selection-intro"><span class="eyebrow">1. ADIM</span><h3>Bugün nasıl bir menü istersin?</h3><p>Önce yemek tarzını seç, sana uygun ana yemekleri gösterelim.</p></div><div class="main-category-tabs"><button type="button" class="main-category-tab" id="stewTab" onclick="setMainCategory('stew')">🍲 Sulu / Geleneksel</button><button type="button" class="main-category-tab" id="fitTab" onclick="setMainCategory('fit')">🥗 Fit / Hafif</button></div><div class="main-course-picker" id="mainCoursePicker"></div><div class="selected-main-card selected-main-summary" id="selectedMainCard"><div class="chef-empty">Listeden bir ana yemek seçtiğinde burada görünecek.</div></div></section><section class="chef-panel"><div class="chef-heading"><span class="chef-icon">♧</span><div><h3>Şefin Menü Önerileri</h3><p id="chefDescription">Ana yemeğini seçtiğinde sana en uygun eşlikçileri önereceğiz.</p></div></div><div id="sideChoices" class="chef-suggestions"></div></section></div><div class="modal-footer builder-footer"><button class="btn" onclick="closeModal()">× &nbsp; Vazgeç</button><button class="btn primary" onclick="saveMenu()">✓ &nbsp; Menüyü kaydet</button></div></div></div><div class="toast" id="toast"></div>
+<div class="modal menu-builder" id="menuBuilder" hidden><div class="builder-hero"><div><div class="eyebrow">SOFRANIN YILDIZI</div><h2 id="modalTitle">Menünü oluştur</h2><div class="intro">Ana yemeğini seç, şefin ona yakışan menüyü tamamlasın.</div></div><button class="close builder-close" onclick="closeModal()">×</button></div><div class="builder-body"><section class="main-course-panel"><div class="selection-intro"><span class="eyebrow">1. ADIM</span><h3>Bugün nasıl bir menü istersin?</h3><p>Önce yemek tarzını seç, sana uygun ana yemekleri gösterelim.</p></div><div class="main-course-picker" id="mainCoursePicker"></div><div class="selected-main-card selected-main-summary" id="selectedMainCard"><div class="chef-empty">Listeden bir ana yemek seçtiğinde burada görünecek.</div></div></section><section class="chef-panel"><div class="chef-heading"><span class="chef-icon">♧</span><div><h3>Şefin Menü Önerileri</h3><p id="chefDescription">Ana yemeğini seçtiğinde sana en uygun eşlikçileri önereceğiz.</p></div></div><div id="sideChoices" class="chef-suggestions"></div></section></div><div class="modal-footer builder-footer"><button class="btn" onclick="closeModal()">× &nbsp; Vazgeç</button><button class="btn primary" onclick="saveMenu()">✓ &nbsp; Menüyü kaydet</button></div></div></div><div class="toast" id="toast"></div>
 <script>
 const photoById = {
   0:{file:"Kuru_fasulye,_Turkish_style.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Kuru_fasulye,_Turkish_style.jpg"},
