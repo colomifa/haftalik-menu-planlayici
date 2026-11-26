@@ -8,14 +8,15 @@
   Object.keys(chefPairings).forEach(key => delete chefPairings[key]);
   const baseId = 0;
   const newRecipes = rows.map((row, index) => {
-    const [name, emoji, category, calories, protein, imageQuery, ingredientText, stepText] = row;
+    const [name, emoji, rawCategory, calories, protein, imageQuery, ingredientText, stepText] = row;
+    const category = rawCategory === "Izgara ve mangal" ? "Ana yemek" : rawCategory;
     const ingredients = ingredientText.split(";").map(part => {
       const [name, quantity, aisle] = part.split("~");
       return [name, quantity, aisle];
     });
     const id = baseId + index;
     return { id, name, category, time: category === "Izgara ve mangal" ? "25-40 dk" : category === "Çorba" ? "25-35 dk" : category === "Meze" ? "15-30 dk" : "15-35 dk",
-      level: "Kolay", emoji, ingredients, tags: [category, "Az yağlı"], calories, protein, imageQuery,
+      level: "Kolay", emoji, ingredients, tags: [rawCategory === "Izgara ve mangal" ? "Izgara ve mangal" : category, "Az yağlı"], calories, protein,
       instructions: stepText.split("|") };
   });
   recipes.push(...newRecipes);
@@ -30,7 +31,7 @@
   }
 
   // Yeni ızgara tarifleri ana yemek seçicisinde de kullanılabilir.
-  stewMainIds.push(...newRecipes.filter(recipe => recipe.category === "Izgara ve mangal").map(recipe => recipe.id));
+  stewMainIds.push(...newRecipes.filter(recipe => recipe.tags.includes("Izgara ve mangal")).map(recipe => recipe.id));
 
   const findId = name => recipes.find(recipe => recipe.name === name)?.id;
   const pairingNames = {
