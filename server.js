@@ -9,7 +9,17 @@ const port = process.env.PORT || 3000;
 const here = path.dirname(fileURLToPath(import.meta.url));
 
 app.use(express.json());
-app.use(express.static(path.join(here, "public")));
+app.use(express.static(path.join(here, "public"), {
+  etag: false,
+  lastModified: false,
+  setHeaders(res, filePath) {
+    if (filePath.endsWith(".html") || filePath.endsWith(".json")) {
+      res.setHeader("Cache-Control", "no-store, no-cache, must-revalidate, proxy-revalidate");
+      res.setHeader("Pragma", "no-cache");
+      res.setHeader("Expires", "0");
+    }
+  }
+}));
 
 let pool;
 if (process.env.DATABASE_URL) {
