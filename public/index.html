@@ -153,11 +153,15 @@ function photoMarkup(id, emoji) {
 }
 async function loadRecipeImages() {
   try {
-    const response=await fetch('/api/recipe-images',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({names:recipes.map(r=>r.name)})});
-    if(!response.ok) throw new Error('Görsel servisi yanıt vermedi');
+    const response=await fetch('/images/recipes/recipe-image-map.json',{cache:'no-store'});
+    if(!response.ok) throw new Error('Yerel fotoğraf kataloğu yüklenemedi: '+response.status);
     const data=await response.json();
-    Object.entries(data.results||{}).forEach(([name,photo])=>{if(photo)recipeImageMap[name]=photo});
-  } catch(error) { console.warn('Tarif fotoğrafları alınamadı:',error); }
+    Object.entries(data).forEach(([name,url])=>{
+      if(typeof url==='string' && url.startsWith('/images/recipes/')) {
+        recipeImageMap[name]={url,source:'/PHOTO_CREDITS.md',creator:'Wikimedia Commons',license:'Kaynak ve lisans bilgisi'};
+      }
+    });
+  } catch(error) { console.error('Yerel tarif fotoğrafları yüklenemedi:',error); }
   recipeImagesLoaded=true;
   renderCatalog();
   renderFavorites();
