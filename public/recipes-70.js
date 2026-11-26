@@ -59,12 +59,13 @@
       return [name, quantity, aisle];
     });
     const id = baseId + index;
-    return { id, name, category, time: rawCategory === "Izgara ve mangal" ? "25-40 dk" : category === "Ana yemek" ? "25-40 dk" : category === "Çorba" ? "25-35 dk" : category === "Meze" ? "15-30 dk" : "15-35 dk",
+    return { id, name, category, imageQuery: imageQuery || "", time: rawCategory === "Izgara ve mangal" ? "25-40 dk" : category === "Ana yemek" ? "25-40 dk" : category === "Çorbalar" ? "25-35 dk" : category === "Mezeler" ? "15-30 dk" : "15-35 dk",
       level: "Kolay", emoji, ingredients, tags: [rawCategory === "Izgara ve mangal" ? "Izgara ve mangal" : category, "Az yağlı"], calories, protein,
       instructions: stepText.split("|") };
   });
   recipes.push(...newRecipes);
   window.bizimMutfakNewRecipes = newRecipes;
+  if (typeof loadRecipeImages === "function") loadRecipeImages();
 
   // Kategori filtresine yeni grupları ekle.
   const categoryFilter = document.getElementById("categoryFilter");
