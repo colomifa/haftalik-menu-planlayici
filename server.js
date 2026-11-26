@@ -141,26 +141,25 @@ function normalizeIngredientQuantity(name, quantity) {
   let q = String(quantity || "").trim();
   if (!q) return "";
   const norm = String(name || "").toLocaleLowerCase("tr-TR");
-  const match = q.match(/^(\\d+(?:[.,]\\d+)?|½|¼|¾|\\d+\\s+\\d+\\/\\d+)\\s*(.*)$/i);
+  const match = q.match(/^(\d+(?:[.,]\d+)?|½|¼|¾|\d+\s+\d+\/\d+)\s*(.*)$/i);
   if (!match) return q;
   const numberText = match[1].replace(",", ".");
   const amount = numberText.includes(" ") ? (() => { const [whole, frac] = numberText.split(" "); const [a,b] = frac.split("/"); return Number(whole) + Number(a)/Number(b); })()
     : ({ "½":0.5, "¼":0.25, "¾":0.75 }[numberText] ?? Number(numberText));
   if (!Number.isFinite(amount)) return q;
   const unit = match[2].toLocaleLowerCase("en-US").replace(/[._]/g, " ").trim();
-  const volumeUnits = new Set(["cup","cups","c","su bardağı","su bardagi","tbsp","tablespoon","tablespoons"," yemek kaşığı","yemek kaşığı","tsp","teaspoon","teaspoons","tatlı kaşığı","çay kaşığı","ml","milliliter","milliliters","l","liter","liters"]);
-  const isLiquid = /\\b(water|milk|broth|stock|oil|olive oil|vinegar|lemon juice|soy sauce|cream|juice|su|süt|yağ|sirke|limon suyu|et suyu|sebze suyu)\\b/i.test(norm);
+  const isLiquid = /\b(water|milk|broth|stock|oil|olive oil|zeytinyağı|vinegar|lemon juice|soy sauce|cream|juice|su|süt|yağ|zeytinyağı|sirke|limon suyu|et suyu|sebze suyu)\b/i.test(norm);
   const cup = /^(cup|cups|c|su bardağı|su bardagi)$/.test(unit);
   const tbsp = /^(tbsp|tablespoon|tablespoons|yemek kaşığı)$/.test(unit);
   const tsp = /^(tsp|teaspoon|teaspoons|tatlı kaşığı|çay kaşığı)$/.test(unit);
   const turkishTablespoon = unit === "yemek kaşığı";
   const turkishDessert = unit === "tatlı kaşığı";
   const turkishTea = unit === "çay kaşığı";
-  const mlMatch = unit.match(/^(\\d+)?\\s*(ml|milliliters?)$/);
+  const mlMatch = unit.match(/^(\d+)?\s*(ml|milliliters?)$/);
   const lMatch = unit.match(/^(l|liter|liters)$/);
   if (cup || tbsp || tsp || turkishTablespoon || turkishDessert || turkishTea || mlMatch || lMatch) {
     const ml = amount * (cup ? 200 : (tbsp || turkishTablespoon) ? 15 : (turkishDessert) ? 10 : (tsp || turkishTea) ? 5 : mlMatch ? 1 : 1000);
-    if (isLiquid || /^(water|milk|broth|stock|oil|olive oil|vinegar|lemon juice|soy sauce|cream|juice|su|süt|yağ|sirke|limon suyu|et suyu|sebze suyu)$/i.test(norm)) return `${Number(ml.toFixed(1))} ml`;
+    if (isLiquid || /^(water|milk|broth|stock|oil|olive oil|zeytinyağı|vinegar|lemon juice|soy sauce|cream|juice|su|süt|yağ|sirke|limon suyu|et suyu|sebze suyu)$/i.test(norm)) return `${Number(ml.toFixed(1))} ml`;
     const density = /^(flour|un)$/.test(norm) ? 0.55 : /rice|pirinç/.test(norm) ? 0.9 : /lentil|mercimek/.test(norm) ? 0.9 : /sugar|şeker/.test(norm) ? 0.85 : /yogurt|yoğurt/.test(norm) ? 1 : /butter|tereyağı/.test(norm) ? 0.95 : 0.65;
     const grams = ml * density;
     return `${Number(grams.toFixed(1))} g`;
