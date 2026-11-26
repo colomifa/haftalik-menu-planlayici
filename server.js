@@ -458,8 +458,10 @@ const normalizeMarketName = value => String(value || "").trim();
 // Ingredient-first product validation: a word appearing inside another product name
 // (e.g. "domatesli kraker") is never enough to count as a match.
 const normalizeMarketText = value => String(value || "").toLocaleLowerCase("tr-TR")
+  .replace(/[ğ]/g,"g").replace(/[ü]/g,"u").replace(/[ş]/g,"s")
+  .replace(/[ı]/g,"i").replace(/[ö]/g,"o").replace(/[ç]/g,"c")
   .normalize("NFD").replace(/[\\u0300-\\u036f]/g, "")
-  .replace(/ı/g, "i").replace(/[^a-z0-9]+/g, " ").replace(/\\s+/g, " ").trim();
+  .replace(/[^a-z0-9]+/g, " ").replace(/\\s+/g, " ").trim();
 const MARKET_INGREDIENT_GROUPS = {
   produce: new Set(["domates","patates","sogan","sarimsak","salatalik","biber","patlican","kabak","havuc","limon","elma","muz","maydanoz","dereotu","marul","ispanak","mantar"]),
   dairy: new Set(["yogurt","sut","kefir","ayran","peynir","kasar","tereyagi","krema"]),
@@ -472,7 +474,7 @@ const MARKET_INGREDIENT_GROUPS = {
 const MARKET_REJECT_TERMS = new Set([
   "kraker","cips","biskuvi","gofret","kek","kurabiye","sandvic","pizza","corba","sos",
   "aromali","meyveli","cilekli","muzlu","vanilyali","cikolatali","icecek","gazoz",
-  "toz","tablet","hazir","konserve","dondurulmus"
+  "tablet","konserve","dondurulmus"
 ]);
 const MARKET_SYNONYMS = {
   domates:["domates","salkim domates","kokteyl domates"],
