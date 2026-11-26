@@ -53,7 +53,7 @@
   const baseId = 0;
   const newRecipes = rows.map((row, index) => {
     const [name, emoji, rawCategory, calories, protein, imageQuery, ingredientText, stepText] = row;
-    const category = rawCategory === "Izgara ve mangal" ? "Ana yemek" : rawCategory;
+    const category = rawCategory === "Izgara ve mangal" ? "Ana yemek" : rawCategory === "Çorba" ? "Çorbalar" : rawCategory === "Meze" ? "Mezeler" : rawCategory === "Garnitür" ? "Garnitür ve yan ürünler" : rawCategory;
     const ingredients = ingredientText.split(";").map(part => {
       const [name, quantity, aisle] = part.split("~");
       return [name, quantity, aisle];
