@@ -312,6 +312,34 @@ app.get("/api/health", async (_req, res) => {
   res.json({ status: "ok", database });
 });
 
+app.post("/api/menus/week", async (req, res) => {
+  if (!pool) return res.status(503).json({ error: "Veritabanı henüz bağlanmadı." });
+  const menus = Array.isArray(req.body?.menus) ? req.body.menus : [];
+  if (menus.length !== 7 || menus.some(item => !/^\d{4}-\d{2}-\d{2}$/.test(item.date || "") || !item.payload || typeof item.payload !== "object")) {
+    return res.status(400).json({ error: "Yedi günlük geçerli menü listesi gerekli." });
+  }
+  const client = await pool.connect();
+  try {
+    await client.query("BEGIN");
+    for (const item of menus) {
+      await client.query(
+        `INSERT INTO weekly_menus (menu_date, payload)
+         VALUES ($1, $2)
+         ON CONFLICT (menu_date) DO UPDATE SET payload = EXCLUDED.payload, updated_at = NOW()`,
+        [item.date, item.payload]
+      );
+    }
+    await client.query("COMMIT");
+    res.status(201).json({ saved: menus.length });
+  } catch (error) {
+    await client.query("ROLLBACK");
+    console.error("Weekly menu save error:", error);
+    res.status(500).json({ error: "Haftalık menü kaydedilemedi." });
+  } finally {
+    client.release();
+  }
+});
+
 app.get("/api/menus", async (_req, res) => {
   if (!pool) return res.json([]);
   try {
