@@ -412,6 +412,80 @@ app.post("/api/shopping-list", async (req, res) => {
   }
 });
 
+
+const marketPriceCache = new Map();
+const MARKET_PRICE_API = "https://api.marketfiyati.org.tr";
+const normalizeMarketName = value => String(value || "").trim();
+function marketProductOffers(product) {
+  const offers = Array.isArray(product?.productDepotInfoList) ? product.productDepotInfoList : [];
+  return offers.map(offer => ({
+    market: normalizeMarketName(offer.marketAdi),
+    price: Number(offer.price),
+    unitPrice: offer.unitPrice ?? offer.unitPriceValue ?? null,
+    branch: offer.depotName || null,
+    productId: String(product.id),
+    productName: product.title,
+    brand: product.brand || null,
+    size: product.refinedVolumeOrWeight || product.refinedQuantityUnit || null,
+    updatedAt: offer.indexTime || null
+  })).filter(x => x.market && Number.isFinite(x.price) && x.price > 0);
+}
+async function searchMarketProduct(keyword) {
+  const key = String(keyword || "").trim().toLocaleLowerCase("tr-TR");
+  const cached = marketPriceCache.get(key);
+  if (cached && Date.now() - cached.at < 15 * 60 * 1000) return cached.data;
+  const response = await fetch(MARKET_PRICE_API + "/api/v2/search", {
+    method: "POST",
+    headers: { "Accept": "application/json", "Content-Type": "application/json" },
+    body: JSON.stringify({ keywords: keyword, pages: 0, size: 25, order: { name: "lowest_price", type: "asc" } }),
+    signal: AbortSignal.timeout(15000),
+    redirect: "error"
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error("Market Fiyatı servisi HTTP " + response.status);
+  const products = Array.isArray(data.content) ? data.content : [];
+  const result = products.map(product => ({
+    id: String(product.id),
+    title: product.title || keyword,
+    brand: product.brand || null,
+    size: product.refinedVolumeOrWeight || product.refinedQuantityUnit || null,
+    offers: marketProductOffers(product)
+  })).filter(product => product.offers.length);
+  const payload = { keyword, products: result, numberOfFound: Number(data.numberOfFound || products.length), retrievedAt: new Date().toISOString(), warnings: data.warnings || [] };
+  marketPriceCache.set(key, { at: Date.now(), data: payload });
+  return payload;
+}
+app.get("/api/market/status", (_req, res) => {
+  res.json({ provider: "TÜBİTAK Market Fiyatı", endpoint: MARKET_PRICE_API + "/api/v2/search", locationBased: false, cacheMinutes: 15, status: "ready-to-test" });
+});
+app.post("/api/market/compare", async (req, res) => {
+  const items = Array.isArray(req.body?.items) ? req.body.items : [];
+  if (!items.length) return res.status(400).json({ error: "Karşılaştırılacak ürün listesi boş." });
+  if (items.length > 20) return res.status(400).json({ error: "Tek seferde en fazla 20 ürün karşılaştırılabilir." });
+  const cleaned = items.map(item => ({ name: String(item?.name || "").trim(), quantity: String(item?.quantity || "") })).filter(item => item.name).slice(0, 20);
+  if (!cleaned.length) return res.status(400).json({ error: "Geçerli ürün adı bulunamadı." });
+  let cursor = 0;
+  const results = new Array(cleaned.length);
+  let upstreamError = null;
+  async function worker() {
+    while (cursor < cleaned.length) {
+      const index = cursor++;
+      try { results[index] = await searchMarketProduct(cleaned[index].name); }
+      catch (error) { upstreamError = error; results[index] = { keyword: cleaned[index].name, products: [], error: error.message }; }
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(2, cleaned.length) }, () => worker()));
+  const found = results.reduce((n, item) => n + item.products.length, 0);
+  res.set("Cache-Control", "no-store");
+  if (!found && upstreamError) return res.status(502).json({
+    error: "Market Fiyatı kaynağı konum bilgisi olmadan fiyat verisi döndürmedi veya şu anda erişilemiyor.",
+    detail: upstreamError.message,
+    locationRequired: true,
+    results
+  });
+  res.json({ provider: "TÜBİTAK Market Fiyatı", retrievedAt: new Date().toISOString(), locationBased: false, results });
+});
+
 initializeDatabase()
   .then(() => app.listen(port, () => console.log(`Menu planner listening on ${port}`)))
   .catch(error => {
