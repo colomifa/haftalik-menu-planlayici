@@ -221,8 +221,9 @@ function setMainCategory(category){mainCategory=category;state.selectedMain=null
 function selectMain(id){state.selectedMain=id;state.selectedSides.clear();$('mainCoursePicker').hidden=true;renderChoices()}
 function renderChoices(){
  const selected=recipes.find(r=>r.id===state.selectedMain);
- $('stewTab').classList.toggle('active',mainCategory==='stew');
- $('fitTab').classList.toggle('active',mainCategory==='fit');
+ const stewTab=$('stewTab'),fitTab=$('fitTab');
+ if(stewTab)stewTab.classList.toggle('active',mainCategory==='stew');
+ if(fitTab)fitTab.classList.toggle('active',mainCategory==='fit');
  const ids=mainCategory==='stew'?stewMainIds:(mainCategory==='fit'?fitMainIds:[]);
  const list=ids.map(id=>recipes.find(r=>r.id===id)).filter(Boolean);
  $('mainCoursePicker').hidden=!mainCategory;
