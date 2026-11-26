@@ -477,7 +477,7 @@ const MARKET_REJECT_TERMS = new Set([
 const MARKET_SYNONYMS = {
   domates:["domates","salkim domates","kokteyl domates"],
   yogurt:["yogurt","suzme yogurt"],
-  tavuk:["tavuk","tavuk gogsu","tavuk fileto"],
+  tavuk:["tavuk","tavuk gogsu","tavuk fileto"],\n  "tavuk gogsu":["tavuk gogsu","tavuk fileto"],
   patates:["patates"],
   sogan:["sogan","kuru sogan"],
   zeytinyagi:["zeytinyagi","sizma zeytinyagi","naturel sizma zeytinyagi"],
@@ -498,9 +498,14 @@ function validateMarketProduct(ingredient, product) {
   const wantedTokens=wanted.split(" ").filter(Boolean);
   const group=classifyMarketIngredient(ingredient);
   const metadata=normalizeMarketText([product.category,product.categoryName,product.mainCategoryName,product.productCategoryName].filter(Boolean).join(" "));
+  const aliases=MARKET_SYNONYMS[wanted] || MARKET_SYNONYMS[wantedTokens[0]] || [wanted];
+  const exactPhrase=aliases.some(alias=>{
+    const phrase=normalizeMarketText(alias);
+    return phrase && (" "+title+" ").includes(" "+phrase+" ");
+  });
   const hasExactToken=wantedTokens.length>0 && wantedTokens.every(token=>tokens.includes(token));
   const rejected=[...MARKET_REJECT_TERMS].some(term=>tokens.includes(term));
-  if (!title || rejected || !hasExactToken) {
+  if (!title || rejected || (!hasExactToken && !exactPhrase)) {
     // A near match may be shown for manual review, but it is never included in totals.
     const stemLike=wantedTokens.some(token=>tokens.some(t=>t.startsWith(token) && t!==token));
     return {score:stemLike?45:0,status:"rejected",reason:rejected?"İşlenmiş/uygunsuz ürün":"Malzeme adı tam eşleşmiyor",group};
