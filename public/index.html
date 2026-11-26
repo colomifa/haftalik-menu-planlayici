@@ -159,6 +159,8 @@ async function loadRecipeImages() {
     Object.entries(data).forEach(([name,path])=>{
       if(typeof path==='string' && path.startsWith('/images/recipes/')) {
         recipeImageMap[name]={url:path,source:'/PHOTO_CREDITS.md',creator:'Wikimedia Commons',license:'Kaynak ve lisans bilgisi'};
+      } else if(path && typeof path==='object' && typeof path.url==='string' && path.url.startsWith('https://commons.wikimedia.org/')) {
+        recipeImageMap[name]={url:path.url,source:path.source||path.url,creator:path.creator||'Wikimedia Commons',license:path.license||'Dosya sayfasındaki lisans'};
       }
     });
     // The bundled art file for this dish is incorrect (it shows salmon), so never use it.
