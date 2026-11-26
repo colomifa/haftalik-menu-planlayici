@@ -180,6 +180,9 @@ function showRecipeInPicker(id){
  $('recipePickerIntro').textContent='Seçili tarifin malzemeleri ve yapılışı';
  $('recipePickerList').innerHTML='';
  showRecipeDetail(Number(id));
+  pickerReturnTo=$('sideItemsPageModal').classList.contains('open')?'sidePage':'dayMenu';
+  $('sideItemsPageModal').classList.remove('open');
+  $('dayMenuModal').classList.remove('open');
   $('recipePickerModal').classList.add('open');
 }
 function closeRecipePicker(){ $('recipePickerModal').classList.remove('open'); if(pickerReturnTo==='sidePage')openSideItemsPage();else if(editingDay!==null)$('dayMenuModal').classList.add('open'); }
