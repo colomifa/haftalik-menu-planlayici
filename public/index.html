@@ -185,113 +185,7 @@ async function loadRecipeImages() {
   }
 }
 
-const recipes = [
-['Kuru fasulye','Ana yemek','1 sa 15 dk','Orta','🫘',[['Kuru fasulye','2 su bardağı','Bakliyat'],['Soğan','1 adet','Sebze'],['Domates salçası','1 yemek kaşığı','Temel gıda'],['Tereyağı','1 yemek kaşığı','Süt ürünleri']]],
-['Etli nohut','Ana yemek','1 sa 30 dk','Orta','🍲',[['Nohut','2 su bardağı','Bakliyat'],['Dana kuşbaşı','300 g','Et'],['Soğan','1 adet','Sebze']]],
-['İzmir köfte','Ana yemek','55 dk','Orta','🍅',[['Kıyma','400 g','Et'],['Patates','3 adet','Sebze'],['Domates','2 adet','Sebze'],['Soğan','1 adet','Sebze']]],
-['Fırında tavuk','Ana yemek','50 dk','Kolay','🍗',[['Tavuk but','4 adet','Et'],['Patates','3 adet','Sebze'],['Havuç','2 adet','Sebze']]],
-['Karnıyarık','Ana yemek','1 sa','Orta','🍆',[['Patlıcan','4 adet','Sebze'],['Kıyma','250 g','Et'],['Domates','2 adet','Sebze'],['Soğan','1 adet','Sebze']]],
-['İmam bayıldı','Ana yemek','1 sa','Orta','🍆',[['Patlıcan','4 adet','Sebze'],['Soğan','3 adet','Sebze'],['Domates','3 adet','Sebze']]],
-['Tas kebabı','Ana yemek','1 sa 20 dk','Orta','🥘',[['Dana kuşbaşı','500 g','Et'],['Patates','2 adet','Sebze'],['Havuç','1 adet','Sebze'],['Soğan','1 adet','Sebze']]],
-['Hünkar beğendi','Ana yemek','1 sa 10 dk','Zor','🍽️',[['Dana kuşbaşı','400 g','Et'],['Patlıcan','3 adet','Sebze'],['Süt','1 su bardağı','Süt ürünleri'],['Kaşar peyniri','100 g','Süt ürünleri']]],
-['Etli yaprak sarma','Ana yemek','1 sa 30 dk','Zor','🍃',[['Asma yaprağı','300 g','Sebze'],['Pirinç','1 su bardağı','Bakliyat'],['Kıyma','200 g','Et'],['Soğan','2 adet','Sebze']]],
-['Zeytinyağlı taze fasulye','Ana yemek','45 dk','Kolay','🫛',[['Taze fasulye','500 g','Sebze'],['Domates','2 adet','Sebze'],['Soğan','1 adet','Sebze']]],
-['Mantı','Ana yemek','1 sa 30 dk','Zor','🥟',[['Mantı','500 g','Temel gıda'],['Yoğurt','2 su bardağı','Süt ürünleri'],['Sarımsak','2 diş','Sebze']]],
-['Tavuk sote','Ana yemek','35 dk','Kolay','🍗',[['Tavuk göğsü','400 g','Et'],['Biber','2 adet','Sebze'],['Domates','2 adet','Sebze'],['Soğan','1 adet','Sebze']]],
-['Kıymalı ıspanak','Ana yemek','35 dk','Kolay','🥬',[['Ispanak','500 g','Sebze'],['Kıyma','200 g','Et'],['Soğan','1 adet','Sebze']]],
-['Fırında somon','Ana yemek','30 dk','Kolay','🐟',[['Somon','2 dilim','Balık'],['Limon','1 adet','Meyve-sebze'],['Brokoli','1 adet','Sebze']]],
-['Kabak dolması','Ana yemek','1 sa','Orta','🥒',[['Kabak','5 adet','Sebze'],['Pirinç','1 su bardağı','Bakliyat'],['Kıyma','200 g','Et'],['Soğan','1 adet','Sebze']]],
-['Mercimek çorbası','Çorba','35 dk','Kolay','🍵',[['Kırmızı mercimek','1 su bardağı','Bakliyat'],['Soğan','1 adet','Sebze'],['Havuç','1 adet','Sebze']]],
-['Ezogelin çorbası','Çorba','40 dk','Kolay','🍵',[['Kırmızı mercimek','yarım su bardağı','Bakliyat'],['Bulgur','2 yemek kaşığı','Bakliyat'],['Pirinç','2 yemek kaşığı','Bakliyat'],['Soğan','1 adet','Sebze']]],
-['Yayla çorbası','Çorba','35 dk','Kolay','🥣',[['Yoğurt','1 su bardağı','Süt ürünleri'],['Pirinç','yarım su bardağı','Bakliyat'],['Yumurta','1 adet','Süt ürünleri']]],
-['Tarhana çorbası','Çorba','25 dk','Kolay','🍵',[['Tarhana','4 yemek kaşığı','Temel gıda'],['Tereyağı','1 yemek kaşığı','Süt ürünleri'],['Domates salçası','1 tatlı kaşığı','Temel gıda']]],
-['Şehriye çorbası','Çorba','25 dk','Kolay','🍜',[['Arpa şehriye','yarım su bardağı','Temel gıda'],['Domates','1 adet','Sebze'],['Tavuk suyu','4 su bardağı','Temel gıda']]],
-['Domates çorbası','Çorba','30 dk','Kolay','🍅',[['Domates','5 adet','Sebze'],['Süt','1 su bardağı','Süt ürünleri'],['Un','1 yemek kaşığı','Temel gıda']]],
-['Düğün çorbası','Çorba','50 dk','Orta','🥣',[['Dana haşlama','200 g','Et'],['Yoğurt','3 yemek kaşığı','Süt ürünleri'],['Un','1 yemek kaşığı','Temel gıda']]],
-['Brokoli çorbası','Çorba','30 dk','Kolay','🥦',[['Brokoli','1 adet','Sebze'],['Süt','1 su bardağı','Süt ürünleri'],['Soğan','1 adet','Sebze']]],
-['Şehriyeli tavuk çorbası','Çorba','35 dk','Kolay','🍲',[['Tavuk göğsü','150 g','Et'],['Arpa şehriye','yarım su bardağı','Temel gıda'],['Havuç','1 adet','Sebze']]],
-['Çoban salata','Salata','15 dk','Kolay','🥗',[['Domates','2 adet','Sebze'],['Salatalık','2 adet','Sebze'],['Yeşil biber','1 adet','Sebze'],['Maydanoz','yarım demet','Sebze']]],
-['Gavurdağı salatası','Salata','20 dk','Kolay','🥗',[['Domates','3 adet','Sebze'],['Salatalık','1 adet','Sebze'],['Ceviz','yarım su bardağı','Kuruyemiş'],['Nar ekşisi','2 yemek kaşığı','Temel gıda']]],
-['Mevsim salata','Salata','15 dk','Kolay','🥬',[['Marul','1 adet','Sebze'],['Havuç','1 adet','Sebze'],['Mor lahana','yarım adet','Sebze'],['Limon','1 adet','Meyve-sebze']]],
-['Piyaz','Salata','20 dk','Kolay','🫘',[['Kuru fasulye','1 su bardağı','Bakliyat'],['Soğan','1 adet','Sebze'],['Maydanoz','yarım demet','Sebze'],['Yumurta','1 adet','Süt ürünleri']]],
-['Kısır','Salata','30 dk','Kolay','🥗',[['İnce bulgur','2 su bardağı','Bakliyat'],['Domates salçası','1 yemek kaşığı','Temel gıda'],['Maydanoz','yarım demet','Sebze'],['Taze soğan','4 dal','Sebze']]],
-['Semizotu salatası','Salata','10 dk','Kolay','🌿',[['Semizotu','1 demet','Sebze'],['Yoğurt','1 su bardağı','Süt ürünleri'],['Sarımsak','1 diş','Sebze']]],
-['Patates salatası','Salata','30 dk','Kolay','🥔',[['Patates','4 adet','Sebze'],['Taze soğan','3 dal','Sebze'],['Maydanoz','yarım demet','Sebze']]],
-['Bulgur pilavı','Yan yemek','25 dk','Kolay','🍚',[['Pilavlık bulgur','1 su bardağı','Bakliyat'],['Domates','1 adet','Sebze'],['Soğan','1 adet','Sebze']]],
-['Pirinç pilavı','Yan yemek','25 dk','Kolay','🍚',[['Pirinç','1 su bardağı','Bakliyat'],['Tereyağı','1 yemek kaşığı','Süt ürünleri']]],
-['Şehriyeli pirinç pilavı','Yan yemek','30 dk','Kolay','🍚',[['Pirinç','1 su bardağı','Bakliyat'],['Arpa şehriye','2 yemek kaşığı','Temel gıda'],['Tereyağı','1 yemek kaşığı','Süt ürünleri']]],
-['İç pilav','Yan yemek','40 dk','Orta','🍚',[['Pirinç','1 su bardağı','Bakliyat'],['Kuş üzümü','2 yemek kaşığı','Kuruyemiş'],['Dolmalık fıstık','2 yemek kaşığı','Kuruyemiş']]],
-['Mücver','Yan yemek','35 dk','Orta','🥒',[['Kabak','3 adet','Sebze'],['Yumurta','2 adet','Süt ürünleri'],['Beyaz peynir','100 g','Süt ürünleri'],['Un','3 yemek kaşığı','Temel gıda']]],
-['Fırın patates','Yan yemek','40 dk','Kolay','🥔',[['Patates','4 adet','Sebze'],['Zeytinyağı','2 yemek kaşığı','Temel gıda']]],
-['Cacık','Yan yemek','10 dk','Kolay','🥒',[['Yoğurt','2 su bardağı','Süt ürünleri'],['Salatalık','2 adet','Sebze'],['Nane','1 tatlı kaşığı','Baharat']]],
-['Haydari','Yan yemek','15 dk','Kolay','🥣',[['Süzme yoğurt','1 su bardağı','Süt ürünleri'],['Beyaz peynir','100 g','Süt ürünleri'],['Dereotu','yarım demet','Sebze']]],
-['Humus','Yan yemek','15 dk','Kolay','🧆',[['Nohut','1 su bardağı','Bakliyat'],['Tahin','2 yemek kaşığı','Temel gıda'],['Limon','1 adet','Meyve-sebze']]],
-['Zeytinyağlı barbunya','Yan yemek','45 dk','Orta','🫘',[['Barbunya','2 su bardağı','Bakliyat'],['Havuç','1 adet','Sebze'],['Patates','1 adet','Sebze'],['Domates','2 adet','Sebze']]],
-['Fırın mücver','Yan yemek','40 dk','Kolay','🥒',[['Kabak','3 adet','Sebze'],['Yumurta','2 adet','Süt ürünleri'],['Dereotu','yarım demet','Sebze'],['Beyaz peynir','100 g','Süt ürünleri']]],
-['Köz patlıcan salatası','Salata','25 dk','Kolay','🍆',[['Patlıcan','3 adet','Sebze'],['Sarımsak','2 diş','Sebze'],['Limon','yarım adet','Meyve-sebze']]],
-['Börülce salatası','Salata','25 dk','Kolay','🥗',[['Kuru börülce','1 su bardağı','Bakliyat'],['Kırmızı biber','1 adet','Sebze'],['Maydanoz','yarım demet','Sebze']]],
-['Karnabahar kızartması','Yan yemek','30 dk','Kolay','🥦',[['Karnabahar','1 adet','Sebze'],['Yumurta','2 adet','Süt ürünleri'],['Yoğurt','1 su bardağı','Süt ürünleri']]],
-['Yoğurtlu havuç tarator','Yan yemek','15 dk','Kolay','🥕',[['Havuç','3 adet','Sebze'],['Yoğurt','1 su bardağı','Süt ürünleri'],['Ceviz','2 yemek kaşığı','Kuruyemiş']]],
-['Nohutlu pilav','Yan yemek','35 dk','Kolay','🍚',[['Pirinç','1 su bardağı','Bakliyat'],['Nohut','1 su bardağı','Bakliyat'],['Tereyağı','1 yemek kaşığı','Süt ürünleri']]],
-['Fırında sebze','Yan yemek','40 dk','Kolay','🥕',[['Kabak','1 adet','Sebze'],['Patlıcan','1 adet','Sebze'],['Kırmızı biber','1 adet','Sebze'],['Patates','2 adet','Sebze']]],
-['Arpa şehriye salatası','Salata','25 dk','Kolay','🥗',[['Arpa şehriye','1 su bardağı','Temel gıda'],['Kornişon turşu','4 adet','Temel gıda'],['Mısır','yarım su bardağı','Konserve'],['Dereotu','yarım demet','Sebze']]],
-['Köz biber mezesi','Yan yemek','20 dk','Kolay','🌶️',[['Kapya biber','4 adet','Sebze'],['Sarımsak','1 diş','Sebze'],['Yoğurt','yarım su bardağı','Süt ürünleri']]],
-['Zeytinyağlı enginar','Yan yemek','40 dk','Orta','🌱',[['Enginar','4 adet','Sebze'],['Bezelye','1 su bardağı','Sebze'],['Havuç','1 adet','Sebze'],['Limon','1 adet','Meyve-sebze']]]
-,['Izgara tavuk göğsü','Ana yemek','25 dk','Kolay','🍗',[['Tavuk göğsü','400 g','Et'],['Zeytinyağı','1 yemek kaşığı','Temel gıda'],['Limon','1 adet','Meyve-sebze'],['Kekik','1 tatlı kaşığı','Baharat']],['Fit','Yüksek protein']]
-,['Limonlu kekikli tavuk','Ana yemek','30 dk','Kolay','🍋',[['Tavuk göğsü','400 g','Et'],['Limon','1 adet','Meyve-sebze'],['Sarımsak','2 diş','Sebze'],['Kekik','1 tatlı kaşığı','Baharat'],['Yoğurt','2 yemek kaşığı','Süt ürünleri']],['Fit','Yüksek protein']]
-,['Yoğurt marineli fırın tavuk','Ana yemek','45 dk','Kolay','🍗',[['Tavuk göğsü','400 g','Et'],['Yoğurt','3 yemek kaşığı','Süt ürünleri'],['Sarımsak','2 diş','Sebze'],['Toz kırmızı biber','1 tatlı kaşığı','Baharat']],['Fit','Yüksek protein']]
-,['Tavuk şiş','Ana yemek','30 dk','Orta','🍢',[['Tavuk göğsü','400 g','Et'],['Kapya biber','1 adet','Sebze'],['Yeşil biber','1 adet','Sebze'],['Soğan','1 adet','Sebze']],['Fit','Yüksek protein']]
-,['Sebzeli tavuk sote','Ana yemek','30 dk','Kolay','🥘',[['Tavuk göğsü','350 g','Et'],['Kabak','1 adet','Sebze'],['Kapya biber','1 adet','Sebze'],['Mantar','150 g','Sebze'],['Soğan','1 adet','Sebze']],['Fit','Tek tavada']]
-,['Fırında sebzeli tavuk','Ana yemek','40 dk','Kolay','🍗',[['Tavuk göğsü','400 g','Et'],['Brokoli','1 küçük adet','Sebze'],['Kabak','1 adet','Sebze'],['Havuç','1 adet','Sebze'],['Zeytinyağı','1 yemek kaşığı','Temel gıda']],['Fit','Yüksek protein']]
-,['Tavuklu kinoa kasesi','Ana yemek','30 dk','Kolay','🥗',[['Tavuk göğsü','300 g','Et'],['Kinoa','yarım su bardağı','Bakliyat'],['Salatalık','1 adet','Sebze'],['Domates','1 adet','Sebze'],['Maydanoz','yarım demet','Sebze']],['Fit','Dengeli öğün']]
-,['Tavuklu mantar sote','Ana yemek','25 dk','Kolay','🍄',[['Tavuk göğsü','350 g','Et'],['Mantar','200 g','Sebze'],['Soğan','1 adet','Sebze'],['Süt','yarım çay bardağı','Süt ürünleri']],['Yüksek protein']]
-,['Fırında tavuk köfte','Ana yemek','35 dk','Orta','🍽️',[['Tavuk kıyması','400 g','Et'],['Yumurta','1 adet','Süt ürünleri'],['Yulaf ezmesi','3 yemek kaşığı','Temel gıda'],['Maydanoz','yarım demet','Sebze']],['Fit','Yüksek protein']]
-,['Tavuklu kabak sandal','Ana yemek','40 dk','Orta','🥒',[['Kabak','3 adet','Sebze'],['Tavuk kıyması','300 g','Et'],['Domates','1 adet','Sebze'],['Soğan','1 adet','Sebze'],['Kaşar peyniri','40 g','Süt ürünleri']],['Fit','Sebzeli']]
-,['Izgara dana bonfile','Ana yemek','20 dk','Kolay','🥩',[['Dana bonfile','350 g','Et'],['Zeytinyağı','1 tatlı kaşığı','Temel gıda'],['Biberiye','1 dal','Baharat'],['Sarımsak','1 diş','Sebze']],['Fit','Yüksek protein']]
-,['Yağsız ızgara köfte','Ana yemek','25 dk','Orta','🍖',[['Az yağlı dana kıyma','400 g','Et'],['Soğan','1 adet','Sebze'],['Maydanoz','yarım demet','Sebze'],['Kimyon','1 çay kaşığı','Baharat']],['Fit','Yüksek protein']]
-,['Dana sebze sote','Ana yemek','35 dk','Kolay','🥘',[['Yağsız dana kuşbaşı','350 g','Et'],['Kabak','1 adet','Sebze'],['Kapya biber','1 adet','Sebze'],['Mantar','150 g','Sebze'],['Soğan','1 adet','Sebze']],['Fit','Sebzeli']]
-,['Dana şiş','Ana yemek','30 dk','Orta','🍢',[['Dana kuşbaşı','350 g','Et'],['Kapya biber','1 adet','Sebze'],['Yeşil biber','1 adet','Sebze'],['Soğan','1 adet','Sebze']],['Yüksek protein']]
-,['Fırında sebzeli dana rosto','Ana yemek','1 sa 15 dk','Orta','🥩',[['Dana nuar','500 g','Et'],['Havuç','2 adet','Sebze'],['Soğan','2 adet','Sebze'],['Sarımsak','3 diş','Sebze'],['Biberiye','1 dal','Baharat']],['Protein']]
-,['Etli mantar güveç','Ana yemek','40 dk','Kolay','🍄',[['Yağsız dana kuşbaşı','300 g','Et'],['Mantar','250 g','Sebze'],['Domates','2 adet','Sebze'],['Kapya biber','1 adet','Sebze'],['Soğan','1 adet','Sebze']],['Sebzeli','Protein']]
-,['Fırında kabaklı köfte','Ana yemek','40 dk','Orta','🥒',[['Az yağlı dana kıyma','350 g','Et'],['Kabak','2 adet','Sebze'],['Domates','2 adet','Sebze'],['Soğan','1 adet','Sebze']],['Fit','Sebzeli']]
-,['Patlıcanlı et sote','Ana yemek','40 dk','Orta','🍆',[['Yağsız dana kuşbaşı','350 g','Et'],['Patlıcan','2 adet','Sebze'],['Domates','2 adet','Sebze'],['Biber','2 adet','Sebze'],['Soğan','1 adet','Sebze']],['Protein']]
-,['Izgara hindi fileto','Ana yemek','25 dk','Kolay','🍗',[['Hindi göğüs fileto','400 g','Et'],['Limon','1 adet','Meyve-sebze'],['Zeytinyağı','1 tatlı kaşığı','Temel gıda'],['Kekik','1 tatlı kaşığı','Baharat']],['Fit','Yüksek protein']]
-,['Fırında hindi köfte','Ana yemek','35 dk','Orta','🍽️',[['Hindi kıyması','400 g','Et'],['Yumurta','1 adet','Süt ürünleri'],['Maydanoz','yarım demet','Sebze'],['Yulaf ezmesi','2 yemek kaşığı','Temel gıda']],['Fit','Yüksek protein']]
-,['Somonlu yeşil sebze tabağı','Ana yemek','25 dk','Kolay','🐟',[['Somon','2 dilim','Balık'],['Kuşkonmaz','200 g','Sebze'],['Brokoli','1 küçük adet','Sebze'],['Limon','1 adet','Meyve-sebze']],['Fit','Omega 3']]
-,['Ton balıklı Akdeniz kasesi','Ana yemek','15 dk','Kolay','🥗',[['Ton balığı','1 kutu','Konserve'],['Marul','yarım adet','Sebze'],['Salatalık','1 adet','Sebze'],['Domates','1 adet','Sebze'],['Haşlanmış nohut','yarım su bardağı','Bakliyat']],['Fit','Pratik']]
-,['Kıymalı karnabahar fırın','Ana yemek','40 dk','Orta','🥦',[['Az yağlı dana kıyma','300 g','Et'],['Karnabahar','1 adet','Sebze'],['Domates','2 adet','Sebze'],['Yoğurt','2 yemek kaşığı','Süt ürünleri']],['Fit','Sebzeli']]
-,['Tavuklu marul dürüm','Ana yemek','20 dk','Kolay','🥬',[['Tavuk göğsü','300 g','Et'],['Marul','1 adet','Sebze'],['Yoğurt','2 yemek kaşığı','Süt ürünleri'],['Salatalık','1 adet','Sebze'],['Avokado','yarım adet','Meyve-sebze']],['Fit','Düşük karbonhidrat']]
-
-].map((r,i)=>({id:i,name:r[0],category:r[1],time:r[2],level:r[3],emoji:r[4],ingredients:r[5],tags:r[6]||[]})).filter(r=>!/hindi/i.test(r.name+' '+r.ingredients.map(x=>x[0]).join(' '))).concat([
-['Fırında levrek','Ana yemek','30 dk','Kolay','🐟',[['Levrek fileto','2 adet','Balık'],['Kabak','1 adet','Sebze'],['Limon','1 adet','Meyve-sebze'],['Zeytinyağı','1 tatlı kaşığı','Temel gıda']],['Fit','Yüksek protein']],
-['Karidesli kabak noodle','Ana yemek','20 dk','Kolay','🍤',[['Ayıklanmış karides','250 g','Balık'],['Kabak','2 adet','Sebze'],['Sarımsak','2 diş','Sebze'],['Limon','yarım adet','Meyve-sebze']],['Fit','Düşük karbonhidrat']],
-['Tavuklu brokoli kasesi','Ana yemek','25 dk','Kolay','🥦',[['Tavuk göğsü','250 g','Et'],['Brokoli','1 küçük adet','Sebze'],['Yoğurt','3 yemek kaşığı','Süt ürünleri'],['Limon','yarım adet','Meyve-sebze']],['Fit','Yüksek protein']],
-['Yağsız dana fajita','Ana yemek','25 dk','Kolay','🥩',[['Yağsız dana bonfile','250 g','Et'],['Kapya biber','1 adet','Sebze'],['Yeşil biber','1 adet','Sebze'],['Soğan','1 adet','Sebze']],['Fit','Yüksek protein']],
-['Fırında sebzeli köfte','Ana yemek','35 dk','Orta','🍽️',[['Az yağlı dana kıyma','300 g','Et'],['Kabak','1 adet','Sebze'],['Havuç','1 adet','Sebze'],['Domates','2 adet','Sebze']],['Fit','Sebzeli']],
-['Nohutlu ıspanak','Ana yemek','25 dk','Kolay','🥬',[['Haşlanmış nohut','1 su bardağı','Bakliyat'],['Ispanak','300 g','Sebze'],['Soğan','1 adet','Sebze'],['Yoğurt','3 yemek kaşığı','Süt ürünleri']],['Fit','Bitkisel protein']],
-['Kabak sandal','Ana yemek','35 dk','Orta','🥒',[['Kabak','2 adet','Sebze'],['Az yağlı dana kıyma','200 g','Et'],['Domates','1 adet','Sebze'],['Yoğurt','2 yemek kaşığı','Süt ürünleri']],['Fit','Düşük karbonhidrat']],
-['Tavuklu kinoa bowl','Ana yemek','25 dk','Kolay','🥗',[['Tavuk göğsü','200 g','Et'],['Kinoa','yarım su bardağı','Bakliyat'],['Salatalık','1 adet','Sebze'],['Domates','1 adet','Sebze']],['Fit','Dengeli öğün']],
-['Fırında somon ve kuşkonmaz','Ana yemek','25 dk','Kolay','🐠',[['Somon','180 g','Balık'],['Kuşkonmaz','150 g','Sebze'],['Limon','yarım adet','Meyve-sebze']],['Fit','Omega 3']],
-['Yoğurtlu semizotu kasesi','Salata','10 dk','Kolay','🥣',[['Semizotu','1 demet','Sebze'],['Süzme yoğurt','4 yemek kaşığı','Süt ürünleri'],['Ceviz','2 yemek kaşığı','Kuruyemiş'],['Sarımsak','1 diş','Sebze']],['Fit','Hafif']],
-['Akdeniz yeşil salata','Salata','12 dk','Kolay','🥗',[['Roka','1 demet','Sebze'],['Marul','yarım adet','Sebze'],['Salatalık','1 adet','Sebze'],['Beyaz peynir','40 g','Süt ürünleri']],['Fit','Hafif']],
-['Mercimekli protein salatası','Salata','15 dk','Kolay','🥗',[['Yeşil mercimek','1 su bardağı','Bakliyat'],['Maydanoz','yarım demet','Sebze'],['Kapya biber','1 adet','Sebze'],['Limon','1 adet','Meyve-sebze']],['Fit','Bitkisel protein']],
-['Fırın karnabahar','Yan yemek','25 dk','Kolay','🥦',[['Karnabahar','1 küçük adet','Sebze'],['Yoğurt','2 yemek kaşığı','Süt ürünleri'],['Toz kırmızı biber','1 çay kaşığı','Baharat']],['Fit','Hafif']],
-['Renkli fırın sebze','Yan yemek','30 dk','Kolay','🥕',[['Kabak','1 adet','Sebze'],['Havuç','2 adet','Sebze'],['Kapya biber','1 adet','Sebze'],['Zeytinyağı','1 tatlı kaşığı','Temel gıda']],['Fit','Sebzeli']],
-['Kinoa ve maydanoz salatası','Salata','15 dk','Kolay','🌿',[['Kinoa','yarım su bardağı','Bakliyat'],['Maydanoz','yarım demet','Sebze'],['Salatalık','1 adet','Sebze'],['Limon','1 adet','Meyve-sebze']],['Fit','Lifli']],
-['Fırında baharatlı nohut','Yan yemek','30 dk','Kolay','🫘',[['Haşlanmış nohut','1 su bardağı','Bakliyat'],['Zeytinyağı','1 tatlı kaşığı','Temel gıda'],['Kimyon','1 çay kaşığı','Baharat']],['Fit','Bitkisel protein']],
-['Yoğurtlu pancar salatası','Salata','15 dk','Kolay','🟣',[['Pancar','2 adet','Sebze'],['Süzme yoğurt','3 yemek kaşığı','Süt ürünleri'],['Ceviz','1 yemek kaşığı','Kuruyemiş']],['Fit','Hafif']],
-['Sebzeli omlet fırın','Ana yemek','20 dk','Kolay','🍳',[['Yumurta','2 adet','Süt ürünleri'],['Ispanak','1 avuç','Sebze'],['Mantar','100 g','Sebze'],['Lor peyniri','40 g','Süt ürünleri']],['Fit','Protein']],
-['Izgara hellim ve sebze','Ana yemek','20 dk','Kolay','🧀',[['Hellim','80 g','Süt ürünleri'],['Kabak','1 adet','Sebze'],['Kapya biber','1 adet','Sebze'],['Roka','1 avuç','Sebze']],['Fit','Vejetaryen']]
-].map((r,i)=>({id:75+i,name:r[0],category:r[1],time:r[2],level:r[3],emoji:r[4],ingredients:r[5],tags:r[6]||[]}))).concat([["Yaprak antrikot","Ana yemek","25 dk","Orta","🥩",[["Dana antrikot","500 g","Et"],["Zeytinyağı","1 yemek kaşığı","Temel gıda"],["Sarımsak","2 diş","Sebze"],["Taze kekik","3 dal","Baharat"],["Tereyağı","1 yemek kaşığı","Süt ürünleri"]],["Türk mutfağı","Yüksek protein"]],["Ali nazik","Ana yemek","45 dk","Orta","🍆",[["Dana kuşbaşı veya kıyma","350 g","Et"],["Patlıcan","3 adet","Sebze"],["Süzme yoğurt","1 su bardağı","Süt ürünleri"],["Sarımsak","2 diş","Sebze"],["Tereyağı","1 yemek kaşığı","Süt ürünleri"]],["Gaziantep","Geleneksel"]],["Çökertme kebabı","Ana yemek","50 dk","Orta","🥩",[["Dana bonfile","350 g","Et"],["Patates","3 adet","Sebze"],["Süzme yoğurt","1 su bardağı","Süt ürünleri"],["Domates","2 adet","Sebze"],["Sarımsak","2 diş","Sebze"]],["Ege mutfağı","Geleneksel"]],["İçli köfte","Ana yemek","1 sa 30 dk","Zor","🟤",[["İnce bulgur","2 su bardağı","Bakliyat"],["Dana kıyma","300 g","Et"],["Soğan","2 adet","Sebze"],["Ceviz içi","yarım su bardağı","Kuruyemiş"],["İrmik","yarım su bardağı","Temel gıda"],["Yumurta","1 adet","Süt ürünleri"]],["Geleneksel","Emek isteyen"]],["Kadınbudu köfte","Ana yemek","45 dk","Orta","🍖",[["Dana kıyma","500 g","Et"],["Pirinç","yarım su bardağı","Bakliyat"],["Yumurta","2 adet","Süt ürünleri"],["Galeta unu","1 su bardağı","Temel gıda"],["Soğan","1 adet","Sebze"],["Maydanoz","yarım demet","Sebze"]],["Ev yemeği","Geleneksel"]],["Kuru patlıcan dolması","Ana yemek","1 sa 15 dk","Orta","🍆",[["Kuru patlıcan","15 adet","Sebze"],["Pirinç","1 su bardağı","Bakliyat"],["Dana kıyma","200 g","Et"],["Soğan","1 adet","Sebze"],["Nar ekşisi","1 yemek kaşığı","Temel gıda"],["Domates salçası","1 yemek kaşığı","Temel gıda"]],["Güneydoğu","Geleneksel"]],["Kuzu tandır","Ana yemek","3 sa","Orta","🍖",[["Kuzu kol veya incik","1 kg","Et"],["Soğan","1 adet","Sebze"],["Sarımsak","4 diş","Sebze"],["Biberiye","2 dal","Baharat"],["Zeytinyağı","1 yemek kaşığı","Temel gıda"]],["Geleneksel","Yavaş pişirme"]],["Etli kuru dolma","Ana yemek","1 sa 20 dk","Orta","🫑",[["Kuru biber","10 adet","Sebze"],["Kuru patlıcan","10 adet","Sebze"],["Dana kıyma","250 g","Et"],["Pirinç","1 su bardağı","Bakliyat"],["Soğan","1 adet","Sebze"],["Sumak","1 tatlı kaşığı","Baharat"]],["Güneydoğu","Geleneksel"]]].map((r,i)=>({id:98+i,name:r[0],category:r[1],time:r[2],level:r[3],emoji:r[4],ingredients:r[5],tags:r[6]||[]}))).concat([
-["Etli taze fasulye","Ana yemek","45 dk","Kolay","🫛",[["Dana kuşbaşı","250 g","Et"],["Taze fasulye","400 g","Sebze"],["Domates","2 adet","Sebze"],["Soğan","1 adet","Sebze"],["Zeytinyağı","1 yemek kaşığı","Temel gıda"]],["Fit","Türk mutfağı","Protein"]],
-["Fırında baharatlı tavuk but","Ana yemek","40 dk","Kolay","🍗",[["Derisiz tavuk but","4 adet","Et"],["Yoğurt","2 yemek kaşığı","Süt ürünleri"],["Sarımsak","2 diş","Sebze"],["Kekik","1 tatlı kaşığı","Baharat"],["Kırmızı toz biber","1 çay kaşığı","Baharat"]],["Fit","Türk mutfağı","Yüksek protein"]],
-["Izgara kasap köfte","Ana yemek","25 dk","Orta","🍖",[["Az yağlı dana kıyma","350 g","Et"],["Soğan","yarım adet","Sebze"],["Maydanoz","yarım demet","Sebze"],["Kimyon","1 çay kaşığı","Baharat"],["Karabiber","yarım çay kaşığı","Baharat"]],["Fit","Türk mutfağı","Yüksek protein"]],
-["Tavuklu nohutlu semizotu","Ana yemek","25 dk","Kolay","🥬",[["Tavuk göğsü","200 g","Et"],["Haşlanmış nohut","yarım su bardağı","Bakliyat"],["Semizotu","1 demet","Sebze"],["Yoğurt","3 yemek kaşığı","Süt ürünleri"],["Sarımsak","1 diş","Sebze"]],["Fit","Türk mutfağı","Protein"]],
-["Zeytinyağlı kabak","Ana yemek","30 dk","Kolay","🥒",[["Kabak","3 adet","Sebze"],["Soğan","1 adet","Sebze"],["Domates","2 adet","Sebze"],["Dereotu","yarım demet","Sebze"],["Zeytinyağı","1 yemek kaşığı","Temel gıda"]],["Fit","Türk mutfağı","Hafif"]],
-["Yeşil mercimekli bulgur salatası","Salata","25 dk","Kolay","🥗",[["Yeşil mercimek","yarım su bardağı","Bakliyat"],["İnce bulgur","yarım su bardağı","Bakliyat"],["Maydanoz","yarım demet","Sebze"],["Taze soğan","3 dal","Sebze"],["Limon","1 adet","Meyve-sebze"]],["Fit","Türk mutfağı","Bitkisel protein"]],
-["Yoğurtlu nohutlu köz patlıcan","Yan yemek","25 dk","Kolay","🍆",[["Patlıcan","2 adet","Sebze"],["Haşlanmış nohut","yarım su bardağı","Bakliyat"],["Süzme yoğurt","4 yemek kaşığı","Süt ürünleri"],["Sarımsak","1 diş","Sebze"],["Maydanoz","çeyrek demet","Sebze"]],["Fit","Türk mutfağı","Protein"]],
-["Fırında baharatlı levrek","Ana yemek","25 dk","Kolay","🐟",[["Levrek fileto","2 adet","Balık"],["Limon","1 adet","Meyve-sebze"],["Kekik","1 tatlı kaşığı","Baharat"],["Sarımsak","1 diş","Sebze"],["Zeytinyağı","1 tatlı kaşığı","Temel gıda"]],["Fit","Türk mutfağı","Yüksek protein"]]
-].map((r,i)=>({id:106+i,name:r[0],category:r[1],time:r[2],level:r[3],emoji:r[4],ingredients:r[5],tags:r[6]})));
+const recipes = [];
 const state={weekStart:startOfWeek(new Date()),menus:{},favorites:new Set(),selectedDate:null,selectedMain:null,selectedSides:new Set(),shopping:[]};
 const $=id=>document.getElementById(id);
 function startOfWeek(d){const x=new Date(d);x.setHours(0,0,0,0);x.setDate(x.getDate()-((x.getDay()+6)%7));return x}
@@ -378,7 +272,21 @@ function buildRecipeSteps(r){
  if(r.category==='Ana yemek') return ['Malzemeleri ('+main+') hazırlayın; et veya tavuk kullanıyorsanız fazla nemini kâğıt havluyla alın.','Soğan ve aromatikleri tencerede/tavada kavurun; etli tariflerde eti ekleyip yüksek ateşte renk alana kadar mühürleyin.','Sebzeleri ('+vegetables.slice(0,3).join(', ')+') ve tarifteki salça/baharatları ekleyip birkaç dakika karıştırın.','Tarifin yöntemine göre kapağı kapalı kısık ateşte, fırında veya ızgarada ana malzeme tamamen pişene kadar pişirin.','Tuzunu son kez kontrol edin; etli yemekleri birkaç dakika dinlendirip sıcak servis edin.'];
  return ['Malzemeleri ölçüp hazırlayın.','Pişirme kabını uygun ısıya getirin ve tarifin ana malzemelerini ekleyin.','Diğer malzemeleri tarifteki sırayla ilave ederek pişirin.','Kıvamını ve lezzetini kontrol edip gerekli baharat ayarını yapın.','Uygun servis sıcaklığında sunun.'];
 }
-function openRecipeDetail(id){const r=recipes.find(x=>x.id===id);if(!r)return;$('detailTitle').textContent=r.name;$('detailMeta').textContent=r.category+' · '+r.time+' · '+r.level+' · Tarif ölçüsü';$('detailIngredients').innerHTML='<h3 class="section-title">Malzemeler</h3>'+r.ingredients.map(x=>'<div class="quick-item"><strong>'+esc(x[0])+'</strong><span>'+esc(x[1])+'</span></div>').join('');const steps=buildRecipeSteps(r);$('detailSteps').innerHTML=steps.map(x=>'<li style="margin:0 0 9px">'+esc(x)+'</li>').join('');$('recipeDetailModal').classList.add('open')}
+async function openRecipeDetail(id){
+ let r=recipes.find(x=>x.id===Number(id)); if(!r)return;
+ try{
+  const response=await fetch('/api/recipes/'+encodeURIComponent(id),{cache:'no-store'});
+  if(!response.ok)throw new Error('Tarif detayı alınamadı');
+  r=await response.json();
+  r.ingredients=(r.ingredients||[]).map(x=>Array.isArray(x)?x:[x.name,x.quantity,x.aisle]);
+ }catch(error){console.warn(error);toast('Tarif detayı şu anda alınamıyor.');return;}
+ $('detailTitle').textContent=r.name;
+ $('detailMeta').textContent=r.category+' · '+r.time+' · '+r.level+' · '+(r.servings||2)+' porsiyon · '+r.calories+' kcal / porsiyon · '+r.protein+' g protein';
+ $('detailIngredients').innerHTML='<h3 class="section-title">Malzemeler</h3>'+r.ingredients.map(x=>'<div class="quick-item"><strong>'+esc(x[0])+'</strong><span>'+esc(x[1])+'</span></div>').join('');
+ const steps=r.instructions&&r.instructions.length?r.instructions:buildRecipeSteps(r);
+ $('detailSteps').innerHTML=steps.map(x=>'<li style="margin:0 0 9px">'+esc(x)+'</li>').join('');
+ $('recipeDetailModal').classList.add('open');
+}
 function closeRecipeDetail(){$('recipeDetailModal').classList.remove('open')}
 function renderCatalog(){const q=$('recipeSearch').value.toLocaleLowerCase('tr-TR'),cat=$('categoryFilter').value;const list=recipes.filter(r=>(cat==='all'||r.category===cat)&&(r.name+' '+(r.tags||[]).join(' ')).toLocaleLowerCase('tr-TR').includes(q));$('recipeGrid').innerHTML=list.map(card).join('')}
 function card(r){return '<article class="recipe-card">'+photoMarkup(r.id,r.emoji)+'<div class="recipe-info"><div style="display:flex;justify-content:space-between"><span class="eyebrow" style="font-size:9px">'+r.category+'</span><button class="fav" onclick="toggleFav('+r.id+')" aria-label="Favoriye ekle">'+(state.favorites.has(r.id)?'♥':'♡')+'</button></div><h4>'+esc(r.name)+'</h4>'+(r.tags?.length?'<div class="recipe-tags">'+r.tags.map(t=>'<span>'+esc(t)+'</span>').join('')+'</div>':'')+'<p>'+r.time+' · '+r.level+'</p><div class="recipe-meta"><span>'+r.ingredients.length+' malzeme</span><button class="btn" style="padding:5px 8px" onclick="openRecipeDetail('+r.id+')">Tarifi gör</button><button class="btn primary" style="padding:5px 8px" onclick="addFromCatalog('+r.id+')">Menüye ekle</button></div></div></article>'}
