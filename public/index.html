@@ -76,7 +76,8 @@ function photoMarkup(id, emoji) {
   const p = photoById[id];
   if (!p) return '<div class="recipe-art">'+emoji+'</div>';
   const src = 'https://commons.wikimedia.org/wiki/Special:FilePath/' + p.file + '?width=640';
-  return '<div class="recipe-art has-photo"><img loading="lazy" src="'+src+'" alt="Tarif fotoğrafı"></div><div class="photo-credit"><a href="'+p.page+'" target="_blank" rel="noopener">Fotoğraf: '+p.author+' · '+p.license+'</a></div>';
+  const licenseUrl = p.license === 'CC0 1.0' ? 'https://creativecommons.org/publicdomain/zero/1.0/' : (p.license === 'CC BY-SA 3.0' ? 'https://creativecommons.org/licenses/by-sa/3.0/' : 'https://creativecommons.org/licenses/by-sa/4.0/');
+  return '<div class="recipe-art has-photo"><img loading="lazy" src="'+src+'" alt="'+(recipes.find(r=>r.id===id)?.name || 'Türk yemeği')+' fotoğrafı"></div><div class="photo-credit"><a href="'+p.page+'" target="_blank" rel="noopener">Fotoğraf: '+p.author+'</a> · <a href="'+licenseUrl+'" target="_blank" rel="noopener">'+p.license+'</a></div>';
 }
 const recipes = [
 ['Kuru fasulye','Ana yemek','1 sa 15 dk','Orta','🫘',[['Kuru fasulye','2 su bardağı','Bakliyat'],['Soğan','1 adet','Sebze'],['Domates salçası','1 yemek kaşığı','Temel gıda'],['Tereyağı','1 yemek kaşığı','Süt ürünleri']]],
