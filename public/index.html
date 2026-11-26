@@ -113,21 +113,14 @@ const photoById = {
 function photoMarkup(id, emoji) {
   const recipe=recipes.find(r=>r.id===id);
   const name=recipe?.name||'Yemek';
-  const n=name.toLocaleLowerCase('tr-TR');
-  const fish=/somon|levrek|karides|balık|ton balık/.test(n);
-  const chicken=/tavuk|şiş|marul dürüm/.test(n);
-  const meat=/köfte|kıyma|dana|etli|kebap|musakka|bonfile|fajita/.test(n);
-  const salad=/salata|semizotu|kinoa|piyaz|kısır/.test(n);
-  const src=fish
-    ? 'https://freshyforks.com/assets/images/1766790249492-q5ciq8t9.webp'
-    : chicken
-      ? 'https://cdn.shopify.com/s/files/1/0720/1079/3270/files/grilled_chicken_with_vegetables.png?v=1756318924'
-      : meat
-        ? 'https://meatballrecipeskitchen.com/api/media/file/mastering-the-art-of-low-carb-meatballs-tips-and-tricks-for-success.webp'
-        : salad
-          ? 'https://zuzurestaurant.sg/cdn/shop/collections/Daily-Fresh-Salads.png?v=1772148857&width=750'
-          : 'https://snapcalorie-webflow-website.s3.us-east-2.amazonaws.com/media/food_pics_v2/medium/pollo_a_la_plancha.jpg';
-  return '<div class="recipe-art has-photo"><img loading="lazy" src="'+src+'" alt="'+esc(name)+'" onerror="this.parentElement.classList.add(\'image-fallback\');this.remove()"></div>';
+  const photo=photoById[id];
+  // Yalnızca tarife özel, Wikimedia'da kayıtlı görseli kullan.
+  // Eşleşme yoksa başka yemeğin fotoğrafını göstermeyip tarif ikonuna dön.
+  if (!photo) {
+    return '<div class="recipe-art image-fallback" role="img" aria-label="'+esc(name)+'">'+emoji+'</div>';
+  }
+  const src='https://commons.wikimedia.org/wiki/Special:FilePath/'+photo.file;
+  return '<div class="recipe-art has-photo"><img loading="lazy" src="'+src+'" alt="'+esc(name)+'" onerror="this.parentElement.classList.remove(\'has-photo\');this.parentElement.classList.add(\'image-fallback\');this.parentElement.textContent=\''+emoji+'\'"></div>';
 }
 const recipes = [
 ['Kuru fasulye','Ana yemek','1 sa 15 dk','Orta','🫘',[['Kuru fasulye','2 su bardağı','Bakliyat'],['Soğan','1 adet','Sebze'],['Domates salçası','1 yemek kaşığı','Temel gıda'],['Tereyağı','1 yemek kaşığı','Süt ürünleri']]],
