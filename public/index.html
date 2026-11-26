@@ -147,11 +147,35 @@ let recipeImagesLoaded = false;
 function photoMarkup(id, emoji) {
   const recipe=recipes.find(r=>r.id===id);
   const icon=recipe?.emoji || emoji || '🍽️';
+  if (recipe?.imageUrl) return '<div class="recipe-art has-photo"><img src="'+esc(recipe.imageUrl)+'" alt="'+esc(recipe.name)+'" loading="lazy" onerror="this.parentElement.classList.add(\'image-fallback\');this.remove();this.parentElement.textContent=\''+icon+'\'"></div>';
   return '<div class="recipe-art emoji-art" role="img" aria-label="'+esc(recipe?.name||'Yemek')+'">'+icon+'</div>';
 }
 async function loadRecipeImages() {
-  // Görsel kullanımı kapatıldı; tarif kartlarında yalnızca emoji gösterilir.
+  if (recipeImagesLoaded || !recipes.length) return;
   recipeImagesLoaded=true;
+  const cacheKey='bizim-mutfak-recipe-images-v1';
+  let cache={};
+  try { cache=JSON.parse(localStorage.getItem(cacheKey)||'{}'); } catch {}
+  const queue=recipes.filter(r=>r.imageQuery && !r.imageUrl && !cache[r.name]);
+  recipes.forEach(r=>{ if(cache[r.name]) r.imageUrl=cache[r.name]; });
+  let cursor=0;
+  async function worker(){
+    while(cursor<queue.length){
+      const r=queue[cursor++];
+      try{
+        const url='https://www.themealdb.com/api/json/v1/1/search.php?s='+encodeURIComponent(r.imageQuery);
+        const response=await fetch(url);
+        if(!response.ok) continue;
+        const data=await response.json();
+        const meal=data.meals?.[0];
+        if(meal?.strMealThumb){r.imageUrl=meal.strMealThumb;cache[r.name]=meal.strMealThumb;}
+      }catch{}
+    }
+  }
+  await Promise.all(Array.from({length:4},()=>worker()));
+  try{localStorage.setItem(cacheKey,JSON.stringify(cache));}catch{}
+  if(document.getElementById('recipeGrid')) renderCatalog();
+  if(typeof renderHomeRecipes==='function') renderHomeRecipes();
 }
 
 const recipes = [
