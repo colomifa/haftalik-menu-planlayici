@@ -32,7 +32,32 @@
 .main-picker-option strong{font-size:10px;line-height:1.3;display:block}
 .main-picker-title{grid-column:1/-1;font-size:11px;font-weight:700;color:#667364;padding:0 2px 3px}
 @media(max-width:760px){.main-course-picker{grid-template-columns:1fr;max-height:220px}}
- .recipe-tags{display:flex;flex-wrap:wrap;gap:4px;margin:5px 0}.recipe-tags span{font-size:9px;padding:3px 6px;border-radius:20px;background:#eaf1e8;color:#42654b;font-weight:700}</style>
+ .recipe-tags{display:flex;flex-wrap:wrap;gap:4px;margin:5px 0}.recipe-tags span{font-size:9px;padding:3px 6px;border-radius:20px;background:#eaf1e8;color:#42654b;font-weight:700}
+.builder-body{grid-template-columns:1.08fr .92fr;align-items:start}
+.selection-intro{margin:0 0 13px}.selection-intro h3{font:700 20px 'Playfair Display';margin:3px 0}.selection-intro p{font-size:11px;color:#81887d;margin:0}
+.main-category-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.main-category-tab{border:1px solid #e5dfd2;border-radius:10px;padding:11px 9px;background:#fffdf8;color:#526253;font-weight:700;font-size:11px;cursor:pointer}
+.main-category-tab.active{background:#1d4937;color:#fff;border-color:#1d4937;box-shadow:0 4px 12px #1d493722}
+.main-course-picker{margin:0;padding:0;border:0;border-radius:0;background:transparent;max-height:380px;overflow-y:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.main-course-picker[hidden]{display:none}
+.main-picker-option{display:flex;align-items:center;gap:8px;padding:7px;border:1px solid #ebe5da;border-radius:10px;background:#fffdf8;text-align:left;cursor:pointer;min-width:0;transition:.15s}
+.main-picker-option:hover,.main-picker-option.active{border-color:#6d8c70;background:#f0f5ee;box-shadow:0 0 0 1px #c9d9c7}
+.main-picker-option .recipe-art{width:65px;height:54px;flex:none;border-radius:7px;font-size:22px}
+.main-picker-option .photo-credit{display:none}
+.main-picker-option strong{font-size:10px;line-height:1.3;display:block}
+.main-picker-option small{font-size:9px;color:#879083;display:block;margin-top:3px}
+.main-picker-title{grid-column:1/-1;font-size:11px;font-weight:700;color:#667364;padding:0 2px 3px}
+.selected-main-summary{height:auto;min-height:76px;margin-top:12px;display:flex;align-items:center;padding:8px;background:#f0f4ec;border:1px solid #dce6d8;box-shadow:none}
+.selected-main-summary .recipe-art{height:58px;width:76px;flex:none;border-radius:8px}
+.selected-main-summary .photo-credit{display:none}
+.selected-summary-name{font:700 14px 'Playfair Display';color:#314536}
+.selected-summary-meta{font-size:10px;color:#778174;margin-top:4px}
+.chef-panel{background:#fffdf8;border:1px solid #ece5da;border-radius:14px;padding:15px}
+.chef-heading{margin-bottom:12px}
+.chef-suggestion{grid-template-columns:76px minmax(0,1fr) auto}
+.chef-suggestion .recipe-art{width:76px}
+@media(max-width:760px){.builder-body{grid-template-columns:1fr}.main-course-picker{grid-template-columns:1fr;max-height:320px}.chef-panel{padding:12px}.main-picker-option .recipe-art{width:72px}}
+</style>
 </head>
 <body>
 <div class="app">
@@ -68,7 +93,7 @@
 </section>
 </main>
 </div>
-<div class="modal-backdrop" id="menuModal"><div class="modal menu-builder"><div class="builder-hero"><div><div class="eyebrow">SOFRANIN YILDIZI</div><h2 id="modalTitle">Menünü oluştur</h2><div class="intro">Ana yemeğini seç, şefin ona yakışan menüyü tamamlasın.</div></div><button class="close builder-close" onclick="closeModal()">×</button></div><div class="builder-body"><section class="main-course-panel"><div class="selected-main-card" id="selectedMainCard"></div><div class="main-course-picker" id="mainCoursePicker" hidden></div><div class="alternative-heading"><span>♨</span> Farklı ana yemek önerileri <div class="carousel-controls"><button class="btn" id="mainPrev" type="button">‹</button><button class="btn" id="mainNext" type="button">›</button></div></div><div class="main-alternatives" id="mainAlternatives"></div></section><section class="chef-panel"><div class="chef-heading"><span class="chef-icon">♧</span><div><h3>Şefin Menü Önerileri</h3><p id="chefDescription">Ana yemeğini seçtiğinde sana en uygun eşlikçileri önereceğiz.</p></div></div><div id="sideChoices" class="chef-suggestions"></div></section></div><div class="modal-footer builder-footer"><button class="btn" onclick="closeModal()">× &nbsp; Vazgeç</button><button class="btn primary" onclick="saveMenu()">✓ &nbsp; Menüyü kaydet</button></div></div></div><div class="toast" id="toast"></div>
+<div class="modal-backdrop" id="menuModal"><div class="modal menu-builder"><div class="builder-hero"><div><div class="eyebrow">SOFRANIN YILDIZI</div><h2 id="modalTitle">Menünü oluştur</h2><div class="intro">Ana yemeğini seç, şefin ona yakışan menüyü tamamlasın.</div></div><button class="close builder-close" onclick="closeModal()">×</button></div><div class="builder-body"><section class="main-course-panel"><div class="selection-intro"><span class="eyebrow">1. ADIM</span><h3>Ana yemeğini seç</h3><p>Önce nasıl bir sofra istediğine karar ver.</p></div><div class="main-category-tabs"><button type="button" class="main-category-tab" id="stewTab" onclick="setMainCategory('stew')">🍲 Sulu / Geleneksel</button><button type="button" class="main-category-tab" id="fitTab" onclick="setMainCategory('fit')">🥗 Fit / Hafif</button></div><div class="main-course-picker" id="mainCoursePicker"></div><div class="selected-main-card selected-main-summary" id="selectedMainCard"><div class="chef-empty">Listeden bir ana yemek seçtiğinde burada görünecek.</div></div></section><section class="chef-panel"><div class="chef-heading"><span class="chef-icon">♧</span><div><h3>Şefin Menü Önerileri</h3><p id="chefDescription">Ana yemeğini seçtiğinde sana en uygun eşlikçileri önereceğiz.</p></div></div><div id="sideChoices" class="chef-suggestions"></div></section></div><div class="modal-footer builder-footer"><button class="btn" onclick="closeModal()">× &nbsp; Vazgeç</button><button class="btn primary" onclick="saveMenu()">✓ &nbsp; Menüyü kaydet</button></div></div></div><div class="toast" id="toast"></div>
 <script>
 const photoById = {
   0:{file:"Kuru_fasulye,_Turkish_style.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Kuru_fasulye,_Turkish_style.jpg"},
@@ -196,36 +221,33 @@ function showPage(p){document.querySelectorAll('.page').forEach(x=>x.classList.t
 document.querySelectorAll('.nav').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
 function renderCalendar(){const days=Array.from({length:7},(_,i)=>{const d=new Date(state.weekStart);d.setDate(d.getDate()+i);return d});$('weekLabel').textContent=fmt(days[0])+' – '+fmt(days[6],{day:'numeric',month:'long',year:'numeric'});$('weekGrid').innerHTML=days.map(d=>{const key=dateKey(d),m=state.menus[key],today=dateKey(new Date())===key;const main=recipes.find(r=>r.id===m?.main);return '<div class="day '+(today?'today':'')+'"><div class="day-head"><span class="day-name">'+fmt(d,{weekday:'short'}).toLocaleUpperCase('tr-TR')+'</span><span class="day-num">'+d.getDate()+'</span></div>'+(main?'<div class="dish-mini">'+main.emoji+' '+esc(main.name)+'</div><div class="dish-sub">'+(m.sides||[]).map(id=>recipes.find(r=>r.id===id)?.name).filter(Boolean).join(' · ')+'</div><button class="add-day" onclick="openModal(\''+key+'\')">Menüyü düzenle</button>':'<div class="empty">Henüz menü yok</div><button class="add-day" onclick="openModal(\''+key+'\')">+ Menü oluştur</button>')+'</div>'}).join('');const values=Object.values(state.menus);$('plannedDays').textContent=values.length+' / 7';$('plannedRecipes').textContent=values.reduce((n,m)=>n+1+(m.sides?.length||0),0);$('totalItems').textContent=state.shopping.length;$('weekSummary').innerHTML=values.length?days.filter(d=>state.menus[dateKey(d)]).map(d=>'<div class="quick-item"><span class="dot"></span><strong>'+fmt(d,{weekday:'long'})+'</strong><span>'+esc(recipes.find(r=>r.id===state.menus[dateKey(d)].main)?.name||'')+'</span></div>').join(''):'<div class="intro">Henüz plan yapılmadı. Takvimden bir gün seçerek başlayabilirsin.</div>'}
 let mainCarouselOffset=0;
-function openModal(key){state.selectedDate=key;const d=new Date(key+'T12:00:00');$('modalTitle').textContent=fmt(d,{weekday:'long',day:'numeric',month:'long'})+' menüsü';const old=state.menus[key];state.selectedMain=old?.main??null;state.selectedSides=new Set(old?.sides||[]);mainCarouselOffset=0;renderChoices();$('menuModal').classList.add('open')}
+function openModal(key){state.selectedDate=key;const d=new Date(key+'T12:00:00');$('modalTitle').textContent=fmt(d,{weekday:'long',day:'numeric',month:'long'})+' menüsü';const old=state.menus[key];state.selectedMain=old?.main??null;state.selectedSides=new Set(old?.sides||[]);mainCarouselOffset=0;mainCategory=state.selectedMain!==null&&fitMainIds.includes(state.selectedMain)?'fit':'stew';renderChoices();$('menuModal').classList.add('open')}
 function closeModal(){$('menuModal').classList.remove('open')}
 function choice(r,checked,kind){return '<label class="recipe-choice '+(checked?'selected':'')+'"><input type="'+(kind==='main'?'radio':'checkbox')+'" name="'+(kind==='main'?'main':'side')+'" value="'+r.id+'" '+(checked?'checked':'')+'><span class="choice-emoji">'+r.emoji+'</span><span><span class="choice-name">'+esc(r.name)+'</span><span class="choice-meta">'+r.time+' · '+r.level+'</span></span></label>'}
 const chefPairings={
-0:[15,24,31],1:[16,25,31],2:[17,24,32],3:[15,24,31],4:[17,25,31],5:[15,24,32],6:[18,24,31],7:[15,25,32],8:[17,24,31],9:[16,25,32],10:[15,24,31],11:[18,24,31],12:[17,25,31],13:[20,29,32],14:[16,24,31],15:[17,24,31],51:[15,24,37],52:[16,29,37],53:[15,24,47],54:[17,26,47],55:[15,29,37],56:[16,24,47],57:[15,29,39],58:[17,24,47],59:[15,26,37],60:[16,29,47],61:[15,24,37],62:[17,29,47],63:[15,24,47],64:[16,26,37],65:[17,29,47],66:[15,24,37],67:[16,29,47],68:[15,24,37],69:[17,26,47],70:[15,29,37],71:[16,24,39],72:[17,29,47],73:[15,24,37]
+0:[32,37,24],1:[32,37,24],2:[37,26,31],3:[37,26,47],4:[37,31,24],5:[37,26,47],6:[32,25,38],7:[32,26,37],8:[37,26,17],9:[37,26,32],10:[37,26,24],11:[37,26,31],12:[17,37,31],13:[22,29,47],14:[37,26,15],
+51:[37,26,47],52:[37,29,47],53:[37,26,47],54:[26,37,47],55:[37,29,47],56:[22,29,47],57:[37,26,47],58:[37,26,47],59:[37,29,47],60:[37,26,47],61:[25,42,47],62:[25,38,47],63:[26,37,47],64:[25,42,47],65:[37,26,47],66:[22,29,47],67:[26,37,47],68:[25,42,47],69:[26,37,47],70:[22,29,47],71:[29,47,22],72:[26,37,47],73:[29,37,47]
 };
-function recommendedSides(main){if(!main)return[];return (chefPairings[main.id]||[15,24,31]).map(id=>recipes.find(r=>r.id===id)).filter(Boolean)}
-function selectMain(id){state.selectedMain=id;state.selectedSides.clear();const picker=$('mainCoursePicker');if(picker)picker.hidden=true;renderChoices()}
+function recommendedSides(main){if(!main)return[];return (chefPairings[main.id]||[17,37,26]).map(id=>recipes.find(r=>r.id===id)).filter(Boolean)}
+let mainCategory='stew';
+const stewMainIds=[0,1,2,3,4,5,6,7,8,9,10,12,14];
+const fitMainIds=[11,13,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73];
+function setMainCategory(category){mainCategory=category;renderChoices()}
+function selectMain(id){state.selectedMain=id;state.selectedSides.clear();renderChoices()}
 function renderChoices(){
- const mains=recipes.filter(r=>r.category==='Ana yemek');
- if(state.selectedMain===null)state.selectedMain=mains[0]?.id??null;
  const selected=recipes.find(r=>r.id===state.selectedMain);
- $('selectedMainCard').innerHTML=selected?photoMarkup(selected.id,selected.emoji)+'<div class="main-card-shade"></div><span class="main-card-tag">Ana Yemek</span><div class="main-card-details"><div><h3>'+esc(selected.name)+'</h3><div class="main-card-meta">◷ '+selected.time+' · '+selected.level+' · '+selected.ingredients.length+' malzeme</div></div><button class="btn" type="button" onclick="changeMainCourse()">↔ Değiştir</button></div>':'<div class="chef-empty">Ana yemek seç.</div>';
- const alternatives=mains.filter(r=>r.id!==state.selectedMain);
- const visible=Array.from({length:Math.min(3,alternatives.length)},(_,i)=>alternatives[(mainCarouselOffset+i)%alternatives.length]);
- $('mainAlternatives').innerHTML=visible.map(r=>'<button class="main-alt" type="button" onclick="selectMain('+r.id+')">'+photoMarkup(r.id,r.emoji)+'<span class="main-alt-name">'+esc(r.name)+'</span></button>').join('');
- $('mainPrev').onclick=()=>{mainCarouselOffset=(mainCarouselOffset-3+alternatives.length)%alternatives.length;renderChoices()};
- $('mainNext').onclick=()=>{mainCarouselOffset=(mainCarouselOffset+3)%alternatives.length;renderChoices()};
- $('chefDescription').textContent=selected?selected.name+' ile uyumlu tariflerden seçtiklerimiz':'Ana yemeğini seçtiğinde sana uygun eşlikçileri önereceğiz.';
- $('sideChoices').innerHTML=recommendedSides(selected).map(r=>'<div class="chef-suggestion">'+photoMarkup(r.id,r.emoji)+'<div class="chef-suggestion-info"><span class="chef-kind">'+r.category+'</span><strong>'+esc(r.name)+'</strong><div class="chef-meta">◷ '+r.time+' · '+r.level+'</div></div><label class="chef-add"><input type="checkbox" value="'+r.id+'" '+(state.selectedSides.has(r.id)?'checked':'')+'> Menüye ekle</label></div>').join('')||'<div class="chef-empty">Bu ana yemek için öneri bulunamadı.</div>';
+ $('stewTab').classList.toggle('active',mainCategory==='stew');
+ $('fitTab').classList.toggle('active',mainCategory==='fit');
+ const ids=mainCategory==='stew'?stewMainIds:fitMainIds;
+ const list=ids.map(id=>recipes.find(r=>r.id===id)).filter(Boolean);
+ $('mainCoursePicker').innerHTML='<div class="main-picker-title">'+(mainCategory==='stew'?'Sulu ve geleneksel ev yemekleri':'Fit, hafif ve protein ağırlıklı yemekler')+' · '+list.length+' seçenek</div>'+list.map(r=>'<button type="button" class="main-picker-option '+(r.id===state.selectedMain?'active':'')+'" onclick="selectMain('+r.id+')">'+photoMarkup(r.id,r.emoji)+'<span><strong>'+esc(r.name)+'</strong><small>'+r.time+' · '+r.level+'</small></span></button>').join('');
+ $('selectedMainCard').innerHTML=selected?photoMarkup(selected.id,selected.emoji)+'<div><div class="eyebrow">SEÇİLEN ANA YEMEK</div><div class="selected-summary-name">'+esc(selected.name)+'</div><div class="selected-summary-meta">'+selected.time+' · '+selected.level+'</div></div>':'<div class="chef-empty">Listeden bir ana yemek seçtiğinde burada görünecek.</div>';
+ $('chefDescription').textContent=selected?selected.name+' ile lezzet uyumu gözetilerek seçilmiş eşlikçiler':'Önce soldan bir ana yemek seç. Ona yakışan çorba, salata ve yan yemekleri hazırlayalım.';
+ const suggestions=recommendedSides(selected);
+ $('sideChoices').innerHTML=selected?suggestions.map(r=>'<div class="chef-suggestion">'+photoMarkup(r.id,r.emoji)+'<div class="chef-suggestion-info"><span class="chef-kind">'+r.category+'</span><strong>'+esc(r.name)+'</strong><div class="chef-meta">◷ '+r.time+' · '+r.level+'</div></div><label class="chef-add"><input type="checkbox" value="'+r.id+'" '+(state.selectedSides.has(r.id)?'checked':'')+'> Menüye ekle</label></div>').join(''):'<div class="chef-empty">Ana yemek seçildiğinde uyumlu eşlikçiler burada görünecek.</div>';
  $('sideChoices').querySelectorAll('input').forEach(i=>i.addEventListener('change',()=>{const id=Number(i.value);i.checked?state.selectedSides.add(id):state.selectedSides.delete(id)}));
 }
-function changeMainCourse(){
- const picker=$('mainCoursePicker');
- if(!picker)return;
- const mains=recipes.filter(r=>r.category==='Ana yemek');
- if(!picker.hidden){picker.hidden=true;return}
- picker.innerHTML='<div class="main-picker-title">Ana yemek seç · '+mains.length+' tarif</div>'+mains.map(r=>'<button type="button" class="main-picker-option '+(r.id===state.selectedMain?'active':'')+'" onclick="selectMain('+r.id+')">'+photoMarkup(r.id,r.emoji)+'<strong>'+esc(r.name)+'</strong></button>').join('');
- picker.hidden=false;
-}
+
 function saveMenu(){if(state.selectedMain===null){toast('Önce bir ana yemek seçmelisin.');return}state.menus[state.selectedDate]={main:state.selectedMain,sides:[...state.selectedSides]};closeModal();buildShopping();renderCalendar();toast('Menün kaydedildi, alışveriş listen güncellendi.');persistMenu(state.selectedDate)}
 function buildShopping(){const map=new Map();Object.values(state.menus).forEach(m=>[m.main,...m.sides].forEach(id=>{const r=recipes.find(x=>x.id===id);r?.ingredients.forEach(([name,qty,aisle])=>{const k=name.toLocaleLowerCase('tr-TR');if(!map.has(k))map.set(k,{ingredient:name,quantity:qty,aisle,checked:false});else map.get(k).quantity+=' + '+qty})}));const old=new Map(state.shopping.map(x=>[x.ingredient.toLocaleLowerCase('tr-TR'),x.checked]));state.shopping=[...map.values()].map(x=>({...x,checked:old.get(x.ingredient.toLocaleLowerCase('tr-TR'))||false}));renderShopping()}
 function renderShopping(){const groups={};state.shopping.forEach((x,i)=>(groups[x.aisle]??=[]).push({...x,i}));const done=state.shopping.filter(x=>x.checked).length;$('shoppingCount').textContent=state.shopping.length;$('shoppingProgress').textContent=done+' / '+state.shopping.length+' ürün tamamlandı';$('shoppingGroups').innerHTML=state.shopping.length?Object.entries(groups).map(([g,items])=>'<div class="shopping-group"><h4>'+esc(g.toLocaleUpperCase('tr-TR'))+' · '+items.length+'</h4>'+items.map(x=>'<label class="shop-row '+(x.checked?'checked':'')+'"><input type="checkbox" '+(x.checked?'checked':'')+' onchange="toggleShopping('+x.i+',this.checked)"><span>'+esc(x.ingredient)+'</span><span style="margin-left:auto;color:#929b91">'+esc(x.quantity)+'</span></label>').join('')+'</div>').join(''):'<div class="empty-state">Alışveriş listen henüz boş.<br>Takvimden menülerini oluşturduğunda malzemeler burada toplanır.</div>';persistShopping()}
