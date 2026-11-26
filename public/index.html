@@ -57,6 +57,16 @@
 .chef-suggestion{grid-template-columns:76px minmax(0,1fr) auto}
 .chef-suggestion .recipe-art{width:76px}
 @media(max-width:760px){.builder-body{grid-template-columns:1fr}.main-course-picker{grid-template-columns:1fr;max-height:320px}.chef-panel{padding:12px}.main-picker-option .recipe-art{width:72px}}
+
+/* Ana yemek kategorileri açılır popup olarak gösterilir */
+.main-course-panel{position:relative}
+.main-category-tabs{position:relative;z-index:6}
+.main-course-picker{position:absolute;z-index:20;top:116px;left:0;right:0;margin:0;padding:12px;background:#fffdf8;border:1px solid #e2dacb;border-radius:14px;box-shadow:0 18px 45px #17251f30;max-height:min(390px,58vh);overflow-y:auto;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.main-course-picker[hidden]{display:none}
+.main-picker-title{position:sticky;top:-12px;background:#fffdf8;padding:4px 2px 9px;z-index:2}
+.main-picker-option{background:#fff}
+.main-course-picker:before{content:"";position:absolute;top:-7px;left:24%;width:13px;height:13px;background:#fffdf8;border-left:1px solid #e2dacb;border-top:1px solid #e2dacb;transform:rotate(45deg)}
+@media(max-width:760px){.main-course-picker{top:116px;max-height:55vh;grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -232,8 +242,8 @@ function recommendedSides(main){if(!main)return[];return (chefPairings[main.id]|
 let mainCategory='stew';
 const stewMainIds=[0,1,2,3,4,5,6,7,8,9,10,12,14];
 const fitMainIds=[11,13,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73];
-function setMainCategory(category){mainCategory=category;renderChoices()}
-function selectMain(id){state.selectedMain=id;state.selectedSides.clear();renderChoices()}
+function setMainCategory(category){mainCategory=category;renderChoices();const picker=$('mainCoursePicker');picker.hidden=false;}
+function selectMain(id){state.selectedMain=id;state.selectedSides.clear();$('mainCoursePicker').hidden=true;renderChoices()}
 function renderChoices(){
  const selected=recipes.find(r=>r.id===state.selectedMain);
  $('stewTab').classList.toggle('active',mainCategory==='stew');
