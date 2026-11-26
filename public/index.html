@@ -142,17 +142,19 @@ const photoByName = {
   'Tavuklu kabak sandal':'https://img-s1.onedio.com/id-58a1986cac118afe1abbddd6/rev-0/w-1200/h-1185/f-jpg/s-4cd16ba952b3983e564ef0d1abd0eafc9121dba9.jpg',
   'Izgara hellim ve sebze':'https://thefoodzone.s3.us-east-1.amazonaws.com/images/736427ea-4c59-4807-b5ae-6b7fa1818c94.jpg'
 };
+function recipePhotoSlug(name) {
+  return String(name||'')
+    .toLocaleLowerCase('tr-TR')
+    .replace(/ı/g,'i')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g,'')
+    .replace(/[^a-z0-9]+/g,'-')
+    .replace(/^-|-$/g,'');
+}
 function photoMarkup(id, emoji) {
   const recipe=recipes.find(r=>r.id===id);
   const name=recipe?.name||'Yemek';
-  const photo=photoById[id];
-  const src=photo
-    ? 'https://commons.wikimedia.org/wiki/Special:FilePath/'+photo.file
-    : photoByName[name];
-  // Görsel eşleşmesi yoksa başka bir yemeğin fotoğrafını kullanma.
-  if (!src || src==='https://www.gettyimages.com/') {
-    return '<div class="recipe-art image-fallback" role="img" aria-label="'+esc(name)+'">'+emoji+'</div>';
-  }
+  const src='/images/recipes/'+recipePhotoSlug(name)+'.webp';
   return '<div class="recipe-art has-photo"><img loading="lazy" src="'+src+'" alt="'+esc(name)+'" onerror="this.parentElement.classList.remove(\'has-photo\');this.parentElement.classList.add(\'image-fallback\');this.parentElement.textContent=\''+emoji+'\'"></div>';
 }
 const recipes = [
