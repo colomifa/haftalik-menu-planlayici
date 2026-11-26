@@ -32,7 +32,7 @@
 .main-picker-option strong{font-size:10px;line-height:1.3;display:block}
 .main-picker-title{grid-column:1/-1;font-size:11px;font-weight:700;color:#667364;padding:0 2px 3px}
 @media(max-width:760px){.main-course-picker{grid-template-columns:1fr;max-height:220px}}
-</style>
+ .recipe-tags{display:flex;flex-wrap:wrap;gap:4px;margin:5px 0}.recipe-tags span{font-size:9px;padding:3px 6px;border-radius:20px;background:#eaf1e8;color:#42654b;font-weight:700}</style>
 </head>
 <body>
 <div class="app">
@@ -160,7 +160,32 @@ const recipes = [
 ['Arpa şehriye salatası','Salata','25 dk','Kolay','🥗',[['Arpa şehriye','1 su bardağı','Temel gıda'],['Kornişon turşu','4 adet','Temel gıda'],['Mısır','yarım su bardağı','Konserve'],['Dereotu','yarım demet','Sebze']]],
 ['Köz biber mezesi','Yan yemek','20 dk','Kolay','🌶️',[['Kapya biber','4 adet','Sebze'],['Sarımsak','1 diş','Sebze'],['Yoğurt','yarım su bardağı','Süt ürünleri']]],
 ['Zeytinyağlı enginar','Yan yemek','40 dk','Orta','🌱',[['Enginar','4 adet','Sebze'],['Bezelye','1 su bardağı','Sebze'],['Havuç','1 adet','Sebze'],['Limon','1 adet','Meyve-sebze']]]
-].map((r,i)=>({id:i,name:r[0],category:r[1],time:r[2],level:r[3],emoji:r[4],ingredients:r[5]}));
+,['Izgara tavuk göğsü','Ana yemek','25 dk','Kolay','🍗',[['Tavuk göğsü','400 g','Et'],['Zeytinyağı','1 yemek kaşığı','Temel gıda'],['Limon','1 adet','Meyve-sebze'],['Kekik','1 tatlı kaşığı','Baharat']],['Fit','Yüksek protein']]
+,['Limonlu kekikli tavuk','Ana yemek','30 dk','Kolay','🍋',[['Tavuk göğsü','400 g','Et'],['Limon','1 adet','Meyve-sebze'],['Sarımsak','2 diş','Sebze'],['Kekik','1 tatlı kaşığı','Baharat'],['Yoğurt','2 yemek kaşığı','Süt ürünleri']],['Fit','Yüksek protein']]
+,['Yoğurt marineli fırın tavuk','Ana yemek','45 dk','Kolay','🍗',[['Tavuk göğsü','400 g','Et'],['Yoğurt','3 yemek kaşığı','Süt ürünleri'],['Sarımsak','2 diş','Sebze'],['Toz kırmızı biber','1 tatlı kaşığı','Baharat']],['Fit','Yüksek protein']]
+,['Tavuk şiş','Ana yemek','30 dk','Orta','🍢',[['Tavuk göğsü','400 g','Et'],['Kapya biber','1 adet','Sebze'],['Yeşil biber','1 adet','Sebze'],['Soğan','1 adet','Sebze']],['Fit','Yüksek protein']]
+,['Sebzeli tavuk sote','Ana yemek','30 dk','Kolay','🥘',[['Tavuk göğsü','350 g','Et'],['Kabak','1 adet','Sebze'],['Kapya biber','1 adet','Sebze'],['Mantar','150 g','Sebze'],['Soğan','1 adet','Sebze']],['Fit','Tek tavada']]
+,['Fırında sebzeli tavuk','Ana yemek','40 dk','Kolay','🍗',[['Tavuk göğsü','400 g','Et'],['Brokoli','1 küçük adet','Sebze'],['Kabak','1 adet','Sebze'],['Havuç','1 adet','Sebze'],['Zeytinyağı','1 yemek kaşığı','Temel gıda']],['Fit','Yüksek protein']]
+,['Tavuklu kinoa kasesi','Ana yemek','30 dk','Kolay','🥗',[['Tavuk göğsü','300 g','Et'],['Kinoa','yarım su bardağı','Bakliyat'],['Salatalık','1 adet','Sebze'],['Domates','1 adet','Sebze'],['Maydanoz','yarım demet','Sebze']],['Fit','Dengeli öğün']]
+,['Tavuklu mantar sote','Ana yemek','25 dk','Kolay','🍄',[['Tavuk göğsü','350 g','Et'],['Mantar','200 g','Sebze'],['Soğan','1 adet','Sebze'],['Süt','yarım çay bardağı','Süt ürünleri']],['Yüksek protein']]
+,['Fırında tavuk köfte','Ana yemek','35 dk','Orta','🍽️',[['Tavuk kıyması','400 g','Et'],['Yumurta','1 adet','Süt ürünleri'],['Yulaf ezmesi','3 yemek kaşığı','Temel gıda'],['Maydanoz','yarım demet','Sebze']],['Fit','Yüksek protein']]
+,['Tavuklu kabak sandal','Ana yemek','40 dk','Orta','🥒',[['Kabak','3 adet','Sebze'],['Tavuk kıyması','300 g','Et'],['Domates','1 adet','Sebze'],['Soğan','1 adet','Sebze'],['Kaşar peyniri','40 g','Süt ürünleri']],['Fit','Sebzeli']]
+,['Izgara dana bonfile','Ana yemek','20 dk','Kolay','🥩',[['Dana bonfile','350 g','Et'],['Zeytinyağı','1 tatlı kaşığı','Temel gıda'],['Biberiye','1 dal','Baharat'],['Sarımsak','1 diş','Sebze']],['Fit','Yüksek protein']]
+,['Yağsız ızgara köfte','Ana yemek','25 dk','Orta','🍖',[['Az yağlı dana kıyma','400 g','Et'],['Soğan','1 adet','Sebze'],['Maydanoz','yarım demet','Sebze'],['Kimyon','1 çay kaşığı','Baharat']],['Fit','Yüksek protein']]
+,['Dana sebze sote','Ana yemek','35 dk','Kolay','🥘',[['Yağsız dana kuşbaşı','350 g','Et'],['Kabak','1 adet','Sebze'],['Kapya biber','1 adet','Sebze'],['Mantar','150 g','Sebze'],['Soğan','1 adet','Sebze']],['Fit','Sebzeli']]
+,['Dana şiş','Ana yemek','30 dk','Orta','🍢',[['Dana kuşbaşı','350 g','Et'],['Kapya biber','1 adet','Sebze'],['Yeşil biber','1 adet','Sebze'],['Soğan','1 adet','Sebze']],['Yüksek protein']]
+,['Fırında sebzeli dana rosto','Ana yemek','1 sa 15 dk','Orta','🥩',[['Dana nuar','500 g','Et'],['Havuç','2 adet','Sebze'],['Soğan','2 adet','Sebze'],['Sarımsak','3 diş','Sebze'],['Biberiye','1 dal','Baharat']],['Protein']]
+,['Etli mantar güveç','Ana yemek','40 dk','Kolay','🍄',[['Yağsız dana kuşbaşı','300 g','Et'],['Mantar','250 g','Sebze'],['Domates','2 adet','Sebze'],['Kapya biber','1 adet','Sebze'],['Soğan','1 adet','Sebze']],['Sebzeli','Protein']]
+,['Fırında kabaklı köfte','Ana yemek','40 dk','Orta','🥒',[['Az yağlı dana kıyma','350 g','Et'],['Kabak','2 adet','Sebze'],['Domates','2 adet','Sebze'],['Soğan','1 adet','Sebze']],['Fit','Sebzeli']]
+,['Patlıcanlı et sote','Ana yemek','40 dk','Orta','🍆',[['Yağsız dana kuşbaşı','350 g','Et'],['Patlıcan','2 adet','Sebze'],['Domates','2 adet','Sebze'],['Biber','2 adet','Sebze'],['Soğan','1 adet','Sebze']],['Protein']]
+,['Izgara hindi fileto','Ana yemek','25 dk','Kolay','🍗',[['Hindi göğüs fileto','400 g','Et'],['Limon','1 adet','Meyve-sebze'],['Zeytinyağı','1 tatlı kaşığı','Temel gıda'],['Kekik','1 tatlı kaşığı','Baharat']],['Fit','Yüksek protein']]
+,['Fırında hindi köfte','Ana yemek','35 dk','Orta','🍽️',[['Hindi kıyması','400 g','Et'],['Yumurta','1 adet','Süt ürünleri'],['Maydanoz','yarım demet','Sebze'],['Yulaf ezmesi','2 yemek kaşığı','Temel gıda']],['Fit','Yüksek protein']]
+,['Somonlu yeşil sebze tabağı','Ana yemek','25 dk','Kolay','🐟',[['Somon','2 dilim','Balık'],['Kuşkonmaz','200 g','Sebze'],['Brokoli','1 küçük adet','Sebze'],['Limon','1 adet','Meyve-sebze']],['Fit','Omega 3']]
+,['Ton balıklı Akdeniz kasesi','Ana yemek','15 dk','Kolay','🥗',[['Ton balığı','1 kutu','Konserve'],['Marul','yarım adet','Sebze'],['Salatalık','1 adet','Sebze'],['Domates','1 adet','Sebze'],['Haşlanmış nohut','yarım su bardağı','Bakliyat']],['Fit','Pratik']]
+,['Kıymalı karnabahar fırın','Ana yemek','40 dk','Orta','🥦',[['Az yağlı dana kıyma','300 g','Et'],['Karnabahar','1 adet','Sebze'],['Domates','2 adet','Sebze'],['Yoğurt','2 yemek kaşığı','Süt ürünleri']],['Fit','Sebzeli']]
+,['Tavuklu marul dürüm','Ana yemek','20 dk','Kolay','🥬',[['Tavuk göğsü','300 g','Et'],['Marul','1 adet','Sebze'],['Yoğurt','2 yemek kaşığı','Süt ürünleri'],['Salatalık','1 adet','Sebze'],['Avokado','yarım adet','Meyve-sebze']],['Fit','Düşük karbonhidrat']]
+
+].map((r,i)=>({id:i,name:r[0],category:r[1],time:r[2],level:r[3],emoji:r[4],ingredients:r[5],tags:r[6]||[]}));
 const state={weekStart:startOfWeek(new Date()),menus:{},favorites:new Set(),selectedDate:null,selectedMain:null,selectedSides:new Set(),shopping:[]};
 const $=id=>document.getElementById(id);
 function startOfWeek(d){const x=new Date(d);x.setHours(0,0,0,0);x.setDate(x.getDate()-((x.getDay()+6)%7));return x}
@@ -175,7 +200,7 @@ function openModal(key){state.selectedDate=key;const d=new Date(key+'T12:00:00')
 function closeModal(){$('menuModal').classList.remove('open')}
 function choice(r,checked,kind){return '<label class="recipe-choice '+(checked?'selected':'')+'"><input type="'+(kind==='main'?'radio':'checkbox')+'" name="'+(kind==='main'?'main':'side')+'" value="'+r.id+'" '+(checked?'checked':'')+'><span class="choice-emoji">'+r.emoji+'</span><span><span class="choice-name">'+esc(r.name)+'</span><span class="choice-meta">'+r.time+' · '+r.level+'</span></span></label>'}
 const chefPairings={
-0:[15,24,31],1:[16,25,31],2:[17,24,32],3:[15,24,31],4:[17,25,31],5:[15,24,32],6:[18,24,31],7:[15,25,32],8:[17,24,31],9:[16,25,32],10:[15,24,31],11:[18,24,31],12:[17,25,31],13:[20,29,32],14:[16,24,31],15:[17,24,31]
+0:[15,24,31],1:[16,25,31],2:[17,24,32],3:[15,24,31],4:[17,25,31],5:[15,24,32],6:[18,24,31],7:[15,25,32],8:[17,24,31],9:[16,25,32],10:[15,24,31],11:[18,24,31],12:[17,25,31],13:[20,29,32],14:[16,24,31],15:[17,24,31],51:[15,24,37],52:[16,29,37],53:[15,24,47],54:[17,26,47],55:[15,29,37],56:[16,24,47],57:[15,29,39],58:[17,24,47],59:[15,26,37],60:[16,29,47],61:[15,24,37],62:[17,29,47],63:[15,24,47],64:[16,26,37],65:[17,29,47],66:[15,24,37],67:[16,29,47],68:[15,24,37],69:[17,26,47],70:[15,29,37],71:[16,24,39],72:[17,29,47],73:[15,24,37]
 };
 function recommendedSides(main){if(!main)return[];return (chefPairings[main.id]||[15,24,31]).map(id=>recipes.find(r=>r.id===id)).filter(Boolean)}
 function selectMain(id){state.selectedMain=id;state.selectedSides.clear();const picker=$('mainCoursePicker');if(picker)picker.hidden=true;renderChoices()}
@@ -206,8 +231,8 @@ function buildShopping(){const map=new Map();Object.values(state.menus).forEach(
 function renderShopping(){const groups={};state.shopping.forEach((x,i)=>(groups[x.aisle]??=[]).push({...x,i}));const done=state.shopping.filter(x=>x.checked).length;$('shoppingCount').textContent=state.shopping.length;$('shoppingProgress').textContent=done+' / '+state.shopping.length+' ürün tamamlandı';$('shoppingGroups').innerHTML=state.shopping.length?Object.entries(groups).map(([g,items])=>'<div class="shopping-group"><h4>'+esc(g.toLocaleUpperCase('tr-TR'))+' · '+items.length+'</h4>'+items.map(x=>'<label class="shop-row '+(x.checked?'checked':'')+'"><input type="checkbox" '+(x.checked?'checked':'')+' onchange="toggleShopping('+x.i+',this.checked)"><span>'+esc(x.ingredient)+'</span><span style="margin-left:auto;color:#929b91">'+esc(x.quantity)+'</span></label>').join('')+'</div>').join(''):'<div class="empty-state">Alışveriş listen henüz boş.<br>Takvimden menülerini oluşturduğunda malzemeler burada toplanır.</div>';persistShopping()}
 function toggleShopping(i,v){state.shopping[i].checked=v;renderShopping()}
 function clearChecked(){state.shopping=state.shopping.filter(x=>!x.checked);renderShopping();toast('Tamamlanan ürünler kaldırıldı.')}
-function renderCatalog(){const q=$('recipeSearch').value.toLocaleLowerCase('tr-TR'),cat=$('categoryFilter').value;const list=recipes.filter(r=>(cat==='all'||r.category===cat)&&r.name.toLocaleLowerCase('tr-TR').includes(q));$('recipeGrid').innerHTML=list.map(card).join('')}
-function card(r){return '<article class="recipe-card">'+photoMarkup(r.id,r.emoji)+'<div class="recipe-info"><div style="display:flex;justify-content:space-between"><span class="eyebrow" style="font-size:9px">'+r.category+'</span><button class="fav" onclick="toggleFav('+r.id+')" aria-label="Favoriye ekle">'+(state.favorites.has(r.id)?'♥':'♡')+'</button></div><h4>'+esc(r.name)+'</h4><p>'+r.time+' · '+r.level+'</p><div class="recipe-meta"><span>'+r.ingredients.length+' malzeme</span><button class="btn" style="padding:5px 8px" onclick="addFromCatalog('+r.id+')">Menüye ekle</button></div></div></article>'}
+function renderCatalog(){const q=$('recipeSearch').value.toLocaleLowerCase('tr-TR'),cat=$('categoryFilter').value;const list=recipes.filter(r=>(cat==='all'||r.category===cat)&&(r.name+' '+(r.tags||[]).join(' ')).toLocaleLowerCase('tr-TR').includes(q));$('recipeGrid').innerHTML=list.map(card).join('')}
+function card(r){return '<article class="recipe-card">'+photoMarkup(r.id,r.emoji)+'<div class="recipe-info"><div style="display:flex;justify-content:space-between"><span class="eyebrow" style="font-size:9px">'+r.category+'</span><button class="fav" onclick="toggleFav('+r.id+')" aria-label="Favoriye ekle">'+(state.favorites.has(r.id)?'♥':'♡')+'</button></div><h4>'+esc(r.name)+'</h4>'+(r.tags?.length?'<div class="recipe-tags">'+r.tags.map(t=>'<span>'+esc(t)+'</span>').join('')+'</div>':'')+'<p>'+r.time+' · '+r.level+'</p><div class="recipe-meta"><span>'+r.ingredients.length+' malzeme</span><button class="btn" style="padding:5px 8px" onclick="addFromCatalog('+r.id+')">Menüye ekle</button></div></div></article>'}
 function renderFavorites(){$('favoriteGrid').innerHTML=[...state.favorites].map(id=>recipes.find(r=>r.id===id)).filter(Boolean).map(card).join('')||'<div class="empty-state">Henüz favori tarifin yok. Katalogdan kalp simgesine dokun.</div>'}
 function toggleFav(id){state.favorites.has(id)?state.favorites.delete(id):state.favorites.add(id);renderCatalog();renderFavorites()}
 function addFromCatalog(id){if(recipes.find(r=>r.id===id).category==='Ana yemek'){const d=dateKey(new Date());openModal(d);state.selectedMain=id;renderChoices()}else{toast('Yan tarifi eklemek için takvimden bir menü seç.');showPage('calendar')}}
