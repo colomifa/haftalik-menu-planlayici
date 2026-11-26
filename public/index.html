@@ -214,16 +214,57 @@ async function showRecipeInPicker(id){
 function closeRecipePicker(){ $('recipePickerModal').classList.remove('open');$('dayMenuModal').classList.remove('open');$('sideItemsPageModal').classList.remove('open');renderMenuEditor();renderWeek(); }
 document.querySelectorAll('#dayMenuModal [data-menu-category]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();openRecipePicker(b.dataset.menuCategory)}));
 // Recipe buttons receive their own click handlers after the list is rendered.
+function pickSideRecipe(category,names){
+ const pool=recipes.filter(r=>r.category===category&&names.includes(r.name));
+ return shuffled(pool.length?pool:recipes.filter(r=>r.category===category))[0]||null;
+}
+function recommendSideDishes(main){
+ const group=(main.group==='Şef özel'&&/tavuk|parmesan|portakal/i.test(main.name))?'Tavuk':
+             (main.group==='Şef özel'?'Et':main.group);
+ const sets={
+  'Balık':{
+   'Çorba':['Sebze Çorbası','Brokoli Çorbası','Balkabağı Çorbası'],
+   'Salata':['Roka ve Parmesan Salatası','Akdeniz Salatası','Çoban Salata'],
+   'Garnitür':['Fırında Sebze','Fırınlanmış Baharatlı Patates']
+  },
+  'Et':{
+   'Çorba':['Mercimek Çorbası','Ezogelin Çorbası','Tarhana Çorbası'],
+   'Salata':['Gavurdağı Salatası','Çoban Salata','Mor Lahana Salatası'],
+   'Garnitür':['Fırınlanmış Baharatlı Patates','Bulgur Pilavı','Tereyağlı Pirinç Pilavı']
+  },
+  'Tavuk':{
+   'Çorba':['Tavuk Suyu Şehriye Çorbası','Mantar Çorbası','Sebze Çorbası'],
+   'Salata':['Akdeniz Salatası','Nohutlu Yeşil Salata','Çoban Salata'],
+   'Garnitür':['Tereyağlı Pirinç Pilavı','Fırında Sebze','Kremalı Mantar Sote']
+  },
+  'Sulu yemek':{
+   'Çorba':['Yayla Çorbası','Tarhana Çorbası','Domates Çorbası'],
+   'Salata':['Çoban Salata','Mor Lahana Salatası','Yoğurtlu Semizotu Salatası'],
+   'Garnitür':['Bulgur Pilavı','Tereyağlı Pirinç Pilavı','Sarımsaklı Yoğurtlu Ispanak']
+  }
+ };
+ const choices=sets[group]||sets.Et;
+ return {
+  'Çorba':pickSideRecipe('Çorba',choices['Çorba']),
+  'Salata':pickSideRecipe('Salata',choices['Salata']),
+  'Garnitür':pickSideRecipe('Garnitür',choices['Garnitür'])
+ };
+}
 function selectRecipe(id){
  const chosen=recipes.find(r=>Number(r.id)===Number(id));
  if(!chosen||!pickerCategory)return;
  const key=dateKey(editingDay);dayMenus[key]=dayMenus[key]||{};
  dayMenus[key][pickerCategory]=chosen;
- $('recipePickerModal').classList.remove('open');$('dayMenuModal').classList.remove('open');$('sideItemsPageModal').classList.remove('open');
+ if(pickerCategory==='Ana yemek'){
+  const defaults=recommendSideDishes(chosen);
+  Object.assign(dayMenus[key],defaults);
+ }
+ $('recipePickerModal').classList.remove('open');
+ $('sideItemsPageModal').classList.remove('open');
  renderMenuEditor();renderWeek();renderDayMenuSelected();
+ $('dayMenuModal').classList.add('open');
  saveMenu(editingDay,false);
- if(pickerCategory==='Ana yemek'||pickerReturnTo==='sidePage'){renderSideItemsPage();$('sideItemsPageModal').classList.add('open');}
- toast(chosen.name+' menüye eklendi.');
+ toast(pickerCategory==='Ana yemek'?chosen.name+' ve uyumlu yan ürünleri menüye eklendi.':chosen.name+' menüye eklendi.');
 }
 
 $('closeDayMenu').addEventListener('click',closeDayMenu);
