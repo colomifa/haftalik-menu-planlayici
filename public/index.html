@@ -67,12 +67,104 @@
 .main-picker-option{background:#fff}
 .main-course-picker:before{content:"";position:absolute;top:-7px;left:24%;width:13px;height:13px;background:#fffdf8;border-left:1px solid #e2dacb;border-top:1px solid #e2dacb;transform:rotate(45deg)}
 @media(max-width:760px){.main-course-picker{top:116px;max-height:55vh;grid-template-columns:1fr}}
+
+/* SOFRA — editorial kitchen redesign */
+:root{--ink:#172a22;--muted:#78847a;--cream:#f2efe7;--paper:#fffdf7;--green:#284d3b;--line:#e3dfd3;--orange:#d96f45;--shadow:0 18px 50px #172a2210}
+body{background:#f2efe7;color:#172a22;font-family:'DM Sans',sans-serif}
+.app{grid-template-columns:258px minmax(0,1fr);background:#f2efe7}
+.sidebar{background:#172a22;color:#f8f3e8;border:0;padding:34px 22px 24px;position:relative;overflow:hidden}
+.sidebar:after{content:"";position:absolute;width:260px;height:260px;border:1px solid #ffffff12;border-radius:50%;bottom:-145px;left:-100px;box-shadow:0 0 0 28px #ffffff08,0 0 0 58px #ffffff05;pointer-events:none}
+.brand{font:700 34px 'Playfair Display';letter-spacing:-1.5px;color:#fff8ec}.brand span{color:#e58a5e}
+.subbrand{color:#a9b5a8;font-size:11px;letter-spacing:.4px;margin:2px 0 58px}
+.nav-label{color:#718579;font-size:9px;letter-spacing:2px;margin:0 12px 13px}
+.nav{color:#c1cbbf;padding:14px 13px;border-radius:11px;font-size:12px;margin:3px 0;transition:.2s}
+.nav.active,.nav:hover{background:#294536;color:#fff9ed;font-weight:700}
+.nav .ico{font-size:18px}.count{background:#d96f45;color:white}
+.side-note{position:relative;z-index:1;margin-top:auto;background:#223a2e;color:#c0cbbf;border:1px solid #ffffff12;padding:18px;border-radius:15px;font-size:11px}
+.side-note strong{color:#f1b18d;font:700 15px 'Playfair Display';margin-bottom:7px}
+.main{padding:42px clamp(24px,4vw,64px);max-width:1600px}
+.top{align-items:flex-end;margin-bottom:32px}
+.eyebrow{font-size:9px;letter-spacing:2px;color:#a65d3d}
+.heading{font:700 clamp(36px,4vw,54px) 'Playfair Display';letter-spacing:-1.5px;color:#172a22;margin:9px 0 8px}
+.intro{font-size:12px;color:#7b857a}
+.week-nav{background:#fffdf7;border:1px solid #e3dfd3;border-radius:40px;padding:5px 9px;box-shadow:0 5px 18px #172a2208}
+.week-nav button{width:30px;height:30px;border-radius:50%;background:#f1eee5;color:#284d3b;padding:0;font-size:18px}
+.week-nav span{font-size:11px;min-width:130px;text-align:center}
+.stats{gap:12px;margin:26px 0 32px}
+.stat{position:relative;overflow:hidden;background:#fffdf7;border:1px solid #e7e1d5;border-radius:15px;padding:18px 20px;box-shadow:0 6px 20px #172a2206}
+.stat:after{content:"";position:absolute;width:70px;height:70px;border:1px solid #e8e3d8;border-radius:50%;right:-23px;top:-25px;box-shadow:0 0 0 12px #f6f2e9}
+.stat small{color:#7c877c;font-size:10px;letter-spacing:.3px}
+.stat strong{font:700 30px 'Playfair Display';color:#284d3b;margin-top:7px}
+.section-title{font:700 25px 'Playfair Display';letter-spacing:-.4px;margin:35px 0 17px}
+.week-grid{gap:11px;overflow-x:auto;padding:3px 2px 13px}
+.day{position:relative;min-height:225px;background:#fffdf7;border:1px solid #e7e1d5;border-radius:15px;padding:14px;box-shadow:0 7px 20px #172a2205;transition:transform .2s,box-shadow .2s}
+.day:hover{transform:translateY(-3px);box-shadow:0 14px 28px #172a2210}
+.day.today{border:1px solid #d96f45;box-shadow:inset 0 3px 0 #d96f45,0 8px 22px #172a2208}
+.day-head{margin-bottom:18px}
+.day-name{font-size:9px;letter-spacing:1.2px;color:#7e887e}
+.day-num{background:#f0ede4;color:#284d3b;width:29px;height:29px;font-size:11px}
+.day.today .day-num{background:#d96f45;color:white}
+.dish-mini{font:700 13px 'Playfair Display';line-height:1.35;margin:10px 0 7px}
+.dish-sub{font-size:10px;line-height:1.55;color:#8a9388}
+.empty{font-size:10px;color:#a2a99e}
+.add-day{border:1px solid #e5e0d5;background:#f7f4ec;color:#45634e;padding:10px;border-radius:9px;font-size:10px;letter-spacing:.2px}
+.add-day:hover{background:#284d3b;color:white;border-color:#284d3b}
+.below{gap:14px;margin-top:22px}
+.panel{background:#fffdf7;border:1px solid #e7e1d5;border-radius:16px;padding:22px;box-shadow:0 7px 22px #172a2205}
+.panel h3{font:700 20px 'Playfair Display';color:#21372b}
+.quick-item{font-size:11px;padding:8px 0;border-bottom:1px solid #f0ece3}
+.dot{background:#d96f45}
+.btn{border:1px solid #e3dfd3;border-radius:9px;padding:11px 16px;background:#fffdf7;color:#294333;font-size:11px}
+.btn.primary{background:#284d3b;color:#fff9ed;border-color:#284d3b}
+.btn.primary:hover{background:#d96f45;border-color:#d96f45}
+.catalog-tools{margin:23px 0 20px}
+.search,.filter{border:1px solid #e3dfd3;border-radius:10px;background:#fffdf7;padding:13px 15px;font-size:12px}
+.recipe-grid{gap:17px}
+.recipe-card{background:#fffdf7;border:1px solid #e7e1d5;border-radius:15px;box-shadow:0 7px 20px #172a2205;transition:.2s}
+.recipe-card:hover{transform:translateY(-4px);box-shadow:0 16px 30px #172a2212}
+.recipe-art{background:linear-gradient(140deg,#e8e8d8,#f3d9c6)}
+.recipe-info{padding:16px}
+.recipe-info h4{font:700 18px 'Playfair Display';color:#20362a}
+.recipe-info p{font-size:10px}
+.recipe-tags span{background:#edf0e8;color:#46624c}
+.fav{color:#d96f45}
+.shopping-group{background:#fffdf7;border:1px solid #e7e1d5;border-radius:14px;padding:16px 19px;margin:13px 0}
+.shopping-group h4{color:#a65d3d;letter-spacing:1px;font-size:10px}
+.shop-row{font-size:12px;border-color:#f0ece3}
+.modal-backdrop{background:#12231dcf;backdrop-filter:blur(7px)}
+.modal.menu-builder{border-radius:20px;box-shadow:0 30px 90px #09150f66}
+.builder-hero{min-height:145px;padding:30px 34px;background:linear-gradient(90deg,#14271fee,#14271f66),url('https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=1600&q=85') center 48%/cover}
+.builder-hero h2{font:700 34px 'Playfair Display';letter-spacing:-.7px}
+.builder-body{padding:25px 28px 20px;gap:22px}
+.main-course-panel{padding-right:22px}
+.selection-intro h3{font:700 25px 'Playfair Display';letter-spacing:-.4px}
+.selection-intro p{font-size:11px}
+.main-category-tabs{gap:10px;margin:18px 0 14px}
+.main-category-tab{padding:16px 12px;border-radius:12px;font-size:12px;background:#f5f1e8;border-color:#e6dfd2;transition:.2s}
+.main-category-tab:hover{transform:translateY(-2px);border-color:#b5c5b1}
+.main-category-tab.active{background:#284d3b;border-color:#284d3b;box-shadow:0 8px 18px #284d3b25}
+.main-course-picker{top:148px;padding:13px;border-radius:15px;box-shadow:0 22px 50px #172a2230}
+.main-picker-option{padding:8px;border-radius:10px}
+.main-picker-option strong{font-size:11px}
+.selected-main-summary{border-radius:12px;background:#eef1e9;border-color:#dce4d8}
+.chef-panel{background:#f6f2e9;border:1px solid #e8e0d2;border-radius:15px;padding:18px}
+.chef-heading h3{font:700 21px 'Playfair Display'}
+.chef-icon{background:#284d3b;color:#f7eee1}
+.chef-suggestion{background:#fffdf7;border-color:#e8e0d2;border-radius:11px;grid-template-columns:76px minmax(0,1fr) auto}
+.chef-suggestion-info strong{font-size:12px}
+.chef-kind{background:#f4e4d8;color:#9b593d}
+.chef-add{color:#365b40}
+.builder-footer{padding:16px 28px 20px;background:#fffdf7}
+.toast{background:#172a22;border:1px solid #486451;border-radius:10px}
+@media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{padding:12px 17px;flex-direction:row;align-items:center;gap:12px}.brand{font-size:25px}.subbrand{display:none}.navs{display:flex;margin-left:auto}.nav{padding:9px 11px}.main{padding:27px 18px}}
+@media(max-width:600px){.top{gap:14px}.heading{font-size:38px}.stats{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.stat{padding:13px 10px}.stat strong{font-size:22px}.stat small{font-size:9px}.week-grid{grid-template-columns:repeat(7,148px)}.builder-hero{padding:22px}.builder-hero h2{font-size:27px}.builder-body{padding:18px}.main-course-picker{top:148px;max-height:50vh}.builder-footer{padding:12px 18px}.chef-suggestion{grid-template-columns:62px minmax(0,1fr) auto}.chef-suggestion .recipe-art{width:62px;height:60px}.chef-add{font-size:8px}}
+
 </style>
 </head>
 <body>
 <div class="app">
 <aside class="sidebar">
-<div><h1 class="brand">sofra<span>.</span></h1><div class="subbrand">Haftalık menü asistanın</div></div>
+<div><h1 class="brand">sofra<span>.</span></h1><div class="subbrand">HER GÜN GÜZEL BİR SOFRA</div></div>
 <div class="navs">
 <div class="nav-label">MENÜ</div>
 <button class="nav active" data-page="calendar"><span class="ico">▦</span>Haftalık Takvim</button>
@@ -84,7 +176,7 @@
 </aside>
 <main class="main">
 <section id="calendar" class="page active">
-<div class="top"><div><div class="eyebrow">SOFRANA HOŞ GELDİN</div><h2 class="heading">Haftalık menün</h2><div class="intro">Güzel sofralar, iyi planlarla başlar.</div></div><div class="week-nav"><button id="prevWeek">‹</button><span id="weekLabel"></span><button id="nextWeek">›</button></div></div>
+<div class="top"><div><div class="eyebrow">MUTFAĞININ HAFTALIK RİTMİ</div><h2 class="heading">Bu hafta ne pişiriyoruz?</h2><div class="intro">Güzel sofralar, küçük bir planla başlar.</div></div><div class="week-nav"><button id="prevWeek">‹</button><span id="weekLabel"></span><button id="nextWeek">›</button></div></div>
 <div class="stats"><div class="stat"><small>Planlanan gün</small><strong id="plannedDays">0 / 7</strong></div><div class="stat"><small>Bu haftanın tarifleri</small><strong id="plannedRecipes">0</strong></div><div class="stat"><small>Alışveriş kalemi</small><strong id="totalItems">0</strong></div></div>
 <div class="section-title">Sofra takvimi</div><div class="week-grid" id="weekGrid"></div>
 <div class="below"><div class="panel"><h3>Bu haftanın menüsü</h3><div class="quick-list" id="weekSummary"></div></div><div class="panel"><h3>Alışverişe hazır mısın?</h3><div class="intro" style="line-height:1.7;margin-bottom:15px">Menüne eklediğin tariflerin malzemeleri tek listede, reyon reyon bir arada.</div><button class="btn primary" onclick="showPage('shopping')">Alışveriş listesine git →</button></div></div>
