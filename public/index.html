@@ -59,7 +59,7 @@
 </div>
 <div class="modal" id="dayMenuModal" role="dialog" aria-modal="true" aria-labelledby="dayMenuTitle"><div class="day-menu-box"><div class="modal-head"><div><div class="crumb">GÜNLÜK MENÜ PLANLAMA</div><h3 id="dayMenuTitle">Günün menüsü</h3></div><button class="close" id="closeDayMenu" aria-label="Kapat">×</button></div><p>Ana yemek, çorba, salata ve garnitür tariflerini seçebilirsin.</p><div class="day-menu-grid"><button class="day-menu-option" data-menu-category="Ana yemek"><span class="option-icon">🍲</span><span><strong>Ana yemek</strong><small>Önce ana yemeğini belirle</small></span><span class="arrow">›</span></button><button class="day-menu-option" data-menu-category="Çorba"><span class="option-icon">🥣</span><span><strong>Çorba</strong><small>İstersen menüne ekle</small></span><span class="arrow">›</span></button><button class="day-menu-option" data-menu-category="Salata"><span class="option-icon">🥗</span><span><strong>Salata</strong><small>Taze bir eşlikçi seç</small></span><span class="arrow">›</span></button><button class="day-menu-option" data-menu-category="Garnitür"><span class="option-icon">🥔</span><span><strong>Garnitür</strong><small>Pilav, sebze ve diğerleri</small></span><span class="arrow">›</span></button></div><div class="day-menu-footer"><button class="cancel" id="cancelDayMenu">Vazgeç</button><button class="confirm" id="confirmDayMenu">Günü kaydet</button></div></div></div>
 <div class="modal" id="placeholderModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-box"><div class="modal-head"><h3 id="modalTitle">Tarif seçimi</h3><button class="close" id="closeModal" aria-label="Kapat">×</button></div><p id="modalText">Bu alan, tarif kataloğu eklendiğinde kullanılacak.</p><div class="modal-placeholder"><b>＋</b>Tarifler henüz eklenmedi.<br>Bu alan, sizin göndereceğiniz ürünlerle doldurulacak.</div></div></div>
-<div class="modal" id="recipePickerModal" role="dialog" aria-modal="true" aria-labelledby="recipePickerTitle"><div class="modal-box" style="width:min(760px,100%);max-height:90vh;overflow:auto"><div class="modal-head"><h3 id="recipePickerTitle">Tarif seçimi</h3><button class="close" id="closeRecipePicker" aria-label="Kapat">×</button></div><p id="recipePickerIntro">İki kişilik tarifler ve malzemeleri</p><div id="recipePickerList" style="display:grid;gap:9px"></div><div id="recipeDetail" style="display:none;margin-top:16px;padding:16px;background:#f7f5ef;border-radius:14px"></div><div class="day-menu-footer"><button class="cancel" id="cancelRecipePicker">Kapat</button><button class="confirm" id="chooseRecipe" disabled>Bu tarifi seç</button></div></div></div>\n<div class="toast" id="toast" role="status"></div>
+<div class="modal" id="recipePickerModal" role="dialog" aria-modal="true" aria-labelledby="recipePickerTitle"><div class="modal-box" style="width:min(760px,100%);max-height:90vh;overflow:auto"><div class="modal-head"><h3 id="recipePickerTitle">Tarif seçimi</h3><button class="close" id="closeRecipePicker" aria-label="Kapat">×</button></div><p id="recipePickerIntro">İki kişilik tarifler ve malzemeleri</p><div id="recipePickerList" style="display:grid;gap:9px"></div><div id="recipeDetail" style="display:none;margin-top:16px;padding:16px;background:#f7f5ef;border-radius:14px"></div><div class="day-menu-footer"><button class="cancel" id="cancelRecipePicker">Kapat</button></div></div></div>\n<div class="toast" id="toast" role="status"></div>
 <script>
 const dayNames=['Pazartesi','Salı','Çarşamba','Perşembe','Cuma','Cumartesi','Pazar'];
 const now=new Date();
@@ -122,9 +122,9 @@ function closeDayMenu(){$('dayMenuModal').classList.remove('open')}
 async function openRecipePicker(category){
  pickerCategory=category;pendingRecipe=null;
  $('recipePickerTitle').textContent=category+' seçimi';
- $('recipePickerIntro').textContent='Bir tarife dokunarak detaylarını açın; ardından “Bu tarifi seç” düğmesine basın.';
+ $('recipePickerIntro').textContent='Bir tarife dokunduğunuzda doğrudan güne eklenir. Malzemelerini ve yapılışını menüden açabilirsiniz.';
  $('recipePickerList').innerHTML='<div class="modal-placeholder"><b>…</b>Tarifler yükleniyor</div>';
- $('recipeDetail').style.display='none';$('chooseRecipe').disabled=true;
+ $('recipeDetail').style.display='none';
  $('dayMenuModal').classList.remove('open');
  $('recipePickerModal').classList.add('open');
  try{
@@ -136,11 +136,7 @@ async function openRecipePicker(category){
    }
    $('recipePickerList').innerHTML=matches.map(r=>'<button type="button" data-recipe-id="'+Number(r.id)+'" style="display:flex;align-items:center;gap:12px;text-align:left;padding:12px;border:1px solid #e8e8df;background:#fffefa;border-radius:12px;color:#263a2e;width:100%"><span style="font-size:24px">'+esc(r.emoji||'🍽️')+'</span><span style="flex:1"><strong style="display:block;font-size:12px">'+esc(r.name)+'</strong><small style="display:block;color:#7d877d;margin-top:4px">'+esc(r.group||r.category)+' · '+esc(r.time||'')+' · 2 kişilik</small></span><span style="color:#52765c">Tarifi gör ›</span></button>').join('');
    $('recipePickerList').querySelectorAll('[data-recipe-id]').forEach(btn=>{
-     btn.addEventListener('click',()=>{
-       $('recipePickerList').querySelectorAll('[data-recipe-id]').forEach(x=>{x.style.borderColor='#e8e8df';x.style.background='#fffefa'});
-       btn.style.borderColor='#52765c';btn.style.background='#f3f6f0';
-       showRecipeDetail(Number(btn.dataset.recipeId));
-     });
+     btn.addEventListener('click',()=>selectRecipe(Number(btn.dataset.recipeId)));
    });
  }catch(e){
    console.error('Tarif seçici hatası:',e);
@@ -153,7 +149,7 @@ function showRecipeDetail(id){
  const ingredients=(r.ingredients||[]).map(x=>'<li style="margin:5px 0">'+esc(x.name)+' <span style="color:#7d877d">— '+esc(x.quantity)+'</span></li>').join('');
  const steps=(r.instructions||[]).map(x=>'<li style="margin:6px 0">'+esc(x)+'</li>').join('');
  $('recipeDetail').innerHTML='<div style="font-weight:700;font-size:15px;margin-bottom:6px">'+esc(r.emoji)+' '+esc(r.name)+'</div><div style="font-size:10px;color:#7d877d;margin-bottom:12px">'+esc(r.time)+' · 2 kişilik · '+esc(r.group||r.category)+'</div><strong style="font-size:11px">Malzemeler</strong><ul style="font-size:11px;padding-left:18px;line-height:1.5">'+ingredients+'</ul><strong style="font-size:11px">Yapılışı</strong><ol style="font-size:11px;padding-left:18px;line-height:1.5">'+steps+'</ol>';
- $('recipeDetail').style.display='block';$('chooseRecipe').disabled=false;
+ $('recipeDetail').style.display='block';
 }
 function showRecipeInPicker(id){
  const menu=dayMenus[dateKey(activeDay)]||{};
@@ -164,21 +160,22 @@ function showRecipeInPicker(id){
  $('recipePickerIntro').textContent='Seçili tarifin malzemeleri ve yapılışı';
  $('recipePickerList').innerHTML='';
  showRecipeDetail(Number(id));
- $('chooseRecipe').disabled=true;
- $('recipePickerModal').classList.add('open');
+  $('recipePickerModal').classList.add('open');
 }
 function closeRecipePicker(){ $('recipePickerModal').classList.remove('open'); if(editingDay!==null)$('dayMenuModal').classList.add('open'); }
 document.querySelectorAll('#dayMenuModal [data-menu-category]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();openRecipePicker(b.dataset.menuCategory)}));
 // Recipe buttons receive their own click handlers after the list is rendered.
-$('chooseRecipe').addEventListener('click',()=>{
- if(!pendingRecipe||!pickerCategory)return;
+function selectRecipe(id){
+ const chosen=recipes.find(r=>Number(r.id)===Number(id));
+ if(!chosen||!pickerCategory)return;
  const key=dateKey(editingDay);dayMenus[key]=dayMenus[key]||{};
- dayMenus[key][pickerCategory]=pendingRecipe;
+ dayMenus[key][pickerCategory]=chosen;
  $('recipePickerModal').classList.remove('open');
  renderMenuEditor();renderWeek();
  $('dayMenuModal').classList.add('open');
- toast(pendingRecipe.name+' menüye eklendi.');
-});
+ toast(chosen.name+' menüye eklendi.');
+}
+
 $('closeDayMenu').addEventListener('click',closeDayMenu);
 $('cancelDayMenu').addEventListener('click',closeDayMenu);
 $('dayMenuModal').addEventListener('click',e=>{if(e.target===$('dayMenuModal'))closeDayMenu()});
