@@ -22,6 +22,29 @@
 @media(max-width:800px){.app{grid-template-columns:1fr}.sidebar{position:sticky;top:0;height:auto;padding:11px 15px;flex-direction:row;align-items:center;gap:12px;z-index:4}.brand{font-size:25px}.subbrand,.nav-label,.side-note{display:none}.navs{display:flex;margin-left:auto;gap:2px}.nav{width:auto;padding:9px 10px;margin:0;font-size:0;gap:0}.nav .ico{font-size:17px}.count{font-size:8px;margin-left:2px}.main{padding:25px 17px}.below{grid-template-columns:1fr}.builder-body{grid-template-columns:1fr;gap:15px}.main-course-panel{padding:0 0 15px;border-right:0;border-bottom:1px solid var(--line)}.main-course-picker{right:0}.chef-panel{padding:13px}}
 @media(max-width:560px){.top{align-items:flex-start;flex-direction:column;gap:13px}.heading{font-size:38px}.stats{gap:7px;margin:20px 0 27px}.stat{padding:13px 10px}.stat strong{font-size:23px}.stat small{font-size:9px}.week-grid{grid-template-columns:repeat(7,145px)}.catalog-tools{flex-direction:column}.search{min-width:0}.recipe-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.recipe-art{height:125px}.recipe-info{padding:11px}.recipe-info h4{font-size:15px}.recipe-meta{font-size:9px}.builder-hero{padding:20px;min-height:125px}.builder-hero h2{font-size:26px}.builder-body{padding:17px}.main-course-picker{top:147px;max-height:48vh;grid-template-columns:1fr}.chef-suggestion{grid-template-columns:58px minmax(0,1fr) auto;gap:7px}.chef-suggestion .recipe-art{width:58px;height:56px}.chef-add{font-size:8px}.builder-footer{padding:12px 17px}.btn{padding:10px 12px}}
 
+
+/* Full-screen, two-stage menu creation */
+.modal-backdrop{padding:0;align-items:stretch;justify-content:stretch;background:#f4f0e7;backdrop-filter:none;overflow:hidden}
+.modal.menu-builder{width:100%;height:100%;max-height:none;min-height:100dvh;border-radius:0;overflow:auto;box-shadow:none}
+.menu-type-screen{position:relative;width:100%;min-height:100dvh;display:grid;place-items:center;padding:50px 24px;background:radial-gradient(ellipse at 85% 15%,#dfe7d8 0,transparent 34%),radial-gradient(ellipse at 10% 90%,#ead8c8 0,transparent 35%),var(--cream)}
+.menu-type-screen[hidden],.modal.menu-builder[hidden]{display:none}
+.type-screen-close{position:absolute;top:25px;right:28px;width:44px;height:44px;font-size:25px;background:#fffdf8;border:1px solid var(--line)}
+.type-screen-content{width:min(850px,100%);margin:auto;text-align:center}
+.type-screen-content h2{font:600 clamp(36px,5vw,58px) 'Playfair Display';letter-spacing:-1.5px;line-height:1.1;color:var(--forest);margin:15px 0}
+.type-screen-content>p{font-size:14px;color:var(--muted);line-height:1.7;max-width:530px;margin:0 auto}
+.menu-type-options{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:48px;text-align:left}
+.menu-type-option{position:relative;display:flex;align-items:center;gap:19px;min-height:205px;padding:25px;background:var(--paper);border:1px solid var(--line);border-radius:20px;text-align:left;box-shadow:0 15px 40px #1d30270c;transition:transform .25s,border-color .25s,box-shadow .25s}
+.menu-type-option:hover{transform:translateY(-6px);border-color:#9aab91;box-shadow:0 24px 55px #1d30271a}
+.type-visual{width:88px;height:112px;flex:none;display:grid;place-items:center;border-radius:15px;font-size:43px}
+.stew-visual{background:linear-gradient(145deg,#eee2d0,#e2d5bd)}
+.fit-visual{background:linear-gradient(145deg,#e1eadb,#d3e0cf)}
+.type-option-copy{display:grid;gap:8px}
+.type-option-copy small{font-size:9px;letter-spacing:1.8px;font-weight:700;color:var(--clay)}
+.type-option-copy strong{font:600 24px 'Playfair Display';color:var(--forest)}
+.type-option-copy>span{font-size:11px;line-height:1.6;color:var(--muted);max-width:230px}
+.type-arrow{position:absolute;right:20px;bottom:18px;color:var(--clay);font-size:23px}
+@media(max-width:650px){.menu-type-screen{padding:72px 18px 35px}.type-screen-content h2{font-size:39px}.type-screen-content>p{font-size:12px}.menu-type-options{grid-template-columns:1fr;gap:12px;margin-top:30px}.menu-type-option{min-height:145px;padding:17px;gap:14px}.type-visual{width:68px;height:88px;font-size:34px}.type-option-copy strong{font-size:21px}.type-option-copy>span{font-size:10px}.type-screen-close{top:15px;right:15px}}
+
 </style>
 </head>
 <body>
@@ -58,7 +81,24 @@
 </section>
 </main>
 </div>
-<div class="modal-backdrop" id="menuModal"><div class="modal menu-builder"><div class="builder-hero"><div><div class="eyebrow">SOFRANIN YILDIZI</div><h2 id="modalTitle">Menünü oluştur</h2><div class="intro">Ana yemeğini seç, şefin ona yakışan menüyü tamamlasın.</div></div><button class="close builder-close" onclick="closeModal()">×</button></div><div class="builder-body"><section class="main-course-panel"><div class="selection-intro"><span class="eyebrow">1. ADIM</span><h3>Bugün nasıl bir menü istersin?</h3><p>Önce yemek tarzını seç, sana uygun ana yemekleri gösterelim.</p></div><div class="main-category-tabs"><button type="button" class="main-category-tab" id="stewTab" onclick="setMainCategory('stew')">🍲 Sulu / Geleneksel</button><button type="button" class="main-category-tab" id="fitTab" onclick="setMainCategory('fit')">🥗 Fit / Hafif</button></div><div class="main-course-picker" id="mainCoursePicker"></div><div class="selected-main-card selected-main-summary" id="selectedMainCard"><div class="chef-empty">Listeden bir ana yemek seçtiğinde burada görünecek.</div></div></section><section class="chef-panel"><div class="chef-heading"><span class="chef-icon">♧</span><div><h3>Şefin Menü Önerileri</h3><p id="chefDescription">Ana yemeğini seçtiğinde sana en uygun eşlikçileri önereceğiz.</p></div></div><div id="sideChoices" class="chef-suggestions"></div></section></div><div class="modal-footer builder-footer"><button class="btn" onclick="closeModal()">× &nbsp; Vazgeç</button><button class="btn primary" onclick="saveMenu()">✓ &nbsp; Menüyü kaydet</button></div></div></div><div class="toast" id="toast"></div>
+<div class="modal-backdrop" id="menuModal">
+<section class="menu-type-screen" id="menuTypeScreen">
+  <button class="close type-screen-close" onclick="closeModal()">×</button>
+  <div class="type-screen-content">
+    <div class="eyebrow">SOFRA · MENÜ PLANLAYICI</div>
+    <h2>Bugün nasıl bir sofra kuralım?</h2>
+    <p>Önce menünün tarzını seç. Sana uygun ana yemekleri ve eşlikçileri hazırlayalım.</p>
+    <div class="menu-type-options">
+      <button type="button" class="menu-type-option" onclick="chooseMenuType('stew')">
+        <span class="type-visual stew-visual">🍲</span><span class="type-option-copy"><small>EV YEMEKLERİ</small><strong>Sulu / Geleneksel</strong><span>Alıştığın sıcak, doyurucu ev yemekleri ve klasik sofralar.</span></span><span class="type-arrow">→</span>
+      </button>
+      <button type="button" class="menu-type-option" onclick="chooseMenuType('fit')">
+        <span class="type-visual fit-visual">🥗</span><span class="type-option-copy"><small>HAFİF & DENGELİ</small><strong>Fit / Hafif</strong><span>Protein ağırlıklı, sebzeli ve daha hafif menü seçenekleri.</span></span><span class="type-arrow">→</span>
+      </button>
+    </div>
+  </div>
+</section>
+<div class="modal menu-builder" id="menuBuilder" hidden><div class="builder-hero"><div><div class="eyebrow">SOFRANIN YILDIZI</div><h2 id="modalTitle">Menünü oluştur</h2><div class="intro">Ana yemeğini seç, şefin ona yakışan menüyü tamamlasın.</div></div><button class="close builder-close" onclick="closeModal()">×</button></div><div class="builder-body"><section class="main-course-panel"><div class="selection-intro"><span class="eyebrow">1. ADIM</span><h3>Bugün nasıl bir menü istersin?</h3><p>Önce yemek tarzını seç, sana uygun ana yemekleri gösterelim.</p></div><div class="main-category-tabs"><button type="button" class="main-category-tab" id="stewTab" onclick="setMainCategory('stew')">🍲 Sulu / Geleneksel</button><button type="button" class="main-category-tab" id="fitTab" onclick="setMainCategory('fit')">🥗 Fit / Hafif</button></div><div class="main-course-picker" id="mainCoursePicker"></div><div class="selected-main-card selected-main-summary" id="selectedMainCard"><div class="chef-empty">Listeden bir ana yemek seçtiğinde burada görünecek.</div></div></section><section class="chef-panel"><div class="chef-heading"><span class="chef-icon">♧</span><div><h3>Şefin Menü Önerileri</h3><p id="chefDescription">Ana yemeğini seçtiğinde sana en uygun eşlikçileri önereceğiz.</p></div></div><div id="sideChoices" class="chef-suggestions"></div></section></div><div class="modal-footer builder-footer"><button class="btn" onclick="closeModal()">× &nbsp; Vazgeç</button><button class="btn primary" onclick="saveMenu()">✓ &nbsp; Menüyü kaydet</button></div></div></div><div class="toast" id="toast"></div>
 <script>
 const photoById = {
   0:{file:"Kuru_fasulye,_Turkish_style.jpg",author:"E4024",license:"CC BY-SA 4.0",page:"https://commons.wikimedia.org/wiki/File:Kuru_fasulye,_Turkish_style.jpg"},
@@ -186,7 +226,8 @@ function showPage(p){document.querySelectorAll('.page').forEach(x=>x.classList.t
 document.querySelectorAll('.nav').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
 function renderCalendar(){const days=Array.from({length:7},(_,i)=>{const d=new Date(state.weekStart);d.setDate(d.getDate()+i);return d});$('weekLabel').textContent=fmt(days[0])+' – '+fmt(days[6],{day:'numeric',month:'long',year:'numeric'});$('weekGrid').innerHTML=days.map(d=>{const key=dateKey(d),m=state.menus[key],today=dateKey(new Date())===key;const main=recipes.find(r=>r.id===m?.main);return '<div class="day '+(today?'today':'')+'"><div class="day-head"><span class="day-name">'+fmt(d,{weekday:'short'}).toLocaleUpperCase('tr-TR')+'</span><span class="day-num">'+d.getDate()+'</span></div>'+(main?'<div class="dish-mini">'+main.emoji+' '+esc(main.name)+'</div><div class="dish-sub">'+(m.sides||[]).map(id=>recipes.find(r=>r.id===id)?.name).filter(Boolean).join(' · ')+'</div><button class="add-day" onclick="openModal(\''+key+'\')">Menüyü düzenle</button>':'<div class="empty">Henüz menü yok</div><button class="add-day" onclick="openModal(\''+key+'\')">+ Menü oluştur</button>')+'</div>'}).join('');const values=Object.values(state.menus);$('plannedDays').textContent=values.length+' / 7';$('plannedRecipes').textContent=values.reduce((n,m)=>n+1+(m.sides?.length||0),0);$('totalItems').textContent=state.shopping.length;$('weekSummary').innerHTML=values.length?days.filter(d=>state.menus[dateKey(d)]).map(d=>'<div class="quick-item"><span class="dot"></span><strong>'+fmt(d,{weekday:'long'})+'</strong><span>'+esc(recipes.find(r=>r.id===state.menus[dateKey(d)].main)?.name||'')+'</span></div>').join(''):'<div class="intro">Henüz plan yapılmadı. Takvimden bir gün seçerek başlayabilirsin.</div>'}
 let mainCarouselOffset=0;
-function openModal(key){state.selectedDate=key;const d=new Date(key+'T12:00:00');$('modalTitle').textContent=fmt(d,{weekday:'long',day:'numeric',month:'long'})+' menüsü';const old=state.menus[key];state.selectedMain=old?.main??null;state.selectedSides=new Set(old?.sides||[]);mainCarouselOffset=0;mainCategory=state.selectedMain===null?null:(fitMainIds.includes(state.selectedMain)?'fit':'stew');renderChoices();$('menuModal').classList.add('open')}
+function openModal(key){state.selectedDate=key;const d=new Date(key+'T12:00:00');$('modalTitle').textContent=fmt(d,{weekday:'long',day:'numeric',month:'long'})+' menüsü';const old=state.menus[key];state.selectedMain=old?.main??null;state.selectedSides=new Set(old?.sides||[]);mainCarouselOffset=0;mainCategory=state.selectedMain===null?'stew':(fitMainIds.includes(state.selectedMain)?'fit':'stew');$('menuTypeScreen').hidden=false;$('menuBuilder').hidden=true;$('menuModal').classList.add('open')}
+function chooseMenuType(category){if(mainCategory!==category){state.selectedMain=null;state.selectedSides.clear()}mainCategory=category;$('menuTypeScreen').hidden=true;$('menuBuilder').hidden=false;renderChoices()}
 function closeModal(){$('menuModal').classList.remove('open')}
 function choice(r,checked,kind){return '<label class="recipe-choice '+(checked?'selected':'')+'"><input type="'+(kind==='main'?'radio':'checkbox')+'" name="'+(kind==='main'?'main':'side')+'" value="'+r.id+'" '+(checked?'checked':'')+'><span class="choice-emoji">'+r.emoji+'</span><span><span class="choice-name">'+esc(r.name)+'</span><span class="choice-meta">'+r.time+' · '+r.level+'</span></span></label>'}
 const chefPairings={
