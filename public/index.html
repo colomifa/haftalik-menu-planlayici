@@ -147,7 +147,7 @@ async function openRecipePicker(category){
  $('recipePickerTitle').textContent=category+' seçimi';
  $('recipePickerIntro').textContent='Tarifi incelemek için “Tarifi gör”, menüye eklemek için “Seç” düğmesine dokun.';
  $('recipePickerList').innerHTML='<div class="modal-placeholder"><b>…</b>Tarifler yükleniyor</div>';
- $('recipeDetail').style.display='none';$('recipeDetail').innerHTML='';
+ $('recipeDetail').style.display='none';$('recipeDetail').innerHTML='';$('recipePickerList').style.display='grid';
  pickerReturnTo=$('sideItemsPageModal').classList.contains('open')?'sidePage':'dayMenu';
  $('dayMenuModal').classList.remove('open');$('sideItemsPageModal').classList.remove('open');
  $('recipePickerModal').classList.add('open');
