@@ -78,6 +78,37 @@
  #menuBuilder .main-picker-option small{font-size:9px}
 }
 
+
+/* SOFRA HOME — three-column editorial kitchen workspace */
+:root{--forest:#174b25;--forest2:#23642e;--cream:#faf9f5;--paper:#fffefa;--ink:#171d18;--muted:#777e75;--line:#e9e7df;--clay:#a4c78e;--shadow:0 5px 18px #172a140b}
+body{background:#f8f7f2;color:var(--ink);font-family:'DM Sans',sans-serif}
+.app{display:block;min-height:100vh}
+.sidebar{height:76px;position:sticky;top:0;z-index:10;background:#fffefa;color:var(--ink);padding:10px clamp(16px,3vw,42px);display:flex;flex-direction:row;align-items:center;gap:clamp(20px,5vw,75px);border-bottom:1px solid #ecebe5;overflow:visible}
+.sidebar:before,.side-note,.nav-label{display:none}
+.brand{font:700 25px 'DM Sans';letter-spacing:-1.3px;color:#174b25}.brand span{color:#174b25}.subbrand{font-size:8px;letter-spacing:1.2px;color:#829080;margin:2px 0 0}
+.navs{display:flex;align-items:center;gap:clamp(9px,2.8vw,42px);margin-left:auto}
+.nav{width:auto;margin:0;padding:8px 10px;display:flex;flex-direction:column;gap:3px;color:#252d25;border-radius:10px;font-size:11px;font-weight:600;text-align:center}
+.nav .ico{font-size:22px;width:auto;color:#174b25}.nav.active,.nav:hover{background:#edf4e9;color:#174b25}
+.count{font-size:8px;padding:2px 5px}
+.main{padding:0;max-width:none;width:100%;margin:0}
+.page{display:none}.page.active{display:block}
+.home-dashboard{display:grid!important;grid-template-columns:minmax(400px,1.12fr) minmax(340px,.78fr) minmax(340px,.82fr);gap:14px;padding:14px;min-height:calc(100vh - 76px);align-items:start}
+.home-left,.home-middle,.home-right{min-width:0}
+.home-hero{height:275px;border-radius:18px;overflow:hidden;position:relative;display:flex;align-items:center;padding:30px;background:linear-gradient(90deg,#142518e8 0%,#142518a8 48%,#14251808 100%),url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1400&q=85') center/cover;color:white}
+.hero-copy{position:relative;z-index:1;max-width:290px}.hero-copy .eyebrow{color:#c9e4b8}.hero-copy h2{font:700 clamp(27px,3vw,42px) 'Playfair Display';line-height:1.08;margin:10px 0}.hero-copy p{font-size:12px;line-height:1.6;color:#f3f2e8}.hero-cta,.home-wide-cta{border:0;background:#1c671f;color:white;border-radius:30px;padding:12px 20px;font-weight:700;font-size:12px;margin-top:10px;box-shadow:0 5px 16px #103a1b35}.hero-cta span{font-size:17px;margin-left:8px}.hero-food{display:none}
+.home-catalog-head{display:flex;justify-content:space-between;align-items:end;margin:22px 2px 13px}.home-catalog-head h2{font:700 25px 'Playfair Display';margin:5px 0;color:#17251a}.text-link{border:0;background:none;color:#28652c;font-size:11px;font-weight:700}
+.home-categories{display:flex;gap:7px;overflow:auto;padding:2px 0 13px}.home-filter{white-space:nowrap;border:1px solid #e6e5dd;background:#fff;border-radius:30px;padding:9px 15px;font-size:11px;font-weight:600}.home-filter.active{background:#176326;color:white;border-color:#176326}
+.home-recipe-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:11px}
+.home-recipe-card{position:relative;background:#fff;border:1px solid #e9e7df;border-radius:14px;overflow:hidden;cursor:pointer;box-shadow:0 3px 12px #172a1408;transition:.2s}.home-recipe-card:hover{transform:translateY(-3px);box-shadow:0 9px 20px #172a1414}.home-recipe-card>.recipe-art{height:112px}.home-recipe-card>.photo-credit{display:none}.home-heart{position:absolute;right:8px;top:8px;border:0;border-radius:50%;width:28px;height:28px;background:#ffffffed;color:#174b25;font-size:16px}.home-card-copy{padding:9px 10px 11px}.home-card-copy strong{display:block;font-size:12px;line-height:1.35;min-height:31px}.home-card-copy>span{display:flex;justify-content:space-between;color:#6f796f;font-size:10px;margin-top:5px}
+.home-panel,.home-right{background:#fffefa;border:1px solid #e8e6df;border-radius:18px;padding:17px;box-shadow:0 4px 16px #172a1408}
+.home-panel{margin-bottom:14px}.home-panel-title{display:flex;justify-content:space-between;align-items:center;gap:8px}.home-panel-title h2{font:700 20px 'DM Sans';margin:0;color:#151c16}.home-week-nav{display:flex;justify-content:center;align-items:center;gap:18px;margin:15px 0 12px}.home-week-nav button{border:0;background:#f1f4ed;color:#175324;border-radius:50%;width:29px;height:29px;font-size:21px}.home-week-nav strong{font-size:12px}
+.home-week-list{display:grid;gap:7px}.home-week-row{height:55px;display:flex;align-items:center;gap:9px;padding:6px 8px;border:1px solid #eceae3;border-radius:12px;cursor:pointer;background:#fff}.home-week-row:hover{border-color:#a8c69c;background:#f8fbf5}.home-day{width:43px;flex:none;display:grid;gap:2px}.home-day strong{font-size:12px}.home-day small{font-size:9px;color:#777}.home-week-row>.recipe-art{width:53px;height:42px;flex:none;border-radius:8px;font-size:20px}.home-week-row>.photo-credit{display:none}.home-week-placeholder{width:53px;height:42px;display:grid;place-items:center;border-radius:8px;background:#eff5e9;color:#23642e;font-size:20px}.home-week-name{font-size:11px;line-height:1.3;flex:1}.home-week-more{font-size:19px;color:#4f594f}
+.home-count{border-radius:20px;background:#e8f2df;color:#205b28;padding:7px 11px;font-size:10px;font-weight:700}.home-shopping-list{margin:13px 0 12px}.home-shop-row{display:flex;align-items:center;gap:10px;padding:9px 2px;border-bottom:1px solid #f0eee8;font-size:11px}.home-shop-row input,.home-ingredient input{accent-color:#176326;width:16px;height:16px}.home-wide-cta{width:100%;border-radius:10px;margin-top:8px}
+.home-right{position:sticky;top:90px;max-height:calc(100vh - 104px);overflow:auto;padding:17px}.home-detail-head{display:flex;justify-content:space-between;align-items:center;font-size:19px;font-weight:700;margin-bottom:14px}.home-recipe-detail>.recipe-art{height:235px;border-radius:14px;overflow:hidden}.home-recipe-detail>.photo-credit{font-size:9px;padding:4px 2px}.home-recipe-detail h2{font:700 27px 'DM Sans';margin:10px 0 7px}.home-detail-meta{display:flex;gap:8px;margin:9px 0 15px}.home-detail-meta span{background:#edf4e8;color:#315e32;padding:7px 10px;border-radius:9px;font-size:10px}.home-detail-section{border-top:1px solid #eceae3;padding-top:14px}.home-detail-section h3{font-size:17px;margin:0 0 9px}.home-detail-section h3 small{font-size:10px;font-weight:500}.home-ingredient{display:flex;gap:9px;align-items:center;padding:7px 0;font-size:12px}
+.home-empty{font-size:11px;color:#858c82;line-height:1.6;padding:15px 0}
+@media(max-width:1120px){.home-dashboard{grid-template-columns:minmax(0,1fr) minmax(320px,.8fr)}.home-right{grid-column:1/-1;position:static;max-height:none}.home-recipe-detail>.recipe-art{height:260px}}
+@media(max-width:700px){.sidebar{height:auto;padding:9px 10px;gap:8px}.brand{font-size:20px}.subbrand{display:none}.navs{gap:2px}.nav{font-size:9px;padding:7px 6px}.nav .ico{font-size:18px}.home-dashboard{display:flex!important;flex-direction:column;padding:10px;gap:10px}.home-left,.home-middle,.home-right{width:100%}.home-hero{height:230px;padding:20px}.home-recipe-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.home-recipe-card>.recipe-art{height:125px}.home-panel,.home-right{padding:13px}.home-panel-title h2{font-size:17px}.home-right{position:static;max-height:none}.home-recipe-detail>.recipe-art{height:210px}}
+
 </style>
 </head>
 <body>
@@ -86,14 +117,26 @@
 <div><h1 class="brand">sofra<span>.</span></h1><div class="subbrand">HER GÜN GÜZEL BİR SOFRA</div></div>
 <div class="navs">
 <div class="nav-label">MENÜ</div>
-<button class="nav active" data-page="calendar"><span class="ico">▦</span>Haftalık Takvim</button>
-<button class="nav" data-page="catalog"><span class="ico">♧</span>Tarif Kataloğu</button>
+<button class="nav active" data-page="home"><span class="ico">⌂</span>Anasayfa</button><button class="nav" data-page="calendar"><span class="ico">▦</span>Planım</button>
+<button class="nav" data-page="catalog"><span class="ico">♧</span>Tarifler</button>
 <button class="nav" data-page="shopping"><span class="ico">☷</span>Alışveriş Listesi <span class="count" id="shoppingCount">0</span></button>
 <button class="nav" data-page="favorites"><span class="ico">♡</span>Favori Tarifler</button>
 </div>
 <div class="side-note"><strong>Bu hafta sofranda ne var?</strong>Sevdiğin tarifleri seç, alışveriş listen kendiliğinden hazırlansın.</div>
 </aside>
-<main class="main">
+<main class="main"><section id="home" class="page active home-dashboard">
+  <div class="home-left">
+    <div class="home-hero"><div class="hero-copy"><span class="eyebrow">SOFRANA İLHAM</span><h2>Haftalık Yemek Planını Oluştur</h2><p>Sağlıklı, pratik ve lezzetli tariflerle sofranı planla.</p><button class="hero-cta" onclick="showPage('calendar')">Planını Oluştur <span>→</span></button></div><div class="hero-food">🍗</div></div>
+    <div class="home-catalog-head"><div><span class="eyebrow">BUGÜN NE PİŞİRSEK?</span><h2>Tarifleri keşfet</h2></div><button class="text-link" onclick="showPage('catalog')">Tüm tarifler →</button></div>
+    <div class="home-categories"><button class="home-filter active" onclick="homeFilter('all',this)">Tümü</button><button class="home-filter" onclick="homeFilter('Ana yemek',this)">Ana yemek</button><button class="home-filter" onclick="homeFilter('Salata',this)">Salata</button><button class="home-filter" onclick="homeFilter('Çorba',this)">Çorba</button><button class="home-filter" onclick="homeFilter('Yan yemek',this)">Ara sıcak</button></div>
+    <div class="home-recipe-grid" id="homeRecipeGrid"></div>
+  </div>
+  <div class="home-middle">
+    <section class="home-panel weekly-panel"><div class="home-panel-title"><h2>▦ &nbsp; Haftalık Yemek Planım</h2></div><div class="home-week-nav"><button onclick="shiftWeek(-1)">‹</button><strong id="homeWeekLabel"></strong><button onclick="shiftWeek(1)">›</button></div><div id="homeWeekList" class="home-week-list"></div></section>
+    <section class="home-panel home-shopping-panel"><div class="home-panel-title"><h2>🛒 &nbsp; Alışveriş Listem</h2><span class="home-count" id="homeShoppingCount">0 ürün</span></div><div id="homeShoppingList" class="home-shopping-list"></div><button class="home-wide-cta" onclick="showPage('shopping')">⊕ &nbsp; Alışveriş listesine git</button></section>
+  </div>
+  <aside class="home-right"><div class="home-detail-head"><span>Tarif Detayı</span><button class="fav" id="homeDetailFav" onclick="toggleHomeFavorite()">♡</button></div><div id="homeRecipeDetail" class="home-recipe-detail"></div></aside>
+</section>
 <section id="calendar" class="page active">
 <div class="top"><div><div class="eyebrow">MUTFAĞININ HAFTALIK RİTMİ</div><h2 class="heading">Bu hafta ne pişiriyoruz?</h2><div class="intro">Güzel sofralar, küçük bir planla başlar.</div></div><div class="week-nav"><button id="prevWeek">‹</button><span id="weekLabel"></span><button id="nextWeek">›</button></div></div>
 <div class="stats"><div class="stat"><small>Planlanan gün</small><strong id="plannedDays">0 / 7</strong></div><div class="stat"><small>Bu haftanın tarifleri</small><strong id="plannedRecipes">0</strong></div><div class="stat"><small>Alışveriş kalemi</small><strong id="totalItems">0</strong></div></div>
@@ -255,7 +298,7 @@ function startOfWeek(d){const x=new Date(d);x.setHours(0,0,0,0);x.setDate(x.getD
 function dateKey(d){return d.toISOString().slice(0,10)}
 function fmt(d,opt={day:'numeric',month:'short'}){return new Intl.DateTimeFormat('tr-TR',opt).format(d)}
 function esc(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function showPage(p){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===p));document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x.dataset.page===p));if(p==='catalog')renderCatalog();if(p==='favorites')renderFavorites();if(p==='shopping')renderShopping()}
+function showPage(p){document.querySelectorAll('.page').forEach(x=>x.classList.toggle('active',x.id===p));document.querySelectorAll('.nav').forEach(x=>x.classList.toggle('active',x.dataset.page===p));if(p==='catalog')renderCatalog();if(p==='favorites')renderFavorites();if(p==='shopping')renderShopping();if(p==='home')renderHomeDashboard()}
 document.querySelectorAll('.nav').forEach(b=>b.addEventListener('click',()=>showPage(b.dataset.page)));
 function renderCalendar(){const days=Array.from({length:7},(_,i)=>{const d=new Date(state.weekStart);d.setDate(d.getDate()+i);return d});$('weekLabel').textContent=fmt(days[0])+' – '+fmt(days[6],{day:'numeric',month:'long',year:'numeric'});$('weekGrid').innerHTML=days.map(d=>{const key=dateKey(d),m=state.menus[key],today=dateKey(new Date())===key;const main=recipes.find(r=>r.id===m?.main);return '<div class="day '+(today?'today':'')+'"><div class="day-head"><span class="day-name">'+fmt(d,{weekday:'short'}).toLocaleUpperCase('tr-TR')+'</span><span class="day-num">'+d.getDate()+'</span></div>'+(main?'<div class="dish-mini">'+main.emoji+' '+esc(main.name)+'</div><div class="dish-sub">'+(m.sides||[]).map(id=>recipes.find(r=>r.id===id)?.name).filter(Boolean).join(' · ')+'</div><button class="add-day" onclick="openModal(\''+key+'\')">Menüyü düzenle</button>':'<div class="empty">Henüz menü yok</div><button class="add-day" onclick="openModal(\''+key+'\')">+ Menü oluştur</button>')+'</div>'}).join('');const values=Object.values(state.menus);$('plannedDays').textContent=values.length+' / 7';$('plannedRecipes').textContent=values.reduce((n,m)=>n+1+(m.sides?.length||0),0);$('totalItems').textContent=state.shopping.length;$('weekSummary').innerHTML=values.length?days.filter(d=>state.menus[dateKey(d)]).map(d=>'<div class="quick-item"><span class="dot"></span><strong>'+fmt(d,{weekday:'long'})+'</strong><span>'+esc(recipes.find(r=>r.id===state.menus[dateKey(d)].main)?.name||'')+'</span></div>').join(''):'<div class="intro">Henüz plan yapılmadı. Takvimden bir gün seçerek başlayabilirsin.</div>'}
 let mainCarouselOffset=0;
@@ -288,6 +331,16 @@ function renderChoices(){
  $('sideChoices').querySelectorAll('input').forEach(i=>i.addEventListener('change',()=>{const id=Number(i.value);i.checked?state.selectedSides.add(id):state.selectedSides.delete(id)}));
 }
 
+
+let homeCategory='all',homeSelectedRecipe=13;
+function homeFilter(cat,button){homeCategory=cat;document.querySelectorAll('.home-filter').forEach(x=>x.classList.toggle('active',x===button));renderHomeRecipes()}
+function renderHomeRecipes(){const list=recipes.filter(r=>homeCategory==='all'||r.category===homeCategory);$('homeRecipeGrid').innerHTML=list.slice(0,12).map(r=>'<article class="home-recipe-card" onclick="selectHomeRecipe('+r.id+')">'+photoMarkup(r.id,r.emoji)+'<button class="home-heart" onclick="event.stopPropagation();toggleFav('+r.id+');renderHomeRecipes()">♥</button><div class="home-card-copy"><strong>'+esc(r.name)+'</strong><span>◷ '+r.time+' <span>♨ '+(r.ingredients.length*42+140)+' kcal</span></span></div></article>').join('')}
+function selectHomeRecipe(id){homeSelectedRecipe=id;renderHomeDetail()}
+function renderHomeDetail(){const r=recipes.find(x=>x.id===homeSelectedRecipe)||recipes[0];if(!r)return;$('homeRecipeDetail').innerHTML=photoMarkup(r.id,r.emoji)+'<h2>'+esc(r.name)+'</h2><div class="home-detail-meta"><span>◷ '+r.time+'</span><span>● '+r.category+'</span></div><div class="home-detail-section"><h3>🧺 Malzemeler <small>(Tarif ölçüsü)</small></h3>'+r.ingredients.map(x=>'<label class="home-ingredient"><input type="checkbox"><span>'+esc(x[1])+' '+esc(x[0])+'</span></label>').join('')+'</div><button class="home-wide-cta" onclick="addFromCatalog('+r.id+')">＋ Menüye ekle</button>';$('homeDetailFav').textContent=state.favorites.has(r.id)?'♥':'♡'}
+function toggleHomeFavorite(){const r=recipes.find(x=>x.id===homeSelectedRecipe);if(r)toggleFav(r.id);$('homeDetailFav').textContent=state.favorites.has(homeSelectedRecipe)?'♥':'♡'}
+function shiftWeek(n){state.weekStart.setDate(state.weekStart.getDate()+n*7);renderCalendar();renderHomeDashboard()}
+function renderHomeDashboard(){if(!$('homeWeekList'))return;const days=Array.from({length:7},(_,i)=>{const d=new Date(state.weekStart);d.setDate(d.getDate()+i);return d});$('homeWeekLabel').textContent=fmt(days[0],{day:'numeric',month:'short'})+' – '+fmt(days[6],{day:'numeric',month:'short',year:'numeric'});$('homeWeekList').innerHTML=days.map(d=>{const k=dateKey(d),m=state.menus[k],r=recipes.find(x=>x.id===m?.main);return '<div class="home-week-row" onclick="openModal(\''+k+'\')"><span class="home-day"><strong>'+fmt(d,{weekday:'short'}).replace('.','')+'</strong><small>'+fmt(d,{day:'numeric',month:'short'})+'</small></span>'+(r?photoMarkup(r.id,r.emoji):'<span class="home-week-placeholder">＋</span>')+'<strong class="home-week-name">'+(r?esc(r.name):'Yemek ekle')+'</strong><span class="home-week-more">⋮</span></div>'}).join('');$('homeShoppingCount').textContent=state.shopping.length+' ürün';$('homeShoppingList').innerHTML=state.shopping.length?state.shopping.slice(0,8).map((x,i)=>'<label class="home-shop-row"><input type="checkbox" '+(x.checked?'checked':'')+' onchange="toggleShopping('+i+',this.checked)"><span>'+esc(x.ingredient)+' ('+esc(x.quantity)+')</span></label>').join(''):'<div class="home-empty">Menü planladığında alışveriş listen burada oluşacak.</div>';renderHomeRecipes();renderHomeDetail()}
+
 function saveMenu(){if(state.selectedMain===null){toast('Önce bir ana yemek seçmelisin.');return}state.menus[state.selectedDate]={main:state.selectedMain,sides:[...state.selectedSides]};closeModal();buildShopping();renderCalendar();toast('Menün kaydedildi, alışveriş listen güncellendi.');persistMenu(state.selectedDate)}
 function buildShopping(){const map=new Map();Object.values(state.menus).forEach(m=>[m.main,...m.sides].forEach(id=>{const r=recipes.find(x=>x.id===id);r?.ingredients.forEach(([name,qty,aisle])=>{const k=name.toLocaleLowerCase('tr-TR');if(!map.has(k))map.set(k,{ingredient:name,quantity:qty,aisle,checked:false});else map.get(k).quantity+=' + '+qty})}));const old=new Map(state.shopping.map(x=>[x.ingredient.toLocaleLowerCase('tr-TR'),x.checked]));state.shopping=[...map.values()].map(x=>({...x,checked:old.get(x.ingredient.toLocaleLowerCase('tr-TR'))||false}));renderShopping()}
 function renderShopping(){const groups={};state.shopping.forEach((x,i)=>(groups[x.aisle]??=[]).push({...x,i}));const done=state.shopping.filter(x=>x.checked).length;$('shoppingCount').textContent=state.shopping.length;$('shoppingProgress').textContent=done+' / '+state.shopping.length+' ürün tamamlandı';$('shoppingGroups').innerHTML=state.shopping.length?Object.entries(groups).map(([g,items])=>'<div class="shopping-group"><h4>'+esc(g.toLocaleUpperCase('tr-TR'))+' · '+items.length+'</h4>'+items.map(x=>'<label class="shop-row '+(x.checked?'checked':'')+'"><input type="checkbox" '+(x.checked?'checked':'')+' onchange="toggleShopping('+x.i+',this.checked)"><span>'+esc(x.ingredient)+'</span><span style="margin-left:auto;color:#929b91">'+esc(x.quantity)+'</span></label>').join('')+'</div>').join(''):'<div class="empty-state">Alışveriş listen henüz boş.<br>Takvimden menülerini oluşturduğunda malzemeler burada toplanır.</div>';persistShopping()}
@@ -304,5 +357,6 @@ async function persistMenu(date){try{await fetch('/api/menus',{method:'POST',hea
 async function persistShopping(){try{await fetch('/api/shopping-list',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:state.shopping})})}catch{}}
 async function loadData(){try{const [m,s]=await Promise.all([fetch('/api/menus'),fetch('/api/shopping-list')]);if(m.ok){const rows=await m.json();rows.forEach(x=>state.menus[String(x.menu_date).slice(0,10)]=x.payload)}if(s.ok)state.shopping=await s.json()}catch{}renderCalendar();renderShopping()}
 loadData();
+renderHomeDashboard();
 </script>
 </body></html>
