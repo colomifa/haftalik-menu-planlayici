@@ -23,7 +23,7 @@ Bu uygulamada yalnızca gerçek yemek fotoğrafları kullanılır. Her görsel, 
 | Şehriye çorbası | Tel şehriye soup.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Tel_%C5%9Fehriye_soup.jpg |
 | Domates çorbası | Domates çorba.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Domates_%C3%A7orba.jpg |
 | Tavuklu şehriye çorbası | Chicken and sehriye soup.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Chicken_and_sehriye_soup.jpg |
-| Çoban salata | Choban salata.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Choban_salata.jpg |
+| Çoban salata | Choban salata.jpg | E4024 | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Choban_salata.jpg |
 | Gavurdağı salatası | Gavurdağı salad with lor cheese.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Gavurda%C4%9F%C4%B1_salad_with_lor_cheese.jpg |
 | Piyaz | Piyaz (details).jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Piyaz_(details).jpg |
 | Kısır | Kisir.jpg | Noumenon | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Kisir.jpg |
