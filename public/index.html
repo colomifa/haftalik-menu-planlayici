@@ -276,10 +276,11 @@ async function planWholeWeek(){
    const mains=pickMainDishes(),soups=shuffled(recipes.filter(r=>r.category==='Çorba')),salads=shuffled(recipes.filter(r=>r.category==='Salata'));
    if(mains.length<7||soups.length<7||salads.length<7)throw new Error('Haftalık öneri için yeterli tarif yok.');
    const planned=[];
+   const treatWasUsed=treatAlreadyUsed();
    for(let i=0;i<7;i++){
      const date=dateKey(i);
      const payload={'Ana yemek':mains[i],'Çorba':soups[i],'Salata':salads[i]};
-     if(i===0&&treatAlreadyUsed())payload.__treatWeekKey=currentWeekKey();
+     if(i===0&&treatWasUsed)payload.__treatWeekKey=currentWeekKey();
      dayMenus[date]=payload;
      planned.push({date,payload});
    }
