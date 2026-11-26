@@ -15,6 +15,7 @@ Bu uygulamada yalnızca gerçek yemek fotoğrafları kullanılır. Her görsel, 
 | Etli yaprak sarma | Sarma, with meat.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Sarma,_with_meat.jpg |
 | Zeytinyağlı taze fasulye | Zeytinyağlı taze fasulye from Turkey.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Zeytinya%C4%9Fl%C4%B1_taze_fasulye_from_Turkey.jpg |
 | Mantı | Turkish manti.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Turkish_manti.jpg |
+| Kıymalı ıspanak | Ispanak dish.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Ispanak_dish.jpg |
 | Mercimek çorbası | Mercimek çorbası.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Mercimek_%C3%A7orbas%C4%B1.jpg |
 | Ezogelin çorbası | Turkish soup Ezo Gelin.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Turkish_soup_Ezo_Gelin.jpg |
 | Yayla çorbası | Yayla corbasi.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Yayla_corbasi.jpg |
@@ -29,13 +30,14 @@ Bu uygulamada yalnızca gerçek yemek fotoğrafları kullanılır. Her görsel, 
 | Semizotu salatası | Semizotu salad.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Semizotu_salad.jpg |
 | Patates salatası | Patates Salatası.jpg | Basak | CC0 1.0 | https://commons.wikimedia.org/wiki/File:Patates_Salatas%C4%B1.jpg |
 | Bulgur pilavı | Bulgur pilavı from Turkey.jpg | E4024 | CC BY-SA 3.0 | https://commons.wikimedia.org/wiki/File:Bulgur_pilav%C4%B1_from_Turkey.jpg |
-| Mücver | Mücver.jpg | Satirdan kahraman | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:M%C3%BCcver.jpg |
+| Mücver | Zucchini Fritters - Lunch at Yanyali Fehmi Lokantasi | William Neuheisel | CC BY 2.0 | https://commons.wikimedia.org/wiki/File:Zucchini_Fritters_-_Lunch_at_Yanyali_Fehmi_Lokantasi_%286421047753%29.jpg |
 | Barbunya pilaki | Barbunya pilaki from Turkey.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Barbunya_pilaki_from_Turkey.jpg |
 | Zeytinyağlı enginar | Zeytinyağlı enginar.jpg | E4024 | CC BY-SA 4.0 | https://commons.wikimedia.org/wiki/File:Zeytinya%C4%9Fl%C4%B1_enginar.jpg |
 
 ## Lisans ve atıf notları
 
 - CC BY-SA görsellerde fotoğrafçı adı, kaynak dosya sayfası ve lisans bağlantısı gösterilir. Görsel değiştirilirse bu belirtilir; türev çalışmalar aynı veya uyumlu lisansla paylaşılmalıdır.
+- CC BY görsellerde fotoğrafçı adı, kaynak sayfası ve lisans bağlantısı gösterilir.
 - CC0 görseller kamu malı adanmışlığıyla yayımlanmıştır; kaynak bilgisi yine iyi uygulama olarak korunur.
 - Fotoğraf kartlarında hem kaynak sayfasına hem lisans metnine bağlantı bulunur.
 - Fotoğraflar Commons üzerinden dış kaynaktan yüklenir; uygulama içinde yeniden barındırılmaz.
