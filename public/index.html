@@ -458,8 +458,9 @@ async function compareMarketBasket(){
    });
   });
   const sorted=[...baskets.values()].sort((a,b)=>a.total-b.total);
-  if(!sorted.length)throw new Error('Ürünler için karşılaştırılabilir market fiyatı bulunamadı.');
-  const complete=missing.length===0;
+  const pending=(data.results||[]).flatMap(result=>(result.candidates||[]).map(p=>({ingredient:result.keyword,product:p})));
+  if(!sorted.length&&!pending.length)throw new Error('Ürünler için doğrulanmış market fiyatı bulunamadı.');
+  const complete=missing.length===0&&pending.length===0;
   const money=value=>value.toLocaleString('tr-TR',{style:'currency',currency:'TRY'});
   root.innerHTML='<p style="font-size:10px;color:var(--muted);margin:4px 0 12px">Sepetinizdeki '+items.length+' üründen '+foundCount+' tanesi için fiyat bulundu. '+(complete?'Tüm ürünler eşleşti.':'Eksik ürünler toplam tutara dahil değildir.')+'</p>'+
    sorted.map((basket,index)=>{
@@ -467,8 +468,9 @@ async function compareMarketBasket(){
     const detail=basket.items.map(item=>'<div style="display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-top:1px solid var(--line);font-size:10px"><span>'+esc(item.keyword)+'<small style="display:block;color:var(--muted)">'+esc(item.product.title)+(item.branch?' · '+esc(item.branch):'')+'</small></span><b>'+money(item.price)+'</b></div>').join('');
     return '<article style="padding:14px;margin:9px 0;border:1px solid '+(index===0?'var(--green)':'var(--line)')+';border-radius:13px;background:var(--surface)"><div style="display:flex;justify-content:space-between;align-items:center;gap:8px"><div><strong style="font-size:13px">'+esc(basket.market)+'</strong>'+(index===0?'<div style="font-size:9px;color:var(--green);font-weight:700;margin-top:3px">Bulunan teklifler arasında en düşük</div>':'')+'</div><div style="text-align:right"><b style="font-size:20px;color:var(--green)">'+money(basket.total)+'</b><small style="display:block;color:var(--muted);font-size:9px">'+coverage+' ürün</small></div></div><details style="margin-top:9px"><summary style="font-size:10px;cursor:pointer;color:var(--muted)">Sepet ürünlerini gör</summary><div style="margin-top:8px">'+detail+'</div></details></article>';
    }).join('')+
-   (missing.length?'<div style="padding:10px;border-radius:9px;background:var(--surface);font-size:10px;margin-top:10px"><b>Fiyatı bulunamayanlar:</b> '+missing.map(esc).join(', ')+'</div>':'')+
-   '<p style="font-size:9px;color:var(--muted);margin-top:10px">Kaynak: TÜBİTAK Market Fiyatı · '+new Date(data.retrievedAt).toLocaleString('tr-TR')+'<br>Toplamlar bulunan her ürün için marketteki en düşük eşleşen paket fiyatlarının toplamıdır; alışveriş miktarına göre paket adedi henüz hesaplanmaz.</p>';
+   (missing.length?'<div style="padding:10px;border-radius:9px;background:var(--surface);font-size:10px;margin-top:10px"><b>Doğrulanmış ürün bulunamayanlar:</b> '+missing.map(esc).join(', ')+'</div>':'')+
+   (pending.length?'<details style="padding:10px;border-radius:9px;background:var(--surface);font-size:10px;margin-top:10px"><summary style="cursor:pointer"><b>Kontrol bekleyen olası eşleşmeler ('+pending.length+')</b></summary><p style="color:var(--muted)">Bu ürünler sepet toplamına dahil edilmedi; isimleri otomatik doğrulamayı geçemedi.</p>'+pending.map(x=>'<div style="padding:6px 0;border-top:1px solid var(--line)"><b>'+esc(x.ingredient)+'</b> → '+esc(x.product.title)+' <small style="color:var(--muted)">('+Number(x.product.match?.score||0)+'/100)</small></div>').join('')+'</details>':'')+
+   '<p style="font-size:9px;color:var(--muted);margin-top:10px">Kaynak: TÜBİTAK Market Fiyatı · '+new Date(data.retrievedAt).toLocaleString('tr-TR')+'<br>Yalnızca ürün adı doğrulamasını geçen eşleşmeler toplama dahil edilir. Toplamlar paket fiyatıdır; alışveriş miktarına göre paket adedi henüz hesaplanmaz.</p>';
  }catch(error){root.innerHTML='<div class="modal-placeholder"><b>⚠️</b>'+esc(error.message)+'<br>Kaynağın erişimi doğrulanmadan tahmini fiyat göstermiyoruz.</div>';}
  finally{button.disabled=false;button.textContent='↔ Sepet toplamlarını tekrar karşılaştır';}
 }
