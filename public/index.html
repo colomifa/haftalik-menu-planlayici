@@ -156,12 +156,25 @@ async function loadRecipeImages() {
     const response=await fetch('/images/recipes/recipe-image-map.json',{cache:'no-store'});
     if(!response.ok) throw new Error('Yerel fotoğraf kataloğu yüklenemedi: '+response.status);
     const data=await response.json();
-    Object.entries(data).forEach(([name,url])=>{
-      if(typeof url==='string' && url.startsWith('/images/recipes/')) {
-        recipeImageMap[name]={url,source:'/PHOTO_CREDITS.md',creator:'Wikimedia Commons',license:'Kaynak ve lisans bilgisi'};
+    Object.entries(data).forEach(([name,path])=>{
+      if(typeof path==='string' && path.startsWith('/images/recipes/')) {
+        recipeImageMap[name]={url:path,source:'/PHOTO_CREDITS.md',creator:'Wikimedia Commons',license:'Kaynak ve lisans bilgisi'};
       }
     });
-  } catch(error) { console.error('Yerel tarif fotoğrafları yüklenemedi:',error); }
+    // The bundled art file for this dish is incorrect (it shows salmon), so never use it.
+    recipeImageMap['Zeytinyağlı enginar']={
+      url:'https://commons.wikimedia.org/wiki/Special:FilePath/Zeytinyagli_enginar.jpg',
+      source:'https://commons.wikimedia.org/wiki/File:Zeytinya%C4%9Fl%C4%B1_enginar.jpg',
+      creator:'Wikimedia Commons',
+      license:'Dosya sayfasında belirtilen lisans'
+    };
+    // Use the existing dish-specific image sources for the four fit chicken recipes
+    // that are not part of the 70-image local catalogue.
+    ['Izgara tavuk göğsü','Limonlu kekikli tavuk','Yoğurt marineli fırın tavuk','Tavuk şiş'].forEach(name=>{
+      const url=photoByName[name];
+      if(url) recipeImageMap[name]={url,source:url,creator:'Harici fotoğraf kaynağı',license:'Kaynak sitesinin kullanım koşulları'};
+    });
+  } catch(error) { console.error('Tarif fotoğrafları yüklenemedi:',error); }
   recipeImagesLoaded=true;
   renderCatalog();
   renderFavorites();
