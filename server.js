@@ -454,6 +454,83 @@ app.post("/api/shopping-list", async (req, res) => {
 const marketPriceCache = new Map();
 const MARKET_PRICE_API = "https://api.marketfiyati.org.tr";
 const normalizeMarketName = value => String(value || "").trim();
+
+// Ingredient-first product validation: a word appearing inside another product name
+// (e.g. "domatesli kraker") is never enough to count as a match.
+const normalizeMarketText = value => String(value || "").toLocaleLowerCase("tr-TR")
+  .replace(/[ğ]/g,"g").replace(/[ü]/g,"u").replace(/[ş]/g,"s")
+  .replace(/[ı]/g,"i").replace(/[ö]/g,"o").replace(/[ç]/g,"c")
+  .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  .replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
+const MARKET_INGREDIENT_GROUPS = {
+  produce: new Set(["domates","patates","sogan","sarimsak","salatalik","biber","patlican","kabak","havuc","limon","elma","muz","maydanoz","dereotu","marul","ispanak","mantar"]),
+  dairy: new Set(["yogurt","sut","kefir","ayran","peynir","kasar","tereyagi","krema"]),
+  poultry: new Set(["tavuk","hindi"]),
+  meat: new Set(["et","dana","kuzu","kiyma","antrikot"]),
+  seafood: new Set(["balik","somon","ton","karides"]),
+  grains: new Set(["pirinc","bulgur","makarna","un","yulaf","mercimek","nohut","fasulye"]),
+  pantry: new Set(["zeytinyagi","aycicek","sirke","salca","tuz","seker","bal","kahve","cay"])
+};
+const MARKET_REJECT_TERMS = new Set([
+  "kraker","cips","biskuvi","gofret","kek","kurabiye","sandvic","pizza","corba","sos",
+  "aromali","meyveli","cilekli","muzlu","vanilyali","cikolatali","icecek","gazoz",
+  "tablet","konserve","dondurulmus"
+]);
+const MARKET_SYNONYMS = {
+  domates:["domates","salkim domates","kokteyl domates"],
+  yogurt:["yogurt","suzme yogurt"],
+  tavuk:["tavuk","tavuk gogsu","tavuk fileto"],
+  "tavuk gogsu":["tavuk gogsu","tavuk fileto"],
+  patates:["patates"],
+  sogan:["sogan","kuru sogan"],
+  zeytinyagi:["zeytinyagi","sizma zeytinyagi","naturel sizma zeytinyagi"],
+  kasar:["kasar","kasar peyniri"]
+};
+function classifyMarketIngredient(name) {
+  const normalized=normalizeMarketText(name);
+  const tokens=normalized.split(" ");
+  for (const [group, terms] of Object.entries(MARKET_INGREDIENT_GROUPS)) {
+    if (tokens.some(token=>terms.has(token)) || [...terms].some(term=>normalized===term)) return group;
+  }
+  return "general";
+}
+function validateMarketProduct(ingredient, product) {
+  const wanted=normalizeMarketText(ingredient);
+  const title=normalizeMarketText([product.title,product.brand].filter(Boolean).join(" "));
+  const tokens=title.split(" ").filter(Boolean);
+  const wantedTokens=wanted.split(" ").filter(Boolean);
+  const group=classifyMarketIngredient(ingredient);
+  const metadata=normalizeMarketText([product.category,product.categoryName,product.mainCategoryName,product.productCategoryName].filter(Boolean).join(" "));
+  const aliases=MARKET_SYNONYMS[wanted] || MARKET_SYNONYMS[wantedTokens[0]] || [wanted];
+  const exactPhrase=aliases.some(alias=>{
+    const phrase=normalizeMarketText(alias);
+    return phrase && (" "+title+" ").includes(" "+phrase+" ");
+  });
+  const hasExactToken=wantedTokens.length>0 && wantedTokens.every(token=>tokens.includes(token));
+  const rejected=[...MARKET_REJECT_TERMS].some(term=>tokens.includes(term));
+  if (!title || rejected || (!hasExactToken && !exactPhrase)) {
+    // A near match may be shown for manual review, but it is never included in totals.
+    const stemLike=wantedTokens.some(token=>tokens.some(t=>t.startsWith(token) && t!==token));
+    return {score:stemLike?45:0,status:"rejected",reason:rejected?"İşlenmiş/uygunsuz ürün":"Malzeme adı tam eşleşmiyor",group};
+  }
+  let score=90;
+  if (wantedTokens.length>1) score+=5;
+  if (metadata) {
+    const categoryHints={
+      produce:["sebze","meyve","manav","produce"],
+      dairy:["sut","sut urun","peynir","yogurt","dairy"],
+      poultry:["et","tavuk","poultry"],
+      meat:["et","kasap","meat"],
+      seafood:["balik","seafood"],
+      grains:["bakliyat","tahil","makarna","grain"],
+      pantry:["gida","temel gida","yag","oil"]
+    };
+    if ((categoryHints[group]||[]).some(h=>metadata.includes(h))) score+=5;
+    else score=75;
+  }
+  score=Math.min(100,score);
+  return {score,status:score>=90?"accepted":"review",reason:score>=90?"Ürün adı ve malzeme eşleşti":"Ürün adı eşleşti, kategori teyidi gerekli",group};
+}
 function marketProductOffers(product) {
   const offers = Array.isArray(product?.productDepotInfoList) ? product.productDepotInfoList : [];
   return offers.map(offer => ({
@@ -468,30 +545,39 @@ function marketProductOffers(product) {
     updatedAt: offer.indexTime || null
   })).filter(x => x.market && Number.isFinite(x.price) && x.price > 0);
 }
-async function searchMarketProduct(keyword) {
-  const key = String(keyword || "").trim().toLocaleLowerCase("tr-TR");
-  const cached = marketPriceCache.get(key);
-  if (cached && Date.now() - cached.at < 15 * 60 * 1000) return cached.data;
-  const response = await fetch(MARKET_PRICE_API + "/api/v2/search", {
-    method: "POST",
-    headers: { "Accept": "application/json", "Content-Type": "application/json" },
-    body: JSON.stringify({ keywords: keyword, pages: 0, size: 25, order: { name: "lowest_price", type: "asc" } }),
-    signal: AbortSignal.timeout(15000),
-    redirect: "error"
+async function searchMarketProduct(ingredient) {
+  const keyword=String(ingredient?.name || ingredient || "").trim();
+  const key=normalizeMarketText(keyword);
+  const cached=marketPriceCache.get(key);
+  if (cached && Date.now()-cached.at<15*60*1000) return cached.data;
+  const response=await fetch(MARKET_PRICE_API+"/api/v2/search",{
+    method:"POST",
+    headers:{"Accept":"application/json","Content-Type":"application/json"},
+    body:JSON.stringify({keywords:keyword,pages:0,size:25,order:{name:"lowest_price",type:"asc"}}),
+    signal:AbortSignal.timeout(15000),
+    redirect:"error"
   });
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error("Market Fiyatı servisi HTTP " + response.status);
-  const products = Array.isArray(data.content) ? data.content : [];
-  const result = products.map(product => ({
-    id: String(product.id),
-    title: product.title || keyword,
-    brand: product.brand || null,
-    size: product.refinedVolumeOrWeight || product.refinedQuantityUnit || null,
-    offers: marketProductOffers(product)
-  })).filter(product => product.offers.length);
-  const payload = { keyword, products: result, numberOfFound: Number(data.numberOfFound || products.length), retrievedAt: new Date().toISOString(), warnings: data.warnings || [] };
-  marketPriceCache.set(key, { at: Date.now(), data: payload });
-  return payload;
+  const data=await response.json().catch(()=>({}));
+  if(!response.ok)throw new Error("Market Fiyatı servisi HTTP "+response.status);
+  const sourceProducts=Array.isArray(data.content)?data.content:[];
+  const validated=sourceProducts.map(product=>{
+    const match=validateMarketProduct(keyword,product);
+    return {
+      id:String(product.id),title:product.title||keyword,brand:product.brand||null,
+      size:product.refinedVolumeOrWeight||product.refinedQuantityUnit||null,
+      match,offers:marketProductOffers(product)
+    };
+  }).filter(product=>product.offers.length);
+  const result={
+    keyword,
+    products:validated.filter(product=>product.match.status==="accepted"),
+    candidates:validated.filter(product=>product.match.status==="review"),
+    rejectedCount:validated.filter(product=>product.match.status==="rejected").length,
+    numberOfFound:Number(data.numberOfFound||sourceProducts.length),
+    retrievedAt:new Date().toISOString(),warnings:data.warnings||[]
+  };
+  marketPriceCache.set(key,{at:Date.now(),data:result});
+  return result;
 }
 app.get("/api/market/status", (_req, res) => {
   res.json({ provider: "TÜBİTAK Market Fiyatı", endpoint: MARKET_PRICE_API + "/api/v2/search", locationBased: false, cacheMinutes: 15, status: "ready-to-test" });
@@ -508,7 +594,7 @@ app.post("/api/market/compare", async (req, res) => {
   async function worker() {
     while (cursor < cleaned.length) {
       const index = cursor++;
-      try { results[index] = await searchMarketProduct(cleaned[index].name); }
+      try { results[index] = await searchMarketProduct(cleaned[index]); }
       catch (error) { upstreamError = error; results[index] = { keyword: cleaned[index].name, products: [], error: error.message }; }
     }
   }
