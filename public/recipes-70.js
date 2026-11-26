@@ -79,31 +79,7 @@
     }
   };
 
-  // Openverse üzerinden eşleşen, kaynak bilgisi bulunan görselleri bul.
-  async function loadNewRecipePhotos() {
-    const batchSize = 20;
-    for (let start = 0; start < newRecipes.length; start += batchSize) {
-      const batch = newRecipes.slice(start, start + batchSize);
-      try {
-        const response = await fetch("/api/recipe-images", {
-          method: "POST", headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ names: batch.map(recipe => recipe.imageQuery) })
-        });
-        if (!response.ok) continue;
-        const data = await response.json();
-        batch.forEach(recipe => {
-          const photo = data.results?.[recipe.imageQuery];
-          if (photo?.url && photo?.source) recipeImageMap[recipe.name] = photo;
-        });
-        renderCatalog(); renderFavorites(); renderHomeDashboard();
-        if (state.selectedMain) renderChoices();
-      } catch (error) { console.warn("Yeni tarif fotoğrafları yüklenemedi", error); }
-    }
-    recipeImagesLoaded = true;
-    renderCatalog(); renderFavorites(); renderHomeDashboard();
-    if (state.selectedMain) renderChoices();
-  }
-  loadNewRecipePhotos();
+  // Görseller kapalı; tarif kartlarında tariflere ait emojiler gösterilir.
   renderCatalog();
   renderFavorites();
   renderHomeDashboard();
