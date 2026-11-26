@@ -221,7 +221,8 @@ function photoMarkup(id, emoji) {
   if (!src) {
     return '<div class="recipe-art image-fallback" role="img" aria-label="'+esc(name)+'">'+emoji+'</div>';
   }
-  return '<div class="recipe-art has-photo"><img loading="lazy" decoding="async" src="'+src+'" alt="'+esc(name)+'" onerror="this.parentElement.classList.remove(\'has-photo\');this.parentElement.classList.add(\'image-fallback\');this.parentElement.textContent=\''+emoji+'\'"></div>';
+  // Cache-bust the photo URL so mobile Safari cannot keep an earlier 404 response.
+  return '<div class="recipe-art has-photo"><img loading="eager" decoding="async" fetchpriority="low" src="'+src+'?v=20261126b" alt="'+esc(name)+'" onerror="this.parentElement.classList.remove(\'has-photo\');this.parentElement.classList.add(\'image-fallback\');this.parentElement.textContent=\''+emoji+'\'"></div>';
 }
 const recipes = [
 ['Kuru fasulye','Ana yemek','1 sa 15 dk','Orta','🫘',[['Kuru fasulye','2 su bardağı','Bakliyat'],['Soğan','1 adet','Sebze'],['Domates salçası','1 yemek kaşığı','Temel gıda'],['Tereyağı','1 yemek kaşığı','Süt ürünleri']]],
