@@ -423,11 +423,36 @@ function renderShoppingList(){
  const order=['🥩 Et','🐟 Balık','🍗 Tavuk','🥬 Sebze','🍎 Meyve','🥛 Süt ve Kahvaltılık','🥫 Bakliyat ve Kuru Gıda','🌶️ Baharat ve Sos','🍞 Fırın ve Unlu Mamul','🧊 Dondurulmuş','🧴 Temizlik ve Diğer','🛒 Diğer'];
  const groupHtml=order.filter(k=>groups[k]?.length).map(category=>'<section class="shopping-category"><h4>'+category+'<small>'+groups[category].length+' ürün</small></h4>'+groups[category].map(x=>'<div class="shopping-row '+(x.checked?'checked':'')+'"><div class="shopping-item-main"><span>'+esc(x.ingredient)+'<small>'+esc(x.quantity||'Miktar belirtilmedi')+'</small></span></div><label class="shopping-action shopping-home"><input type="checkbox" data-home-index="'+x.index+'">Evde var</label><label class="shopping-action"><input type="checkbox" data-shopping-index="'+x.index+'" '+(x.checked?'checked':'')+'>Alındı</label></div>').join('')+'</section>').join('')+Object.keys(groups).filter(k=>!order.includes(k)).map(category=>'<section class="shopping-category"><h4>'+esc(category)+'</h4>'+groups[category].map(x=>'<div class="shopping-row '+(x.checked?'checked':'')+'"><div class="shopping-item-main"><span>'+esc(x.ingredient)+'<small>'+esc(x.quantity||'Miktar belirtilmedi')+'</small></span></div><label class="shopping-action shopping-home"><input type="checkbox" data-home-index="'+x.index+'">Evde var</label><label class="shopping-action"><input type="checkbox" data-shopping-index="'+x.index+'" '+(x.checked?'checked':'')+'>Alındı</label></div>').join('')+'</section>').join('');
  const hiddenHtml=hidden.length?'<details class="shopping-hidden"><summary>Evde olanlar ('+hidden.length+') · Listeye geri ekle</summary>'+hidden.map(x=>'<div class="shopping-row"><div class="shopping-item-main"><span>'+esc(x.ingredient)+'<small>'+esc(x.quantity||'Miktar belirtilmedi')+'</small></span></div><label class="shopping-action"><input type="checkbox" data-restore-home="'+x.index+'" checked>Evde var</label><span></span></div>').join('')+'</details>':'';
- const marketPanel='<section class="market-compare-panel"><h4>🏷️ En uygun market sepeti</h4><p>Market fiyatları için TÜBİTAK’ın Market Fiyatı platformunda A101, BİM, CarrefourSA, Migros, Tarım Kredi ve ŞOK fiyatlarını karşılaştırabilirsin. Uygulama içi otomatik sepet karşılaştırması için henüz doğrulanmış, resmî bir API erişimi bulunmuyor; bu nedenle burada tahmini fiyat göstermiyorum.</p><a class="market-compare-link" href="https://marketfiyati.org.tr" target="_blank" rel="noopener">Market Fiyatı’nda karşılaştır ↗</a></section>';
+ const marketPanel='<section class="market-compare-panel"><h4>🏷️ Market fiyatlarını karşılaştır</h4><p>Alışveriş listenizdeki ürünleri A101, BİM, ŞOK, Migros, CarrefourSA, Tarım Kredi ve Hakmar gibi zincirlerde arayalım. Şube veya konum seçimi yapılmaz. Fiyatlar kaynağın döndürdüğü ürün ve market tekliflerine göre gösterilir.</p><button type="button" class="shopping-update" id="compareMarketPrices">↔ Market fiyatlarını karşılaştır</button><div id="marketCompareResults" style="margin-top:14px"></div><a class="market-compare-link" href="https://marketfiyati.org.tr" target="_blank" rel="noopener">Market Fiyatı kaynağını aç ↗</a></section>';
  root.innerHTML='<p style="font-size:10px;color:var(--muted);margin:14px 0 8px">'+activeCount+' malzeme alışverişte · '+hidden.length+' malzeme evde mevcut</p>'+groupHtml+hiddenHtml+marketPanel;
  root.querySelectorAll('[data-shopping-index]').forEach(input=>input.addEventListener('change',async()=>{shoppingItems[Number(input.dataset.shoppingIndex)].checked=input.checked;renderShoppingList();try{await persistShopping()}catch(e){toast(e.message)}}));
  root.querySelectorAll('[data-home-index],[data-restore-home]').forEach(input=>input.addEventListener('change',async()=>{const index=Number(input.dataset.homeIndex??input.dataset.restoreHome);shoppingItems[index].at_home=input.checked;renderShoppingList();try{await persistShopping()}catch(e){toast(e.message)}}));
+  const compareButton=$('compareMarketPrices');
+  if(compareButton)compareButton.addEventListener('click',compareMarketBasket);
 }
+
+async function compareMarketBasket(){
+ const button=$('compareMarketPrices'),root=$('marketCompareResults');
+ const items=shoppingItems.filter(x=>!x.at_home&&!x.checked).slice(0,20);
+ if(!items.length){toast('Karşılaştırılacak alışveriş ürünü yok.');return;}
+ button.disabled=true;button.textContent='Fiyatlar aranıyor…';
+ root.innerHTML='<div class="modal-placeholder">Market katalogları sorgulanıyor. Biraz sürebilir…</div>';
+ try{
+  const response=await fetch('/api/market/compare',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({items:items.map(x=>({name:x.ingredient,quantity:x.quantity}))})});
+  const data=await response.json();
+  if(!response.ok)throw new Error(data.error||'Market fiyatları alınamadı.');
+  const cards=(data.results||[]).map(result=>{
+   const offers=result.products.flatMap(p=>p.offers.map(o=>({...o,matchedProduct:p})));
+   const byMarket=new Map();offers.forEach(o=>{if(!byMarket.has(o.market)||o.price<byMarket.get(o.market).price)byMarket.set(o.market,o)});
+   const sorted=[...byMarket.values()].sort((a,b)=>a.price-b.price);
+   const matches=result.products.map(p=>'<div style="font-size:10px;color:var(--muted);margin:7px 0 3px">Eşleşen ürün: '+esc([p.title,p.brand,p.size].filter(Boolean).join(' · '))+'</div>').join('');
+   return '<article style="padding:13px 0;border-bottom:1px solid var(--line)"><strong style="font-size:12px">'+esc(result.keyword)+'</strong>'+matches+(sorted.length?'<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:7px;margin-top:8px">'+sorted.map(o=>'<div style="background:#f7f5ef;border-radius:10px;padding:9px"><small style="display:block;color:var(--muted);font-size:9px">'+esc(o.market)+'</small><b style="font-size:14px;color:var(--green)">'+o.price.toLocaleString('tr-TR',{style:'currency',currency:'TRY'})+'</b><small style="display:block;color:var(--muted);font-size:8px;margin-top:3px">'+esc(o.branch||'Market teklifi')+'</small></div>').join('')+'</div>':'<small style="display:block;color:var(--muted);margin-top:7px">Bu aramada fiyat teklifi bulunamadı.</small>')+'</article>';
+  }).join('');
+  root.innerHTML='<p style="font-size:9px;color:var(--muted)">Kaynak: TÜBİTAK Market Fiyatı · Sorgu zamanı: '+new Date(data.retrievedAt).toLocaleString('tr-TR')+'</p>'+cards;
+ }catch(error){root.innerHTML='<div class="modal-placeholder"><b>⚠️</b>'+esc(error.message)+'<br>Şimdilik fiyat göstermiyoruz; kaynağın erişimi ve konumsuz sorgu desteği doğrulanmalı.</div>';}
+ finally{button.disabled=false;button.textContent='↔ Tekrar karşılaştır';}
+}
+
 async function openShoppingList(){$('shoppingListModal').classList.add('open');try{const r=await fetch('/api/shopping-list',{cache:'no-store'});if(!r.ok)throw new Error('Liste alınamadı');shoppingItems=await r.json();renderShoppingList();}catch(e){$('shoppingListContent').innerHTML='<div class="modal-placeholder">Alışveriş listesi yüklenemedi.</div>';}}
 $('clearWholeWeek').addEventListener('click',async()=>{
  if(!confirm('Bu haftanın 7 günündeki tüm yemekler silinsin mi? Bu işlem geri alınamaz.'))return;
