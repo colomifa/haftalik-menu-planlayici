@@ -44,10 +44,6 @@
       <div class="panel-title"><div><h3 id="editorTitle">Günün menüsü</h3><small>Seçtiğiniz tarifler ve ihtiyaç duyacağınız malzemeler</small></div><span class="day-chip" id="editorDayChip">Günün menüsü</span></div>
       <div class="menu-empty" id="menuEmpty" style="padding:26px 12px;text-align:center;color:var(--muted);font-size:12px">Önce haftanın günlerinden birini seçip menünüzü oluşturun.</div>
       <div id="selectedRecipes" style="display:none"></div>
-      <div id="ingredientSection" style="display:none;margin-top:22px">
-        <div class="side-title"><h4>Malzeme listesi</h4><span id="ingredientCount"></span></div>
-        <ul id="ingredientList" style="list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px"></ul>
-      </div>
     </div>
   </section>
 
@@ -57,7 +53,7 @@
 </main>
 <nav class="mobile-nav"><button class="active"><span>▦</span>Planım</button><button data-coming="Tarif kataloğu"><span>▤</span>Tarifler</button><button data-coming="Alışveriş listesi"><span>☷</span>Alışveriş</button><button data-coming="Ayarlar"><span>⚙</span>Ayarlar</button></nav>
 </div>
-<div class="modal" id="dayMenuModal" role="dialog" aria-modal="true" aria-labelledby="dayMenuTitle"><div class="day-menu-box"><div class="modal-head"><div><div class="crumb">GÜNLÜK MENÜ PLANLAMA</div><h3 id="dayMenuTitle">Günün menüsü</h3></div><button class="close" id="closeDayMenu" aria-label="Kapat">×</button></div><p>Ana yemek, çorba, salata ve garnitür tariflerini seçebilirsin.</p><div class="day-menu-grid"><button class="day-menu-option" data-menu-category="Ana yemek"><span class="option-icon">🍲</span><span><strong>Ana yemek</strong><small>Önce ana yemeğini belirle</small></span><span class="arrow">›</span></button><button class="day-menu-option" data-menu-category="Çorba"><span class="option-icon">🥣</span><span><strong>Çorba</strong><small>İstersen menüne ekle</small></span><span class="arrow">›</span></button><button class="day-menu-option" data-menu-category="Salata"><span class="option-icon">🥗</span><span><strong>Salata</strong><small>Taze bir eşlikçi seç</small></span><span class="arrow">›</span></button><button class="day-menu-option" data-menu-category="Garnitür"><span class="option-icon">🥔</span><span><strong>Garnitür</strong><small>Pilav, sebze ve diğerleri</small></span><span class="arrow">›</span></button></div><div class="day-menu-footer"><button class="cancel" id="cancelDayMenu">Vazgeç</button><button class="confirm" id="confirmDayMenu">Günü kaydet</button></div></div></div>
+<div class="modal" id="dayMenuModal" role="dialog" aria-modal="true" aria-labelledby="dayMenuTitle"><div class="day-menu-box"><div class="modal-head"><div><div class="crumb">GÜNLÜK MENÜ PLANLAMA</div><h3 id="dayMenuTitle">Günün menüsü</h3></div><button class="close" id="closeDayMenu" aria-label="Kapat">×</button></div><p>Ana yemek, çorba, salata ve garnitür tariflerini seçebilirsin.</p><div class="day-menu-grid"><button class="day-menu-option" data-menu-category="Ana yemek"><span class="option-icon">🍲</span><span><strong>Ana yemek</strong><small>Önce ana yemeğini belirle</small></span><span class="arrow">›</span></button><button class="day-menu-option" data-menu-category="Çorba"><span class="option-icon">🥣</span><span><strong>Çorba</strong><small>İstersen menüne ekle</small></span><span class="arrow">›</span></button><button class="day-menu-option" data-menu-category="Salata"><span class="option-icon">🥗</span><span><strong>Salata</strong><small>Taze bir eşlikçi seç</small></span><span class="arrow">›</span></button><button class="day-menu-option" data-menu-category="Garnitür"><span class="option-icon">🥔</span><span><strong>Garnitür</strong><small>Pilav, sebze ve diğerleri</small></span><span class="arrow">›</span></button></div><section id="mainDishAlternatives" style="display:none;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)"><div style="display:flex;justify-content:space-between;align-items:center;gap:10px"><strong style="font-size:13px">Ana yemek alternatifleri</strong><small id="currentMainDish" style="color:var(--muted);font-size:10px"></small></div><div id="mainDishAlternativeList" style="display:grid;gap:8px;margin-top:10px"></div></section><div class="day-menu-footer"><button class="cancel" id="cancelDayMenu">Vazgeç</button><button class="confirm" id="confirmDayMenu">Günü kaydet</button></div></div></div>
 <div class="modal" id="placeholderModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><div class="modal-box"><div class="modal-head"><h3 id="modalTitle">Tarif seçimi</h3><button class="close" id="closeModal" aria-label="Kapat">×</button></div><p id="modalText">Bu alan, tarif kataloğu eklendiğinde kullanılacak.</p><div class="modal-placeholder"><b>＋</b>Tarifler henüz eklenmedi.<br>Bu alan, sizin göndereceğiniz ürünlerle doldurulacak.</div></div></div>
 <div class="modal" id="recipePickerModal" role="dialog" aria-modal="true" aria-labelledby="recipePickerTitle"><div class="modal-box" style="width:min(760px,100%);max-height:90vh;overflow:auto"><div class="modal-head"><h3 id="recipePickerTitle">Tarif seçimi</h3><button class="close" id="closeRecipePicker" aria-label="Kapat">×</button></div><p id="recipePickerIntro">İki kişilik tarifler ve malzemeleri</p><div id="recipePickerList" style="display:grid;gap:9px"></div><div id="recipeDetail" style="display:none;margin-top:16px;padding:16px;background:#f7f5ef;border-radius:14px"></div><div class="day-menu-footer"><button class="cancel" id="cancelRecipePicker">Kapat</button></div></div></div>\n<div class="toast" id="toast" role="status"></div>
 <script>
@@ -96,16 +92,9 @@ function renderMenuEditor(){
  const selected=cats.map(cat=>({category:cat,recipe:menu[cat]})).filter(x=>x.recipe);
  $('menuEmpty').style.display=selected.length?'none':'block';
  $('selectedRecipes').style.display=selected.length?'block':'none';
- $('ingredientSection').style.display=selected.length?'block':'none';
- $('selectedRecipes').innerHTML=selected.map(({category,recipe})=>'<div class="selected-recipe-row"><span class="recipe-symbol">'+esc(recipe.emoji||'🍽️')+'</span><span class="recipe-info"><strong>'+esc(recipe.name)+'</strong><small>'+esc(category)+' · '+esc(recipe.time||'')+'</small></span><button type="button" data-view-recipe="'+Number(recipe.id)+'">Tarifi aç</button><button type="button" data-change-category="'+esc(category)+'">Değiştir</button></div>').join('')+
+ 
+ $('selectedRecipes').innerHTML=selected.map(({category,recipe})=>'<div class="selected-recipe-row"><span class="recipe-symbol">'+esc(recipe.emoji||'🍽️')+'</span><span class="recipe-info"><strong>'+esc(recipe.name)+'</strong><small>'+esc(category)+' · '+esc(recipe.time||'')+'</small></span><button type="button" data-view-recipe="'+Number(recipe.id)+'">Tarifi gör</button><button type="button" data-change-category="'+esc(category)+'">Değiştir</button></div>').join('')+
  '<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px">'+cats.map(cat=>'<button type="button" class="outline-btn" data-add-category="'+esc(cat)+'">'+(menu[cat]?'↻ ':'＋ ')+esc(cat)+' ekle</button>').join('')+'</div>';
- const all=[];
- selected.forEach(({category,recipe})=>(recipe.ingredients||[]).forEach(item=>all.push({name:item.name,quantity:item.quantity,category})));
- const grouped=new Map();
- all.forEach(item=>{const key=String(item.name||'').trim().toLocaleLowerCase('tr');if(!grouped.has(key))grouped.set(key,{name:item.name,quantities:[]});grouped.get(key).quantities.push(item.quantity+' ('+item.category+')')});
- const items=[...grouped.values()].sort((a,b)=>a.name.localeCompare(b.name,'tr'));
- $('ingredientCount').textContent=items.length+' farklı malzeme';
- $('ingredientList').innerHTML=items.map((item,i)=>'<li class="ingredient-item"><input type="checkbox" id="ingredient-'+i+'"><label for="ingredient-'+i+'"><span>'+esc(item.name)+'</span><small>'+esc(item.quantities.join(' · '))+'</small></label></li>').join('');
  $('selectedRecipes').querySelectorAll('[data-view-recipe]').forEach(btn=>btn.addEventListener('click',()=>showRecipeInPicker(Number(btn.dataset.viewRecipe))));
  $('selectedRecipes').querySelectorAll('[data-add-category],[data-change-category]').forEach(btn=>btn.addEventListener('click',()=>openRecipePicker(btn.dataset.addCategory||btn.dataset.changeCategory)));
 }
@@ -113,12 +102,20 @@ function openDayMenu(day){
  const index=Number(day);
  if(!Number.isInteger(index)||index<0||index>6)return;
  activeDay=editingDay=index;
- renderWeek();renderMenuEditor();
+ renderWeek();renderMenuEditor();renderMainDishAlternatives();
  $('dayMenuTitle').textContent=dayNames[index]+' · '+dateFmt.format(dateAt(index));
  $('recipePickerModal').classList.remove('open');
  $('dayMenuModal').classList.add('open');
 }
 function closeDayMenu(){$('dayMenuModal').classList.remove('open')}
+function renderMainDishAlternatives(){
+ const section=$('mainDishAlternatives'),menu=dayMenus[dateKey(editingDay)]||{},chosen=menu['Ana yemek'];
+ if(!chosen){section.style.display='none';$('mainDishAlternativeList').innerHTML='';return;}
+ section.style.display='block';$('currentMainDish').textContent='Seçili: '+chosen.name;
+ const alternatives=recipes.filter(r=>r.category==='Ana yemek'&&Number(r.id)!==Number(chosen.id));
+ $('mainDishAlternativeList').innerHTML=alternatives.map(r=>'<div style="display:flex;align-items:center;gap:10px;padding:9px 10px;border:1px solid var(--line);border-radius:11px;background:#fffefa"><span style="font-size:21px">'+esc(r.emoji||'🍽️')+'</span><span style="flex:1;min-width:0"><strong style="display:block;font-size:11px">'+esc(r.name)+'</strong><small style="display:block;color:var(--muted);font-size:9px;margin-top:3px">'+esc(r.group||'Ana yemek')+' · '+esc(r.time||'')+'</small></span><button type="button" class="outline-btn" data-swap-main="'+Number(r.id)+'">Değiştir</button></div>').join('')||'<div class="modal-placeholder">Başka ana yemek alternatifi bulunamadı.</div>';
+ $('mainDishAlternativeList').querySelectorAll('[data-swap-main]').forEach(btn=>btn.addEventListener('click',()=>{const next=recipes.find(r=>Number(r.id)===Number(btn.dataset.swapMain));if(!next)return;dayMenus[dateKey(editingDay)]=dayMenus[dateKey(editingDay)]||{};dayMenus[dateKey(editingDay)]['Ana yemek']=next;renderMainDishAlternatives();renderMenuEditor();renderWeek();toast('Ana yemek '+next.name+' olarak değiştirildi.');}));
+}
 async function openRecipePicker(category){
  pickerCategory=category;pendingRecipe=null;
  $('recipePickerTitle').textContent=category+' seçimi';
@@ -153,9 +150,9 @@ function showRecipeDetail(id){
 }
 function showRecipeInPicker(id){
  const menu=dayMenus[dateKey(activeDay)]||{};
- const recipe=Object.values(menu).find(r=>r&&Number(r.id)===Number(id));
+ const recipe=recipes.find(r=>Number(r.id)===Number(id))||Object.values(menu).find(r=>r&&Number(r.id)===Number(id));
  if(!recipe)return;
- pickerCategory=recipe.category;pendingRecipe=recipe;
+ pickerCategory=recipe.category||Object.keys(menu).find(k=>menu[k]&&Number(menu[k].id)===Number(id))||'';pendingRecipe=recipe;
  $('recipePickerTitle').textContent='Tarif detayları';
  $('recipePickerIntro').textContent='Seçili tarifin malzemeleri ve yapılışı';
  $('recipePickerList').innerHTML='';
@@ -173,6 +170,7 @@ function selectRecipe(id){
  $('recipePickerModal').classList.remove('open');
  renderMenuEditor();renderWeek();
  $('dayMenuModal').classList.add('open');
+ if(pickerCategory==='Ana yemek')renderMainDishAlternatives();
  toast(chosen.name+' menüye eklendi.');
 }
 
