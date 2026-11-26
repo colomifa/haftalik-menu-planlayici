@@ -142,24 +142,28 @@ const photoByName = {
   'Tavuklu kabak sandal':'https://img-s1.onedio.com/id-58a1986cac118afe1abbddd6/rev-0/w-1200/h-1185/f-jpg/s-4cd16ba952b3983e564ef0d1abd0eafc9121dba9.jpg',
   'Izgara hellim ve sebze':'https://thefoodzone.s3.us-east-1.amazonaws.com/images/736427ea-4c59-4807-b5ae-6b7fa1818c94.jpg'
 };
-const recipeImageMap = {
-  "Kuru fasulye": {url:"https://commons.wikimedia.org/wiki/Special:FilePath/Kuru_fasulye%2C_Turkish_style.jpg",creator:"E4024",license:"CC BY-SA 4.0",source:"https://commons.wikimedia.org/wiki/File:Kuru_fasulye,_Turkish_style.jpg"},
-  "İzmir köfte": {url:"https://commons.wikimedia.org/wiki/Special:FilePath/Izmir_kofte.jpg",creator:"E4024",license:"CC BY-SA 4.0",source:"https://commons.wikimedia.org/wiki/File:Izmir_kofte.jpg"},
-  "Karnıyarık": {url:"https://commons.wikimedia.org/wiki/Special:FilePath/Karniyarik_at_Ankara.jpg",creator:"Wikimedia Commons katkıcısı",license:"Dosya sayfasında belirtilen lisans",source:"https://commons.wikimedia.org/wiki/Category:Karnıyarık"},
-  "Hünkar beğendi": {url:"https://commons.wikimedia.org/wiki/Special:FilePath/H%C3%BCnkarbe%C4%9Fendi.jpg",creator:"Wikimedia Commons katkıcısı",license:"Dosya sayfasında belirtilen lisans",source:"https://commons.wikimedia.org/wiki/File:Hünkarbeğendi.jpg"},
-  "Kadınbudu köfte": {url:"https://commons.wikimedia.org/wiki/Special:FilePath/Kad%C4%B1nbudu_k%C3%B6fte.jpg",creator:"E4024",license:"CC BY-SA 4.0",source:"https://commons.wikimedia.org/wiki/File:Kadınbudu_köfte.jpg"},
-  "İçli köfte": {url:"https://commons.wikimedia.org/wiki/Special:FilePath/%C4%B0%C3%A7li_k%C3%B6fte%20(Oruk).jpg",creator:"Garrett Ziegler",license:"Wikimedia VRT izinli serbest kullanım",source:"https://commons.wikimedia.org/wiki/File:İçli_köfte_(Oruk).jpg"},
-  "Kuzu tandır": {url:"https://commons.wikimedia.org/wiki/Special:FilePath/Kuzu_tandir.jpg",creator:"E4024",license:"CC BY-SA 4.0",source:"https://commons.wikimedia.org/wiki/File:Kuzu_tandir.jpg"},
-  "Mercimek çorbası": {url:"https://commons.wikimedia.org/wiki/Special:FilePath/Mercimek_%C3%A7orbas%C4%B1.jpg",creator:"E4024",license:"CC BY-SA 4.0",source:"https://commons.wikimedia.org/wiki/File:Mercimek_çorbası.jpg"},
-  "Yayla çorbası": {url:"https://commons.wikimedia.org/wiki/Special:FilePath/Yayla_corbasi.jpg",creator:"Wikimedia Commons katkıcısı",license:"Dosya sayfasında belirtilen lisans",source:"https://commons.wikimedia.org/wiki/File:Yayla_corbasi.jpg"},
-  "Gavurdağı salatası": {url:"https://commons.wikimedia.org/wiki/Special:FilePath/Gavurda%C4%9F%C4%B1_salad_with_lor_cheese.jpg",creator:"E4024",license:"CC BY-SA 4.0",source:"https://commons.wikimedia.org/wiki/File:Gavurdağı_salad_with_lor_cheese.jpg"}
-};
+const recipeImageMap = Object.create(null);
+let recipeImagesLoaded = false;
 function photoMarkup(id, emoji) {
   const recipe=recipes.find(r=>r.id===id);
   const name=recipe?.name||'Yemek';
   const photo=recipeImageMap[name];
-  if (!photo) return '<div class="recipe-art image-fallback" role="img" aria-label="'+esc(name)+'">Fotoğraf doğrulanıyor</div>';
-  return '<div class="recipe-art has-photo"><img loading="lazy" decoding="async" src="'+photo.url+'" alt="'+esc(name)+'" onerror="this.parentElement.classList.remove(\'has-photo\');this.parentElement.classList.add(\'image-fallback\');this.parentElement.textContent=\'Fotoğraf bulunamadı\'"></div><div class="photo-credit"><a href="'+photo.source+'" target="_blank" rel="noopener">Fotoğraf kaynağı</a> · '+esc(photo.creator)+' · '+esc(photo.license)+'</div>';
+  if (!photo) return '<div class="recipe-art image-fallback" role="img" aria-label="'+esc(name)+'">'+(recipeImagesLoaded?'Doğrulanmış fotoğraf yok':'Fotoğraf aranıyor')+'</div>';
+  return '<div class="recipe-art has-photo"><img loading="lazy" decoding="async" src="'+photo.url+'" alt="'+esc(name)+'" onerror="this.parentElement.classList.remove(\'has-photo\');this.parentElement.classList.add(\'image-fallback\');this.parentElement.textContent=\'Fotoğraf yüklenemedi\'"></div><div class="photo-credit"><a href="'+photo.source+'" target="_blank" rel="noopener">Kaynak</a> · '+esc(photo.creator)+' · '+esc(photo.license)+'</div>';
+}
+async function loadRecipeImages() {
+  try {
+    const response=await fetch('/api/recipe-images',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({names:recipes.map(r=>r.name)})});
+    if(!response.ok) throw new Error('Görsel servisi yanıt vermedi');
+    const data=await response.json();
+    Object.entries(data.results||{}).forEach(([name,photo])=>{if(photo)recipeImageMap[name]=photo});
+  } catch(error) { console.warn('Tarif fotoğrafları alınamadı:',error); }
+  recipeImagesLoaded=true;
+  renderCatalog();
+  renderFavorites();
+  renderCalendar();
+  renderHomeDashboard();
+  if(state.selectedMain) renderChoices();
 }
 const recipes = [
 ['Kuru fasulye','Ana yemek','1 sa 15 dk','Orta','🫘',[['Kuru fasulye','2 su bardağı','Bakliyat'],['Soğan','1 adet','Sebze'],['Domates salçası','1 yemek kaşığı','Temel gıda'],['Tereyağı','1 yemek kaşığı','Süt ürünleri']]],
@@ -368,5 +372,6 @@ async function persistShopping(){try{await fetch('/api/shopping-list',{method:'P
 async function loadData(){try{const [m,s]=await Promise.all([fetch('/api/menus'),fetch('/api/shopping-list')]);if(m.ok){const rows=await m.json();rows.forEach(x=>state.menus[String(x.menu_date).slice(0,10)]=x.payload)}if(s.ok)state.shopping=await s.json()}catch{}renderCalendar();renderShopping();renderHomeDashboard()}
 loadData();
 renderHomeDashboard();
+loadRecipeImages();
 </script>
 </body></html>
