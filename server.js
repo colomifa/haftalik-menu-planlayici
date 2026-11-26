@@ -1,7 +1,6 @@
 import express from "express";
 import pg from "pg";
 import path from "node:path";
-import fs from "node:fs";
 import { fileURLToPath } from "node:url";
 
 const { Pool } = pg;
@@ -50,6 +49,19 @@ async function initializeDatabase() {
       created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
       updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     );
+    CREATE TABLE IF NOT EXISTS api_recipes (
+      id BIGSERIAL PRIMARY KEY, external_id TEXT NOT NULL UNIQUE, name TEXT NOT NULL,
+      category TEXT NOT NULL DEFAULT 'Ana yemek', time TEXT NOT NULL DEFAULT 'Belirtilmemiş',
+      level TEXT NOT NULL DEFAULT 'Belirtilmemiş', emoji TEXT NOT NULL DEFAULT '🍽️',
+      calories INTEGER NOT NULL DEFAULT 0, protein INTEGER NOT NULL DEFAULT 0, image_query TEXT NOT NULL DEFAULT '',
+      ingredients JSONB NOT NULL DEFAULT '[]'::jsonb, instructions JSONB NOT NULL DEFAULT '[]'::jsonb,
+      tags JSONB NOT NULL DEFAULT '[]'::jsonb, servings INTEGER NOT NULL DEFAULT 2,
+      raw_data JSONB NOT NULL, translated_data JSONB NOT NULL DEFAULT '{}'::jsonb,
+      cached_at TIMESTAMPTZ NOT NULL DEFAULT NOW(), updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
+    CREATE TABLE IF NOT EXISTS recipe_translations (
+      source_text TEXT PRIMARY KEY, translated_text TEXT NOT NULL, created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+    );
     CREATE TABLE IF NOT EXISTS weekly_menus (
       id BIGSERIAL PRIMARY KEY,
       menu_date DATE NOT NULL UNIQUE,
@@ -66,46 +78,167 @@ async function initializeDatabase() {
       created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     );
   `);
-  const { rows: recipeCount } = await pool.query("SELECT COUNT(*)::int AS count FROM recipes");
-  if (recipeCount[0].count === 0) {
-    const seedRecipes = JSON.parse(fs.readFileSync(path.join(here, "recipes.json"), "utf8"));
-    for (const recipe of seedRecipes) {
-      await pool.query(
-        `INSERT INTO recipes
-          (id, name, category, time, level, emoji, calories, protein, image_query, ingredients, instructions, tags, servings)
-         VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10::jsonb,$11::jsonb,$12::jsonb,$13)`,
-        [recipe.id, recipe.name, recipe.category, recipe.time, recipe.level, recipe.emoji,
-         recipe.calories, recipe.protein, recipe.imageQuery || "",
-         JSON.stringify(recipe.ingredients), JSON.stringify(recipe.instructions),
-         JSON.stringify(recipe.tags || []), recipe.servings || 2]
-      );
-    }
-    console.log("Seeded " + seedRecipes.length + " recipes into PostgreSQL");
-  }
+
 }
 
 
+const tinyPlatesBase = "https://api.tinyplates.dev";
+const categoryLabel = raw => {
+  const values = [...(raw.courses || []), ...(raw.categories || [])].map(x => typeof x === "string" ? x : x.name || x.slug || "");
+  const v = values.join(" ").toLowerCase();
+  if (/soup|çorba/.test(v)) return "Çorba";
+  if (/salad|salata/.test(v)) return "Salata";
+  if (/side|garnish/.test(v)) return "Garnitür";
+  if (/dessert|cake|sweet/.test(v)) return "Tatlı";
+  if (/snack|appetizer|starter/.test(v)) return "Meze";
+  if (/breakfast/.test(v)) return "Kahvaltı";
+  return "Ana yemek";
+};
+const formatDuration = seconds => {
+  const n = Number(seconds);
+  if (!Number.isFinite(n) || n <= 0) return "Belirtilmemiş";
+  const mins = Math.round(n / 60);
+  return mins < 60 ? mins + " dk" : Math.floor(mins / 60) + " sa " + (mins % 60 ? mins % 60 + " dk" : "");
+};
+const nutritionValue = value => {
+  if (value == null) return 0;
+  if (typeof value === "number") return Math.round(value);
+  return Math.round(Number(value.value ?? value.amount ?? value.quantity ?? 0) || 0);
+};
+async function translateText(value) {
+  const source = String(value || "").trim();
+  if (!source || source.length > 480 || !pool) return source;
+  try {
+    const cached = await pool.query("SELECT translated_text FROM recipe_translations WHERE source_text=$1", [source]);
+    if (cached.rows[0]) return cached.rows[0].translated_text;
+    const url = new URL("https://api.mymemory.translated.net/get");
+    url.searchParams.set("q", source);
+    url.searchParams.set("langpair", "en|tr");
+    if (process.env.MYMEMORY_EMAIL) url.searchParams.set("de", process.env.MYMEMORY_EMAIL);
+    const response = await fetch(url, { signal: AbortSignal.timeout(9000) });
+    if (!response.ok) return source;
+    const data = await response.json();
+    const translated = String(data.responseData?.translatedText || "").trim();
+    if (!translated || data.responseStatus !== 200 || translated.toLowerCase() === source.toLowerCase()) return source;
+    await pool.query("INSERT INTO recipe_translations(source_text,translated_text) VALUES($1,$2) ON CONFLICT(source_text) DO NOTHING", [source, translated]);
+    return translated;
+  } catch (error) {
+    console.warn("Translation unavailable:", error.message);
+    return source;
+  }
+}
+function rawIngredientLine(item) {
+  return item.display || item.original || item.localName || item.name || "";
+}
+function makeRecipeRecord(raw) {
+  const ingredients = (raw.ingredients || []).map(x => ({
+    name: x.name || x.localName || "",
+    quantity: x.quantity ? [x.quantity.value, x.quantity.unit].filter(Boolean).join(" ") : "",
+    aisle: "Diğer",
+    display: rawIngredientLine(x)
+  }));
+  const instructions = (raw.instructions || []).map(x => typeof x === "string" ? x : x.text).filter(Boolean);
+  const nutrition = raw.nutrition || {};
+  const totalSeconds = raw.times?.total?.seconds || raw.times?.cook?.seconds || raw.times?.prep?.seconds;
+  const category = categoryLabel(raw);
+  return {
+    external_id: String(raw.id), name: raw.title || raw.name || "İsimsiz tarif",
+    category, time: formatDuration(totalSeconds), level: "Belirtilmemiş",
+    emoji: category === "Çorba" ? "🥣" : category === "Salata" ? "🥗" : category === "Meze" ? "🫒" : "🍽️",
+    calories: nutritionValue(nutrition.calories), protein: nutritionValue(nutrition.protein),
+    image_query: raw.title || "", ingredients, instructions,
+    tags: [...new Set([...(raw.tags || []), ...(raw.cuisines || [])].map(x => typeof x === "string" ? x : x.name || "").filter(Boolean))],
+    servings: raw.servings?.quantity || raw.servings?.value || 2, raw_data: raw
+  };
+}
+async function saveApiRecipes(rawRecipes) {
+  if (!pool) return [];
+  const saved = [];
+  for (const raw of rawRecipes) {
+    if (!raw?.id) continue;
+    const r = makeRecipeRecord(raw);
+    const sql = "INSERT INTO api_recipes(external_id,name,category,time,level,emoji,calories,protein,image_query,ingredients,instructions,tags,servings,raw_data) " +
+      "VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10::jsonb,$11::jsonb,$12::jsonb,$13,$14::jsonb) " +
+      "ON CONFLICT(external_id) DO UPDATE SET name=EXCLUDED.name,category=EXCLUDED.category,time=EXCLUDED.time," +
+      "calories=EXCLUDED.calories,protein=EXCLUDED.protein,ingredients=EXCLUDED.ingredients,instructions=EXCLUDED.instructions," +
+      "tags=EXCLUDED.tags,servings=EXCLUDED.servings,raw_data=EXCLUDED.raw_data,updated_at=NOW() " +
+      "RETURNING id,external_id,name,category,time,level,emoji,calories,protein,image_query,ingredients,instructions,tags,servings,raw_data,translated_data";
+    const { rows } = await pool.query(sql, [r.external_id,r.name,r.category,r.time,r.level,r.emoji,r.calories,r.protein,r.image_query,
+      JSON.stringify(r.ingredients),JSON.stringify(r.instructions),JSON.stringify(r.tags),r.servings,JSON.stringify(r.raw_data)]);
+    saved.push(rows[0]);
+  }
+  return saved;
+}
+async function publicRecipe(row, detail = false) {
+  const translated = row.translated_data || {};
+  const name = translated.name || await translateText(row.name);
+  const ingredients = (row.ingredients || []).map((x, i) => ({ ...x, display: translated.ingredients?.[i] || x.display || x.name }));
+  const instructions = (row.instructions || []).map((x, i) => translated.instructions?.[i] || x);
+  if (detail) {
+    for (let i=0;i<ingredients.length;i++) ingredients[i].display = await translateText(ingredients[i].display);
+    for (let i=0;i<instructions.length;i++) instructions[i] = await translateText(instructions[i]);
+    await pool.query("UPDATE api_recipes SET translated_data=$1::jsonb WHERE id=$2", [
+      JSON.stringify({ name, ingredients: ingredients.map(x => x.display), instructions }), row.id
+    ]);
+  }
+  return {
+    id: Number(row.id), externalId: row.external_id, name, category: row.category, time: row.time,
+    level: row.level, emoji: row.emoji, calories: row.calories, protein: row.protein,
+    imageQuery: row.image_query, ingredients: ingredients.map(x => [x.display, x.quantity || "", x.aisle || "Diğer"]),
+    instructions, tags: row.tags || [], servings: row.servings, sourceUrl: row.raw_data?.url || ""
+  };
+}
+async function tinyPlatesRequest(pathname, params = {}) {
+  if (!process.env.TINY_PLATES_API_KEY) throw new Error("TINY_PLATES_API_KEY Railway değişkeni bulunamadı.");
+  const url = new URL(pathname, tinyPlatesBase);
+  Object.entries(params).forEach(([k,v]) => { if (v !== undefined && v !== null && v !== "") url.searchParams.set(k, String(v)); });
+  const response = await fetch(url, {
+    headers: { Authorization: "Bearer " + process.env.TINY_PLATES_API_KEY, Accept: "application/json" },
+    signal: AbortSignal.timeout(18000)
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(data.error?.message || "Tiny Plates HTTP " + response.status);
+  return data;
+}
 app.get("/api/recipes", async (req, res) => {
   if (!pool) return res.status(503).json({ error: "Tarif veritabanı bağlı değil." });
   try {
-    const params = [];
-    const where = [];
-    if (req.query.category && req.query.category !== "all") { params.push(String(req.query.category)); where.push("category = $" + params.length); }
-    if (req.query.q) { params.push("%" + String(req.query.q).trim() + "%"); where.push("(name ILIKE $" + params.length + " OR category ILIKE $" + params.length + " OR tags::text ILIKE $" + params.length + ")"); }
-    const sql = "SELECT id, name, category, time, level, emoji, calories, protein, image_query AS \"imageQuery\", ingredients, instructions, tags, servings FROM recipes " + (where.length ? "WHERE " + where.join(" AND ") : "") + " ORDER BY id";
-    const { rows } = await pool.query(sql, params);
-    res.set("Cache-Control", "no-store"); res.json(rows);
-  } catch (error) { console.error("Recipes API error:", error); res.status(500).json({ error: "Tarifler alınamadı." }); }
+    let rows = [];
+    const q = String(req.query.q || "").trim();
+    if (q) {
+      const data = await tinyPlatesRequest("/search", { query: q, limit: 30, language: "en" });
+      rows = await saveApiRecipes(data.results || []);
+    } else {
+      const cached = await pool.query("SELECT id FROM api_recipes ORDER BY id LIMIT 1");
+      if (!cached.rows.length) {
+        const data = await tinyPlatesRequest("/popular", { limit: 40, offset: 0, language: "en" });
+        await saveApiRecipes(data.recipes || []);
+      }
+      const result = await pool.query("SELECT id,external_id,name,category,time,level,emoji,calories,protein,image_query,ingredients,instructions,tags,servings,raw_data,translated_data FROM api_recipes ORDER BY id");
+      rows = result.rows;
+    }
+    const output = [];
+    for (const row of rows) output.push(await publicRecipe(row, false));
+    res.set("Cache-Control", "no-store");
+    res.json(output);
+  } catch (error) {
+    console.error("Tiny Plates recipe list error:", error);
+    res.status(502).json({ error: error.message || "Tarif servisine ulaşılamadı." });
+  }
 });
-
 app.get("/api/recipes/:id", async (req, res) => {
   if (!pool) return res.status(503).json({ error: "Tarif veritabanı bağlı değil." });
   try {
-    const { rows } = await pool.query("SELECT id, name, category, time, level, emoji, calories, protein, image_query AS \"imageQuery\", ingredients, instructions, tags, servings FROM recipes WHERE id = $1", [Number(req.params.id)]);
+    const { rows } = await pool.query("SELECT id,external_id,name,category,time,level,emoji,calories,protein,image_query,ingredients,instructions,tags,servings,raw_data,translated_data FROM api_recipes WHERE id=$1", [Number(req.params.id)]);
     if (!rows.length) return res.status(404).json({ error: "Tarif bulunamadı." });
-    res.set("Cache-Control", "no-store"); res.json(rows[0]);
-  } catch (error) { console.error("Recipe detail API error:", error); res.status(500).json({ error: "Tarif detayı alınamadı." }); }
+    res.set("Cache-Control", "no-store");
+    res.json(await publicRecipe(rows[0], true));
+  } catch (error) {
+    console.error("Recipe detail API error:", error);
+    res.status(502).json({ error: error.message || "Tarif detayı alınamadı." });
+  }
 });
+
 // Openverse: public, openly licensed image search. Results are cached in memory;
 // weak title/tag matches are deliberately omitted rather than assigning a wrong dish photo.
 const imageCache = new Map();
