@@ -516,7 +516,7 @@
   },
   {
     "id": 2001,
-    "name": "Fırında Balık",
+    "name": "Balık",
     "category": "Ana yemek",
     "emoji": "🐟",
     "time": "30 dk",
@@ -591,8 +591,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Tuz ve karabiber yeterince",
-        "quantity": "",
+        "name": "Tuz ve karabiber",
+        "quantity": "Yeterince",
         "aisle": "Diğer"
       }
     ],
@@ -1754,8 +1754,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Tuz ve karabiber yeterince",
-        "quantity": "",
+        "name": "Tuz ve karabiber",
+        "quantity": "Yeterince",
         "aisle": "Diğer"
       }
     ],
