@@ -460,8 +460,8 @@ const normalizeMarketName = value => String(value || "").trim();
 const normalizeMarketText = value => String(value || "").toLocaleLowerCase("tr-TR")
   .replace(/[ğ]/g,"g").replace(/[ü]/g,"u").replace(/[ş]/g,"s")
   .replace(/[ı]/g,"i").replace(/[ö]/g,"o").replace(/[ç]/g,"c")
-  .normalize("NFD").replace(/[\\u0300-\\u036f]/g, "")
-  .replace(/[^a-z0-9]+/g, " ").replace(/\\s+/g, " ").trim();
+  .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+  .replace(/[^a-z0-9]+/g, " ").replace(/\s+/g, " ").trim();
 const MARKET_INGREDIENT_GROUPS = {
   produce: new Set(["domates","patates","sogan","sarimsak","salatalik","biber","patlican","kabak","havuc","limon","elma","muz","maydanoz","dereotu","marul","ispanak","mantar"]),
   dairy: new Set(["yogurt","sut","kefir","ayran","peynir","kasar","tereyagi","krema"]),
