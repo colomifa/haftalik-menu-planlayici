@@ -132,10 +132,48 @@ async function translateText(value) {
 function rawIngredientLine(item) {
   return item.display || item.original || item.localName || item.name || "";
 }
+function normalizeIngredientQuantity(name, quantity) {
+  if (quantity && typeof quantity === "object") {
+    const value = quantity.value ?? quantity.amount ?? "";
+    const unit = quantity.unit ?? quantity.name ?? "";
+    quantity = [value, unit].filter(Boolean).join(" ");
+  }
+  let q = String(quantity || "").trim();
+  if (!q) return "";
+  const norm = String(name || "").toLocaleLowerCase("tr-TR");
+  const match = q.match(/^(\d+(?:[.,]\d+)?|½|¼|¾|\d+\s+\d+\/\d+)\s*(.*)$/i);
+  if (!match) return q;
+  const numberText = match[1].replace(",", ".");
+  const amount = numberText.includes(" ") ? (() => { const [whole, frac] = numberText.split(" "); const [a,b] = frac.split("/"); return Number(whole) + Number(a)/Number(b); })()
+    : ({ "½":0.5, "¼":0.25, "¾":0.75 }[numberText] ?? Number(numberText));
+  if (!Number.isFinite(amount)) return q;
+  const unit = match[2].toLocaleLowerCase("en-US").replace(/[._]/g, " ").trim();
+  const isLiquid = /\b(water|milk|broth|stock|oil|olive oil|zeytinyağı|vinegar|lemon juice|soy sauce|cream|juice|su|süt|yağ|zeytinyağı|sirke|limon suyu|et suyu|sebze suyu)\b/i.test(norm);
+  const cup = /^(cup|cups|c|su bardağı|su bardagi)$/.test(unit);
+  const tbsp = /^(tbsp|tablespoon|tablespoons|yemek kaşığı)$/.test(unit);
+  const tsp = /^(tsp|teaspoon|teaspoons|tatlı kaşığı|çay kaşığı)$/.test(unit);
+  const turkishTablespoon = unit === "yemek kaşığı";
+  const turkishDessert = unit === "tatlı kaşığı";
+  const turkishTea = unit === "çay kaşığı";
+  const mlMatch = unit.match(/^(\d+)?\s*(ml|milliliters?)$/);
+  const lMatch = unit.match(/^(l|liter|liters)$/);
+  if (cup || tbsp || tsp || turkishTablespoon || turkishDessert || turkishTea || mlMatch || lMatch) {
+    const ml = amount * (cup ? 200 : (tbsp || turkishTablespoon) ? 15 : (turkishDessert) ? 10 : (tsp || turkishTea) ? 5 : mlMatch ? 1 : 1000);
+    if (isLiquid || /^(water|milk|broth|stock|oil|olive oil|zeytinyağı|vinegar|lemon juice|soy sauce|cream|juice|su|süt|yağ|zeytinyağı|sirke|limon suyu|et suyu|sebze suyu)$/i.test(norm)) return `${Number(ml.toFixed(1))} ml`;
+    const density = /^(flour|un)$/.test(norm) ? 0.55 : /rice|pirinç/.test(norm) ? 0.9 : /lentil|mercimek/.test(norm) ? 0.9 : /sugar|şeker/.test(norm) ? 0.85 : /yogurt|yoğurt/.test(norm) ? 1 : /butter|tereyağı/.test(norm) ? 0.95 : 0.65;
+    const grams = ml * density;
+    return `${Number(grams.toFixed(1))} g`;
+  }
+  if (/^(g|gr|gram|grams)$/.test(unit)) return `${amount} g`;
+  if (/^(kg|kilogram|kilograms)$/.test(unit)) return `${amount} kg`;
+  if (/^(ml|milliliter|milliliters)$/.test(unit)) return `${amount} ml`;
+  if (/^(l|liter|liters)$/.test(unit)) return `${amount} ml`;
+  return q;
+}
 function makeRecipeRecord(raw) {
   const ingredients = (raw.ingredients || []).map(x => ({
     name: x.name || x.localName || "",
-    quantity: x.quantity ? [x.quantity.value, x.quantity.unit].filter(Boolean).join(" ") : "",
+    quantity: normalizeIngredientQuantity(x.name || x.localName || "", x.quantity),
     aisle: "Diğer",
     display: rawIngredientLine(x)
   }));
@@ -175,7 +213,7 @@ async function publicRecipe(row, detail = false) {
   const translated = row.translated_data || {};
   const name = translated.name || await translateText(row.name);
   if (!translated.name && name !== row.name) await pool.query("UPDATE api_recipes SET translated_data = translated_data || $1::jsonb WHERE id=$2", [JSON.stringify({ name }), row.id]);
-  const ingredients = (row.ingredients || []).map((x, i) => ({ ...x, display: translated.ingredients?.[i] || x.display || x.name }));
+  const ingredients = (row.ingredients || []).map((x, i) => ({ ...x, quantity: normalizeIngredientQuantity(x.name || x.display || "", x.quantity), display: translated.ingredients?.[i] || x.display || x.name }));
   const instructions = (row.instructions || []).map((x, i) => translated.instructions?.[i] || x);
   if (detail) {
     for (let i=0;i<ingredients.length;i++) ingredients[i].display = await translateText(ingredients[i].display);
