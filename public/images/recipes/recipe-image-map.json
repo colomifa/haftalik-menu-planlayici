@@ -12,7 +12,96 @@
   "Çoban salata": "/images/recipes/coban-salata.webp",
   "Mevsim salata": "/images/recipes/mevsim-salata.webp",
   "Kısır": "/images/recipes/kisir.webp",
-  "Mücver": "/images/recipes/mucver.webp",
+  "Mücver": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Turkish%20fritters.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Turkish%20fritters.jpg",
+    "creator": "Wikimedia Commons katkıcısı",
+    "license": "Dosya sayfasındaki lisans"
+  },
   "Fırında sebze": "/images/recipes/firinda-sebze.webp",
-  "Fırında somon ve kuşkonmaz": "/images/recipes/firinda-somon-ve-kuskonmaz.webp"
+  "Fırında somon ve kuşkonmaz": "/images/recipes/firinda-somon-ve-kuskonmaz.webp",
+  "Mercimek çorbası": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Mercimek%20%C3%A7orba.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Mercimek%20%C3%A7orba.jpg",
+    "creator": "Wikimedia Commons katkıcısı",
+    "license": "Dosya sayfasındaki lisans"
+  },
+  "Yayla çorbası": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Turkish%20soup%20Yayla.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Turkish%20soup%20Yayla.jpg",
+    "creator": "Wikimedia Commons katkıcısı",
+    "license": "Dosya sayfasındaki lisans"
+  },
+  "Tarhana çorbası": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tarhana%20soup.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Tarhana%20soup.jpg",
+    "creator": "Wikimedia Commons katkıcısı",
+    "license": "Dosya sayfasındaki lisans"
+  },
+  "Domates çorbası": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Domates%20%C3%A7orbas%C4%B1.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Domates%20%C3%A7orbas%C4%B1.jpg",
+    "creator": "Wikimedia Commons katkıcısı",
+    "license": "Dosya sayfasındaki lisans"
+  },
+  "Düğün çorbası": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Wedding%20soup%20from%20the%20Turkish%20cuisine.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Wedding%20soup%20from%20the%20Turkish%20cuisine.jpg",
+    "creator": "Wikimedia Commons katkıcısı",
+    "license": "Dosya sayfasındaki lisans"
+  },
+  "Şehriyeli tavuk çorbası": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Chicken%20and%20sehriye%20soup.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Chicken%20and%20sehriye%20soup.jpg",
+    "creator": "Wikimedia Commons katkıcısı",
+    "license": "Dosya sayfasındaki lisans"
+  },
+  "Gavurdağı salatası": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Gavurda%C4%9F%C4%B1%20salad%20with%20lor%20cheese.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Gavurda%C4%9F%C4%B1%20salad%20with%20lor%20cheese.jpg",
+    "creator": "Wikimedia Commons katkıcısı",
+    "license": "Dosya sayfasındaki lisans"
+  },
+  "Piyaz": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Piyaz.JPG",
+    "source": "https://commons.wikimedia.org/wiki/File:Piyaz.JPG",
+    "creator": "Wikimedia Commons katkıcısı",
+    "license": "Dosya sayfasındaki lisans"
+  },
+  "Semizotu salatası": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Semizotu%20salad.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Semizotu%20salad.jpg",
+    "creator": "Wikimedia Commons katkıcısı",
+    "license": "Dosya sayfasındaki lisans"
+  },
+  "İç pilav": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/%C4%B0%C3%A7%20pilav.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:%C4%B0%C3%A7%20pilav.jpg",
+    "creator": "Wikimedia Commons katkıcısı",
+    "license": "Dosya sayfasındaki lisans"
+  },
+  "Cacık": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Cac%C4%B1k%20in%20Turkey.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Cac%C4%B1k%20in%20Turkey.jpg",
+    "creator": "Wikimedia Commons katkıcısı",
+    "license": "Dosya sayfasındaki lisans"
+  },
+  "Zeytinyağlı barbunya": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Barbunya%20pilaki%20from%20Turkish%20cuisine.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Barbunya%20pilaki%20from%20Turkish%20cuisine.jpg",
+    "creator": "Wikimedia Commons katkıcısı",
+    "license": "Dosya sayfasındaki lisans"
+  },
+  "Zeytinyağlı enginar": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Zeytinya%C4%9Fl%C4%B1%20enginar.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Zeytinya%C4%9Fl%C4%B1%20enginar.jpg",
+    "creator": "Wikimedia Commons katkıcısı",
+    "license": "Dosya sayfasındaki lisans"
+  },
+  "Tavuk şiş": {
+    "url": "https://commons.wikimedia.org/wiki/Special:FilePath/Tavuk%20%C5%9Fi%C5%9F.jpg",
+    "source": "https://commons.wikimedia.org/wiki/File:Tavuk%20%C5%9Fi%C5%9F.jpg",
+    "creator": "Wikimedia Commons katkıcısı",
+    "license": "Dosya sayfasındaki lisans"
+  }
 }
