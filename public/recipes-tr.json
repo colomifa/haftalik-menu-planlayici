@@ -10,33 +10,33 @@
     "group": "Çorba",
     "ingredients": [
       {
-        "name": "Kırmızı mercimek 1 su",
-        "quantity": "bardağı",
+        "name": "Kırmızı mercimek",
+        "quantity": "1 su bardağı",
         "aisle": "Diğer"
       },
       {
-        "name": "Soğan 1",
-        "quantity": "küçük",
+        "name": "Soğan",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
-        "name": "Havuç 1",
-        "quantity": "küçük",
+        "name": "Havuç",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
-        "name": "Patates 1",
-        "quantity": "küçük",
+        "name": "Patates",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Su 5 su",
-        "quantity": "bardağı",
+        "name": "Su",
+        "quantity": "5 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -61,38 +61,38 @@
     "group": "Çorba",
     "ingredients": [
       {
-        "name": "Kırmızı mercimek ½ su",
-        "quantity": "bardağı",
+        "name": "Kırmızı mercimek",
+        "quantity": "½ su bardağı",
         "aisle": "Diğer"
       },
       {
-        "name": "İnce bulgur 2 yemek",
-        "quantity": "kaşığı",
+        "name": "İnce bulgur",
+        "quantity": "2 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Pirinç 2 yemek",
-        "quantity": "kaşığı",
+        "name": "Pirinç",
+        "quantity": "2 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Soğan 1",
-        "quantity": "küçük",
+        "name": "Soğan",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
-        "name": "Domates salçası 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Domates salçası",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Nane 1 çay",
-        "quantity": "kaşığı",
+        "name": "Nane",
+        "quantity": "1 çay kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Su 5 su",
-        "quantity": "bardağı",
+        "name": "Su",
+        "quantity": "5 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -117,13 +117,13 @@
     "group": "Çorba",
     "ingredients": [
       {
-        "name": "Yoğurt 1 su",
-        "quantity": "bardağı",
+        "name": "Yoğurt",
+        "quantity": "1 su bardağı",
         "aisle": "Diğer"
       },
       {
-        "name": "Pirinç ¼ su",
-        "quantity": "bardağı",
+        "name": "Pirinç",
+        "quantity": "¼ su bardağı",
         "aisle": "Diğer"
       },
       {
@@ -132,23 +132,23 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Un 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Un",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Tereyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Tereyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Kuru nane 1 çay",
-        "quantity": "kaşığı",
+        "name": "Kuru nane",
+        "quantity": "1 çay kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Su 4 su",
-        "quantity": "bardağı",
+        "name": "Su",
+        "quantity": "4 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -173,8 +173,8 @@
     "group": "Çorba",
     "ingredients": [
       {
-        "name": "Domates 4",
-        "quantity": "orta",
+        "name": "Domates",
+        "quantity": "4 orta",
         "aisle": "Diğer"
       },
       {
@@ -183,23 +183,23 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Un 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Un",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Tereyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Tereyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Süt ½ su",
-        "quantity": "bardağı",
+        "name": "Süt",
+        "quantity": "½ su bardağı",
         "aisle": "Diğer"
       },
       {
-        "name": "Su 3 su",
-        "quantity": "bardağı",
+        "name": "Su",
+        "quantity": "3 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -224,18 +224,18 @@
     "group": "Çorba",
     "ingredients": [
       {
-        "name": "Tavuk göğsü 150",
-        "quantity": "g",
+        "name": "Tavuk göğsü",
+        "quantity": "150 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Arpa şehriye ½ su",
-        "quantity": "bardağı",
+        "name": "Arpa şehriye",
+        "quantity": "½ su bardağı",
         "aisle": "Diğer"
       },
       {
-        "name": "Havuç 1",
-        "quantity": "küçük",
+        "name": "Havuç",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
@@ -244,13 +244,13 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Maydanoz 2",
-        "quantity": "dal",
+        "name": "Maydanoz",
+        "quantity": "2 dal",
         "aisle": "Diğer"
       },
       {
-        "name": "Su 5 su",
-        "quantity": "bardağı",
+        "name": "Su",
+        "quantity": "5 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -275,8 +275,8 @@
     "group": "Çorba",
     "ingredients": [
       {
-        "name": "Kabak 1",
-        "quantity": "küçük",
+        "name": "Kabak",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
@@ -285,8 +285,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Patates 1",
-        "quantity": "küçük",
+        "name": "Patates",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
@@ -295,13 +295,13 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Su 4 su",
-        "quantity": "bardağı",
+        "name": "Su",
+        "quantity": "4 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -326,8 +326,8 @@
     "group": "Çorba",
     "ingredients": [
       {
-        "name": "Mantar 250",
-        "quantity": "g",
+        "name": "Mantar",
+        "quantity": "250 g",
         "aisle": "Diğer"
       },
       {
@@ -336,23 +336,23 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Un 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Un",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Süt 1 su",
-        "quantity": "bardağı",
+        "name": "Süt",
+        "quantity": "1 su bardağı",
         "aisle": "Diğer"
       },
       {
-        "name": "Tereyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Tereyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Su 2 su",
-        "quantity": "bardağı",
+        "name": "Su",
+        "quantity": "2 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -377,28 +377,28 @@
     "group": "Çorba",
     "ingredients": [
       {
-        "name": "Tarhana 4 yemek",
-        "quantity": "kaşığı",
+        "name": "Tarhana",
+        "quantity": "4 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Domates salçası 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Domates salçası",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Tereyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Tereyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Sarımsak 1",
-        "quantity": "diş",
+        "name": "Sarımsak",
+        "quantity": "1 diş",
         "aisle": "Diğer"
       },
       {
-        "name": "Su 4 su",
-        "quantity": "bardağı",
+        "name": "Su",
+        "quantity": "4 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -423,13 +423,13 @@
     "group": "Çorba",
     "ingredients": [
       {
-        "name": "Brokoli 300",
-        "quantity": "g",
+        "name": "Brokoli",
+        "quantity": "300 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Patates 1",
-        "quantity": "küçük",
+        "name": "Patates",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
@@ -438,18 +438,18 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Süt ½ su",
-        "quantity": "bardağı",
+        "name": "Süt",
+        "quantity": "½ su bardağı",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Su 3 su",
-        "quantity": "bardağı",
+        "name": "Su",
+        "quantity": "3 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -474,8 +474,8 @@
     "group": "Çorba",
     "ingredients": [
       {
-        "name": "Balkabağı 300",
-        "quantity": "g",
+        "name": "Balkabağı",
+        "quantity": "300 g",
         "aisle": "Diğer"
       },
       {
@@ -489,18 +489,18 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Havuç 1",
-        "quantity": "küçük",
+        "name": "Havuç",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Sebze suyu 4 su",
-        "quantity": "bardağı",
+        "name": "Sebze suyu",
+        "quantity": "4 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -525,8 +525,8 @@
     "group": "Balık",
     "ingredients": [
       {
-        "name": "Balık fileto 2 adet (300",
-        "quantity": "g)",
+        "name": "Balık fileto",
+        "quantity": "2 adet (300 g)",
         "aisle": "Diğer"
       },
       {
@@ -535,18 +535,18 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Sarımsak 1",
-        "quantity": "diş",
+        "name": "Sarımsak",
+        "quantity": "1 diş",
         "aisle": "Diğer"
       },
       {
-        "name": "Dereotu 2",
-        "quantity": "dal",
+        "name": "Dereotu",
+        "quantity": "2 dal",
         "aisle": "Diğer"
       }
     ],
@@ -571,28 +571,28 @@
     "group": "Et",
     "ingredients": [
       {
-        "name": "Antrikot 2 dilim (350–400",
-        "quantity": "g)",
+        "name": "Antrikot",
+        "quantity": "2 dilim (350–400 g)",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Tereyağı 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Tereyağı",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Biberiye 1",
-        "quantity": "dal",
+        "name": "Biberiye",
+        "quantity": "1 dal",
         "aisle": "Diğer"
       },
       {
-        "name": "Tuz ve karabiber",
-        "quantity": "yeterince",
+        "name": "Tuz ve karabiber yeterince",
+        "quantity": "",
         "aisle": "Diğer"
       }
     ],
@@ -617,13 +617,13 @@
     "group": "Sulu yemek",
     "ingredients": [
       {
-        "name": "Dana kuşbaşı 350",
-        "quantity": "g",
+        "name": "Dana kuşbaşı",
+        "quantity": "350 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Patates 2",
-        "quantity": "küçük",
+        "name": "Patates",
+        "quantity": "2 küçük",
         "aisle": "Diğer"
       },
       {
@@ -642,8 +642,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Su 5 su",
-        "quantity": "bardağı",
+        "name": "Su",
+        "quantity": "5 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -668,23 +668,23 @@
     "group": "Sulu yemek",
     "ingredients": [
       {
-        "name": "Dana kuşbaşı 250",
-        "quantity": "g",
+        "name": "Dana kuşbaşı",
+        "quantity": "250 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Patlıcan 1",
-        "quantity": "küçük",
+        "name": "Patlıcan",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
-        "name": "Kabak 1",
-        "quantity": "küçük",
+        "name": "Kabak",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
-        "name": "Taze fasulye 100",
-        "quantity": "g",
+        "name": "Taze fasulye",
+        "quantity": "100 g",
         "aisle": "Diğer"
       },
       {
@@ -693,8 +693,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Soğan 1",
-        "quantity": "küçük",
+        "name": "Soğan",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       }
     ],
@@ -719,28 +719,28 @@
     "group": "Tavuk",
     "ingredients": [
       {
-        "name": "Tavuk göğsü 2 adet (350",
-        "quantity": "g)",
+        "name": "Tavuk göğsü",
+        "quantity": "2 adet (350 g)",
         "aisle": "Diğer"
       },
       {
-        "name": "Yoğurt 2 yemek",
-        "quantity": "kaşığı",
+        "name": "Yoğurt",
+        "quantity": "2 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Kekik 1 çay",
-        "quantity": "kaşığı",
+        "name": "Kekik",
+        "quantity": "1 çay kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Sarımsak 1",
-        "quantity": "diş",
+        "name": "Sarımsak",
+        "quantity": "1 diş",
         "aisle": "Diğer"
       }
     ],
@@ -765,13 +765,13 @@
     "group": "Tavuk",
     "ingredients": [
       {
-        "name": "Tavuk but 2",
-        "quantity": "adet",
+        "name": "Tavuk but",
+        "quantity": "2 adet",
         "aisle": "Diğer"
       },
       {
-        "name": "Patates 2",
-        "quantity": "küçük",
+        "name": "Patates",
+        "quantity": "2 küçük",
         "aisle": "Diğer"
       },
       {
@@ -780,18 +780,18 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Kekik 1 çay",
-        "quantity": "kaşığı",
+        "name": "Kekik",
+        "quantity": "1 çay kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Tatlı toz biber 1 çay",
-        "quantity": "kaşığı",
+        "name": "Tatlı toz biber",
+        "quantity": "1 çay kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -816,13 +816,13 @@
     "group": "Sulu yemek",
     "ingredients": [
       {
-        "name": "Dana kuşbaşı 200",
-        "quantity": "g",
+        "name": "Dana kuşbaşı",
+        "quantity": "200 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Haşlanmış nohut 1,5 su",
-        "quantity": "bardağı",
+        "name": "Haşlanmış nohut",
+        "quantity": "1,5 su bardağı",
         "aisle": "Diğer"
       },
       {
@@ -831,18 +831,18 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Domates salçası 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Domates salçası",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Sıcak su 3 su",
-        "quantity": "bardağı",
+        "name": "Sıcak su",
+        "quantity": "3 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -867,8 +867,8 @@
     "group": "Sulu yemek",
     "ingredients": [
       {
-        "name": "Dana kuşbaşı 350",
-        "quantity": "g",
+        "name": "Dana kuşbaşı",
+        "quantity": "350 g",
         "aisle": "Diğer"
       },
       {
@@ -887,13 +887,13 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Domates salçası 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Domates salçası",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Et suyu 2 su",
-        "quantity": "bardağı",
+        "name": "Et suyu",
+        "quantity": "2 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -918,8 +918,8 @@
     "group": "Et",
     "ingredients": [
       {
-        "name": "Dana kıyma 300",
-        "quantity": "g",
+        "name": "Dana kıyma",
+        "quantity": "300 g",
         "aisle": "Diğer"
       },
       {
@@ -928,8 +928,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Galeta unu 2 yemek",
-        "quantity": "kaşığı",
+        "name": "Galeta unu",
+        "quantity": "2 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
@@ -943,8 +943,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -974,28 +974,28 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Dana kıyma 200",
-        "quantity": "g",
+        "name": "Dana kıyma",
+        "quantity": "200 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Pirinç ¼ su",
-        "quantity": "bardağı",
+        "name": "Pirinç",
+        "quantity": "¼ su bardağı",
         "aisle": "Diğer"
       },
       {
-        "name": "Soğan 1",
-        "quantity": "küçük",
+        "name": "Soğan",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
-        "name": "Domates salçası 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Domates salçası",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Maydanoz 4",
-        "quantity": "dal",
+        "name": "Maydanoz",
+        "quantity": "4 dal",
         "aisle": "Diğer"
       }
     ],
@@ -1020,8 +1020,8 @@
     "group": "Tavuk",
     "ingredients": [
       {
-        "name": "Tavuk göğsü 300",
-        "quantity": "g",
+        "name": "Tavuk göğsü",
+        "quantity": "300 g",
         "aisle": "Diğer"
       },
       {
@@ -1035,8 +1035,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Soğan 1",
-        "quantity": "küçük",
+        "name": "Soğan",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
@@ -1045,8 +1045,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -1071,33 +1071,33 @@
     "group": "Tavuk",
     "ingredients": [
       {
-        "name": "Tavuk göğsü 300",
-        "quantity": "g",
+        "name": "Tavuk göğsü",
+        "quantity": "300 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Mantar 200",
-        "quantity": "g",
+        "name": "Mantar",
+        "quantity": "200 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Krema 100",
-        "quantity": "ml",
+        "name": "Krema",
+        "quantity": "100 ml",
         "aisle": "Diğer"
       },
       {
-        "name": "Sarımsak 1",
-        "quantity": "diş",
+        "name": "Sarımsak",
+        "quantity": "1 diş",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Maydanoz 2",
-        "quantity": "dal",
+        "name": "Maydanoz",
+        "quantity": "2 dal",
         "aisle": "Diğer"
       }
     ],
@@ -1122,18 +1122,18 @@
     "group": "Tavuk",
     "ingredients": [
       {
-        "name": "Tavuk kuşbaşı 300",
-        "quantity": "g",
+        "name": "Tavuk kuşbaşı",
+        "quantity": "300 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Patlıcan 1",
-        "quantity": "küçük",
+        "name": "Patlıcan",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
-        "name": "Kabak 1",
-        "quantity": "küçük",
+        "name": "Kabak",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
@@ -1147,8 +1147,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Soğan 1",
-        "quantity": "küçük",
+        "name": "Soğan",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       }
     ],
@@ -1173,18 +1173,18 @@
     "group": "Tavuk",
     "ingredients": [
       {
-        "name": "Tavuk göğsü 300",
-        "quantity": "g",
+        "name": "Tavuk göğsü",
+        "quantity": "300 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Krema 100",
-        "quantity": "ml",
+        "name": "Krema",
+        "quantity": "100 ml",
         "aisle": "Diğer"
       },
       {
-        "name": "Köri 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Köri",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       },
       {
@@ -1193,13 +1193,13 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Süt 2 yemek",
-        "quantity": "kaşığı",
+        "name": "Süt",
+        "quantity": "2 yemek kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -1224,28 +1224,28 @@
     "group": "Tavuk",
     "ingredients": [
       {
-        "name": "Tavuk göğsü 350",
-        "quantity": "g",
+        "name": "Tavuk göğsü",
+        "quantity": "350 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Yoğurt 2 yemek",
-        "quantity": "kaşığı",
+        "name": "Yoğurt",
+        "quantity": "2 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Kırmızı toz biber 1 çay",
-        "quantity": "kaşığı",
+        "name": "Kırmızı toz biber",
+        "quantity": "1 çay kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Kekik 1 çay",
-        "quantity": "kaşığı",
+        "name": "Kekik",
+        "quantity": "1 çay kaşığı",
         "aisle": "Diğer"
       },
       {
@@ -1275,8 +1275,8 @@
     "group": "Et",
     "ingredients": [
       {
-        "name": "Dana kıyma 300",
-        "quantity": "g",
+        "name": "Dana kıyma",
+        "quantity": "300 g",
         "aisle": "Diğer"
       },
       {
@@ -1290,8 +1290,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Kabak 1",
-        "quantity": "küçük",
+        "name": "Kabak",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
@@ -1326,8 +1326,8 @@
     "group": "Et",
     "ingredients": [
       {
-        "name": "Dana nuar 500",
-        "quantity": "g",
+        "name": "Dana nuar",
+        "quantity": "500 g",
         "aisle": "Diğer"
       },
       {
@@ -1341,18 +1341,18 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Sarımsak 2",
-        "quantity": "diş",
+        "name": "Sarımsak",
+        "quantity": "2 diş",
         "aisle": "Diğer"
       },
       {
-        "name": "Et suyu 2 su",
-        "quantity": "bardağı",
+        "name": "Et suyu",
+        "quantity": "2 su bardağı",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -1377,13 +1377,13 @@
     "group": "Sulu yemek",
     "ingredients": [
       {
-        "name": "Dana kuşbaşı 200",
-        "quantity": "g",
+        "name": "Dana kuşbaşı",
+        "quantity": "200 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Bezelye 1,5 su",
-        "quantity": "bardağı",
+        "name": "Bezelye",
+        "quantity": "1,5 su bardağı",
         "aisle": "Diğer"
       },
       {
@@ -1397,13 +1397,13 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Soğan 1",
-        "quantity": "küçük",
+        "name": "Soğan",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
-        "name": "Domates salçası 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Domates salçası",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -1428,13 +1428,13 @@
     "group": "Sulu yemek",
     "ingredients": [
       {
-        "name": "Dana kıyma 150",
-        "quantity": "g",
+        "name": "Dana kıyma",
+        "quantity": "150 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Ispanak 400",
-        "quantity": "g",
+        "name": "Ispanak",
+        "quantity": "400 g",
         "aisle": "Diğer"
       },
       {
@@ -1443,18 +1443,18 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Pirinç 2 yemek",
-        "quantity": "kaşığı",
+        "name": "Pirinç",
+        "quantity": "2 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Domates salçası 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Domates salçası",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -1479,13 +1479,13 @@
     "group": "Sulu yemek",
     "ingredients": [
       {
-        "name": "Dana kuşbaşı 200",
-        "quantity": "g",
+        "name": "Dana kuşbaşı",
+        "quantity": "200 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Haşlanmış kuru fasulye 1,5 su",
-        "quantity": "bardağı",
+        "name": "Haşlanmış kuru fasulye",
+        "quantity": "1,5 su bardağı",
         "aisle": "Diğer"
       },
       {
@@ -1494,18 +1494,18 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Domates salçası 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Domates salçası",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Tereyağı 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Tereyağı",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Sıcak su 3 su",
-        "quantity": "bardağı",
+        "name": "Sıcak su",
+        "quantity": "3 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -1530,33 +1530,33 @@
     "group": "Tavuk",
     "ingredients": [
       {
-        "name": "Tavuk kanat 500",
-        "quantity": "g",
+        "name": "Tavuk kanat",
+        "quantity": "500 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Yoğurt 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Yoğurt",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Tatlı toz biber 1 çay",
-        "quantity": "kaşığı",
+        "name": "Tatlı toz biber",
+        "quantity": "1 çay kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Sarımsak 2",
-        "quantity": "diş",
+        "name": "Sarımsak",
+        "quantity": "2 diş",
         "aisle": "Diğer"
       },
       {
-        "name": "Kekik 1 çay",
-        "quantity": "kaşığı",
+        "name": "Kekik",
+        "quantity": "1 çay kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -1581,13 +1581,13 @@
     "group": "Tavuk",
     "ingredients": [
       {
-        "name": "Tavuk kuşbaşı 300",
-        "quantity": "g",
+        "name": "Tavuk kuşbaşı",
+        "quantity": "300 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Mantar 200",
-        "quantity": "g",
+        "name": "Mantar",
+        "quantity": "200 g",
         "aisle": "Diğer"
       },
       {
@@ -1606,8 +1606,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Kaşar peyniri 40",
-        "quantity": "g",
+        "name": "Kaşar peyniri",
+        "quantity": "40 g",
         "aisle": "Diğer"
       }
     ],
@@ -1637,8 +1637,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Dana kıyma 250",
-        "quantity": "g",
+        "name": "Dana kıyma",
+        "quantity": "250 g",
         "aisle": "Diğer"
       },
       {
@@ -1657,8 +1657,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 2 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "2 yemek kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -1683,13 +1683,13 @@
     "group": "Sulu yemek",
     "ingredients": [
       {
-        "name": "Dana kuşbaşı 200",
-        "quantity": "g",
+        "name": "Dana kuşbaşı",
+        "quantity": "200 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Bamya 300",
-        "quantity": "g",
+        "name": "Bamya",
+        "quantity": "300 g",
         "aisle": "Diğer"
       },
       {
@@ -1698,18 +1698,18 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Soğan 1",
-        "quantity": "küçük",
+        "name": "Soğan",
+        "quantity": "1 küçük",
         "aisle": "Diğer"
       },
       {
-        "name": "Limon suyu 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Limon suyu",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -1734,28 +1734,28 @@
     "group": "Et",
     "ingredients": [
       {
-        "name": "Dana bonfile 350",
-        "quantity": "g",
+        "name": "Dana bonfile",
+        "quantity": "350 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Tereyağı 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Tereyağı",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Taze kekik 2",
-        "quantity": "dal",
+        "name": "Taze kekik",
+        "quantity": "2 dal",
         "aisle": "Diğer"
       },
       {
-        "name": "Tuz ve karabiber",
-        "quantity": "yeterince",
+        "name": "Tuz ve karabiber yeterince",
+        "quantity": "",
         "aisle": "Diğer"
       }
     ],
@@ -1780,18 +1780,18 @@
     "group": "Şef özel",
     "ingredients": [
       {
-        "name": "Dana bonfile 350",
-        "quantity": "g",
+        "name": "Dana bonfile",
+        "quantity": "350 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Dijon hardal 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Dijon hardal",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Krema 80",
-        "quantity": "ml",
+        "name": "Krema",
+        "quantity": "80 ml",
         "aisle": "Diğer"
       },
       {
@@ -1800,13 +1800,13 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Tereyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Tereyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Taze kekik 2",
-        "quantity": "dal",
+        "name": "Taze kekik",
+        "quantity": "2 dal",
         "aisle": "Diğer"
       }
     ],
@@ -1831,8 +1831,8 @@
     "group": "Şef özel",
     "ingredients": [
       {
-        "name": "Tavuk göğsü 300",
-        "quantity": "g",
+        "name": "Tavuk göğsü",
+        "quantity": "300 g",
         "aisle": "Diğer"
       },
       {
@@ -1841,23 +1841,23 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Bal 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Bal",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Soya sosu 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Soya sosu",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Sarımsak 1",
-        "quantity": "diş",
+        "name": "Sarımsak",
+        "quantity": "1 diş",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -1882,18 +1882,18 @@
     "group": "Şef özel",
     "ingredients": [
       {
-        "name": "Tavuk göğsü 2",
-        "quantity": "adet",
+        "name": "Tavuk göğsü",
+        "quantity": "2 adet",
         "aisle": "Diğer"
       },
       {
-        "name": "Parmesan 30",
-        "quantity": "g",
+        "name": "Parmesan",
+        "quantity": "30 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Galeta unu 3 yemek",
-        "quantity": "kaşığı",
+        "name": "Galeta unu",
+        "quantity": "3 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
@@ -1902,13 +1902,13 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Kekik ½ çay",
-        "quantity": "kaşığı",
+        "name": "Kekik",
+        "quantity": "½ çay kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -1933,13 +1933,13 @@
     "group": "Sulu yemek",
     "ingredients": [
       {
-        "name": "Kuzu incik 2",
-        "quantity": "adet",
+        "name": "Kuzu incik",
+        "quantity": "2 adet",
         "aisle": "Diğer"
       },
       {
-        "name": "Patates 2",
-        "quantity": "küçük",
+        "name": "Patates",
+        "quantity": "2 küçük",
         "aisle": "Diğer"
       },
       {
@@ -1958,8 +1958,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Su 6 su",
-        "quantity": "bardağı",
+        "name": "Su",
+        "quantity": "6 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -1984,13 +1984,13 @@
     "group": "Sulu yemek",
     "ingredients": [
       {
-        "name": "Dana kuşbaşı 200",
-        "quantity": "g",
+        "name": "Dana kuşbaşı",
+        "quantity": "200 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Patates 3",
-        "quantity": "küçük",
+        "name": "Patates",
+        "quantity": "3 küçük",
         "aisle": "Diğer"
       },
       {
@@ -1999,18 +1999,18 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Domates salçası 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Domates salçası",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Sıcak su 3 su",
-        "quantity": "bardağı",
+        "name": "Sıcak su",
+        "quantity": "3 su bardağı",
         "aisle": "Diğer"
       }
     ],
@@ -2055,13 +2055,13 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Maydanoz 4",
-        "quantity": "dal",
+        "name": "Maydanoz",
+        "quantity": "4 dal",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
@@ -2101,8 +2101,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Ceviz içi 2 yemek",
-        "quantity": "kaşığı",
+        "name": "Ceviz içi",
+        "quantity": "2 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
@@ -2111,13 +2111,13 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Nar ekşisi 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Nar ekşisi",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Maydanoz 4",
-        "quantity": "dal",
+        "name": "Maydanoz",
+        "quantity": "4 dal",
         "aisle": "Diğer"
       }
     ],
@@ -2142,13 +2142,13 @@
     "group": "Salata",
     "ingredients": [
       {
-        "name": "Roka 1",
-        "quantity": "demet",
+        "name": "Roka",
+        "quantity": "1 demet",
         "aisle": "Diğer"
       },
       {
-        "name": "Parmesan 25",
-        "quantity": "g",
+        "name": "Parmesan",
+        "quantity": "25 g",
         "aisle": "Diğer"
       },
       {
@@ -2162,8 +2162,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -2203,8 +2203,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Beyaz peynir 50",
-        "quantity": "g",
+        "name": "Beyaz peynir",
+        "quantity": "50 g",
         "aisle": "Diğer"
       },
       {
@@ -2213,8 +2213,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -2239,28 +2239,28 @@
     "group": "Salata",
     "ingredients": [
       {
-        "name": "Semizotu 1",
-        "quantity": "demet",
+        "name": "Semizotu",
+        "quantity": "1 demet",
         "aisle": "Diğer"
       },
       {
-        "name": "Yoğurt 4 yemek",
-        "quantity": "kaşığı",
+        "name": "Yoğurt",
+        "quantity": "4 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Sarımsak 1",
-        "quantity": "diş",
+        "name": "Sarımsak",
+        "quantity": "1 diş",
         "aisle": "Diğer"
       },
       {
-        "name": "Ceviz 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Ceviz",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -2285,13 +2285,13 @@
     "group": "Salata",
     "ingredients": [
       {
-        "name": "Haşlanmış nohut 1 su",
-        "quantity": "bardağı",
+        "name": "Haşlanmış nohut",
+        "quantity": "1 su bardağı",
         "aisle": "Diğer"
       },
       {
-        "name": "Akdeniz yeşilliği 1",
-        "quantity": "avuç",
+        "name": "Akdeniz yeşilliği",
+        "quantity": "1 avuç",
         "aisle": "Diğer"
       },
       {
@@ -2310,8 +2310,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -2346,8 +2346,8 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Sarımsak 1",
-        "quantity": "diş",
+        "name": "Sarımsak",
+        "quantity": "1 diş",
         "aisle": "Diğer"
       },
       {
@@ -2356,13 +2356,13 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Maydanoz 3",
-        "quantity": "dal",
+        "name": "Maydanoz",
+        "quantity": "3 dal",
         "aisle": "Diğer"
       }
     ],
@@ -2392,23 +2392,23 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Yoğurt 4 yemek",
-        "quantity": "kaşığı",
+        "name": "Yoğurt",
+        "quantity": "4 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Sarımsak 1",
-        "quantity": "diş",
+        "name": "Sarımsak",
+        "quantity": "1 diş",
         "aisle": "Diğer"
       },
       {
-        "name": "Ceviz 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Ceviz",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 tatlı",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 tatlı kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -2448,13 +2448,13 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Elma sirkesi 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Elma sirkesi",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Zeytinyağı 1 yemek",
-        "quantity": "kaşığı",
+        "name": "Zeytinyağı",
+        "quantity": "1 yemek kaşığı",
         "aisle": "Diğer"
       }
     ],
@@ -2479,8 +2479,8 @@
     "group": "Salata",
     "ingredients": [
       {
-        "name": "Roka 1",
-        "quantity": "demet",
+        "name": "Roka",
+        "quantity": "1 demet",
         "aisle": "Diğer"
       },
       {
@@ -2489,18 +2489,18 @@
         "aisle": "Diğer"
       },
       {
-        "name": "Ceviz içi 2 yemek",
-        "quantity": "kaşığı",
+        "name": "Ceviz içi",
+        "quantity": "2 yemek kaşığı",
         "aisle": "Diğer"
       },
       {
-        "name": "Keçi peyniri 40",
-        "quantity": "g",
+        "name": "Keçi peyniri",
+        "quantity": "40 g",
         "aisle": "Diğer"
       },
       {
-        "name": "Bal 1 çay",
-        "quantity": "kaşığı",
+        "name": "Bal",
+        "quantity": "1 çay kaşığı",
         "aisle": "Diğer"
       },
       {
