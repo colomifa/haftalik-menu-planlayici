@@ -40,6 +40,66 @@ async function initializeDatabase() {
   `);
 }
 
+
+// Openverse: public, openly licensed image search. Results are cached in memory;
+// weak title/tag matches are deliberately omitted rather than assigning a wrong dish photo.
+const imageCache = new Map();
+const normalizeDish = value => String(value || "").toLocaleLowerCase("tr-TR")
+  .normalize("NFD").replace(/[\\u0300-\\u036f]/g, "")
+  .replace(/ı/g, "i").replace(/[^a-z0-9 ]/g, " ").replace(/\\s+/g, " ").trim();
+const stopWords = new Set(["turkish","traditional","food","dish","recipe","with","style","yemegi","yemek","tarifi","salatasi","corbasi"]);
+function imageMatchScore(name, item) {
+  const wanted = normalizeDish(name).split(" ").filter(t => t.length > 2 && !stopWords.has(t));
+  const text = normalizeDish([item.title, ...(item.tags || []).map(t => typeof t === "string" ? t : t.name)].join(" "));
+  if (!wanted.length || !text) return 0;
+  const hits = wanted.filter(t => text.includes(t));
+  const coverage = hits.length / wanted.length;
+  const phrase = text.includes(normalizeDish(name)) ? 0.35 : 0;
+  return Math.min(1, coverage * 0.65 + phrase);
+}
+app.post("/api/recipe-images", async (req, res) => {
+  const names = [...new Set((Array.isArray(req.body?.names) ? req.body.names : [])
+    .filter(n => typeof n === "string" && n.trim()).map(n => n.trim()))].slice(0, 120);
+  if (!names.length) return res.status(400).json({ error: "Tarif adları gerekli." });
+  const output = {};
+  const queue = names.filter(name => !imageCache.has(name));
+  let cursor = 0;
+  async function worker() {
+    while (cursor < queue.length) {
+      const name = queue[cursor++];
+      try {
+        const url = new URL("https://api.openverse.org/v1/images/");
+        url.searchParams.set("q", name);
+        url.searchParams.set("page_size", "12");
+        url.searchParams.set("mature", "false");
+        url.searchParams.set("filter_dead", "true");
+        const response = await fetch(url, { headers: { "User-Agent": "SofraMenuPlanner/1.0 (recipe image attribution)" }, signal: AbortSignal.timeout(12000) });
+        if (!response.ok) throw new Error("Openverse HTTP " + response.status);
+        const data = await response.json();
+        const candidates = (data.results || []).map(item => ({ item, score: imageMatchScore(name, item) }))
+          .filter(x => x.score >= 0.62 && x.item.url && x.item.foreign_landing_url)
+          .sort((a,b) => b.score-a.score);
+        const best = candidates[0]?.item;
+        imageCache.set(name, best ? {
+          url: best.url, source: best.foreign_landing_url,
+          creator: best.creator || "Bilinmiyor",
+          license: String(best.license || "Lisans bilgisi yok").toUpperCase() + (best.license_version ? " " + best.license_version : ""),
+          score: Number(candidates[0].score.toFixed(2)),
+          title: best.title || name,
+          attribution: best.attribution || ""
+        } : null);
+      } catch (error) {
+        console.warn("Openverse image lookup failed:", name, error.message);
+        imageCache.set(name, null);
+      }
+    }
+  }
+  await Promise.all(Array.from({length: Math.min(3, queue.length)}, () => worker()));
+  for (const name of names) output[name] = imageCache.get(name) ?? null;
+  res.set("Cache-Control", "public, max-age=3600");
+  res.json({ provider: "Openverse", results: output, matched: Object.values(output).filter(Boolean).length, total: names.length });
+});
+
 app.get("/api/health", async (_req, res) => {
   let database = "not-configured";
   if (pool) {
