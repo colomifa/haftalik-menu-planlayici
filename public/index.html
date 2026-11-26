@@ -205,7 +205,7 @@ const chefPairings={
 0:[32,37,24],1:[32,37,24],2:[37,26,31],3:[37,26,47],4:[37,31,24],5:[37,26,47],6:[32,25,38],7:[32,26,37],8:[37,26,17],9:[37,26,32],10:[37,26,24],11:[37,26,31],12:[17,37,31],13:[22,29,47],14:[37,26,15],
 51:[37,26,47],52:[37,29,47],53:[37,26,47],54:[26,37,47],55:[37,29,47],56:[22,29,47],57:[37,26,47],58:[37,26,47],59:[37,29,47],60:[37,26,47],61:[25,42,47],62:[25,38,47],63:[26,37,47],64:[25,42,47],65:[37,26,47],66:[22,29,47],67:[26,37,47],68:[25,42,47],69:[26,37,47],70:[22,29,47],71:[29,47,22],72:[26,37,47],73:[29,37,47]
 };
-function recommendedSides(main){if(!main)return[];return (chefPairings[main.id]||[17,37,26]).map(id=>recipes.find(r=>r.id===id)).filter(Boolean)}
+function recommendedSides(main){if(!main)return[];const preferred=recipes.filter(r=>r.id!==main.id&&r.category!=="Ana yemek"&&r.category!=="Tatlı");const fallback=recipes.filter(r=>r.id!==main.id);return (preferred.length?preferred:fallback).slice(0,3)}
 let mainCategory='stew';
 const changingChefSlots=new Set();
 const stewMainIds=[0,1,2,3,4,5,6,7,8,9,10,12,14];
@@ -283,8 +283,8 @@ async function openRecipeDetail(id){
  $('detailTitle').textContent=r.name;
  $('detailMeta').textContent=r.category+' · '+r.time+' · '+r.level+' · '+(r.servings||2)+' porsiyon · '+r.calories+' kcal / porsiyon · '+r.protein+' g protein';
  $('detailIngredients').innerHTML='<h3 class="section-title">Malzemeler</h3>'+r.ingredients.map(x=>'<div class="quick-item"><strong>'+esc(x[0])+'</strong><span>'+esc(x[1])+'</span></div>').join('');
- const steps=r.instructions&&r.instructions.length?r.instructions:buildRecipeSteps(r);
- $('detailSteps').innerHTML=steps.map(x=>'<li style="margin:0 0 9px">'+esc(x)+'</li>').join('');
+ const steps=r.instructions||[];
+ $('detailSteps').innerHTML=steps.length?steps.map(x=>'<li style="margin:0 0 9px">'+esc(x)+'</li>').join(''):'<p class="intro">Bu tarifin kaynak kaydında pişirme adımları bulunmuyor.</p>';
  $('recipeDetailModal').classList.add('open');
 }
 function closeRecipeDetail(){$('recipeDetailModal').classList.remove('open')}
