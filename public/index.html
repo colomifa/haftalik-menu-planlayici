@@ -219,7 +219,8 @@ const changingChefSlots=new Set();
 const stewMainIds=[0,1,2,3,4,5,6,7,8,9,10,12,14];
 const fitMainIds=[11,13,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73];
 function setMainCategory(category){mainCategory=category;state.selectedMain=null;state.selectedSides.clear();renderChoices();const picker=$('mainCoursePicker');picker.hidden=false;}
-function selectMain(id){state.selectedMain=id;state.selectedSides.clear();changingChefSlots.clear();$('mainCoursePicker').hidden=true;renderChoices()}
+function selectMain(id){state.selectedMain=id;state.selectedSides.clear();changingChefSlots.clear();renderChoices()}
+function changeMainDish(){state.selectedMain=null;state.selectedSides.clear();changingChefSlots.clear();renderChoices()}
 function renderChoices(){
  const selected=recipes.find(r=>r.id===state.selectedMain);
  const stewTab=$('stewTab'),fitTab=$('fitTab');
@@ -227,9 +228,9 @@ function renderChoices(){
  if(fitTab)fitTab.classList.toggle('active',mainCategory==='fit');
  const ids=mainCategory==='stew'?stewMainIds:(mainCategory==='fit'?fitMainIds:[]);
  const list=ids.map(id=>recipes.find(r=>r.id===id)).filter(Boolean);
- $('mainCoursePicker').hidden=!mainCategory;
+ $('mainCoursePicker').hidden=!mainCategory||!!selected;
  $('mainCoursePicker').innerHTML=mainCategory?'<div class="main-picker-title">'+(mainCategory==='stew'?'Sulu ve geleneksel ev yemekleri':'Fit, hafif ve protein ağırlıklı yemekler')+' · '+list.length+' seçenek</div>'+list.map(r=>'<button type="button" class="main-picker-option '+(r.id===state.selectedMain?'active':'')+'" onclick="selectMain('+r.id+')">'+photoMarkup(r.id,r.emoji)+'<span><strong>'+esc(r.name)+'</strong><small>'+r.time+' · '+r.level+'</small></span></button>').join(''):'<div class="main-picker-title">Başlamak için yukarıdan bir menü tarzı seç.</div>';
- $('selectedMainCard').innerHTML=selected?photoMarkup(selected.id,selected.emoji)+'<div><div class="eyebrow">SEÇİLEN ANA YEMEK</div><div class="selected-summary-name">'+esc(selected.name)+'</div><div class="selected-summary-meta">'+selected.time+' · '+selected.level+'</div></div>':'<div class="chef-empty">Listeden bir ana yemek seçtiğinde burada görünecek.</div>';
+ $('selectedMainCard').innerHTML=selected?photoMarkup(selected.id,selected.emoji)+'<div style="flex:1;min-width:0"><div class="eyebrow">SEÇİLEN ANA YEMEK</div><div class="selected-summary-name">'+esc(selected.name)+'</div><div class="selected-summary-meta">'+selected.time+' · '+selected.level+'</div></div><button type="button" class="chef-change" onclick="changeMainDish()">Değiştir</button>':'<div class="chef-empty">Listeden bir ana yemek seçtiğinde burada görünecek.</div>';
  $('chefDescription').textContent=selected?selected.name+' ile lezzet uyumu gözetilerek seçilmiş eşlikçiler':'Önce soldan bir ana yemek seç. Ona yakışan çorba, salata ve yan yemekleri hazırlayalım.';
  const suggestions=recommendedSides(selected);
  $('sideChoices').innerHTML=selected?suggestions.map((r,index)=>{const slot='slot-'+index;const alternatives=recipes.filter(x=>x.id!==selected.id&&x.category===r.category&&x.id!==r.id);return '<div class="chef-suggestion">'+photoMarkup(r.id,r.emoji)+'<div class="chef-suggestion-info"><span class="chef-kind">'+r.category+'</span><strong>'+esc(r.name)+'</strong><div class="chef-meta">◷ '+r.time+' · '+r.level+'</div></div><div style="display:grid;gap:5px;justify-items:end"><label class="chef-add"><input type="checkbox" value="'+r.id+'" '+(state.selectedSides.has(r.id)?'checked':'')+'> Menüye ekle</label><button type="button" class="chef-change" data-slot="'+slot+'">Değiştir</button></div>'+(changingChefSlots.has(slot)?'<select class="chef-replace-select" data-replace="'+slot+'"><option value="">'+r.category+' listesinden seç</option>'+alternatives.map(x=>'<option value="'+x.id+'">'+esc(x.name)+'</option>').join('')+'</select>':'')+'</div>'}).join(''):'<div class="chef-empty">Ana yemek seçildiğinde uyumlu eşlikçiler burada görünecek.</div>';
