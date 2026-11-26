@@ -75,9 +75,11 @@ async function initializeDatabase() {
       quantity TEXT NOT NULL DEFAULT '',
       aisle TEXT NOT NULL DEFAULT 'Diğer',
       checked BOOLEAN NOT NULL DEFAULT FALSE,
+      at_home BOOLEAN NOT NULL DEFAULT FALSE,
       created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
     );
   `);
+  await pool.query('ALTER TABLE shopping_items ADD COLUMN IF NOT EXISTS at_home BOOLEAN NOT NULL DEFAULT FALSE');
 
 }
 
@@ -376,7 +378,7 @@ app.get("/api/shopping-list", async (_req, res) => {
   if (!pool) return res.json([]);
   try {
     const { rows } = await pool.query(
-      "SELECT id, ingredient, quantity, aisle, checked FROM shopping_items ORDER BY aisle, ingredient"
+      "SELECT id, ingredient, quantity, aisle, checked, at_home FROM shopping_items ORDER BY aisle, ingredient"
     );
     res.json(rows);
   } catch (error) {
@@ -395,8 +397,8 @@ app.post("/api/shopping-list", async (req, res) => {
     await client.query("DELETE FROM shopping_items");
     for (const item of items) {
       await client.query(
-        "INSERT INTO shopping_items (ingredient, quantity, aisle, checked) VALUES ($1, $2, $3, $4)",
-        [item.ingredient, item.quantity ?? "", item.aisle ?? "Diğer", Boolean(item.checked)]
+        "INSERT INTO shopping_items (ingredient, quantity, aisle, checked, at_home) VALUES ($1, $2, $3, $4, $5)",
+        [item.ingredient, item.quantity ?? "", item.aisle ?? "Diğer", Boolean(item.checked), Boolean(item.at_home)]
       );
     }
     await client.query("COMMIT");
